@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model grid_cache {
+  id         String   @id @default(uuid())
+  grid_id    String   @unique
+  data       Json
+  expires_at DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model events {
+  id          String   @id @default(uuid())
+  grid_id     String
+  event_type  String
+  event_data  Json
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  event_details event_details[]
+}
+
+model event_details {
+  id         String   @id @default(uuid())
+  event_id   String
+  detail     Json
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  event      events   @relation(fields: [event_id], references: [id])
+}
+
+model jobs {
+  id         String   @id @default(uuid())
+  type       String
+  status     String
+  payload    Json
+  result     Json?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model raw_signal {
+  id          String   @id @default(uuid())
+  source      String
+  fetch_key   String
+  raw_payload Json
+  fetched_at  DateTime @default(now())
+  normalized_at DateTime?
+  normalize_error String?
+
+  @@index([fetch_key])
+  @@index([fetched_at])
+}
+
+model normalized_signal {
+  id           String   @id @default(uuid())
+  grid_id      String
+  lat          Float
+  lon          Float
+  title        String
+  summary      String
+  event_type   String
+  event_source String
+  severity     Int?
+  confidence   Float?
+  signal_hash  String   @unique
+  event_time   DateTime @default(now())
+  created_at   DateTime @default(now())
+
+  @@index([grid_id])
+  @@index([created_at])
+  @@index([lat, lon, event_time], map: "idx_geo_time")
+}
+
+model ingestion_run {
+  id               String   @id @default(uuid())
+  grid_id          String
+  started_at       DateTime @default(now())
+  ended_at         DateTime?
+  status           String
+  raw_count        Int      @default(0)
+  normalized_count Int      @default(0)
+  deduped_count    Int      @default(0)
+  error_message    String?
+
+  @@index([grid_id])
+  @@index([started_at])
+}

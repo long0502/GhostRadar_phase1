@@ -23,9 +23,10 @@ services:
     build: ./apps/api
     container_name: ghost_api
     restart: always
+    env_file:
+      - ./apps/api/.env
     environment:
       DATABASE_URL: postgresql://ghostradar:ghostradar@db:5432/ghostradar
-      GEMINI_API_KEY: ${GEMINI_API_KEY}
       NODE_ENV: production
       PORT: 8088
     ports:

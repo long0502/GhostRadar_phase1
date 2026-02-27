@@ -18,6 +18,15 @@ export default async function scanRoutes(app: FastifyInstance, opts: FastifyPlug
     if (!Number.isFinite(lat) || !Number.isFinite(lon) || !Number.isFinite(radiusKm)) {
       throw app.httpErrors.badRequest('lat, lon, radiusKm must be valid numbers');
     }
+    if (lat < -90 || lat > 90) {
+      throw app.httpErrors.badRequest('lat must be between -90 and 90');
+    }
+    if (lon < -180 || lon > 180) {
+      throw app.httpErrors.badRequest('lon must be between -180 and 180');
+    }
+    if (radiusKm < 0.5 || radiusKm > 5) {
+      throw app.httpErrors.badRequest('radiusKm must be between 0.5 and 5');
+    }
 
     const result = await scanService({ lat, lon, radiusKm });
     reply.header('X-Cache', result.cacheStatus);

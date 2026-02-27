@@ -20,6 +20,7 @@ model events {
   grid_id     String
   event_type  String
   event_data  Json
+  has_detail  Boolean  @default(false)
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
   event_details event_details[]
@@ -28,6 +29,11 @@ model events {
 model event_details {
   id         String   @id @default(uuid())
   event_id   String
+  level      Int      @default(1)
+  story_text String
+  witness    String
+  analysis   String
+  generated_at DateTime @default(now())
   detail     Json
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt

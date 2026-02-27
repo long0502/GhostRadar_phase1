@@ -10,3 +10,12 @@ export function getCacheTtlSeconds(): number {
 
   return Math.floor(parsed);
 }
+
+export function getGeminiModel(): string {
+  const model = process.env.GEMINI_MODEL?.trim();
+  if (!model) {
+    throw new Error('Startup error: GEMINI_MODEL is required (e.g., gemini-2.5-flash)');
+  }
+
+  return model;
+}

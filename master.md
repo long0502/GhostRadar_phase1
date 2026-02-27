@@ -163,10 +163,12 @@ date
 level1_count
 
 7. 🔄 API Design
-GET /scan
+POST /scan
 
 Input:
-lat, lon, radiusKm
+lat, lon, radiusKm (query params)
+
+Phase 4 update: /scan uses POST for structured payload and future extensibility.
 
 Flow:
 

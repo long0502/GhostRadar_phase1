@@ -2,10 +2,15 @@ import { createApp } from './app.js';
 import { config } from 'dotenv';
 import gridCacheRoutes from './routes/gridCache.js';
 import scanRoutes from './routes/scan.js';
+import eventsRoutes from './routes/events.js';
+import aiHealthRoutes from './routes/aiHealth.js';
 import { Prisma } from '@prisma/client';
 import { ZodError } from 'zod';
+import { getGeminiModel } from './utils/env.js';
 
 config();
+const geminiModel = getGeminiModel();
+console.log(`Environment loaded: GEMINI_MODEL=${geminiModel}`);
 
 const port = process.env.PORT ? Number(process.env.PORT) : 8088;
 
@@ -36,6 +41,8 @@ async function start() {
 
     const isValidationError =
       error instanceof ZodError || Boolean(err.validation) || err.code === 'FST_ERR_VALIDATION';
+    const isAiError = err.code === 'AI_ERROR';
+    const isNotFoundError = err.statusCode === 404;
     const prismaConnectionError =
       error instanceof Prisma.PrismaClientInitializationError ||
       error instanceof Prisma.PrismaClientRustPanicError ||
@@ -43,27 +50,33 @@ async function start() {
 
     const statusCode = isValidationError
       ? 400
+      : isAiError
+      ? 502
+      : isNotFoundError
+      ? 404
       : prismaConnectionError
-      ? 503
+      ? 500
       : err.statusCode && Number.isInteger(err.statusCode)
       ? err.statusCode
       : 500;
 
     const code =
-      statusCode === 400
-        ? 'BAD_REQUEST'
-        : statusCode === 404
+      isValidationError
+        ? 'VALIDATION_ERROR'
+        : isAiError
+        ? 'AI_ERROR'
+        : isNotFoundError
         ? 'NOT_FOUND'
-        : statusCode === 503
-        ? 'DB_NOT_READY'
         : 'INTERNAL_ERROR';
 
     const message =
-      statusCode === 500
-        ? 'Internal server error'
-        : statusCode === 503
-        ? 'Database not ready'
-        : err.message ?? 'Internal server error';
+      isValidationError
+        ? err.message ?? 'Validation failed'
+        : isNotFoundError
+        ? err.message ?? 'Resource not found'
+        : isAiError
+        ? 'AI request failed'
+        : 'Internal server error';
 
     reply.status(statusCode).send({
       error: {
@@ -75,6 +88,9 @@ async function start() {
 
   app.register(gridCacheRoutes, { prefix: '/grid-cache' });
   app.register(scanRoutes, { prefix: '/scan' });
+  app.register(eventsRoutes, { prefix: '/events' });
+  app.register(aiHealthRoutes, { prefix: '/internal' });
+  console.log('Metrics endpoint registered');
   app.log.info('\n' + app.printRoutes());
   app.listen({ port, host: '0.0.0.0' }, (err, address) => {
     if (err) {

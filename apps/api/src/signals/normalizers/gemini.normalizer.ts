@@ -1,7 +1,6 @@
 import type { RawSignal } from '../providers/types';
 import { normalizedSignalArraySchema, type NormalizedSignal } from '../validators/normalizedSignal.schema';
-
-const GEMINI_MODEL = 'gemini-2.0-flash';
+import { callGemini } from '../../services/gemini.service';
 
 function extractJsonArray(text: string): string {
   const trimmed = text.trim();
@@ -17,15 +16,13 @@ function extractJsonArray(text: string): string {
 }
 
 export async function normalizeWithGemini(rawSignals: RawSignal[]): Promise<NormalizedSignal[]> {
-  console.log('GEMINI_API_KEY exists:', !!process.env.GEMINI_API_KEY);
-
   if (rawSignals.length === 0) {
     return [];
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    console.log('GEMINI_API_KEY missing. Skipping Gemini normalization.');
+    console.log('Gemini API key missing. Skipping Gemini normalization.');
     return [];
   }
 
@@ -48,36 +45,14 @@ ${JSON.stringify(rawSignals)}
 `.trim();
 
   console.log('Calling Gemini with N signals:', rawSignals.length);
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: {
-          temperature: 0.1,
-          responseMimeType: 'application/json',
-        },
-      }),
-    }
-  );
-
-  if (!response.ok) {
-    throw new Error(`Gemini API error: ${response.status}`);
-  }
-
-  const data = (await response.json()) as {
-    candidates?: Array<{
-      content?: {
-        parts?: Array<{ text?: string }>;
-      };
-    }>;
-  };
-
-  const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+  const result = await callGemini({
+    endpoint: 'normalization',
+    prompt,
+    responseMimeType: 'application/json',
+    temperature: 0.1,
+    aiCallsThisRequest: 1,
+  });
+  const responseText = result.text;
   console.log('Gemini raw response text:', responseText);
 
   if (!responseText) {

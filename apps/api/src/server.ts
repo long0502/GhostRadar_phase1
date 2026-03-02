@@ -7,6 +7,7 @@ import aiHealthRoutes from './routes/aiHealth.js';
 import { Prisma } from '@prisma/client';
 import { ZodError } from 'zod';
 import { getGeminiModel } from './utils/env.js';
+import { cleanupAiUsageDailyRetention, isAiDailyQuotaExceededError } from './services/quota.service.js';
 
 config();
 const geminiModel = getGeminiModel();
@@ -42,6 +43,7 @@ async function start() {
     const isValidationError =
       error instanceof ZodError || Boolean(err.validation) || err.code === 'FST_ERR_VALIDATION';
     const isAiError = err.code === 'AI_ERROR';
+    const isQuotaExceeded = isAiDailyQuotaExceededError(error);
     const isNotFoundError = err.statusCode === 404;
     const prismaConnectionError =
       error instanceof Prisma.PrismaClientInitializationError ||
@@ -52,6 +54,8 @@ async function start() {
       ? 400
       : isAiError
       ? 502
+      : isQuotaExceeded
+      ? 429
       : isNotFoundError
       ? 404
       : prismaConnectionError
@@ -65,9 +69,21 @@ async function start() {
         ? 'VALIDATION_ERROR'
         : isAiError
         ? 'AI_ERROR'
+        : isQuotaExceeded
+        ? 'AI_DAILY_QUOTA_EXCEEDED'
         : isNotFoundError
         ? 'NOT_FOUND'
         : 'INTERNAL_ERROR';
+
+    if (isQuotaExceeded) {
+      reply.status(429).send({
+        error: 'AI_DAILY_QUOTA_EXCEEDED',
+        scope: error.scope,
+        daily_limit: error.daily_limit,
+        usage_date: error.usage_date,
+      });
+      return;
+    }
 
     const message =
       isValidationError
@@ -92,6 +108,12 @@ async function start() {
   app.register(aiHealthRoutes, { prefix: '/internal' });
   console.log('Metrics endpoint registered');
   app.log.info('\n' + app.printRoutes());
+  try {
+    const deletedCount = await cleanupAiUsageDailyRetention();
+    console.log('ai_usage_cleanup_ok deleted_count=%d retention_days=180', deletedCount);
+  } catch (error) {
+    app.log.warn({ err: error }, 'ai_usage_cleanup_fail');
+  }
   app.listen({ port, host: '0.0.0.0' }, (err, address) => {
     if (err) {
       app.log.error(err);

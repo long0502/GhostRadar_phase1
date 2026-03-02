@@ -1,9 +1,10 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { globalStats } from '../core/metrics';
 import { callGemini } from '../services/gemini.service';
+import { getClientIp, getTodayAiUsageSnapshot } from '../services/quota.service';
 
 export default async function aiHealthRoutes(app: FastifyInstance, opts: FastifyPluginOptions) {
-  app.get('/ai-health', async () => {
+  app.get('/ai-health', async (request) => {
     try {
       const result = await callGemini({
         endpoint: 'ai-health',
@@ -12,11 +13,14 @@ export default async function aiHealthRoutes(app: FastifyInstance, opts: Fastify
         temperature: 0,
         aiCallsThisRequest: 1,
       });
+      const clientIp = getClientIp(request);
+      const usage = await getTodayAiUsageSnapshot(clientIp);
 
       return {
         status: 'ok',
         model: result.modelVersion,
         totalTokenCount: typeof result.totalTokenCount === 'number' ? result.totalTokenCount : 0,
+        usage,
       };
     } catch (error) {
       const message = error instanceof Error ? error.message : 'AI health check failed';

@@ -4,6 +4,13 @@ export type ScanInput = {
   lat: number;
   lon: number;
   radiusKm: number;
+  beforeAiCall?: () => Promise<
+    | void
+    | {
+        usageDate: string;
+        clientIp: string;
+      }
+  >;
 };
 
 export type ScanResponse = {

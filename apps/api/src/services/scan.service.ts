@@ -5,6 +5,7 @@ import { globalStats } from '../core/metrics';
 import type { ScanInput, ScanServiceResult } from '../domain/scan';
 import { callGemini } from './gemini.service';
 import { computeScanGridId } from '../utils/grid';
+import { isAiDailyQuotaExceededError } from './quota.service';
 
 const CACHE_TTL_HOURS = 36;
 let aiCallCount = 0;
@@ -67,7 +68,15 @@ function buildFallbackEvents(lat: number, lon: number, gridId: string): Persiste
   }));
 }
 
-async function generateWithGemini(lat: number, lon: number, radiusKm: number): Promise<z.infer<typeof aiEventArraySchema>> {
+async function generateWithGemini(
+  lat: number,
+  lon: number,
+  radiusKm: number,
+  usageContext?: {
+    usageDate: string;
+    clientIp: string;
+  }
+): Promise<z.infer<typeof aiEventArraySchema>> {
   const prompt = `
 You generate nearby radar events.
 Return STRICT JSON ARRAY only.
@@ -93,6 +102,7 @@ radiusKm=${radiusKm}
     responseMimeType: 'application/json',
     temperature: 0.2,
     aiCallsThisRequest: 1,
+    usageContext,
   });
 
   const parsed = JSON.parse(extractJsonArray(result.text));
@@ -146,7 +156,7 @@ async function loadEventsFromIds(eventIds: string[]): Promise<unknown[] | null> 
 }
 
 export async function scanService(input: ScanInput): Promise<ScanServiceResult> {
-  const { lat, lon, radiusKm } = input;
+  const { lat, lon, radiusKm, beforeAiCall } = input;
   const gridId = computeScanGridId(lat, lon, radiusKm);
 
   const cached = await prisma.grid_cache.findFirst({
@@ -188,11 +198,43 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
   console.log('[DEBUG_METRICS]', globalStats);
   let aiCallsThisScan = 0;
   let events: PersistedScanEvent[];
+  let usageContext:
+    | {
+        usageDate: string;
+        clientIp: string;
+      }
+    | undefined;
+
+  if (beforeAiCall) {
+    try {
+      const reservation = await beforeAiCall();
+      if (reservation) {
+        usageContext = reservation;
+        console.log(
+          'guard_precheck_ok usageDate=%s clientIp=%s',
+          reservation.usageDate,
+          reservation.clientIp
+        );
+      }
+    } catch (error) {
+      const err = error as { name?: string; message?: string };
+      console.error(
+        'guard_precheck_error name=%s message=%s',
+        err?.name ?? 'Error',
+        err?.message ?? 'unknown'
+      );
+      throw error;
+    }
+  }
+
   try {
     aiCallsThisScan = 1;
-    const generated = await generateWithGemini(lat, lon, radiusKm);
+    const generated = await generateWithGemini(lat, lon, radiusKm, usageContext);
     events = toPersistedEvents(gridId, generated);
   } catch (error) {
+    if (isAiDailyQuotaExceededError(error)) {
+      throw error;
+    }
     console.error('scan gemini generation failed, using fallback events', error);
     events = buildFallbackEvents(lat, lon, gridId);
   }

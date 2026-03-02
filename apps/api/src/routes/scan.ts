@@ -1,5 +1,6 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { scanService } from '../services/scan.service';
+import { AiDailyQuotaExceededError, reserveAiQuotaForRequest } from '../services/quota.service';
 
 function toNumber(value: unknown): number {
   if (typeof value === 'number') return value;
@@ -28,7 +29,21 @@ export default async function scanRoutes(app: FastifyInstance, opts: FastifyPlug
       throw app.httpErrors.badRequest('radiusKm must be between 0.5 and 5');
     }
 
-    const result = await scanService({ lat, lon, radiusKm });
+    const result = await scanService({
+      lat,
+      lon,
+      radiusKm,
+      beforeAiCall: async () => {
+        const reservation = await reserveAiQuotaForRequest(request, 'scan');
+        if (!reservation.ok) {
+          throw new AiDailyQuotaExceededError(reservation.scope, reservation.daily_limit, reservation.usage_date);
+        }
+        return {
+          usageDate: reservation.usage_date,
+          clientIp: reservation.client_ip,
+        };
+      },
+    });
     reply.header('X-Cache', result.cacheStatus);
     return result.response;
   });

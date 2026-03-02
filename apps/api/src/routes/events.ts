@@ -1,5 +1,6 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { expandEventLevelOne, getEventWithLevelOneDetail } from '../services/event-expand.service';
+import { AiDailyQuotaExceededError, reserveAiQuotaForRequest } from '../services/quota.service';
 
 function parseLevel(value: unknown): number {
   if (typeof value === 'number') return value;
@@ -27,7 +28,16 @@ export default async function eventsRoutes(app: FastifyInstance, opts: FastifyPl
       throw app.httpErrors.badRequest('Only level=1 is supported');
     }
 
-    const result = await expandEventLevelOne(id);
+    const result = await expandEventLevelOne(id, async () => {
+      const reservation = await reserveAiQuotaForRequest(request, 'expand');
+      if (!reservation.ok) {
+        throw new AiDailyQuotaExceededError(reservation.scope, reservation.daily_limit, reservation.usage_date);
+      }
+      return {
+        usageDate: reservation.usage_date,
+        clientIp: reservation.client_ip,
+      };
+    });
     if (result.notFound) {
       throw app.httpErrors.notFound('Event not found');
     }

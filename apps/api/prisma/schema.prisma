@@ -97,3 +97,22 @@ model ingestion_run {
   @@index([grid_id])
   @@index([started_at])
 }
+
+model ai_quota_policy {
+  scope       String   @id
+  daily_limit Int
+  updated_at  DateTime @default(now())
+}
+
+model ai_usage_daily {
+  scope        String
+  scope_key    String
+  usage_date   DateTime @db.Date
+  ai_calls     Int      @default(0)
+  tokens       Int      @default(0)
+  scan_calls   Int      @default(0)
+  expand_calls Int      @default(0)
+  updated_at   DateTime @default(now())
+
+  @@id([scope, scope_key, usage_date])
+}

@@ -1,5 +1,6 @@
 import { prisma } from '../db/prisma';
 import { callGemini } from './gemini.service';
+import { isAiDailyQuotaExceededError } from './quota.service';
 
 type LevelOneDetail = {
   story_text: string;
@@ -27,7 +28,17 @@ function countWords(input: string): number {
     .filter((token) => token.length > 0).length;
 }
 
-async function generateLevelOneDetail(eventTitle: string, teaser: string): Promise<LevelOneDetail> {
+async function generateLevelOneDetail(
+  eventTitle: string,
+  teaser: string,
+  beforeAiCall?: () => Promise<
+    | void
+    | {
+        usageDate: string;
+        clientIp: string;
+      }
+  >
+): Promise<LevelOneDetail> {
   const prompt = `
 You are generating a Level 1 intelligence dossier for a mystery incident.
 Rules:
@@ -48,6 +59,9 @@ Event teaser: ${teaser}
     responseMimeType: 'application/json',
     temperature: 0.3,
     aiCallsThisRequest: 1,
+    beforeAttempt: async () => {
+      await beforeAiCall?.();
+    },
   });
 
   const parsed = JSON.parse(extractJsonObject(result.text)) as {
@@ -106,7 +120,16 @@ export async function getEventWithLevelOneDetail(eventId: string) {
   return { event, detail: levelOneDetail };
 }
 
-export async function expandEventLevelOne(eventId: string) {
+export async function expandEventLevelOne(
+  eventId: string,
+  beforeAiCall?: () => Promise<
+    | void
+    | {
+        usageDate: string;
+        clientIp: string;
+      }
+  >
+) {
   const event = await prisma.events.findUnique({ where: { id: eventId } });
   if (!event) {
     return { notFound: true as const };
@@ -136,8 +159,11 @@ export async function expandEventLevelOne(eventId: string) {
   console.log('expand_cache_miss event_id=%s', eventId);
   try {
     aiCallsThisExpand = 1;
-    detail = await generateLevelOneDetail(title, teaser);
+    detail = await generateLevelOneDetail(title, teaser, beforeAiCall);
   } catch (error) {
+    if (isAiDailyQuotaExceededError(error)) {
+      throw error;
+    }
     console.error('expand level=1 gemini failed', error);
     console.log('ai_calls_this_expand=%d event_id=%s', aiCallsThisExpand, eventId);
     return {

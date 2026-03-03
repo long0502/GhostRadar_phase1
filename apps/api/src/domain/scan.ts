@@ -1,9 +1,12 @@
+import type { FastifyBaseLogger } from 'fastify';
 import type { ScanEvent } from './event';
 
 export type ScanInput = {
   lat: number;
   lon: number;
   radiusKm: number;
+  logger?: FastifyBaseLogger;
+  requestId?: string;
   beforeAiCall?: () => Promise<
     | void
     | {

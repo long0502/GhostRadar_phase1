@@ -1,3 +1,4 @@
+import type { FastifyBaseLogger } from 'fastify';
 import { prisma } from '../db/prisma';
 import { callGemini } from './gemini.service';
 import { isAiDailyQuotaExceededError } from './quota.service';
@@ -28,9 +29,23 @@ function countWords(input: string): number {
     .filter((token) => token.length > 0).length;
 }
 
+function buildFallbackStoryText(eventTitle: string, teaser: string, rawText: string): LevelOneDetail {
+  const safeSummary = rawText.trim() || teaser || `Dossier generated for ${eventTitle}.`;
+  const safeWitness = teaser || `Witness details were not returned in structured form for ${eventTitle}.`;
+  const safeAnalysis = `Structured AI fields were unavailable, so the raw provider response was preserved for manual review.`;
+
+  return {
+    story_text: `Summary\n${safeSummary}\n\nWitness\n${safeWitness}\n\nAnalysis\n${safeAnalysis}`,
+    witness: safeWitness,
+    analysis: safeAnalysis,
+  };
+}
+
 async function generateLevelOneDetail(
   eventTitle: string,
   teaser: string,
+  logger?: FastifyBaseLogger,
+  requestId?: string,
   beforeAiCall?: () => Promise<
     | void
     | {
@@ -64,23 +79,62 @@ Event teaser: ${teaser}
     },
   });
 
-  const parsed = JSON.parse(extractJsonObject(result.text)) as {
-    summary?: unknown;
-    witness?: unknown;
-    analysis?: unknown;
-  };
+  let parsed:
+    | {
+        summary?: unknown;
+        witness?: unknown;
+        analysis?: unknown;
+      }
+    | null = null;
 
-  const summary = typeof parsed.summary === 'string' ? parsed.summary.trim() : '';
-  const witness = typeof parsed.witness === 'string' ? parsed.witness.trim() : '';
-  const analysis = typeof parsed.analysis === 'string' ? parsed.analysis.trim() : '';
-  if (!summary || !witness || !analysis) {
-    throw new Error('Gemini response missing summary/witness/analysis');
+  try {
+    parsed = JSON.parse(extractJsonObject(result.text)) as {
+      summary?: unknown;
+      witness?: unknown;
+      analysis?: unknown;
+    };
+  } catch (error) {
+    logger?.warn(
+      {
+        requestId,
+        errorMessage: error instanceof Error ? error.message : String(error),
+      },
+      'expand.content.parse_failed'
+    );
+    return buildFallbackStoryText(eventTitle, teaser, result.text);
+  }
+
+  const summary =
+    typeof parsed.summary === 'string' && parsed.summary.trim().length > 0
+      ? parsed.summary.trim()
+      : result.text.trim() || teaser || `Dossier generated for ${eventTitle}.`;
+  const witness =
+    typeof parsed.witness === 'string' && parsed.witness.trim().length > 0
+      ? parsed.witness.trim()
+      : teaser || `Witness details were not returned in structured form for ${eventTitle}.`;
+  const analysis =
+    typeof parsed.analysis === 'string' && parsed.analysis.trim().length > 0
+      ? parsed.analysis.trim()
+      : 'Analysis section was missing from the structured provider response.';
+
+  if (
+    (typeof parsed.summary !== 'string' || !parsed.summary.trim()) ||
+    (typeof parsed.witness !== 'string' || !parsed.witness.trim()) ||
+    (typeof parsed.analysis !== 'string' || !parsed.analysis.trim())
+  ) {
+    logger?.warn(
+      { requestId },
+      'expand.content.fields_missing'
+    );
   }
 
   const storyText = `Summary\n${summary}\n\nWitness\n${witness}\n\nAnalysis\n${analysis}`;
-  const words = countWords(storyText);
-  if (words < 400 || words > 600) {
-    throw new Error('Gemini response word count out of 400-600 range');
+  const wordCount = countWords(storyText);
+  if (wordCount < 400 || wordCount > 600) {
+    logger?.warn(
+      { requestId, wordCount },
+      'expand.wordcount.out_of_range'
+    );
   }
 
   return {
@@ -122,6 +176,8 @@ export async function getEventWithLevelOneDetail(eventId: string) {
 
 export async function expandEventLevelOne(
   eventId: string,
+  logger?: FastifyBaseLogger,
+  requestId?: string,
   beforeAiCall?: () => Promise<
     | void
     | {
@@ -159,12 +215,12 @@ export async function expandEventLevelOne(
   console.log('expand_cache_miss event_id=%s', eventId);
   try {
     aiCallsThisExpand = 1;
-    detail = await generateLevelOneDetail(title, teaser, beforeAiCall);
+    detail = await generateLevelOneDetail(title, teaser, logger, requestId, beforeAiCall);
   } catch (error) {
     if (isAiDailyQuotaExceededError(error)) {
       throw error;
     }
-    console.error('expand level=1 gemini failed', error);
+    console.error('expand level=1 provider failed', error);
     console.log('ai_calls_this_expand=%d event_id=%s', aiCallsThisExpand, eventId);
     return {
       notFound: false as const,

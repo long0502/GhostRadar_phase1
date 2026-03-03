@@ -7,4 +7,4 @@ COPY . .
 RUN npm run generate
 RUN npm run build
 EXPOSE 8088
-CMD ["sh", "-c", "npx prisma db push --schema=./prisma/schema.prisma --url=\"$DATABASE_URL\" && npm run start:prod"]
+CMD ["npm", "run", "docker:start"]

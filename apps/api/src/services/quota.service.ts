@@ -72,6 +72,20 @@ export function getClientIp(request: FastifyRequest): string {
   return request.ip;
 }
 
+export async function ensureAiQuotaPolicyDefaults(): Promise<void> {
+  await prisma.$executeRaw(Prisma.sql`
+    INSERT INTO ai_quota_policy (scope, daily_limit)
+    VALUES ('global', 2000)
+    ON CONFLICT (scope) DO NOTHING
+  `);
+
+  await prisma.$executeRaw(Prisma.sql`
+    INSERT INTO ai_quota_policy (scope, daily_limit)
+    VALUES ('ip', 20)
+    ON CONFLICT (scope) DO NOTHING
+  `);
+}
+
 async function reserveScopeQuota(params: {
   db: QuotaDbClient;
   scope: QuotaScope;
@@ -278,7 +292,7 @@ export async function cleanupAiUsageDailyRetention(): Promise<number> {
   const deletedRows = await prisma.$queryRaw<Array<{ deleted_count: number }>>(Prisma.sql`
     WITH deleted AS (
       DELETE FROM ai_usage_daily
-      WHERE usage_date < ((now() AT TIME ZONE 'UTC')::date - ${RETENTION_DAYS})
+      WHERE usage_date < (((now() AT TIME ZONE 'UTC')::date) - CAST(${RETENTION_DAYS} AS int))
       RETURNING 1
     )
     SELECT COUNT(*)::int AS deleted_count

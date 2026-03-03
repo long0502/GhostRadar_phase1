@@ -156,8 +156,9 @@ async function loadEventsFromIds(eventIds: string[]): Promise<unknown[] | null> 
 }
 
 export async function scanService(input: ScanInput): Promise<ScanServiceResult> {
-  const { lat, lon, radiusKm, beforeAiCall } = input;
+  const { lat, lon, radiusKm, beforeAiCall, logger, requestId } = input;
   const gridId = computeScanGridId(lat, lon, radiusKm);
+  logger?.info({ requestId, gridId, lat, lon, radiusKm }, 'scan.cache.lookup.start');
 
   const cached = await prisma.grid_cache.findFirst({
     where: {
@@ -167,19 +168,27 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
       },
     },
   });
+  logger?.info({ requestId, gridId, cacheFound: Boolean(cached) }, 'scan.cache.lookup.done');
 
   if (cached) {
     const payload = cached.data as Partial<GridCachePayload> | null;
     const cachedEventIds = Array.isArray(payload?.event_ids)
       ? payload.event_ids.filter((value): value is string => typeof value === 'string' && value.length > 0)
       : [];
+    logger?.info({ requestId, gridId, cachedEventCount: cachedEventIds.length }, 'scan.cache.hit.candidate');
 
     if (cachedEventIds.length > 0) {
+      logger?.info({ requestId, gridId }, 'scan.db.events.load.start');
       const cachedEvents = await loadEventsFromIds(cachedEventIds);
+      logger?.info(
+        { requestId, gridId, loadedEventCount: Array.isArray(cachedEvents) ? cachedEvents.length : null },
+        'scan.db.events.load.done'
+      );
       if (cachedEvents !== null) {
         globalStats.cache_hit_count += 1;
         console.log('[DEBUG_METRICS]', globalStats);
         console.log(`cache_hit grid_id=${gridId} ai_call_count=${aiCallCount}`);
+        logger?.info({ requestId, gridId }, 'scan.cache.hit');
         return {
           cacheStatus: 'HIT',
           response: {
@@ -192,10 +201,12 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
     }
 
     console.log(`cache_stale grid_id=${gridId} reason=missing_event_ids_or_events`);
+    logger?.warn({ requestId, gridId }, 'scan.cache.stale');
   }
 
   globalStats.cache_miss_count += 1;
   console.log('[DEBUG_METRICS]', globalStats);
+  logger?.info({ requestId, gridId }, 'scan.cache.miss');
   let aiCallsThisScan = 0;
   let events: PersistedScanEvent[];
   let usageContext:
@@ -207,6 +218,7 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
 
   if (beforeAiCall) {
     try {
+      logger?.info({ requestId, gridId }, 'scan.quota.precheck.start');
       const reservation = await beforeAiCall();
       if (reservation) {
         usageContext = reservation;
@@ -215,6 +227,7 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
           reservation.usageDate,
           reservation.clientIp
         );
+        logger?.info({ requestId, gridId, usageContext }, 'scan.quota.precheck.done');
       }
     } catch (error) {
       const err = error as { name?: string; message?: string };
@@ -223,23 +236,46 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
         err?.name ?? 'Error',
         err?.message ?? 'unknown'
       );
+      logger?.warn(
+        {
+          requestId,
+          gridId,
+          errorName: err?.name ?? 'Error',
+          errorMessage: err?.message ?? 'unknown',
+        },
+        'scan.quota.precheck.failed'
+      );
       throw error;
     }
   }
 
   try {
     aiCallsThisScan = 1;
+    logger?.info({ requestId, gridId }, 'scan.ai.start');
     const generated = await generateWithGemini(lat, lon, radiusKm, usageContext);
+    logger?.info({ requestId, gridId, generatedEventCount: generated.length }, 'scan.ai.done');
     events = toPersistedEvents(gridId, generated);
   } catch (error) {
     if (isAiDailyQuotaExceededError(error)) {
       throw error;
     }
     console.error('scan gemini generation failed, using fallback events', error);
+    const err = error as { name?: string; message?: string };
+    logger?.error(
+      {
+        requestId,
+        gridId,
+        errorName: err?.name ?? 'Error',
+        errorMessage: err?.message ?? 'unknown',
+      },
+      'scan.ai.failed'
+    );
     events = buildFallbackEvents(lat, lon, gridId);
+    logger?.warn({ requestId, gridId, fallbackEventCount: events.length }, 'scan.ai.fallback');
   }
 
   if (events.length > 0) {
+    logger?.info({ requestId, gridId, eventCount: events.length }, 'scan.db.events.insert.start');
     await prisma.events.createMany({
       data: events.map((event) => ({
         id: event.id,
@@ -249,9 +285,11 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
         has_detail: false,
       })),
     });
+    logger?.info({ requestId, gridId, eventCount: events.length }, 'scan.db.events.insert.done');
   }
 
   const expiresAt = new Date(Date.now() + CACHE_TTL_HOURS * 60 * 60 * 1000);
+  logger?.info({ requestId, gridId, expiresAt }, 'scan.db.cache.upsert.start');
   await prisma.grid_cache.upsert({
     where: { grid_id: gridId },
     update: {
@@ -274,6 +312,7 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
       expires_at: expiresAt,
     },
   });
+  logger?.info({ requestId, gridId }, 'scan.db.cache.upsert.done');
 
   console.log(`cache_miss grid_id=${gridId} ai_call_count=${aiCallCount} ai_calls_this_scan=${aiCallsThisScan}`);
   return {

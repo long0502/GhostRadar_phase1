@@ -7,6 +7,7 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "db:inspect": "node --env-file=.env.test scripts/db.inspect.js",
+    "docker:start": "node scripts/docker-start.js",
     "signals:smoke": "node --env-file=.env.test dist/signals/smoke.js",
     "test:integration": "node --env-file=.env.test --test",
     "start:prod": "node dist/server.js",

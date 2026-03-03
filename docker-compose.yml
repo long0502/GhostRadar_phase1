@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   db:
     image: postgres:15
@@ -23,12 +21,16 @@ services:
     build: ./apps/api
     container_name: ghost_api
     restart: always
-    env_file:
-      - ./apps/api/.env
     environment:
-      DATABASE_URL: postgresql://ghostradar:ghostradar@ghost_db:5432/ghostradar
+      PORT: ${PORT:-8088}
+      DB_HOST: ${DB_HOST:-db}
+      DB_PORT: ${DB_PORT:-5432}
+      DB_USER: ${DB_USER:-ghostradar}
+      DB_PASSWORD: ${DB_PASSWORD:-ghostradar}
+      DB_NAME: ${DB_NAME:-ghostradar}
+      DATABASE_URL: postgresql://${DB_USER:-ghostradar}:${DB_PASSWORD:-ghostradar}@${DB_HOST:-db}:${DB_PORT:-5432}/${DB_NAME:-ghostradar}
       NODE_ENV: production
-      PORT: 8088
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-2.5-flash}
     ports:
       - '8088:8088'
     depends_on:

@@ -28,20 +28,26 @@ export default async function eventsRoutes(app: FastifyInstance, opts: FastifyPl
       throw app.httpErrors.badRequest('Only level=1 is supported');
     }
 
-    const result = await expandEventLevelOne(id, async () => {
-      const reservation = await reserveAiQuotaForRequest(request, 'expand');
-      if (!reservation.ok) {
-        throw new AiDailyQuotaExceededError(reservation.scope, reservation.daily_limit, reservation.usage_date);
+    const result = await expandEventLevelOne(
+      id,
+      request.log,
+      request.id,
+      async () => {
+        const reservation = await reserveAiQuotaForRequest(request, 'expand');
+        if (!reservation.ok) {
+          throw new AiDailyQuotaExceededError(reservation.scope, reservation.daily_limit, reservation.usage_date);
+        }
+        return {
+          usageDate: reservation.usage_date,
+          clientIp: reservation.client_ip,
+        };
       }
-      return {
-        usageDate: reservation.usage_date,
-        clientIp: reservation.client_ip,
-      };
-    });
+    );
     if (result.notFound) {
       throw app.httpErrors.notFound('Event not found');
     }
     if ((result as { aiFailure?: boolean }).aiFailure) {
+      request.log.error({ requestId: request.id, eventId: id }, 'expand.provider.failure');
       const error = app.httpErrors.badGateway('Failed to generate Level 1 detail');
       (error as { code?: string }).code = 'AI_ERROR';
       throw error;

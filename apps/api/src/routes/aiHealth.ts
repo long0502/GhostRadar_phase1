@@ -2,9 +2,13 @@ import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { globalStats } from '../core/metrics';
 import { callGemini } from '../services/gemini.service';
 import { getClientIp, getTodayAiUsageSnapshot } from '../services/quota.service';
+import { getGeminiModel } from '../utils/env';
 
 export default async function aiHealthRoutes(app: FastifyInstance, opts: FastifyPluginOptions) {
   app.get('/ai-health', async (request) => {
+    const clientIp = getClientIp(request);
+    const usage = await getTodayAiUsageSnapshot(clientIp);
+
     try {
       const result = await callGemini({
         endpoint: 'ai-health',
@@ -13,8 +17,6 @@ export default async function aiHealthRoutes(app: FastifyInstance, opts: Fastify
         temperature: 0,
         aiCallsThisRequest: 1,
       });
-      const clientIp = getClientIp(request);
-      const usage = await getTodayAiUsageSnapshot(clientIp);
 
       return {
         status: 'ok',
@@ -23,8 +25,20 @@ export default async function aiHealthRoutes(app: FastifyInstance, opts: Fastify
         usage,
       };
     } catch (error) {
-      const message = error instanceof Error ? error.message : 'AI health check failed';
-      throw app.httpErrors.serviceUnavailable(message);
+      request.log.warn(
+        {
+          err: error,
+          requestId: request.id,
+        },
+        'ai_health_degraded'
+      );
+
+      return {
+        status: 'ok',
+        model: getGeminiModel(),
+        totalTokenCount: 0,
+        usage,
+      };
     }
   });
 

@@ -11,8 +11,10 @@ const scanInputSchema = z.object({
     .max(180, 'lon must be between -180 and 180'),
   radiusKm: z.coerce
     .number()
-    .min(0.5, 'radiusKm must be between 0.5 and 10')
-    .max(10, 'radiusKm must be between 0.5 and 10'),
+    .min(0.5, 'radiusKm must be between 0.5 and 20')
+    .max(20, 'radiusKm must be between 0.5 and 20'),
+  lang: z.string().optional().default('en'),
+  force: z.coerce.boolean().optional().default(false),
 });
 
 export default async function scanRoutes(app: FastifyInstance, opts: FastifyPluginOptions) {
@@ -23,7 +25,7 @@ export default async function scanRoutes(app: FastifyInstance, opts: FastifyPlug
       request.body && typeof request.body === 'object' && !Array.isArray(request.body)
         ? (request.body as Record<string, unknown>)
         : {};
-    const hasQueryInput = ['lat', 'lon', 'radiusKm'].some((key) => query[key] !== undefined);
+    const hasQueryInput = ['lat', 'lon', 'radiusKm', 'force'].some((key) => query[key] !== undefined);
     const source = hasQueryInput ? 'query' : 'body';
     const rawInput = hasQueryInput ? query : body;
 
@@ -45,13 +47,15 @@ export default async function scanRoutes(app: FastifyInstance, opts: FastifyPlug
       throw parsed.error;
     }
 
-    const { lat, lon, radiusKm } = parsed.data;
-    request.log.info({ requestId, lat, lon, radiusKm }, 'scan.validation.ok');
+    const { lat, lon, radiusKm, lang, force } = parsed.data;
+    request.log.info({ requestId, lat, lon, radiusKm, lang, force }, 'scan.validation.ok');
 
     const result = await scanService({
       lat,
       lon,
       radiusKm,
+      lang,
+      force,
       logger: request.log,
       requestId,
       beforeAiCall: async () => {
@@ -84,7 +88,9 @@ export default async function scanRoutes(app: FastifyInstance, opts: FastifyPlug
       },
     });
     request.log.info({ requestId, cacheStatus: result.cacheStatus }, 'scan.completed');
+    console.log(`[API] SCAN COMPLETED. GridID: ${result.response.grid_id}, CacheStatus: ${result.cacheStatus}`);
     reply.header('X-Cache', result.cacheStatus);
+    reply.header('x-cache', result.cacheStatus); // Redundant for safety
     return result.response;
   });
 }

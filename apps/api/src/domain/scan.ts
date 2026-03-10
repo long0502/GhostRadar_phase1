@@ -5,14 +5,16 @@ export type ScanInput = {
   lat: number;
   lon: number;
   radiusKm: number;
+  lang?: string;
+  force?: boolean;
   logger?: FastifyBaseLogger;
   requestId?: string;
   beforeAiCall?: () => Promise<
     | void
     | {
-        usageDate: string;
-        clientIp: string;
-      }
+      usageDate: string;
+      clientIp: string;
+    }
   >;
 };
 

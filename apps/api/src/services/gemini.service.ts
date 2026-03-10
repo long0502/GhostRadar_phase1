@@ -11,14 +11,15 @@ type GeminiCallParams = {
   beforeAttempt?: () => Promise<
     | void
     | {
-        usageDate: string;
-        clientIp: string;
-      }
+      usageDate: string;
+      clientIp: string;
+    }
   >;
   usageContext?: {
     usageDate: string;
     clientIp: string;
   };
+  tools?: any[];
 };
 
 type GeminiCallResult = {
@@ -55,7 +56,16 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
   }
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
-    console.log(`gemini_call endpoint=${endpoint} modelVersion=${model} ai_calls_this_request=${aiCallsThisRequest}`);
+    const body = {
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature,
+        responseMimeType,
+      },
+      tools: params.tools,
+    };
+    // console.log(`[GEMINI_BODY] ${JSON.stringify(body, null, 2)}`);
+
     response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
       {
@@ -67,6 +77,7 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
             temperature,
             responseMimeType,
           },
+          tools: params.tools,
         }),
       }
     );
@@ -79,11 +90,17 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
     break;
   }
 
-  if (!response || !response.ok) {
+  if (!response) {
+    throw new Error('No response from Gemini API');
+  }
+
+  if (!response.ok) {
+    const errorBody = await response.text();
     console.warn(
       `gemini_usage_missing endpoint=${endpoint} modelVersion=${model} totalTokenCount=missing ai_calls_this_request=${aiCallsThisRequest}`
     );
-    throw new Error(`Gemini API error: ${response?.status ?? 'unknown'}`);
+    console.error(`Gemini API Error Body: ${errorBody}`);
+    throw new Error(`Gemini API error: ${response.status} - ${errorBody}`);
   }
 
   const data = (await response.json()) as {
@@ -122,8 +139,7 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
     globalStats.expand_ai_calls += 1;
   }
   console.log(
-    `[AI_CALL] route=${endpoint} model=${modelVersion} timestamp=${new Date().toISOString()} totalTokenCount=${
-      typeof totalTokenCount === 'number' ? totalTokenCount : 'unknown'
+    `[AI_CALL] route=${endpoint} model=${modelVersion} timestamp=${new Date().toISOString()} totalTokenCount=${typeof totalTokenCount === 'number' ? totalTokenCount : 'unknown'
     }`
   );
   console.log(`[METRICS] endpoint=${endpoint} total_ai_calls=${globalStats.total_ai_calls} total_tokens=${globalStats.total_tokens}`);

@@ -1,6 +1,7 @@
 export type RadarEvent = {
   id: string;
   title?: string;
+  localizedTitle?: string;
   type?: string;
   lat: number;
   lon: number;

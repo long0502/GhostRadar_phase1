@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { expandEvent } from '@/lib/api';
 import type { EventDetail } from '@/lib/types';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 function dossierText(detail: EventDetail | null): string {
   if (!detail) {
@@ -15,8 +16,10 @@ function dossierText(detail: EventDetail | null): string {
 }
 
 export default function DossierPage() {
+  const { language } = useLanguage();
   const params = useParams<{ event_id: string }>();
   const eventId = params.event_id;
+
   const [detail, setDetail] = useState<EventDetail | null>(null);
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [errorMessage, setErrorMessage] = useState<string>('');
@@ -27,7 +30,7 @@ export default function DossierPage() {
     async function load() {
       try {
         setStatus('loading');
-        const data = await expandEvent(eventId);
+        const data = await expandEvent(eventId, language);
         if (!isMounted) {
           return;
         }
@@ -47,7 +50,7 @@ export default function DossierPage() {
     return () => {
       isMounted = false;
     };
-  }, [eventId]);
+  }, [eventId, language]);
 
   return (
     <main className="min-h-screen bg-grid bg-[size:22px_22px] px-4 py-6 sm:px-6 lg:px-8">

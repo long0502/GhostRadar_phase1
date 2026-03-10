@@ -1,0 +1,67 @@
+﻿[dotenv@17.3.1] injecting env (4) from .env -- tip: ΓÜí∩╕Å secrets for agents: https://dotenvx.com/as2
+--- DIRECT FUNCTION TEST: JAPANESE SCAN (TOKYO) ---
+[INFO] {
+  requestId: 'test-tokyo-1773049784293',
+  gridId: '7c0f5a030a9803a862af',
+  lat: 35.6895,
+  lon: 139.6917,
+  radiusKm: 2,
+  lang: 'ja'
+} scan.cache.lookup.start
+[INFO] {
+  requestId: 'test-tokyo-1773049784293',
+  gridId: '7c0f5a030a9803a862af',
+  cacheFound: true
+} scan.cache.lookup.done
+[INFO] {
+  requestId: 'test-tokyo-1773049784293',
+  gridId: '7c0f5a030a9803a862af',
+  cachedEventCount: 10
+} scan.cache.hit.candidate
+[INFO] {
+  requestId: 'test-tokyo-1773049784293',
+  gridId: '7c0f5a030a9803a862af'
+} scan.db.events.load.start
+[INFO] {
+  requestId: 'test-tokyo-1773049784293',
+  gridId: '7c0f5a030a9803a862af',
+  loadedEventCount: 10
+} scan.db.events.load.done
+[INFO] {
+  requestId: 'test-tokyo-1773049784293',
+  gridId: '7c0f5a030a9803a862af',
+  syntheticAddedCount: 20,
+  syntheticTitles: [
+    'µ£¬τó║Φ¬ìπü«Φ╖»σ£░ΦúÅπüºπü«µÜ┤Φíîσá▒σæè #1',
+    'µ⌐ïπü«Σ╕èπüºπü«Φí¥τ¬üΣ║ïµòà #2',
+    'σ╗âΘÖóπüºπü«Σ╕ìτ⌐Åπü¬σïòπüì #3',
+    'σ╖¥µ▓┐πüäπü«σÖé #4',
+    'σÇëσ║½τü½τü╜πü«πâæπâïπââπé» #5'
+  ]
+} scan.density.synthetic.cache
+[DEBUG_METRICS] {
+  total_ai_calls: 0,
+  total_tokens: 0,
+  scan_ai_calls: 0,
+  expand_ai_calls: 0,
+  cache_hit_count: 1,
+  cache_miss_count: 0,
+  rate_limited_count: 0
+}
+cache_hit grid_id=7c0f5a030a9803a862af ai_call_count=0
+[INFO] {
+  requestId: 'test-tokyo-1773049784293',
+  gridId: '7c0f5a030a9803a862af'
+} scan.cache.hit
+
+--- RESULT ---
+Cache Status: HIT
+Number of events: 30
+First 5 event titles:
+1. µ£¬τó║Φ¬ìπü«Φ╖»σ£░ΦúÅπüºπü«µÜ┤Φíîσá▒σæè #1 (Localized: µ£¬τó║Φ¬ìπü«Φ╖»σ£░ΦúÅπüºπü«µÜ┤Φíîσá▒σæè #1)
+2. µ⌐ïπü«Σ╕èπüºπü«Φí¥τ¬üΣ║ïµòà #2 (Localized: µ⌐ïπü«Σ╕èπüºπü«Φí¥τ¬üΣ║ïµòà #2)
+3. σ╗âΘÖóπüºπü«Σ╕ìτ⌐Åπü¬σïòπüì #3 (Localized: σ╗âΘÖóπüºπü«Σ╕ìτ⌐Åπü¬σïòπüì #3)
+4. σ╖¥µ▓┐πüäπü«σÖé #4 (Localized: σ╖¥µ▓┐πüäπü«σÖé #4)
+5. σÇëσ║½τü½τü╜πü«πâæπâïπââπé» #5 (Localized: σÇëσ║½τü½τü╜πü«πâæπâïπââπé» #5)
+
+Result contains English-only titles? false

@@ -28,8 +28,11 @@ export default async function eventsRoutes(app: FastifyInstance, opts: FastifyPl
       throw app.httpErrors.badRequest('Only level=1 is supported');
     }
 
+    const lang = (query.lang as string) || 'en';
+
     const result = await expandEventLevelOne(
       id,
+      lang,
       request.log,
       request.id,
       async () => {

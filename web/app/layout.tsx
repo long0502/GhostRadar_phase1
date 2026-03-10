@@ -13,13 +13,17 @@ export const metadata: Metadata = {
   description: 'Operational radar console for GhostRadar PRO'
 };
 
+import { LanguageProvider } from '@/i18n/LanguageContext';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${spaceMono.variable} h-full w-full overflow-hidden bg-black font-mono`}>
-        <div className="app-grid" aria-hidden="true" />
-        <div className="app-root">{children}</div>
-        <div className="crt-overlay" aria-hidden="true" />
+        <LanguageProvider>
+          <div className="app-grid" aria-hidden="true" />
+          <div className="app-root">{children}</div>
+          <div className="crt-overlay" aria-hidden="true" />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start:dev": "powershell -ExecutionPolicy Bypass -File scripts/start-dev.ps1",
+    "stop:dev": "docker compose down"
+  },
   "dependencies": {
     "node-fetch": "^2.7.0"
   }

@@ -15,22 +15,27 @@ type LeafletMapProps = {
   onMarkerClick: (event: RadarEvent) => void;
 };
 
-const severityColors: Record<number, string> = {
-  1: '#00ff41',
-  2: '#d7ff00',
-  3: '#ffaa00',
-  4: '#ff3300',
-  5: '#ff0000',
-};
+function severityColor(level: number) {
+  if (level === 1) return '#3fa36a';
+  if (level === 2) return '#b89b3c';
+  if (level === 3) return '#b86d3c';
+  if (level === 4) return '#a33f3f';
+  return '#8f3535';
+}
 
 function radarIcon(level: number) {
-  const color = severityColors[level] ?? severityColors[1];
+  const color = severityColor(level);
 
   return L.divIcon({
     className: 'radar-blip',
-    html: `<div class="radar-dot" data-color="${color}" style="background:${color}"></div>`,
-    iconSize: [12, 12],
-    iconAnchor: [6, 6],
+    html: `
+      <div class="radar-signal" data-color="${color}" style="--radar-color:${color}">
+        <div class="radar-halo"></div>
+        <div class="radar-dot"></div>
+      </div>
+    `,
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
   });
 }
 
@@ -106,38 +111,40 @@ export function LeafletMap({
 
   useEffect(() => {
     let frame = 0;
+    const trailWidth = 60;
+    const baseOpacity = 0.1;
+    const baseScale = 1;
 
     const animate = () => {
+      const rotation = (sweepRotationRef.current + 90 + 360) % 360;
+
       for (const event of events) {
         const marker = markerRefs.current[event.id];
         const el = marker?.getElement();
         if (!el) {
           continue;
         }
-        const dot = el.querySelector<HTMLElement>('.radar-dot');
-        if (!dot) {
+        const signal = el.querySelector<HTMLElement>('.radar-signal');
+        if (!signal) {
           continue;
         }
 
-        const bearing = getBearing(center[0], center[1], event.lat, event.lon);
-        const distanceMeters = getDistanceMeters(center[0], center[1], event.lat, event.lon);
-        const selectedRadiusMeters = Math.max(radiusKm * 1000, 1);
-        const distanceRatio = distanceMeters / selectedRadiusMeters;
-        const baseIntensity = Math.max(1 - Math.pow(distanceRatio, 1.5), 0.08);
-        const delta = (sweepRotationRef.current - bearing + 360) % 360;
-        const glowZone = 50;
-        const sweepBoost = delta < glowZone ? 1 - delta / glowZone : 0;
-        const finalIntensity = Math.min(Math.max(baseIntensity * 0.6 + sweepBoost * 0.8, 0), 1);
+        const angleToPoint =
+          ((Math.atan2(event.lat - center[0], event.lon - center[1]) * 180) / Math.PI + 450) % 360;
+        const angleDiff = (rotation - angleToPoint + 360) % 360;
 
-        const baseTransform = dot.dataset.baseTransform ?? 'scale(1)';
-        if (!dot.dataset.baseTransform) {
-          dot.dataset.baseTransform = baseTransform;
+        let opacity = baseOpacity;
+        let scale = baseScale;
+
+        if (angleDiff < trailWidth) {
+          const t = 1 - angleDiff / trailWidth;
+          opacity = baseOpacity + t * 0.9;
+          scale = baseScale + t * 0.4;
         }
 
-        const markerColor = dot.dataset.color ?? severityColors[1];
-        dot.style.opacity = String(0.15 + finalIntensity * 0.85);
-        dot.style.transform = `scale(${1 + finalIntensity * 0.35})`;
-        dot.style.boxShadow = `0 0 ${4 + finalIntensity * 16}px ${markerColor}`;
+        signal.style.setProperty('--blip-scale', String(scale));
+        signal.style.setProperty('--blip-opacity', String(opacity));
+        signal.style.setProperty('--blip-halo-opacity', String(opacity * 0.45));
       }
 
       frame = requestAnimationFrame(animate);

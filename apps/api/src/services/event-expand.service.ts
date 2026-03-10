@@ -3,6 +3,23 @@ import { prisma } from '../db/prisma';
 import { callGemini } from './gemini.service';
 import { isAiDailyQuotaExceededError } from './quota.service';
 
+const LANGUAGE_MAP: Record<string, string> = {
+  en: 'English',
+  vi: 'Vietnamese',
+  ja: 'Japanese',
+  ko: 'Korean',
+  zh: 'Chinese',
+  es: 'Spanish',
+  pt: 'Portuguese',
+  it: 'Italian',
+  tr: 'Turkish',
+  ro: 'Romanian',
+  th: 'Thai',
+  id: 'Indonesian',
+  fil: 'Filipino',
+  ms: 'Malay',
+};
+
 type LevelOneDetail = {
   story_text: string;
   witness: string;
@@ -44,28 +61,52 @@ function buildFallbackStoryText(eventTitle: string, teaser: string, rawText: str
 async function generateLevelOneDetail(
   eventTitle: string,
   teaser: string,
+  langCode: string = 'en',
   logger?: FastifyBaseLogger,
   requestId?: string,
   beforeAiCall?: () => Promise<
     | void
     | {
-        usageDate: string;
-        clientIp: string;
-      }
+      usageDate: string;
+      clientIp: string;
+    }
   >
 ): Promise<LevelOneDetail> {
-  const prompt = `
-You are generating a Level 1 intelligence dossier for a mystery incident.
-Rules:
-- 400 to 600 words total.
-- Output STRICT JSON object only.
-- Keys: summary, witness, analysis.
-- Tone: confidential dossier, investigative.
-- No markdown formatting.
-- Do not present supernatural claims as fact.
+  const targetLanguageName = LANGUAGE_MAP[langCode] || 'English';
 
-Event title: ${eventTitle}
-Event teaser: ${teaser}
+  const prompt = `
+[SYSTEM]
+CRITICAL: You are an AI generating a detailed paranormal dossier for a mysterious event.
+TARGET LANGUAGE: ${targetLanguageName}
+You MUST write ALL text strictly in: ${targetLanguageName}
+Do NOT mix languages. Write naturally in ${targetLanguageName}.
+
+[EVENT DATA]
+Event Title: ${eventTitle}
+Event Summary: ${teaser}
+
+REGIONAL CONTEXT
+Based on the event title and description, determine the cultural region and apply appropriate folklore style:
+- Vietnam: ghost stories, cursed sites, colonial-era hauntings
+- Japan: yūrei, onryō, cursed locations
+- Korea: gumiho, school ghosts, urban horror
+- Europe: medieval curses, castle hauntings, plague legends
+- Americas: La Llorona, highway phantoms, native spirits
+- Other: use locally appropriate paranormal themes
+
+[OUTPUT FORMAT]
+Return valid JSON:
+{
+  "story_text": "Detailed atmospheric narrative (400-600 words). Use regional folklore themes.",
+  "witness": "Anonymous eyewitness testimony in first person.",
+  "analysis": "Researcher notes analyzing the phenomenon with cultural context."
+}
+
+[CONSTRAINTS & REFUSAL POLICY]
+- TONE: confidential dossier, investigative, atmospheric.
+- Do NOT use English even if your knowledge base contains English terms for this event.
+- If you output English content, the dossier is considered corrupted/invalid.
+- Do not present supernatural claims as proven fact.
 `.trim();
 
   const result = await callGemini({
@@ -81,10 +122,10 @@ Event teaser: ${teaser}
 
   let parsed:
     | {
-        summary?: unknown;
-        witness?: unknown;
-        analysis?: unknown;
-      }
+      summary?: unknown;
+      witness?: unknown;
+      analysis?: unknown;
+    }
     | null = null;
 
   try {
@@ -176,14 +217,15 @@ export async function getEventWithLevelOneDetail(eventId: string) {
 
 export async function expandEventLevelOne(
   eventId: string,
+  lang: string = 'en',
   logger?: FastifyBaseLogger,
   requestId?: string,
   beforeAiCall?: () => Promise<
     | void
     | {
-        usageDate: string;
-        clientIp: string;
-      }
+      usageDate: string;
+      clientIp: string;
+    }
   >
 ) {
   const event = await prisma.events.findUnique({ where: { id: eventId } });
@@ -195,6 +237,7 @@ export async function expandEventLevelOne(
     where: {
       event_id: eventId,
       level: 1,
+      lang: lang,
     },
     orderBy: {
       created_at: 'desc',
@@ -202,7 +245,7 @@ export async function expandEventLevelOne(
   });
 
   if (existing) {
-    console.log('expand_cache_hit event_id=%s ai_calls_this_expand=0', eventId);
+    console.log('expand_cache_hit event_id=%s lang=%s ai_calls_this_expand=0', eventId, lang);
     return { notFound: false as const, detail: existing, aiCallsThisExpand: 0, cacheStatus: 'HIT' as const };
   }
 
@@ -212,10 +255,10 @@ export async function expandEventLevelOne(
 
   let aiCallsThisExpand = 0;
   let detail: LevelOneDetail | null = null;
-  console.log('expand_cache_miss event_id=%s', eventId);
+  console.log('expand_cache_miss event_id=%s lang=%s', eventId, lang);
   try {
     aiCallsThisExpand = 1;
-    detail = await generateLevelOneDetail(title, teaser, logger, requestId, beforeAiCall);
+    detail = await generateLevelOneDetail(title, teaser, lang, logger, requestId, beforeAiCall);
   } catch (error) {
     if (isAiDailyQuotaExceededError(error)) {
       throw error;
@@ -235,12 +278,14 @@ export async function expandEventLevelOne(
     data: {
       event_id: eventId,
       level: 1,
+      lang: lang,
       story_text: detail.story_text,
       witness: detail.witness,
       analysis: detail.analysis,
       generated_at: new Date(),
       detail: {
         level: 1,
+        lang: lang,
         story_text: detail.story_text,
         witness: detail.witness,
         analysis: detail.analysis,

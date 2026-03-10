@@ -30,6 +30,7 @@ model event_details {
   id         String   @id @default(uuid())
   event_id   String
   level      Int      @default(1)
+  lang       String   @default("en")
   story_text String
   witness    String
   analysis   String
@@ -38,6 +39,8 @@ model event_details {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   event      events   @relation(fields: [event_id], references: [id])
+
+  @@index([event_id, lang])
 }
 
 model jobs {

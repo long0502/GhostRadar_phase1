@@ -15,7 +15,10 @@ export async function createApp() {
   });
   const isDevelopment = process.env.NODE_ENV !== 'production';
 
-  await app.register(cors);
+  await app.register(cors, {
+    origin: '*',
+    exposedHeaders: ['X-Cache'],
+  });
   await app.register(rateLimit, {
     global: true,
     max: 100,

@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import type { FastifyBaseLogger } from 'fastify';
 import { prisma } from '../db/prisma';
 import { callGemini } from './gemini.service';
@@ -20,23 +21,46 @@ const LANGUAGE_MAP: Record<string, string> = {
   ms: 'Malay',
 };
 
+type Witness = {
+  name: string;
+  testimony: string;
+  date: string;
+};
+
 type LevelOneDetail = {
-  story_text: string;
-  witness: string;
-  analysis: string;
+  legend_overview: string;
+  chronological_history: string;
+  witnesses: Witness[];
+  spectral_analysis: string;
+  risk_assessment: string;
+  image_prompt?: string;
 };
 
 function extractJsonObject(text: string): string {
-  const trimmed = text.trim();
-  const fenced = trimmed.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '');
-  const start = fenced.indexOf('{');
-  const end = fenced.lastIndexOf('}');
+  // 1. Remove common conversational prefixes
+  let cleaned = text.trim()
+    .replace(/^(Summary|JSON|Output|Response|Here is the dossier)[:\s]*/im, '');
 
-  if (start < 0 || end < start) {
-    throw new Error('Gemini response did not contain a JSON object');
+  // 2. Remove markdown code blocks if present
+  cleaned = cleaned.replace(/^```(?:json)?\s*/im, '').replace(/\s*```$/m, '');
+
+  // 3. Find the first '{' and last '}'
+  const start = cleaned.indexOf('{');
+  const end = cleaned.lastIndexOf('}');
+
+  if (start >= 0 && end > start) {
+    return cleaned.slice(start, end + 1);
   }
 
-  return fenced.slice(start, end + 1);
+  // 4. Emergency recovery: If no braces, but we see "story_text": "...", try to wrap it
+  if (cleaned.includes('"story_text"') || cleaned.includes('"legend_overview"')) {
+    let recovered = cleaned;
+    if (!recovered.startsWith('{')) recovered = '{' + recovered;
+    if (!recovered.endsWith('}')) recovered = recovered + '}';
+    return recovered;
+  }
+
+  throw new Error('Gemini response did not contain a JSON object');
 }
 
 function countWords(input: string): number {
@@ -47,14 +71,13 @@ function countWords(input: string): number {
 }
 
 function buildFallbackStoryText(eventTitle: string, teaser: string, rawText: string): LevelOneDetail {
-  const safeSummary = rawText.trim() || teaser || `Dossier generated for ${eventTitle}.`;
-  const safeWitness = teaser || `Witness details were not returned in structured form for ${eventTitle}.`;
-  const safeAnalysis = `Structured AI fields were unavailable, so the raw provider response was preserved for manual review.`;
-
   return {
-    story_text: `Summary\n${safeSummary}\n\nWitness\n${safeWitness}\n\nAnalysis\n${safeAnalysis}`,
-    witness: safeWitness,
-    analysis: safeAnalysis,
+    legend_overview: teaser || `Dossier generated for ${eventTitle}.`,
+    chronological_history: 'Historical data unavailable.',
+    witnesses: [],
+    spectral_analysis: 'Spectral analysis unavailable.',
+    risk_assessment: 'Structured risk assessment unavailable.',
+    image_prompt: ''
   };
 }
 
@@ -75,114 +98,113 @@ async function generateLevelOneDetail(
   const targetLanguageName = LANGUAGE_MAP[langCode] || 'English';
 
   const prompt = `
-[SYSTEM]
-CRITICAL: You are an AI generating a detailed paranormal dossier for a mysterious event.
-TARGET LANGUAGE: ${targetLanguageName}
-You MUST write ALL text strictly in: ${targetLanguageName}
-Do NOT mix languages. Write naturally in ${targetLanguageName}.
+[VAI TRÒ]
+Bạn là một chuyên gia lưu trữ hồ sơ tâm linh và điều tra hiện thực huyền bí (Tactical Spectral Engine Expert).
 
-[EVENT DATA]
-Event Title: ${eventTitle}
-Event Summary: ${teaser}
+[SỰ KIỆN ĐỐI CHIẾU]
+Sự kiện: ${eventTitle}
+Mô tả tóm tắt: ${teaser}
 
-REGIONAL CONTEXT
-Based on the event title and description, determine the cultural region and apply appropriate folklore style:
-- Vietnam: ghost stories, cursed sites, colonial-era hauntings
-- Japan: yūrei, onryō, cursed locations
-- Korea: gumiho, school ghosts, urban horror
-- Europe: medieval curses, castle hauntings, plague legends
-- Americas: La Llorona, highway phantoms, native spirits
-- Other: use locally appropriate paranormal themes
+[NHIỆM VỤ]
+Hãy tạo một tập hồ sơ 'Dữ Liệu Thô' tuyệt mật với độ chi tiết cực cao.
 
-[OUTPUT FORMAT]
-Return valid JSON:
-{
-  "story_text": "Detailed atmospheric narrative (400-600 words). Use regional folklore themes.",
-  "witness": "Anonymous eyewitness testimony in first person.",
-  "analysis": "Researcher notes analyzing the phenomenon with cultural context."
-}
+[YÊU CẦU NỘI DUNG]
+1. Ngôn ngữ: ${targetLanguageName}. (BẮT BUỘC: Sử dụng ${targetLanguageName})
+2. Tông giọng: Lạnh lẽo, u ám, ma mị, gợi cảm giác gai người như hồ sơ thám tử điều tra hiện tượng lạ.
+3. Độ dài: Tổng cộng toàn bộ nội dung PHẢI TRÊN 1000 TỪ. Mỗi phần phải cực kỳ chi tiết, giàu hình ảnh và không khí.
+4. Bối cảnh: Phải thực sự gắn liền với lịch sử văn hóa hoặc bối cảnh thực tế tại địa phương (${eventTitle}).
+5. Cấu trúc hồ sơ:
+   - LEGEND OVERVIEW (Tổng quan huyền thoại): Nguồn gốc cổ xưa, truyền thuyết gắn liền với sự kiện, bối cảnh lịch sử.
+   - CHRONOLOGICAL HISTORY (Lịch sử dòng thời gian): Các mốc thời gian quan trọng, diễn biến sự kiện theo thứ tự.
+   - WITNESSES (Nhân chứng địa phương): Tạo từ 1 đến 3 nhân chứng hư cấu nhưng chân thực. Mỗi nhân chứng bao gồm: tên (name), lời khai chi tiết (testimony - tối thiểu 100 từ, viết ở ngôi thứ nhất, mang tính chân thực cao, gợi sự rùng rợn), và ngày ghi nhận (date).
+   - SPECTRAL ANALYSIS (Phân tích quang phổ): Các thông số đo đạc, giả thuyết tâm linh, phân tích kỹ thuật về mức độ nguy hiểm.
+   - RISK ASSESSMENT (Đánh giá rủi ro): Đánh giá tổng hợp mức độ nguy hiểm và khuyến cáo an toàn.
+6. Hình ảnh: Tạo một câu lệnh (image_prompt) để tạo ảnh phong cách "found-footage" dựa trên mẫu:
+   "Create a mysterious found-footage style photograph related to the event: [EVENT_NAME] at [LOCATION]. Scene: foggy, low light, unsettling. style: grainy, 1990s aesthetic."
 
-[CONSTRAINTS & REFUSAL POLICY]
-- TONE: confidential dossier, investigative, atmospheric.
-- Do NOT use English even if your knowledge base contains English terms for this event.
-- If you output English content, the dossier is considered corrupted/invalid.
-- Do not present supernatural claims as proven fact.
+[ĐẦU RA]
+Trả về định dạng JSON Schema nghiêm ngặt.
 `.trim();
 
-  const result = await callGemini({
-    endpoint: 'expand',
-    prompt,
-    responseMimeType: 'application/json',
-    temperature: 0.3,
-    aiCallsThisRequest: 1,
-    beforeAttempt: async () => {
-      await beforeAiCall?.();
+  const responseSchema = {
+    type: "OBJECT",
+    properties: {
+      legend_overview: { type: "STRING", description: "Tổng quan huyền thoại, nguồn gốc cổ xưa và truyền thuyết (tối thiểu 250 từ)" },
+      chronological_history: { type: "STRING", description: "Lịch sử dòng thời gian, các mốc sự kiện quan trọng (tối thiểu 250 từ)" },
+      witnesses: {
+      type: "ARRAY",
+      minItems: 1,
+      maxItems: 3,
+      items: {
+        type: "OBJECT",
+        properties: {
+          name: { type: "STRING", description: "Tên nhân chứng (hư cấu nhưng chân thực)" },
+          testimony: { type: "STRING", description: "Lời khai chi tiết ở ngôi thứ nhất, tối thiểu 100 từ" },
+          date: { type: "STRING", description: "Ngày ghi nhận lời khai, ví dụ: 15/03/1998" }
+        },
+        required: ["name", "testimony", "date"]
+      }
     },
-  });
-
-  let parsed:
-    | {
-      summary?: unknown;
-      witness?: unknown;
-      analysis?: unknown;
-    }
-    | null = null;
-
-  try {
-    parsed = JSON.parse(extractJsonObject(result.text)) as {
-      summary?: unknown;
-      witness?: unknown;
-      analysis?: unknown;
-    };
-  } catch (error) {
-    logger?.warn(
-      {
-        requestId,
-        errorMessage: error instanceof Error ? error.message : String(error),
-      },
-      'expand.content.parse_failed'
-    );
-    return buildFallbackStoryText(eventTitle, teaser, result.text);
-  }
-
-  const summary =
-    typeof parsed.summary === 'string' && parsed.summary.trim().length > 0
-      ? parsed.summary.trim()
-      : result.text.trim() || teaser || `Dossier generated for ${eventTitle}.`;
-  const witness =
-    typeof parsed.witness === 'string' && parsed.witness.trim().length > 0
-      ? parsed.witness.trim()
-      : teaser || `Witness details were not returned in structured form for ${eventTitle}.`;
-  const analysis =
-    typeof parsed.analysis === 'string' && parsed.analysis.trim().length > 0
-      ? parsed.analysis.trim()
-      : 'Analysis section was missing from the structured provider response.';
-
-  if (
-    (typeof parsed.summary !== 'string' || !parsed.summary.trim()) ||
-    (typeof parsed.witness !== 'string' || !parsed.witness.trim()) ||
-    (typeof parsed.analysis !== 'string' || !parsed.analysis.trim())
-  ) {
-    logger?.warn(
-      { requestId },
-      'expand.content.fields_missing'
-    );
-  }
-
-  const storyText = `Summary\n${summary}\n\nWitness\n${witness}\n\nAnalysis\n${analysis}`;
-  const wordCount = countWords(storyText);
-  if (wordCount < 400 || wordCount > 600) {
-    logger?.warn(
-      { requestId, wordCount },
-      'expand.wordcount.out_of_range'
-    );
-  }
-
-  return {
-    story_text: storyText,
-    witness,
-    analysis,
+    spectral_analysis: { type: "STRING", description: "Phân tích quang phổ, giả thuyết tâm linh, thông số đo đạc (tối thiểu 250 từ)" },
+    risk_assessment: { type: "STRING", description: "Đánh giá rủi ro tổng hợp và khuyến cáo an toàn (tối thiểu 200 từ)" },
+    image_prompt: { type: "STRING", description: "Prompt chi tiết để tạo ảnh theo phong cách found-footage" },
+},
+required: ["legend_overview", "chronological_history", "witnesses", "spectral_analysis", "risk_assessment", "image_prompt"]
   };
+
+const result = await callGemini({
+  endpoint: 'expand',
+  prompt,
+  // Uses GEMINI_MODEL from .env (same model as scan)
+  responseMimeType: 'application/json',
+  responseSchema,
+  temperature: 0.8, // Slightly higher for more eerie creativity
+  maxOutputTokens: 16384, // Ensure enough space for 1000+ words
+  aiCallsThisRequest: 1,
+  beforeAttempt: async () => {
+    await beforeAiCall?.();
+  },
+});
+
+// Log prompt and raw AI response for debugging
+fs.appendFileSync('raw_ai.log', `\n[EXPAND_PROMPT] ${new Date().toISOString()}\n${prompt}\n---\n`);
+fs.appendFileSync('raw_ai.log', `[EXPAND_RAW_RESPONSE] ${new Date().toISOString()}\n${result.text}\n---\n`);
+
+let parsed: Partial<LevelOneDetail> | null = null;
+
+try {
+  parsed = JSON.parse(extractJsonObject(result.text)) as Partial<LevelOneDetail>;
+} catch (error) {
+  logger?.warn(
+    {
+      requestId,
+      errorMessage: error instanceof Error ? error.message : String(error),
+    },
+    'expand.content.parse_failed'
+  );
+  return buildFallbackStoryText(eventTitle, teaser, result.text);
+}
+
+const getStr = (val: unknown, fallback: string) =>
+  typeof val === 'string' && val.trim().length > 0 ? val.trim() : fallback;
+
+// Parse witnesses array
+const witnesses: Witness[] = Array.isArray((parsed as any).witnesses)
+  ? (parsed as any).witnesses.map((w: any) => ({
+    name: typeof w.name === 'string' ? w.name : 'Nhân chứng ẩn danh',
+    testimony: typeof w.testimony === 'string' ? w.testimony : '',
+    date: typeof w.date === 'string' ? w.date : 'Không rõ ngày',
+  }))
+  : [];
+
+return {
+  legend_overview: getStr(parsed.legend_overview, `Dossier generated for ${eventTitle}.`),
+  chronological_history: getStr(parsed.chronological_history, 'Historical data unavailable.'),
+  witnesses,
+  spectral_analysis: getStr(parsed.spectral_analysis, 'No spectral analysis.'),
+  risk_assessment: getStr(parsed.risk_assessment, 'Unknown risk.'),
+  image_prompt: getStr(parsed.image_prompt, ''),
+};
 }
 
 export async function getEventWithLevelOneDetail(eventId: string) {
@@ -230,8 +252,10 @@ export async function expandEventLevelOne(
 ) {
   const event = await prisma.events.findUnique({ where: { id: eventId } });
   if (!event) {
+    console.warn(`[DEBUG_EXPAND] Event not found in DB: id=${eventId}`);
     return { notFound: true as const };
   }
+  console.info(`[DEBUG_EXPAND] Event found in DB: id=${eventId}`);
 
   const existing = await prisma.event_details.findFirst({
     where: {
@@ -279,16 +303,19 @@ export async function expandEventLevelOne(
       event_id: eventId,
       level: 1,
       lang: lang,
-      story_text: detail.story_text,
-      witness: detail.witness,
-      analysis: detail.analysis,
+      story_text: detail.legend_overview,
+      witness: detail.chronological_history,
+      analysis: detail.spectral_analysis,
       generated_at: new Date(),
       detail: {
         level: 1,
         lang: lang,
-        story_text: detail.story_text,
-        witness: detail.witness,
-        analysis: detail.analysis,
+        legend_overview: detail.legend_overview,
+        chronological_history: detail.chronological_history,
+        witnesses: detail.witnesses,
+        spectral_analysis: detail.spectral_analysis,
+        risk_assessment: detail.risk_assessment,
+        image_prompt: detail.image_prompt,
       },
     },
   });

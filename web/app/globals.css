@@ -251,14 +251,18 @@ body {
   z-index: 5;
   background: conic-gradient(from -60deg,
       transparent 0deg,
-      rgba(0, 255, 65, 0.02) 1deg,
-      rgba(0, 255, 65, 0.08) 20deg,
-      rgba(0, 255, 65, 0.20) 40deg,
-      rgba(0, 255, 65, 0.45) 60deg,
+      rgba(0, 255, 65, 0.15) 1deg,
+      rgba(0, 255, 65, 0.35) 25deg,
+      rgba(0, 255, 65, 0.55) 45deg,
+      rgba(0, 255, 65, 0.75) 60deg,
       transparent 61deg);
   mix-blend-mode: screen;
   pointer-events: none;
   will-change: transform;
+  box-shadow:
+    0 0 30px 5px rgba(0, 255, 65, 0.2),
+    0 0 60px 10px rgba(0, 255, 65, 0.1),
+    0 0 90px 20px rgba(0, 255, 65, 0.05);
 }
 
 .user-dot {

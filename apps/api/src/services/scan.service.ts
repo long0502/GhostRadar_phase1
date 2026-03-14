@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import { randomUUID } from 'crypto';
 import { z } from 'zod';
 import { prisma } from '../db/prisma';
@@ -33,11 +34,16 @@ const aiEventSchema = z.object({
   type: z.string().min(1),
   lat: z.number(),
   lon: z.number(),
-  teaser: z.string().min(1).max(140),
+  teaser: z.string().min(1).max(2000), // Increased for ~50 word descriptions
   danger_level: z.number().int().min(1).max(5),
+  signal_strength: z.enum(['Low', 'Medium', 'High', 'Critical']).optional(),
+  legend_type: z.string().optional(),
+  tagline: z.string().optional(),
+  last_seen: z.string().optional(),
+  danger_level_text: z.string().optional(), // New field from user schema
 });
 
-const aiEventArraySchema = z.array(aiEventSchema).min(20).max(80);
+const aiEventArraySchema = z.array(aiEventSchema).max(80);
 
 type PersistedScanEvent = {
   id: string;
@@ -51,6 +57,10 @@ type PersistedScanEvent = {
   danger_level: number;
   has_detail: boolean;
   created_at: string;
+  signal_strength?: 'Low' | 'Medium' | 'High' | 'Critical';
+  legend_type?: string;
+  tagline?: string;
+  last_seen?: string;
 };
 
 type GridCachePayload = {
@@ -75,77 +85,6 @@ function extractJsonArray(text: string): string {
   return fenced.slice(start, end + 1);
 }
 
-function buildSyntheticEvents(
-  count: number,
-  gridId: string,
-  centerLat: number,
-  centerLon: number,
-  radiusKm: number,
-  lang: string = 'en'
-): PersistedScanEvent[] {
-  const templatesByLang: Record<string, { title: string; localizedTitle: string; teaser: string; type: string; danger_level: number }[]> = {
-    en: [
-      { title: 'Unverified alley assault report', localizedTitle: 'Unverified alley assault report', type: 'murder', teaser: 'Witness chatter points to a violent incident near a narrow side street.', danger_level: 5 },
-      { title: 'Bridge collision aftermath', localizedTitle: 'Bridge collision aftermath', type: 'accident', teaser: 'Traffic cameras suggest a late-night pile-up and scattered debris field.', danger_level: 3 },
-      { title: 'Abandoned clinic disturbance', localizedTitle: 'Abandoned clinic disturbance', type: 'abandoned_hospital', teaser: 'Locals report lights and movement inside a shuttered medical building.', danger_level: 2 },
-      { title: 'Riverfront rumor cluster', localizedTitle: 'Riverfront rumor cluster', type: 'local_rumor', teaser: 'Multiple anonymous tips describe unusual sounds and missing property.', danger_level: 2 },
-      { title: 'Warehouse fire scare', localizedTitle: 'Warehouse fire scare', type: 'disaster', teaser: 'Emergency chatter flagged smoke and panic around an aging storage block.', danger_level: 4 },
-      { title: 'Unsolved block incident', localizedTitle: 'Unsolved block incident', type: 'unsolved_crime', teaser: 'Residents continue to circulate conflicting accounts of a still-open case.', danger_level: 4 },
-    ],
-    vi: [
-      { title: 'Báo cáo hành hung hẻm vắng', localizedTitle: 'Báo cáo hành hung hẻm vắng', type: 'murder', teaser: 'Nhân chứng cho biết có xô xát cực kỳ nghiêm trọng tại một con hẻm nhỏ.', danger_level: 5 },
-      { title: 'Hiện trường va chạm trên cầu', localizedTitle: 'Hiện trường va chạm trên cầu', type: 'accident', teaser: 'Camera giao thông ghi nhận vụ tai nạn liên hoàn và mảnh vỡ rải rác.', danger_level: 3 },
-      { title: 'Tiếng động lạ tại phòng khám bỏ hoang', localizedTitle: 'Tiếng động lạ tại phòng khám bỏ hoang', type: 'abandoned_hospital', teaser: 'Người dân báo cáo thấy ánh sáng và chuyển động bên trong tòa nhà cũ.', danger_level: 2 },
-      { title: 'Lời đồn ven sông', localizedTitle: 'Lời đồn ven sông', type: 'local_rumor', teaser: 'Nhiều tin báo nặc danh về âm thanh lạ và sự mất tích bí ẩn.', danger_level: 2 },
-      { title: 'Báo động cháy kho bãi', localizedTitle: 'Báo động cháy kho bãi', type: 'disaster', teaser: 'Tin báo khẩn cấp về khói và sự hỗn loạn quanh khu vực kho cũ.', danger_level: 4 },
-      { title: 'Vụ án chưa có lời giải', localizedTitle: 'Vụ án chưa có lời giải', type: 'unsolved_crime', teaser: 'Cư dân vẫn đang bàn tán về những tình tiết mâu thuẫn của vụ án còn bỏ ngỏ.', danger_level: 4 },
-    ],
-    ja: [
-      { title: '未確認の路地裏での暴行報告', localizedTitle: '未確認の路地裏での暴行報告', type: 'murder', teaser: '目撃者の証言によると、狭い脇道付近で激しい事件が発生したようです。', danger_level: 5 },
-      { title: '橋の上での衝突事故', localizedTitle: '橋の上での衝突事故', type: 'accident', teaser: '交通カメラは深夜の多重衝突と散乱した破片を捉えています.', danger_level: 3 },
-      { title: '廃院での不穏な動き', localizedTitle: '廃院での不穏な動き', type: 'abandoned_hospital', teaser: '閉鎖された医療ビル内で、明かりや人影が目撃されています。', danger_level: 2 },
-      { title: '川沿いの噂', localizedTitle: '川沿いの噂', type: 'local_rumor', teaser: '不審な音や行方不明者に関する複数の匿名情報が寄せられています。', danger_level: 2 },
-      { title: '倉庫火災のパニック', localizedTitle: '倉庫火災のパニック', type: 'disaster', teaser: '古い倉庫街周辺で、煙と混乱が確認されました。', danger_level: 4 },
-      { title: '未解決の区画事件', localizedTitle: '未解決の区画事件', type: 'unsolved_crime', teaser: '住民の間で、未だ解決していない事件の噂が絶えません。', danger_level: 4 },
-    ],
-    ko: [
-      { title: '미확인 골목길 폭행 보고', localizedTitle: '미확인 골목길 폭행 보고', type: 'murder', teaser: '목격자들에 따르면 좁은 샛길 근처에서 격렬한 사건이 발생했습니다.', danger_level: 5 },
-      { title: '다리 위 충돌 사고 여파', localizedTitle: '다리 위 충돌 사고 여파', type: 'accident', teaser: '교통 카메라는 심야의 다중 충돌과 흩어진 잔해를 포착했습니다.', danger_level: 3 },
-      { title: '폐쇄된 병원의 이상 징후', localizedTitle: '폐쇄된 병원의 이상 징후', type: 'abandoned_hospital', teaser: '폐쇄된 의료 건물 내부에서 불빛과 움직임이 보고되었습니다.', danger_level: 2 },
-      { title: '강변의 괴소문', localizedTitle: '강변의 괴소문', type: 'local_rumor', teaser: '수상한 소리와 실종자 발생에 대한 여러 익명의 제보가 있었습니다.', danger_level: 2 },
-      { title: '창고 화재 경보', localizedTitle: '창고 화재 경보', type: 'disaster', teaser: '노후된 저장 창고 주변에서 연기와 혼란이 감지되었습니다.', danger_level: 4 },
-      { title: '미해결 블록 사건', localizedTitle: '미해결 블록 사건', type: 'unsolved_crime', teaser: '주민들 사이에서 여전히 해결되지 않은 사건에 대한 이야기가 돌고 있습니다.', danger_level: 4 },
-    ],
-    zh: [
-      { title: '未经证实的巷弄袭击报告', localizedTitle: '未经证实的巷弄袭击报告', type: 'murder', teaser: '目击者称，在狭窄的侧街附近发生了暴力事件。', danger_level: 5 },
-      { title: '大桥碰撞事故现场', localizedTitle: '大桥碰撞事故现场', type: 'accident', teaser: '交通摄像头记录了深夜的全环撞击和散落的碎片。', danger_level: 3 },
-      { title: '废弃诊所的异常动态', localizedTitle: '废弃诊所的异常动态', type: 'abandoned_hospital', teaser: '据报在关闭的医疗大楼内发现灯光和人影。', danger_level: 2 },
-      { title: '河畔传闻集散地', localizedTitle: '河畔传闻集散地', type: 'local_rumor', teaser: '多个匿名举报称听到了异常声音并有财物失踪。', danger_level: 2 },
-      { title: '仓库火灾惊魂', localizedTitle: '仓库火灾惊魂', type: 'disaster', teaser: '紧急呼叫显示老旧仓储区附近出现浓烟和恐慌。', danger_level: 4 },
-      { title: '未解决的街区案件', localizedTitle: '未解决的街区案件', type: 'unsolved_crime', teaser: '居民们仍在议论这起尚未结案、细节矛盾的案件。', danger_level: 4 },
-    ],
-  };
-
-  const templates = templatesByLang[lang] || templatesByLang['en'];
-
-  return Array.from({ length: count }, (_, index) => {
-    const template = templates[index % templates.length];
-    const point = rerollPointWithinRadius(centerLat, centerLon, radiusKm);
-    return {
-      id: randomUUID(),
-      grid_id: gridId,
-      title: `${template.title} #${index + 1}`,
-      localizedTitle: `${template.localizedTitle} #${index + 1}`,
-      type: template.type,
-      lat: point.lat,
-      lon: point.lon,
-      teaser: template.teaser,
-      danger_level: template.danger_level,
-      has_detail: false,
-      created_at: new Date().toISOString(),
-    };
-  });
-}
 
 function sanitizeAiEvents(raw: unknown): unknown {
   if (!Array.isArray(raw)) {
@@ -153,23 +92,58 @@ function sanitizeAiEvents(raw: unknown): unknown {
   }
 
   return raw.map((event) => {
+    console.log('[SCAN] Processing AI event through Cleaver V5...');
     if (!event || typeof event !== 'object') {
       return event;
     }
 
     const record = event as Record<string, unknown>;
-    // Support both user's suggested naming and old naming for robustness
-    const title = (record.title || record.name) as string;
-    const localizedTitle = (record.localizedTitle || title) as string;
+    const title = (record.name || record.title || record.localizedTitle || record.ten_su_kien) as string || 'Unknown Event';
+    const type = (record.type as string || record.loai as string)?.toUpperCase() || 'RUMOR';
+
+    let lat = Number(record.latitude ?? record.lat);
+    let lon = Number(record.longitude ?? record.lon);
+    if (record.toa_do && typeof record.toa_do === 'object') {
+      const td = record.toa_do as any;
+      if (typeof td.latitude === 'number') lat = td.latitude;
+      if (typeof td.longitude === 'number') lon = td.longitude;
+      if (typeof td.lat === 'number') lat = td.lat;
+      if (typeof td.lon === 'number') lon = td.lon;
+    }
+
+    const teaser = (record.description || record.teaser || record.tagline || record.mo_ta) as string;
+    const severity = Number(record.severity ?? record.danger_level ?? record.muc_do);
+
+    let sanitizedTeaser = teaser?.trim() || '';
+
+    // HEURISTIC: If it doesn't end in punctuation, it's likely truncated
+    if (sanitizedTeaser && !/[.!?]$/.test(sanitizedTeaser)) {
+      // Find all complete sentences
+      const sentences = sanitizedTeaser.match(/[^.!?]+[.!?]/g);
+
+      if (sentences && sentences.length > 0) {
+        sanitizedTeaser = sentences.join(' ').replace(/\s+/g, ' ').trim();
+        console.warn(`[SCAN] SUCCESS: Cleaved truncated teaser for "${title}": "${teaser.substring(0, 50)}..." -> "${sanitizedTeaser.substring(0, 50)}..."`);
+      } else if (sanitizedTeaser.length > 30) {
+        // If no complete sentence but significant length, add ellipsis
+        sanitizedTeaser = sanitizedTeaser + '...';
+        console.warn(`[SCAN] WARNING: Added ellipsis to truncated teaser for "${title}"`);
+      }
+    }
 
     return {
       title,
-      localizedTitle,
-      type: (record.type as string)?.toLowerCase(),
-      lat: Number(record.latitude || record.lat),
-      lon: Number(record.longitude || record.lon),
-      teaser: typeof record.teaser === 'string' ? record.teaser.slice(0, 140) : record.teaser,
-      danger_level: Number(record.severity || record.danger_level),
+      localizedTitle: title,
+      type: type.toLowerCase(),
+      lat,
+      lon,
+      teaser: sanitizedTeaser,
+      danger_level: isNaN(severity) ? 3 : severity,
+      signal_strength: record.signal_strength || (severity >= 4 ? 'High' : severity >= 2 ? 'Medium' : 'Low'),
+      legend_type: type,
+      tagline: sanitizedTeaser,
+      last_seen: record.last_seen || 'Recently detected',
+      danger_level_text: severity >= 5 ? 'Extreme' : severity >= 4 ? 'High' : severity >= 3 ? 'Medium' : severity >= 2 ? 'Low' : 'Normal',
     };
   });
 }
@@ -298,41 +272,8 @@ function rebalanceEventSpread<T extends { lat: number; lon: number }>(
   return nextEvents;
 }
 
-function getDensityTargets(radiusKm: number): { targetMin: number; targetMax: number; targetCount: number } {
-  if (radiusKm <= 5) {
-    return { targetMin: 20, targetMax: 40, targetCount: 30 };
-  }
-
-  if (radiusKm >= 10) {
-    return { targetMin: 40, targetMax: 80, targetCount: 60 };
-  }
-
-  return { targetMin: 30, targetMax: 60, targetCount: 45 };
-}
 
 
-function ensureEventDensity(
-  events: PersistedScanEvent[],
-  gridId: string,
-  centerLat: number,
-  centerLon: number,
-  radiusKm: number,
-  lang: string = 'en'
-): { events: PersistedScanEvent[]; syntheticEvents: PersistedScanEvent[] } {
-  const { targetMin, targetMax, targetCount } = getDensityTargets(radiusKm);
-  if (events.length >= targetMin) {
-    return {
-      events: events.slice(0, targetMax),
-      syntheticEvents: [],
-    };
-  }
-
-  const syntheticEvents = buildSyntheticEvents(targetCount - events.length, gridId, centerLat, centerLon, radiusKm, lang);
-  return {
-    events: [...events, ...syntheticEvents].slice(0, targetMax),
-    syntheticEvents,
-  };
-}
 
 function isEventRecord(value: unknown): value is PersistedScanEvent {
   return Boolean(
@@ -358,50 +299,40 @@ async function generateWithGemini(
 ): Promise<z.infer<typeof aiEventArraySchema>> {
   const targetLanguageName = LANGUAGE_MAP[langCode] || 'English';
 
-  const prompt = `
-[SYSTEM]
-CRITICAL: You are an AI assistant generating paranormal radar scan events.
-TARGET LANGUAGE: ${targetLanguageName}
-You MUST write ALL fields ("title", "localizedTitle", "teaser") EXCLUSIVELY in ${targetLanguageName}. 
-Do NOT use English or any other language for these fields, EVEN if your search results are in English.
-
-[LOCATION CONTEXT]
-City/Region: Detected from (${lat.toFixed(4)}, ${lon.toFixed(4)})
-Scan Radius: ${radiusKm}km
-
-[FOLKLORE STYLE GUIDE]
-Apply cultural themes based on the region:
-- Vietnam: tâm linh, hẻm ma, bệnh viện cũ, truyền thuyết dân gian
-- Japan: yūrei, yokai, cursed locations, urban legends
-- Europe: medieval curses, haunted castles, plague history
-- Americas: local spirits, native legends, highway phantoms
-- Other: Use common local paranormal myths
-
-[OUTPUT RULES]
-1. Return a JSON array of at least 20 events.
-2. FIELDS: 
-   - "title": (string) Short title in ${targetLanguageName}
-   - "localizedTitle": (string) IDENTICAL to "title"
-   - "type": (string) Category (e.g. ghost, curse, anomaly)
-   - "lat", "lon": (numbers) Real coordinates within ${radiusKm}km
-   - "teaser": (string) 2-3 atmospheric sentences in ${targetLanguageName}
-   - "danger_level": (int 1-5)
-
-[CONSTRAINTS & REFUSAL POLICY]
-- NO English words in ${targetLanguageName} output (except proper names where absolutely necessary, but translate them if a localized version exists).
-- If your internal search results (Google Search) are in English, you MUST translate the findings into ${targetLanguageName}.
-- If you output English content for title or teaser, the request is a COMPLETE FAILURE.
-- Use REAL local landmark names.
-- Temperature is high, be creative but stay atmospheric.
-`.trim();
+  const prompt = [
+    `ACT AS A MULTI-LAYER DATA SCANNING SYSTEM.`,
+    `Search for all points with traces of spiritual activity, accidents, and murders within a ${radiusKm}km radius around coordinates (${lat.toFixed(4)}, ${lon.toFixed(4)}).`,
+    `Scan: Accident black spots, murder records, urban legends, local rumors.`,
+    ``,
+    `CONSTRAINTS:`,
+    `- Based on real data or local history only. Do NOT fabricate events.`,
+    `- Accidents (ACCIDENT) MUST involve spiritual elements or unexplained phenomena.`,
+    `- Coordinates must be within ${radiusKm}km from center.`,
+    `- Do NOT copy snippets verbatim. Rewrite as a complete story ending with a period.`,
+    `- LANGUAGE: ALL "name" and "description" values MUST be written in ${targetLanguageName}. This is MANDATORY.`,
+    ``,
+    `Return a JSON array:`,
+    `\`\`\`json`,
+    `[{"name", "type", "description", "latitude", "longitude", "severity"}]`,
+    `\`\`\``,
+    `Fields:`,
+    `- "name": Event name (in ${targetLanguageName})`,
+    `- "type": One of ["GHOST", "MURDER", "ACCIDENT", "RUMOR"]`,
+    `- "description": Description in ${targetLanguageName}, last sentence MUST end with a period`,
+    `- "latitude": Latitude (number)`,
+    `- "longitude": Longitude (number)`,
+    `- "severity": Danger level 1-5 (number)`,
+  ].join('\n');
 
   aiCallCount += 1;
   console.log('Gemini Scan Prompt:', prompt);
+
   const result = await callGemini({
     endpoint: 'scan',
     prompt,
-    responseMimeType: 'text/plain',
-    temperature: 0.7, // Higher temperature for better creative localization
+    responseMimeType: 'text/plain', // Tools (Google Search) don't support application/json yet
+    temperature: 0.2, // Minimized creativity to prevent generic hallucinations
+    maxOutputTokens: 8192,
     aiCallsThisRequest: 1,
     usageContext,
     tools: [
@@ -411,7 +342,35 @@ Apply cultural themes based on the region:
     ],
   });
 
-  const parsedRaw = sanitizeAiEvents(JSON.parse(extractJsonArray(result.text)));
+  fs.appendFileSync('raw_ai.log', `[RAW_AI_RESPONSE] ${new Date().toISOString()}\n${result.text}\n---\n`);
+
+  console.log('GEMINI_RAW_RESPONSE_LENGTH:', result.text?.length);
+  console.log('GEMINI_RAW_RESPONSE_PREVIEW:', result.text?.substring(0, 500));
+  const jsonText = extractJsonArray(result.text);
+  const rawJson = JSON.parse(jsonText);
+  let eventsList: any[] = [];
+  if (Array.isArray(rawJson)) {
+    eventsList = rawJson;
+  } else if (rawJson && typeof rawJson === 'object' && Array.isArray(rawJson.events)) {
+    eventsList = rawJson.events;
+  } else if (rawJson && typeof rawJson === 'object') {
+    eventsList = [rawJson];
+  }
+
+  console.log(`[DEBUG] Raw Gemini Events (${eventsList.length}):`, JSON.stringify(eventsList, null, 2));
+
+  // Enhanced de-duplication: check for similar base names (ignoring numbers)
+  const seenBases = new Set<string>();
+  eventsList = eventsList.filter((e: any) => {
+    const rawName = String(e.name || e.title || '').trim();
+    // Remove # and following numbers for base comparison
+    const baseName = rawName.replace(/#\d+$/, '').toLowerCase().trim();
+    if (!baseName || seenBases.has(baseName)) return false;
+    seenBases.add(baseName);
+    return true;
+  });
+
+  const parsedRaw = sanitizeAiEvents(eventsList);
   const allGenerated = aiEventArraySchema.parse(parsedRaw);
 
   // STRICT FILTERING: Keep only events within radius
@@ -434,10 +393,14 @@ function toPersistedEvents(gridId: string, events: z.infer<typeof aiEventArraySc
     type: event.type,
     lat: event.lat,
     lon: event.lon,
-    teaser: event.teaser.slice(0, 140),
+    teaser: event.teaser,
     danger_level: event.danger_level,
     has_detail: false,
     created_at: createdAt,
+    signal_strength: event.signal_strength,
+    legend_type: event.legend_type,
+    tagline: event.tagline,
+    last_seen: event.last_seen,
   }));
 }
 
@@ -507,25 +470,13 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
           'scan.db.events.load.done'
         );
         if (cachedEvents !== null) {
-          const densityAdjustedCachedEvents = ensureEventDensity(
-            rebalanceEventSpread(normalizeEventCoordinates(cachedEvents.filter(isEventRecord), lat, lon, radiusKm), lat, lon, radiusKm),
-            gridId,
+          const events = rebalanceEventSpread(
+            normalizeEventCoordinates(cachedEvents.filter(isEventRecord), lat, lon, radiusKm),
             lat,
             lon,
-            radiusKm,
-            lang
+            radiusKm
           );
-          if (densityAdjustedCachedEvents.syntheticEvents.length > 0) {
-            logger?.info(
-              {
-                requestId,
-                gridId,
-                syntheticAddedCount: densityAdjustedCachedEvents.syntheticEvents.length,
-                syntheticTitles: densityAdjustedCachedEvents.syntheticEvents.slice(0, 5).map((event) => event.title),
-              },
-              'scan.density.synthetic.cache'
-            );
-          }
+
           globalStats.cache_hit_count += 1;
           console.log('[DEBUG_METRICS]', globalStats);
           console.log(`cache_hit grid_id=${gridId} ai_call_count=${aiCallCount}`);
@@ -534,8 +485,8 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
             cacheStatus: 'HIT',
             response: {
               grid_id: gridId,
-              events: densityAdjustedCachedEvents.events,
-              events_json: densityAdjustedCachedEvents.events,
+              events,
+              events_json: events,
             },
           };
         }
@@ -597,7 +548,8 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
     const generated = await generateWithGemini(lat, lon, radiusKm, lang, usageContext);
     logger?.info({ requestId, gridId, generatedEventCount: generated.length }, 'scan.ai.done');
     events = toPersistedEvents(gridId, generated);
-  } catch (error) {
+  } catch (error: any) {
+    fs.appendFileSync('scan_debug.log', `[SCAN_AI_ERROR] ${new Date().toISOString()} ${error.message}\n${error.stack}\n`);
     if (isAiDailyQuotaExceededError(error)) {
       throw error;
     }
@@ -612,55 +564,58 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
       },
       'scan.ai.failed'
     );
-    events = buildSyntheticEvents(10, gridId, lat, lon, radiusKm, lang);
-    logger?.warn({ requestId, gridId, fallbackEventCount: events.length }, 'scan.ai.fallback');
+    events = [];
   }
 
   // Step 3 — Remove center bias
   // Events are now distributed naturally based on their real coordinates
   // without any artificial rebalancing, normalizing, or density packing.
 
-  if (events.length > 0) {
-    logger?.info({ requestId, gridId, eventCount: events.length }, 'scan.db.events.insert.start');
-    await prisma.events.createMany({
-      data: events.map((event) => ({
-        id: event.id,
-        grid_id: event.grid_id,
-        event_type: event.type,
-        event_data: event,
-        has_detail: false,
-      })),
-    });
-    logger?.info({ requestId, gridId, eventCount: events.length }, 'scan.db.events.insert.done');
-  }
-
   const expiresAt = new Date(Date.now() + CACHE_TTL_HOURS * 60 * 60 * 1000);
-  logger?.info({ requestId, gridId, expiresAt }, 'scan.db.cache.upsert.start');
-  await prisma.grid_cache.upsert({
-    where: { grid_id: gridId },
-    update: {
-      data: {
-        lat_center: Number(lat.toFixed(2)),
-        lon_center: Number(lon.toFixed(2)),
-        radius_km: Number(radiusKm.toFixed(2)),
-        language: lang,
-        event_ids: events.map((event) => event.id),
+
+  await prisma.$transaction(async (tx) => {
+    if (events.length > 0) {
+      logger?.info({ requestId, gridId, eventCount: events.length }, 'scan.db.events.insert.start');
+      await tx.events.createMany({
+        data: events.map((event) => ({
+          id: event.id,
+          grid_id: event.grid_id,
+          event_type: event.type,
+          event_data: event,
+          has_detail: false,
+        })),
+        skipDuplicates: true,
+      });
+      logger?.info({ requestId, gridId, eventCount: events.length }, 'scan.db.events.insert.done');
+    }
+
+    logger?.info({ requestId, gridId, expiresAt }, 'scan.db.cache.upsert.start');
+    await tx.grid_cache.upsert({
+      where: { grid_id: gridId },
+      update: {
+        data: {
+          lat_center: Number(lat.toFixed(2)),
+          lon_center: Number(lon.toFixed(2)),
+          radius_km: Number(radiusKm.toFixed(2)),
+          language: lang,
+          event_ids: events.map((event) => event.id),
+        },
+        expires_at: expiresAt,
       },
-      expires_at: expiresAt,
-    },
-    create: {
-      grid_id: gridId,
-      data: {
-        lat_center: Number(lat.toFixed(2)),
-        lon_center: Number(lon.toFixed(2)),
-        radius_km: Number(radiusKm.toFixed(2)),
-        language: lang,
-        event_ids: events.map((event) => event.id),
+      create: {
+        grid_id: gridId,
+        data: {
+          lat_center: Number(lat.toFixed(2)),
+          lon_center: Number(lon.toFixed(2)),
+          radius_km: Number(radiusKm.toFixed(2)),
+          language: lang,
+          event_ids: events.map((event) => event.id),
+        },
+        expires_at: expiresAt,
       },
-      expires_at: expiresAt,
-    },
+    });
+    logger?.info({ requestId, gridId }, 'scan.db.cache.upsert.done');
   });
-  logger?.info({ requestId, gridId }, 'scan.db.cache.upsert.done');
 
   console.log(`cache_miss grid_id=${gridId} ai_call_count=${aiCallCount} ai_calls_this_scan=${aiCallsThisScan}`);
   return {

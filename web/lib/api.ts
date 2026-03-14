@@ -63,3 +63,10 @@ export async function expandEvent(eventId: string, lang: string = 'en'): Promise
 
   return parseJson<EventDetail>(response);
 }
+
+export async function clearRegistry(): Promise<{ success: boolean; message: string }> {
+  const response = await fetch(`${API_BASE_URL}/grid-cache/clear`, {
+    method: 'DELETE',
+  });
+  return parseJson<{ success: boolean; message: string }>(response);
+}

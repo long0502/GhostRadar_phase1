@@ -17,6 +17,7 @@ export async function createApp() {
 
   await app.register(cors, {
     origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     exposedHeaders: ['X-Cache'],
   });
   await app.register(rateLimit, {

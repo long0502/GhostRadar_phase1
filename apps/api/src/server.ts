@@ -1,21 +1,27 @@
-import { createApp } from './app.js';
+import * as fs from 'fs';
+import * as path from 'path';
+import { createApp } from './app';
 import { config } from 'dotenv';
-import gridCacheRoutes from './routes/gridCache.js';
-import scanRoutes from './routes/scan.js';
-import eventsRoutes from './routes/events.js';
-import aiHealthRoutes from './routes/aiHealth.js';
+import gridCacheRoutes from './routes/gridCache';
+import scanRoutes from './routes/scan';
+import eventsRoutes from './routes/events';
+import aiHealthRoutes from './routes/aiHealth';
 import { Prisma } from '@prisma/client';
 import { ZodError } from 'zod';
-import { getGeminiModel, getPort } from './utils/env.js';
+import { getGeminiModel, getPort } from './utils/env';
 import {
   cleanupAiUsageDailyRetention,
   ensureAiQuotaPolicyDefaults,
   isAiDailyQuotaExceededError,
 } from './services/quota.service.js';
 
+// Ensure cwd is always the api root (apps/api) so relative paths work
+const apiRoot = path.resolve(__dirname, '..');
+process.chdir(apiRoot);
+
 config();
 const geminiModel = getGeminiModel();
-console.log(`Environment loaded: GEMINI_MODEL=${geminiModel}`);
+console.log(`Environment loaded: GEMINI_MODEL=${geminiModel}, CWD=${process.cwd()}`);
 
 const port = getPort();
 
@@ -27,6 +33,7 @@ async function start() {
   });
 
   app.setErrorHandler((error, request, reply) => {
+    fs.appendFileSync('server_debug.log', `[API_ERROR] ${new Date().toISOString()} ${JSON.stringify(error, null, 2)}\n`);
     request.log.error(
       {
         err: error,

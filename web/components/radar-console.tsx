@@ -1,11 +1,14 @@
 'use client';
 
-import { memo, useEffect, useMemo, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ActionBar } from '@/components/action-bar';
-import { BottomSheet } from '@/components/bottom-sheet';
+import { SummaryPanel } from '@/components/SummaryPanel';
+import { FullProfileModal } from '@/components/FullProfileModal';
+import { LoadingProfile } from '@/components/LoadingProfile';
+import { getProfileFromCache, saveProfileToCache, DetailedProfile } from '@/lib/profileCache';
 import { OSMMap } from '@/components/osm-map';
 import { Radar } from '@/components/Radar';
-import { scanArea } from '@/lib/api';
+import { scanArea, expandEvent, clearRegistry } from '@/lib/api';
 import type { RadarEvent } from '@/lib/types';
 import { useRadarAudio } from '@/hooks/useRadarAudio';
 import { useTranslation } from '@/i18n/useTranslation';
@@ -84,11 +87,31 @@ const RadarScope = memo(function RadarScope({
           </div>
         </div>
         <div className="radar-rings" aria-hidden="true">
+          <svg width="0" height="0" className="absolute pointer-events-none">
+            <defs>
+              <filter id="radar-glow" x="-50%" y="-50%" width="200%" height="200%">
+                {/* Wide soft bloom layer — creates the large diffuse neon halo */}
+                <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="wideBlur" />
+                <feColorMatrix in="wideBlur" type="matrix" result="brightBlur"
+                  values="1.1 0 0 0 0
+                          0 1.4 0 0 0.02
+                          0 0 1.1 0 0
+                          0 0 0 1.0 0" />
+                {/* Tighter glow layer — retains the sweep edge sharpness */}
+                <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="tightBlur" />
+                <feMerge>
+                  <feMergeNode in="brightBlur" />
+                  <feMergeNode in="tightBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+          </svg>
           <div className="radar-ring radar-ring-30" />
           <div className="radar-ring radar-ring-60" />
           <div className="radar-ring radar-ring-90" />
         </div>
-        <div ref={sweepRef} className="radar-sweep" />
+        <div ref={sweepRef} className="radar-sweep" style={{ filter: 'url(#radar-glow)' }} />
         <Radar
           userLocation={userLocation}
           events={events}
@@ -113,10 +136,15 @@ export function RadarConsole() {
   const [isScanning, setIsScanning] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [showLabels, setShowLabels] = useState(false);
-  const [sheetOpen, setSheetOpen] = useState(false);
+  const [summaryOpen, setSummaryOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isLoadingProfile, setIsLoadingProfile] = useState(false);
+  const [currentProfile, setCurrentProfile] = useState<DetailedProfile | null>(null);
   const [scanRadiusKm, setScanRadiusKm] = useState<number>(DEFAULT_SCAN_RADIUS_KM);
   const [rotation, setRotation] = useState(0);
   const [isTurbo, setIsTurbo] = useState(false);
+  const [forceRefresh, setForceRefresh] = useState(false);
+  const [clearStatus, setClearStatus] = useState<string | null>(null);
   const sweepRotationRef = useRef(0);
 
   const { t } = useTranslation();
@@ -237,7 +265,7 @@ export function RadarConsole() {
     const startTime = Date.now();
 
     try {
-      const { data, cacheStatus } = await scanArea(geoState.lat, geoState.lon, radiusKm, language, force);
+      const { data, cacheStatus } = await scanArea(geoState.lat, geoState.lon, radiusKm, language, force || forceRefresh);
       const elapsed = Date.now() - startTime;
       console.log(`[RadarConsole] API Response received in ${elapsed}ms. Cache Status:`, cacheStatus);
 
@@ -262,9 +290,11 @@ export function RadarConsole() {
 
       const nextEvents = data.events_json?.length ? data.events_json : data.events;
       setEvents(nextEvents);
-      setSelectedEventId(nextEvents[0]?.id ?? null);
+      // We no longer auto-select or auto-open
+      // setSelectedEventId(nextEvents[0]?.id ?? null);
+      // setSummaryOpen(nextEvents.length > 0);
       setScanRadiusKm(radiusKm);
-      setSheetOpen(nextEvents.length > 0);
+      setForceRefresh(false);
     } catch (error) {
       setErrorMessage(error instanceof Error ? error.message : 'Scan request failed.');
     } finally {
@@ -272,11 +302,27 @@ export function RadarConsole() {
     }
   }
 
-  function handleClear() {
+  const handleBlipClick = useCallback((eventId: string) => {
+    setSelectedEventId(eventId);
+    setSummaryOpen(true);
+  }, []);
+
+  async function handleClear() {
     setEvents([]);
     setSelectedEventId(null);
-    setSheetOpen(false);
+    setSummaryOpen(false);
+    setModalOpen(false);
     setErrorMessage(null);
+    setForceRefresh(true);
+    
+    try {
+      await clearRegistry();
+      setClearStatus('REGISTRY CLEARED');
+      setTimeout(() => setClearStatus(null), 3000);
+    } catch (err) {
+      console.error('Failed to clear registry', err);
+      setErrorMessage('FAILED TO CLEAR REGISTRY. CHECK SERVER LOGS.');
+    }
   }
 
   function applyManualLocation() {
@@ -299,6 +345,121 @@ export function RadarConsole() {
     setGeoState({ status: 'ready', ...DEFAULT_HCMC });
     setErrorMessage(null);
   }
+
+  /**
+   * Cleans text and handles robust extraction if the string contains JSON.
+   * If a JSON block is found, it attempts to parse and extract the preferred key.
+   * As a fallback, it uses a quote-based heuristic (extracting text between 3rd and 4th quote).
+   */
+  function cleanSectionText(value: any, preferredKey?: string): string {
+    if (!value || typeof value !== 'string') return '';
+    
+    let text = value.trim();
+    
+    // Try to find a JSON block anywhere in the text
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      try {
+        // AI sometimes puts literal newlines inside JSON strings, which is invalid JSON.
+        // We try to escape them for parsing.
+        const potentialJson = jsonMatch[0].replace(/\n/g, '\\n');
+        const parsed = JSON.parse(potentialJson);
+        
+        if (typeof parsed === 'object' && parsed !== null) {
+          // If we have a preferred key and it exists in the object
+          if (preferredKey && parsed[preferredKey]) {
+            return String(parsed[preferredKey]).trim();
+          }
+          
+          // Fallback: look for common content keys
+          const commonKeys = ['story_text', 'witness', 'analysis', 'legend_overview', 'visitor_reports', 'history', 'local_stories'];
+          for (const k of commonKeys) {
+            if (parsed[k]) return String(parsed[k]).trim();
+          }
+
+          // Last resort: find the longest string value
+          const values = Object.values(parsed).filter(v => typeof v === 'string');
+          if (values.length > 0) {
+            return (values.sort((a, b) => (b as string).length - (a as string).length)[0] as string).trim();
+          }
+        }
+      } catch {
+        // Parsing failed. Apply the user's "3rd and 4th quote" heuristic.
+        // In a JSON string like "key": "value", the 3rd and 4th quotes enclose the value.
+        const quoteMatches = text.match(/"([^"]*)"/g);
+        if (quoteMatches && quoteMatches.length >= 2) {
+          // The 2nd match corresponds to the content between the 3rd and 4th double quotes
+          return quoteMatches[1].replace(/^"|"$/g, '').trim();
+        }
+      }
+    }
+
+    return text
+      .replace(/\\n/g, '\n')
+      .replace(/\\"/g, '"')
+      .trim();
+  }
+
+  const handleExploreProfile = useCallback(async () => {
+    if (!selectedEvent) return;
+
+    const cached = getProfileFromCache(selectedEvent.id, language);
+    if (cached) {
+      setCurrentProfile(cached);
+      setModalOpen(true);
+      return;
+    }
+
+    setIsLoadingProfile(true);
+
+    try {
+      // Parallel simulated loading wait and API call
+      const randomDelayMs = Math.floor(Math.random() * (6000 - 3000 + 1) + 3000);
+      const startTime = Date.now();
+
+      const [apiResponse] = await Promise.all([
+        expandEvent(selectedEvent.id, language),
+        new Promise((resolve) => setTimeout(resolve, randomDelayMs))
+      ]);
+
+      const detailJson = apiResponse.detail;
+      const sections = {
+        story_text: cleanSectionText(apiResponse.story_text || detailJson?.legend_overview, 'story_text'),
+        witness: cleanSectionText(apiResponse.witness, 'witness'),
+        analysis: cleanSectionText(apiResponse.analysis || detailJson?.spectral_analysis, 'analysis'),
+        legend_overview: detailJson?.legend_overview || '',
+        chronological_history: detailJson?.chronological_history || '',
+        witnesses: detailJson?.witnesses || [],
+        spectral_analysis: detailJson?.spectral_analysis || '',
+        risk_assessment: detailJson?.risk_assessment || '',
+        image_url: detailJson?.image_url || '',
+      };
+
+      const profile: DetailedProfile = {
+        location_id: selectedEvent.id,
+        language: language,
+        timestamp: Date.now(),
+        sections,
+      };
+
+      saveProfileToCache(profile);
+      setCurrentProfile(profile);
+      setModalOpen(true);
+    } catch (error) {
+      console.error('Failed to expand profile', error);
+      let msg = error instanceof Error ? error.message : 'Failed to retrieve profile.';
+      try {
+        const parsed = JSON.parse(msg);
+        if (parsed.error && parsed.error.message) msg = parsed.error.message;
+      } catch {
+        // Not JSON, keep original msg
+      }
+      setErrorMessage(msg);
+      setSummaryOpen(false);
+    } finally {
+      setIsLoadingProfile(false);
+    }
+  }, [selectedEvent, language]);
 
   return (
     <div className="relative flex min-h-screen flex-col gap-4">
@@ -401,16 +562,19 @@ export function RadarConsole() {
         </div>
       ) : null}
 
+      {clearStatus ? (
+        <div className="w-full rounded-2xl border border-[#00ff41] bg-black px-4 py-3 text-sm text-center font-bold text-[#00ff41] animate-pulse">
+           &gt;&gt; {clearStatus} &lt;&lt;
+        </div>
+      ) : null}
+
       <RadarScope
         userLocation={userLocation}
         events={events}
         showLabels={showLabels}
         scanRadiusKm={scanRadiusKm}
         rotation={rotation}
-        onBlipClick={(eventId) => {
-          setSelectedEventId(eventId);
-          setSheetOpen(true);
-        }}
+        onBlipClick={handleBlipClick}
       />
 
       <div className="mt-auto pb-24">
@@ -432,12 +596,23 @@ export function RadarConsole() {
         />
       </div>
 
-      <BottomSheet
+      <SummaryPanel
         event={selectedEvent}
-        isOpen={sheetOpen && Boolean(selectedEvent)}
+        isOpen={summaryOpen && Boolean(selectedEvent) && !modalOpen}
         userLocation={userLocation}
-        onClose={() => setSheetOpen(false)}
+        onExploreClick={handleExploreProfile}
+        onClose={() => setSummaryOpen(false)}
       />
+
+      <FullProfileModal
+        profile={currentProfile}
+        event={selectedEvent}
+        isOpen={modalOpen}
+        userLocation={userLocation}
+        onClose={() => { setModalOpen(false); setSummaryOpen(false); setSelectedEventId(null); }}
+      />
+
+      {isLoadingProfile && <LoadingProfile />}
     </div>
   );
 }

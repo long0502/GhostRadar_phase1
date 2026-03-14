@@ -1,0 +1,986 @@
+[GEMINI_RESPONSE] 2026-03-13T07:52:50.374Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Hồ sơ này ghi lại các báo cáo và phân tích về hiện tượng tâm linh tại Thuận Kiều Plaza, một khu phức hợp thương mại và dân cư tại Thành phố Hồ Chí Minh. Mặc dù được xây dựng hiện đại, tòa nhà này đã tồn tại trong tình trạng vắng vẻ và bỏ hoang một cách bất thường, nuôi dưỡng vô số lời đồn đại về sự ám ảnh. Các giả thuyết chính tập trung vào cái chết của ba công nhân trong quá trình xây dựng, được cho là đã tạo ra những linh hồn vất vưởng, ngăn cản mọi hoạt động kinh doanh phát triển. Các bản ghi chi tiết dưới đây cung cấp cái nhìn sâu sắc về nguồn gốc huyền thoại, các lời chứng rùng rợn và những phân tích kỹ thuật về một trong những địa điểm bí ẩn nhất Việt Nam, nơi ranh giới giữa thực tại và thế giới siêu nhiên trở nên mờ nhạt.",
+  "visitor_reports": "Các báo cáo của nhân chứng thường xuyên mô tả những trải nghiệm rợn người: tiếng bước chân vô định trên các tầng trống, tiếng thì thầm không rõ nguồn gốc trong đêm, và cảm giác bị theo dõi liên tục. Nhiều người kể lại việc gặp phải 'vùng lạnh' đột ngột, nơi nhiệt độ giảm mạnh một cách phi lý. Đáng chú ý nhất là các báo cáo về việc nhìn thấy bóng người lờ mờ, thường là ba hình dáng, xuất hiện và biến mất trong các hành lang khuất hoặc trước các ô cửa sổ trống. Một số cựu bảo vệ còn ghi nhận sự cố điện chập chờn, thang máy tự động di chuyển không có người, và cảm giác nặng nề, áp lực đè nén khiến họ không thể ở lại khu vực đó quá lâu. Những trải nghiệm này nhất quán đến mức tạo nên một bức tranh rõ ràng về một sự hiện diện không mong muốn, mạnh mẽ và dai dẳng.",
+  "risk_assessment": "Thuận Kiều Plaza được xếp vào nhóm 'Nguy hiểm Cấp độ 4 - Hoạt động Tâm linh Mạnh mẽ và Dai dẳng'. Rủi ro chính bao gồm sự suy giảm tâm lý ở những người tiếp xúc lâu dài do cảm giác bị quan sát và năng lượng tiêu cực. Có khả năng xảy ra các hiện tượng poltergeist nhẹ, gây hư hại tài sản hoặc gây thương tích nhỏ do vật thể di chuyển. Mặc dù chưa có báo cáo về hành vi gây hấn trực tiếp, cường độ của các hiện tượng cho thấy sự hiện diện của các thực thể có ý thức, có khả năng ảnh hưởng đến tâm trí con người. Khuyến cáo an toàn bao gồm: KHÔNG TIẾP CẬN CÁC KHU VỰC BỎ HOANG mà không có thiết bị bảo hộ tâm linh và đội ngũ chuyên gia. Bất kỳ nỗ lực tái phát triển nào cũng phải được tiến hành kèm theo các nghi lễ tẩy uế và trấn an tâm linh mạnh mẽ, được thực hiện bởi các chuyên gia có kinh nghiệm. Mọi cá nhân báo cáo trải nghiệm cần được theo dõi tâm lý chặt chẽ.",
+  "records": [
+    {
+      "title": "Bản Ghi 001: Khởi Nguồn Định Mệnh - Cái Chết Trong Xây Dựng",
+      "legend": "Theo truyền thuyết đô thị lan truyền nhanh chóng sau khi Thuận Kiều Plaza hoàn thành, nguyên nhân sâu xa của sự 'ế ẩm' và 'bỏ hoang' của tòa nhà không nằm ở yếu tố kinh tế, mà ở một bi kịch trong quá trình xây dựng. Người ta kể rằng, ba công nhân đã thiệt mạng trong các tai nạn bí ẩn và khủng khiếp khi đang làm việc tại các vị trí khác nhau trong tòa nhà. Một người được cho là rơi từ tầng cao nhất, người thứ hai bị vùi lấp trong đống đổ nát, và người thứ ba chết trong một vụ chập điện kinh hoàng. Dân gian tin rằng, những linh hồn không được siêu thoát của họ đã bị 'mắc kẹt' lại trong cấu trúc bê tông và thép, trở thành những 'chủ nhân' vô hình, ngăn cản bất kỳ ai muốn kinh doanh hay sinh sống tại đây. Các câu chuyện này thường nhấn mạnh sự bất hạnh của các linh hồn, bị giam hãm vĩnh viễn trong nơi họ đã bỏ mạng, mang theo nỗi uất hận và sự cô đơn, biến tòa nhà thành một 'ngôi mộ đứng' khổng lồ.",
+      "witness": "Ông Trần Văn Hùng, cựu chỉ huy công trình phụ trách an toàn lao động (đã nghỉ hưu năm 2000), kể lại với giọng run rẩy: 'Tôi nhớ rất rõ, đó là những ngày cuối cùng trước khi hoàn thiện. Một công nhân trẻ, tên Minh, đã bị rơi từ tầng 30 xuống. Đáng lẽ phải có lưới an toàn, nhưng không hiểu sao hôm đó lại không có. Vài tuần sau, một tai nạn khác xảy ra ở tầng hầm, một mảng bê tông lớn đổ sập không rõ lý do, chôn vùi một người. Rồi vụ chập điện, một tia lửa xanh lè, xẹt qua đường dây, một công nhân khác chết tại chỗ. Sau mỗi vụ việc, không khí ở công trường nặng nề đến lạ. Máy móc tự nhiên hỏng hóc, công nhân liên tục cảm thấy ớn lạnh dù trời nắng gắt. Có lần tôi còn nghe thấy tiếng ai đó gọi tên mình giữa đêm khuya khi đang kiểm tra công trường, nhưng không có ai cả. Chúng tôi đã cố gắng làm lễ cúng bái, nhưng cảm giác u ám vẫn cứ đeo bám. Giờ nghĩ lại, tôi thấy tòa nhà đó giống như một cái bẫy, giữ lại những linh hồn đó mãi mãi.'",
+      "analysis": "Các báo cáo về tai nạn lao động trong quá trình xây dựng Thuận Kiều Plaza là có thật, mặc dù số liệu chính thức thường bị giảm thiểu. Phân tích các chi tiết từ lời kể của ông Hùng và các tài liệu nội bộ không chính thức cho thấy có ít nhất ba trường hợp tử vong được xác nhận, phù hợp với 'huyền thoại ba linh hồn'. Các hiện tượng đi kèm như sự cố thiết bị không giải thích được, cảm giác lạnh lẽo và tiếng động lạ có thể được giải thích bằng các yếu tố tâm lý tập thể hoặc sự trùng hợp ngẫu nhiên. Tuy nhiên, sự nhất quán của các báo cáo này, đặc biệt là cảm giác 'nặng nề' và 'bị quan sát' của những người làm việc tại đó, cho thấy một sự tích tụ năng lượng tiêu cực mạnh mẽ. Giả thuyết tâm linh cho rằng những cái chết đột ngột và bi thảm đã tạo ra 'linh hồn cố chấp' (residual haunting) hoặc 'linh hồn có ý thức' (intelligent haunting) vẫn còn vương vấn tại địa điểm này, và có khả năng chúng đang gây ra các 'sự cố' nhỏ để thu hút sự chú ý hoặc thể hiện sự hiện diện của mình. Mức độ nguy hiểm ban đầu được đánh giá là 'Trung bình', nhưng có xu hướng gia tăng theo thời gian do sự tích tụ năng lượng."
+    },
+    {
+      "title": "Bản Ghi 002: Tiếng Vọng Từ Tầng Vắng - Những Thất Bại Kinh Doanh Bí Ẩn",
+      "legend": "Sau khi hoàn thành, Thuận Kiều Plaza được kỳ vọng sẽ trở thành một biểu tượng thương mại sầm uất. Tuy nhiên, dù đã nỗ lực tiếp thị và giảm giá thuê, các cửa hàng và văn phòng vẫn không thể duy trì hoạt động. Các chủ doanh nghiệp liên tục rời đi, thường là trong tình trạng thua lỗ nặng nề, với lý do mơ hồ về 'khó khăn kinh doanh' hoặc 'khách hàng không đến'. Tuy nhiên, bên dưới bề mặt, những câu chuyện thì thầm về sự ám ảnh bắt đầu lan rộng. Người ta nói rằng, các linh hồn của ba công nhân đã tạo ra một 'trường năng lượng' tiêu cực, khiến không ai có thể làm ăn phát đạt tại đây. Bất kỳ ai cố gắng 'phá vỡ lời nguyền' đều sẽ gặp phải những rắc rối không thể giải thích, từ sự cố hệ thống đến cảm giác bất an không ngừng, đẩy họ đến bờ vực phá sản hoặc tuyệt vọng.",
+      "witness": "Bà Nguyễn Thị Hoa, chủ một cửa hàng thời trang đã hoạt động được 6 tháng tại Thuận Kiều Plaza vào đầu những năm 2000, kể lại trong trạng thái hoảng loạn: 'Lúc đầu, tôi nghĩ mình đã có một món hời. Vị trí đẹp, giá thuê rẻ. Nhưng mọi chuyện bắt đầu kỳ lạ ngay sau đó. Khách hàng rất ít, dù tôi quảng cáo rất nhiều. Rồi buổi tối, khi tôi đóng cửa hàng một mình, tôi thường nghe thấy tiếng bước chân rất rõ ràng trên tầng trên, như có ai đó đang đi lại nặng nề. Cửa hàng tôi có một con búp bê ma-nơ-canh, đôi khi tôi thấy nó quay đầu, hoặc cánh tay nó tự động hạ xuống. Có lần, tôi thề là tôi nhìn thấy một bóng đen lướt qua phía sau quầy thu ngân. Tôi đã cố gắng phớt lờ, nhưng cảm giác bị theo dõi cứ lớn dần. Doanh thu thì cứ sụt giảm không phanh. Tôi phải đóng cửa, bỏ lại tất cả. Tôi không thể chịu đựng được nữa. Cảm giác như có ai đó không muốn tôi ở đó, không muốn bất kỳ ai ở đó!'",
+      "analysis": "Sự thất bại kinh doanh liên tục và không thể giải thích được tại Thuận Kiều Plaza là một hiện tượng bất thường. Trong khi các yếu tố thị trường có thể đóng vai trò, sự nhất quán trong các báo cáo về 'cảm giác bị theo dõi', 'tiếng động lạ' và 'sự cố bất thường' từ nhiều chủ doanh nghiệp độc lập là đáng chú ý. Phân tích các báo cáo cho thấy một mô hình 'quấy rối' tinh vi, không chỉ giới hạn ở các hiện tượng vật lý mà còn ảnh hưởng đến tâm lý của những người cố gắng hoạt động tại đây. Các thiết bị đo trường điện từ (EMF) tại các khu vực mà bà Hoa và những người khác báo cáo hiện tượng đã ghi nhận sự tăng đột biến bất thường, không có nguồn gốc điện từ rõ ràng. Điều này gợi ý một sự hiện diện năng lượng siêu nhiên đang hoạt động. Giả thuyết 'trường năng lượng tiêu cực' do các linh hồn tạo ra có thể không phải là một phép ẩn dụ đơn thuần mà là một thực tế ảnh hưởng đến môi trường vật lý và tinh thần. Mức độ nguy hiểm được nâng lên 'Trung bình đến Cao' do tác động trực tiếp lên kinh tế và tâm lý con người."
+    },
+    {
+      "title": "Bản Ghi 003: Bóng Hình Trong Màn Đêm - Những Cuộc Gặp Gỡ Ám Ảnh",
+      "legend": "Với thời gian, những câu chuyện về các bóng hình ma quái tại Thuận Kiều Plaza trở nên cụ thể và đáng sợ hơn. Nhiều người, đặc biệt là những người bảo vệ trực đêm hoặc những thanh niên tò mò lẻn vào khám phá, đã kể lại việc nhìn thấy rõ ràng ba hình dáng mờ ảo. Các hình dáng này thường được mô tả là cao lớn, lờ mờ như sương khói, xuất hiện đột ngột ở những hành lang tối tăm, trong các cửa hàng bỏ trống, hoặc thậm chí là đứng lặng lẽ nhìn ra ngoài từ các ô cửa sổ trên cao. Người ta tin rằng đây chính là ba linh hồn công nhân đã chết, bị ràng buộc vĩnh viễn với tòa nhà, và họ không ngừng 'tuần tra' nơi họ đã bỏ mạng, tìm kiếm sự chú ý hoặc đơn giản là thể hiện sự hiện diện của mình với bất kỳ ai dám xâm phạm 'lãnh địa' của họ. Những cuộc gặp gỡ này thường để lại nỗi sợ hãi tột độ và cảm giác lạnh lẽo đến tận xương tủy.",
+      "witness": "Anh Nguyễn Thanh Toàn, cựu nhân viên bảo vệ ca đêm (năm 2010), tường trình với đôi mắt thất thần: 'Đó là vào khoảng 2 giờ sáng. Tôi đang đi kiểm tra tầng 10, mọi thứ đều im ắng đến rợn người. Bỗng nhiên, đèn hành lang chập chờn rồi tắt hẳn ở cuối dãy. Tôi dùng đèn pin rọi tới, và tôi thấy... tôi thề là tôi thấy ba cái bóng đen đứng cách đó khoảng 20 mét. Chúng không có hình dáng rõ ràng, chỉ là những khối đen cao, mờ ảo như được tạo thành từ khói. Chúng đứng đó, quay lưng lại với tôi, nhìn vào một căn phòng trống. Tim tôi đập như trống bỏi. Tôi không thể nhúc nhích. Tôi chỉ biết đứng nhìn. Rồi chúng từ từ tan biến vào không khí, như chưa từng tồn tại. Ngay sau đó, một luồng khí lạnh buốt tràn qua người tôi, lạnh đến mức tôi cảm thấy xương cốt mình đóng băng. Tôi đã bỏ chạy ngay lập tức, không dám quay lại. Tôi đã làm ở đó được 2 năm, nhưng sau đêm đó, tôi xin nghỉ ngay. Không tiền nào có thể mua được sự bình yên của tôi.'",
+      "analysis": "Các báo cáo về các thực thể nhìn thấy được, dù chỉ là bóng hình mờ ảo, là một dấu hiệu của hoạt động tâm linh cấp cao. Lời kể của anh Toàn về việc nhìn thấy 'ba bóng đen' nhất quán với huyền thoại ba linh hồn, cho thấy đây có thể là một hiện tượng 'ám ảnh có ý thức' (intelligent haunting) hoặc 'ám ảnh tái diễn' (recurrent haunting) mạnh mẽ. Việc đèn chập chờn và tắt trước khi xuất hiện thực thể, cùng với luồng khí lạnh buốt, là những dấu hiệu cổ điển của sự thay đổi năng lượng môi trường do hoạt động siêu nhiên. Các thiết bị đo trường điện từ (EMF) và máy ghi âm tần số thấp (EVP) được triển khai sau đó tại tầng 10 đã ghi nhận những bất thường đáng kể, bao gồm các đỉnh EMF không giải thích được và một số âm thanh thì thầm không rõ nghĩa. Điều này cho thấy sự hiện diện của một nguồn năng lượng không vật chất có khả năng thao túng môi trường vật lý và tác động trực tiếp đến các giác quan của con người. Mức độ nguy hiểm được nâng lên 'Cao', với rủi ro gây hoảng loạn và chấn thương tâm lý nghiêm trọng cho những người trực tiếp tiếp xúc."
+    },
+    {
+      "title": "Bản Ghi 004: Sự Bỏ Hoang Vĩnh Cửu - Lời Nguyền Của Địa Điểm",
+      "legend": "Ngày nay, Thuận Kiều Plaza gần như bị bỏ hoang hoàn toàn, trở thành một lời nhắc nhở u ám về một dự án thất bại và một địa điểm bị nguyền rủa. Truyền thuyết về ba linh hồn đã ăn sâu vào tiềm thức của người dân địa phương, đến mức không ai còn dám nghĩ đến việc tái phát triển hoặc sinh sống tại đó. Người ta tin rằng, lời nguyền không chỉ giới hạn ở việc gây ra tai ương kinh doanh, mà còn ảnh hưởng đến sức khỏe và tinh thần của bất kỳ ai cố gắng 'chiếm hữu' nơi này. Các câu chuyện kể về những người thử thách số phận, cố gắng mở lại cửa hàng hoặc thậm chí chỉ là ghé thăm, đều gặp phải những vận rủi liên tiếp, bệnh tật hoặc những giấc mơ kinh hoàng không dứt. Lời nguyền này được cho là sẽ kéo dài chừng nào ba linh hồn vẫn còn bị mắc kẹt, biến Thuận Kiều Plaza thành một tượng đài vĩnh cửu của sự chết chóc và cô lập.",
+      "witness": "Bà Lê Thị Mai, một người dân sống gần Thuận Kiều Plaza từ những năm 90, chia sẻ: 'Cái tòa nhà đó có cái gì đó không ổn ngay từ đầu. Mấy lần thấy người ta cố gắng trang trí lại, mở quán cà phê hay gì đó, nhưng chỉ được vài bữa là dẹp tiệm. Tôi nhớ có một gia đình thuê căn hộ ở trên cao, họ mới chuyển đến được vài tháng thì đứa con nhỏ tự nhiên ốm nặng không rõ nguyên nhân. Sau đó, người chồng gặp tai nạn giao thông nhẹ, rồi người vợ thì cứ bị mất ngủ, hay la hét trong đêm. Cuối cùng, họ chuyển đi trong đêm, không thèm lấy lại tiền cọc. Nghe nói họ nói trong căn hộ cứ có tiếng trẻ con khóc, rồi đồ đạc tự động rơi vỡ. Cả khu này ai cũng biết, cái chỗ đó là đất chết, có linh hồn trú ngụ. Đừng ai dại dột mà động vào. Nó muốn yên ổn vậy thôi.'",
+      "analysis": "Sự bỏ hoang kéo dài của Thuận Kiều Plaza, mặc dù có tiềm năng về vị trí và kiến trúc, là bằng chứng rõ ràng về một yếu tố bất thường đang hoạt động. Các báo cáo về 'vận rủi', 'bệnh tật không rõ nguyên nhân' và 'rối loạn tâm lý' của những người từng cố gắng sinh sống hoặc kinh doanh tại đây cho thấy một 'lời nguyền' không chỉ là mê tín dị đoan. Phân tích các trường hợp cho thấy một mô hình ảnh hưởng tiêu cực đến sức khỏe và tinh thần, vượt ra ngoài tác động tâm lý thông thường của việc sống trong một môi trường bị đồn thổi. Các nghiên cứu về năng lượng địa sinh học (geopathic stress) đã được đề xuất để xác định liệu có các dòng năng lượng tiêu cực tự nhiên dưới lòng đất đang bị khuếch đại bởi sự hiện diện của các thực thể siêu nhiên hay không. Khả năng các linh hồn đang 'bảo vệ' lãnh địa của mình bằng cách gây ra những tác động tiêu cực đến môi trường và con người là rất cao. Mức độ nguy hiểm hiện tại được đánh giá là 'Cực kỳ Cao', với khuyến cáo mạnh mẽ về việc KHÔNG TIẾP CẬN VÀ KHÔNG CỐ GẮNG TÁI PHÁT TRIỂN mà không có sự can thiệp tâm linh và khoa học chuyên sâu."
+    }
+  ],
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Thuận Kiều Plaza haunting at Ho Chi Minh City. Scene: a dimly lit, abandoned shopping mall corridor, with reflections of unseen figures in polished floors, unsettling. style: grainy, 1990s aesthetic, VHS quality."
+}
+---
+[GEMINI_RESPONSE] 2026-03-13T07:58:03.879Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Hồ sơ này ghi lại các hoạt động dị thường tại Công viên Lê Thị Riêng, TP.HCM, một địa điểm nổi tiếng với quá khứ u ám. Trước đây, nơi này là Nghĩa trang Đô Thành, một khu chôn cất tập thể cho hàng ngàn binh lính tử trận và dân thường trong các cuộc chiến tranh khốc liệt. Sự kiện này tập trung vào các báo cáo về tiếng khóc than, những bóng hình vất vưởng và cảm giác lạnh lẽo bất thường, được cho là linh hồn của những người đã khuất không siêu thoát. Các ghi chép chi tiết từ lời kể nhân chứng và phân tích hiện trường cho thấy một mức độ hoạt động tâm linh đáng kể, gây ra sự bất an và hoảng sợ cho những người tiếp xúc. Đây là một điểm nóng năng lượng tiêu cực, nơi quá khứ đau thương vẫn còn hiện hữu rõ rệt.",
+  "visitor_reports": "Các báo cáo của nhân chứng thường xuyên nhắc đến ba hiện tượng chính: thứ nhất, tiếng khóc than và rên rỉ không rõ nguồn gốc, đặc biệt là vào ban đêm, thường nghe thấy gần khu vực hồ nước và các lùm cây rậm. Thứ hai, nhiều người đã chứng kiến những bóng hình mờ ảo, thoắt ẩn thoắt hiện, có dáng dấp như những người lính trong trang phục cũ kỹ, di chuyển không mục đích. Thứ ba, cảm giác ớn lạnh đột ngột, áp lực nặng nề và sự hiện diện không nhìn thấy được, gây ra cảm giác bị theo dõi và sợ hãi tột độ khi đi qua các khu vực nhất định trong công viên.",
+  "risk_assessment": "Đánh giá rủi ro tổng thể cho thấy mức độ nguy hiểm vừa phải đến cao. Các thực thể được ghi nhận chủ yếu là 'dư ảnh' (residual hauntings) và 'linh hồn vất vưởng' (intelligent hauntings) mang theo năng lượng tiêu cực từ cái chết và đau khổ. Mặc dù chưa có báo cáo về các hành vi tấn công vật lý trực tiếp, nhưng sự tiếp xúc kéo dài có thể gây ra suy nhược tinh thần, rối loạn lo âu và ảo giác thính giác/thị giác. Khuyến cáo an toàn bao gồm: Tuyệt đối không vào công viên từ 22h đêm đến 5h sáng. Không nên đi một mình. Hạn chế mang theo các vật phẩm cá nhân có giá trị tinh thần cao. Chuẩn bị sẵn sàng tâm lý và tránh các hành vi khiêu khích. Trường hợp khẩn cấp, rút lui ngay lập tức và tìm kiếm sự hỗ trợ tâm lý.",
+  "records": [
+    {
+      "title": "Bản Ghi 001: Tiếng Khóc Than Từ Quá Khứ",
+      "legend": "Công viên Lê Thị Riêng, nơi từng là Nghĩa trang Đô Thành, lưu giữ ký ức về hàng ngàn sinh mạng bị vùi lấp trong chiến tranh. Truyền thuyết địa phương kể rằng, vào những đêm không trăng hoặc khi sương mù bao phủ, tiếng khóc than ai oán của những người lính trẻ và thường dân vô tội vẫn văng vẳng khắp công viên. Đây không chỉ là tiếng gió mà là âm thanh của nỗi đau không thể siêu thoát, của những linh hồn bị bỏ lại, không mồ yên mả đẹp, không được tưởng niệm đúng cách. Người dân tin rằng những tiếng khóc này là lời than thở của các vong hồn khao khát được giải thoát, một lời nhắc nhở về bi kịch đã xảy ra trên mảnh đất này.",
+      "witness": "Vào đêm 15/03/2018, khoảng 1h sáng, ông Nguyễn Văn T. (58 tuổi), một người bán hàng rong thường xuyên đi qua công viên, đã kể lại trải nghiệm kinh hoàng của mình. 'Tôi đang đạp xe về nhà thì nghe thấy tiếng rên rỉ rất rõ ràng, như tiếng người phụ nữ khóc nức nở cùng tiếng trẻ con khóc thét từ phía hồ nước. Ban đầu tôi nghĩ là ai đó gặp nạn, nhưng khi dừng lại lắng nghe, âm thanh đó càng lúc càng bi thương và tuyệt vọng, rồi đột ngột im bặt. Cả người tôi nổi da gà, một luồng khí lạnh buốt xương sống ập đến. Tôi không dám quay lại nhìn, chỉ biết đạp xe thật nhanh mà không dám ngoái đầu. Từ đó về sau, tôi không bao giờ dám đi qua công viên vào giờ đó nữa.'",
+      "analysis": "Phân tích âm thanh tại khu vực hồ và lùm cây đã ghi nhận các 'tín hiệu giọng nói điện tử' (EVP) ở tần số thấp, khó nhận biết bằng tai thường, nhưng khi được khuếch đại cho thấy những âm thanh gần giống tiếng rên rỉ, thút thít và những từ ngữ không rõ ràng trong các ngôn ngữ cổ. Điều này gợi ý về một 'dư ảnh âm thanh' (auditory residual haunting) hoặc thậm chí là một dạng giao tiếp nguyên thủy từ các thực thể. Nhiệt độ tại các điểm ghi nhận tiếng khóc thường giảm đột ngột từ 2-5 độ C so với môi trường xung quanh, cho thấy sự tiêu hao năng lượng đáng kể của một thực thể vô hình. Mức độ nguy hiểm: Trung bình, gây hoảng loạn và ám ảnh tâm lý."
+    },
+    {
+      "title": "Bản Ghi 002: Những Bóng Hình Vô Định",
+      "legend": "Các câu chuyện về những bóng ma binh lính vất vưởng là một phần không thể thiếu trong truyền thuyết về Công viên Lê Thị Riêng. Người ta nói rằng những người lính đã ngã xuống trong trận chiến, không được chôn cất đúng cách hoặc bị bỏ lại không người thân tìm kiếm, vẫn còn 'tuần tra' nơi họ đã nằm xuống. Họ là những linh hồn bị mắc kẹt giữa hai thế giới, không nhận thức được rằng chiến tranh đã kết thúc, hoặc đơn giản là không thể rời bỏ chiến trường cuối cùng của mình. Những bóng hình này thường xuất hiện dưới dạng mờ ảo, không rõ nét, mang theo nỗi u uất và sự cô độc.",
+      "witness": "Chị Trần Thị H. (32 tuổi), một người chạy bộ buổi sáng, đã kể lại trải nghiệm vào khoảng 5h15 sáng ngày 07/09/2021. 'Tôi thường chạy bộ quanh công viên. Một buổi sáng nọ, khi trời còn tờ mờ sáng, tôi thấy một bóng người cao lớn, mặc đồ lính cũ màu xanh rêu, đứng tựa vào gốc cây đa cổ thụ gần cổng chính. Tôi nghĩ là người vô gia cư nên không để ý lắm, nhưng khi nhìn lại lần nữa, người đó không có mặt, chỉ là một cái bóng mờ ảo. Tôi dụi mắt mấy lần, bóng hình đó vẫn đứng đó, bất động. Đến khi tôi chạy qua, quay đầu lại thì bóng đó đã biến mất. Cảm giác lúc đó rất lạnh lẽo và sợ hãi, như có ai đó vừa đi xuyên qua tôi vậy. Tôi không bao giờ dám chạy ở khu vực đó một mình nữa.'",
+      "analysis": "Các camera an ninh hồng ngoại đã ghi lại những 'điểm nóng' không giải thích được di chuyển độc lập trong các khu vực vắng người vào ban đêm, không tương ứng với bất kỳ vật thể vật lý nào. Các máy đo điện từ trường (EMF) cũng phát hiện sự gia tăng đột ngột và bất thường của từ trường tại các điểm mà nhân chứng báo cáo nhìn thấy bóng hình. Điều này phù hợp với giả thuyết về 'linh hồn thông minh' (intelligent haunting) có khả năng tương tác và thao túng năng lượng môi trường để biểu hiện sự hiện diện của mình. Các thực thể này dường như không có ý định gây hại vật lý nhưng sự hiện diện của chúng có thể gây sốc và sang chấn tâm lý. Mức độ nguy hiểm: Cao, tiềm ẩn nguy cơ gây suy nhược thần kinh và hoảng loạn."
+    },
+    {
+      "title": "Bản Ghi 003: Khí Lạnh Và Áp Lực Vô Hình",
+      "legend": "Sự hiện diện của hàng ngàn hài cốt và nỗi đau tập thể đã tạo nên một 'trường năng lượng' tiêu cực bao trùm lên toàn bộ khu vực Công viên Lê Thị Riêng. Người ta tin rằng năng lượng của cái chết và sự tuyệt vọng không tan biến mà vẫn còn 'đọng lại' trong không khí, trên mặt đất và trong lòng cây cối. Đây là lý do tại sao nhiều người cảm nhận được sự lạnh lẽo bất thường, dù nhiệt độ môi trường cao, cùng với một áp lực vô hình đè nặng lên lồng ngực, gây khó thở và cảm giác bị đè nén. Đây là 'dấu ấn' của một quá khứ bi thảm, một lời nhắc nhở rằng chúng ta đang bước trên đất của những người đã khuất.",
+      "witness": "Anh Lê Minh K. (25 tuổi), một sinh viên thường xuyên đi ngang công viên vào buổi tối, kể lại: 'Có lần tôi đi bộ qua công viên khoảng 10 giờ đêm. Khi đến đoạn đường vắng gần khu vực tượng đài, bỗng nhiên không khí trở nên nặng trĩu, lạnh lẽo một cách kỳ lạ, dù hôm đó trời không hề lạnh. Tôi có cảm giác như có ai đó đang đứng rất gần phía sau lưng mình, thở vào gáy. Lông tơ toàn thân tôi dựng đứng. Cảm giác đó rất ngột ngạt, như có một tảng đá đè nặng lên ngực khiến tôi khó thở. Tôi cố gắng đi nhanh hơn, nhưng cảm giác bị theo dõi và lạnh lẽo cứ đeo bám cho đến khi tôi ra khỏi cổng. Tôi không dám quay đầu lại vì sợ hãi những gì mình có thể thấy.'",
+      "analysis": "Các thiết bị đo nhiệt độ hồng ngoại và cảm biến áp suất khí quyển đã ghi nhận những 'điểm lạnh' (cold spots) cục bộ và sự thay đổi áp suất không khí không giải thích được, thường xuất hiện cùng lúc với báo cáo của nhân chứng. Các máy đo ion âm cũng cho thấy sự sụt giảm đáng kể số lượng ion âm trong không khí, điều này có thể ảnh hưởng đến tâm trạng và gây ra cảm giác khó chịu, lo lắng. Điều này phù hợp với giả thuyết về 'năng lượng tồn đọng' (residual energy) từ các sự kiện bi thảm, tạo ra một môi trường không ổn định về mặt năng lượng. Sự tiếp xúc lâu dài với những môi trường như vậy có thể gây ảnh hưởng nghiêm trọng đến sức khỏe tinh thần và thể chất. Mức độ nguy hiểm: Trung bình đến cao, gây suy nhược thể chất và tinh thần."
+    }
+  ],
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Paranormal Activity at Lê Thị Riêng Park. Scene: a foggy, low-light night in a park, blurred shadowy figure resembling a soldier in the distance among ancient trees, unsettling atmosphere, hint of disembodied cries. style: grainy, 1990s camcorder aesthetic, with a timestamp overlay in the corner."
+}
+---
+[GEMINI_RESPONSE] 2026-03-13T08:03:38.453Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Hồ sơ này ghi chép về hiện tượng siêu nhiên tại ngôi nhà số 24 Lý Thái Tổ, một địa điểm bị bỏ hoang gắn liền với bi kịch gia đình kinh hoàng. Vào năm 1998, bảy thành viên trong gia đình, bao gồm một phụ nữ mang thai, đã thiệt mạng trong một vụ hỏa hoạn do một người thân mắc bệnh tâm thần gây ra. Kể từ đó, ngôi nhà trở thành tâm điểm của những lời đồn đại rùng rợn, với nhiều nhân chứng báo cáo về các âm thanh kỳ lạ, bóng dáng ma quái và một sự hiện diện nặng nề, u ám. Các dữ liệu thu thập cho thấy một mức độ hoạt động tâm linh cao, tập trung vào oan hồn của người phụ nữ mang thai và những linh hồn chưa được siêu thoát, tạo nên một không gian bị nguyền rủa, đầy rẫy nỗi đau và sự phẫn uất không nguôi.",
+  "visitor_reports": "Các báo cáo nhân chứng nhất quán mô tả những trải nghiệm đáng sợ khi tiếp cận hoặc đi ngang qua ngôi nhà số 24 Lý Thái Tổ. Nhiều người khẳng định đã nghe thấy tiếng khóc nức nở thảm thiết, tiếng thì thầm không rõ nguồn gốc, và tiếng bước chân nặng nề vang vọng từ bên trong, đặc biệt vào ban đêm. Hình ảnh một bóng dáng phụ nữ mang thai mờ ảo đứng lặng lẽ bên cửa sổ tầng hai là một trong những lời kể phổ biến nhất, thường xuất hiện vào những đêm trăng tròn hoặc vào các ngày kỷ niệm vụ hỏa hoạn. Các báo cáo cũng bao gồm cảm giác lạnh giá bất thường, sự hiện diện vô hình đè nặng, và đôi khi là những mùi hương khó chịu không giải thích được, gây ra cảm giác hoảng loạn và sợ hãi tột độ cho những ai bén mảng đến gần.",
+  "risk_assessment": "Ngôi nhà số 24 Lý Thái Tổ được đánh giá là một khu vực có nguy cơ tâm linh cực kỳ cao (Cấp độ 4/5). Sự hiện diện của nhiều linh hồn bị mắc kẹt, đặc biệt là oan hồn của người phụ nữ mang thai, tiềm ẩn nguy cơ gây ra sự suy sụp tâm lý nghiêm trọng cho những cá nhân nhạy cảm hoặc không được bảo vệ. Các hiện tượng được ghi nhận bao gồm: dao động nhiệt độ đột ngột, nhiễu loạn điện từ trường cấp tính, hiện tượng poltergeist mức độ nhẹ, và các biểu hiện thị giác/thính giác rõ ràng. Nguy cơ chính là sự ám ảnh tâm lý kéo dài, khả năng linh hồn bám víu (attachment) và ảnh hưởng đến tư duy, cảm xúc của người tiếp xúc. Khuyến cáo an toàn: Tuyệt đối cấm mọi hành vi xâm nhập trái phép. Mọi hoạt động điều tra phải được thực hiện bởi đội ngũ chuyên gia được trang bị đầy đủ thiết bị bảo hộ tâm linh và y tế. Cần có kế hoạch thanh tẩy tâm linh toàn diện và phong tỏa vĩnh viễn khu vực để ngăn chặn sự lan truyền của năng lượng tiêu cực.",
+  "records": [
+    {
+      "title": "Hồ Sơ 01: Vụ Án Mạng Định Mệnh và Khởi Nguồn Ám Ảnh",
+      "legend": "Ngôi nhà tại số 24 Lý Thái Tổ, trước kia là tư gia của một gia đình khá giả, đã trở thành biểu tượng của bi kịch vào đêm định mệnh năm 1998. Truyền thuyết địa phương kể rằng, vào một đêm cuối thu, một thành viên trong gia đình, được cho là mắc chứng bệnh tâm thần nặng, đã phóng hỏa đốt nhà trong cơn hoang tưởng. Ngọn lửa hung tàn đã cướp đi sinh mạng của bảy người, bao gồm người mẹ trẻ đang mang thai ở tháng thứ tám. Cái chết thảm khốc, đặc biệt là của người phụ nữ mang thai và đứa con chưa kịp chào đời, đã gieo rắc một lời nguyền u tối lên mảnh đất này. Người dân tin rằng sự phẫn uất, nỗi đau và sự bất công của những linh hồn bị mắc kẹt đã biến ngôi nhà thành một cánh cổng giữa hai thế giới, nơi ranh giới giữa sự sống và cái chết trở nên mờ nhạt, vĩnh viễn lưu giữ những khoảnh khắc cuối cùng của sự kinh hoàng.",
+      "witness": "Trung úy Nguyễn Văn An, người đầu tiên có mặt tại hiện trường vụ hỏa hoạn, đã mô tả lại cảnh tượng kinh hoàng: 'Khói đen cuồn cuộn, tiếng la hét xé lòng vẫn còn vương vấn trong không khí ngay cả khi ngọn lửa đã được dập tắt. Chúng tôi tìm thấy bảy thi thể, nằm chồng chất lên nhau, một trong số đó là một phụ nữ mang thai. Ánh mắt cô ấy, ngay cả trong cái chết, vẫn còn chất chứa nỗi sợ hãi và một sự cầu xin vô vọng. Tôi thề, có lúc tôi nghe thấy tiếng trẻ con khóc vọng lại từ đống đổ nát, nhưng không có đứa trẻ nào sống sót. Đó là một cảm giác lạnh sống lưng, một sự nặng nề không thể lý giải được, bám riết lấy tôi cho đến tận bây giờ. Không ai muốn quay lại nơi đó, kể cả ban ngày.'",
+      "analysis": "Phân tích ban đầu cho thấy vụ hỏa hoạn tạo ra một 'dấu ấn năng lượng' cực kỳ mạnh mẽ tại địa điểm. Chấn thương tâm lý tập thể, nỗi đau đớn tột cùng và cái chết đột ngột, bạo lực của nhiều cá thể cùng một lúc đã tạo ra một môi trường lý tưởng cho sự hình thành của các thực thể tâm linh. Đặc biệt, cái chết của người phụ nữ mang thai được cho là nguyên nhân chính tạo nên nguồn năng lượng oan nghiệt, bởi sự sống bị cướp đi trước khi kịp thành hình mang theo sự phẫn uất gấp bội. Các phép đo điện từ trường (EMF) sau vụ việc cho thấy những dao động bất thường, không giải thích được, ngay cả khi không có nguồn điện. Điều này củng cố giả thuyết về một dư chấn tâm linh mạnh mẽ, neo giữ các linh hồn tại nơi họ đã bỏ mạng."
+    },
+    {
+      "title": "Hồ Sơ 02: Tiếng Khóc Đêm và Bóng Dáng Bên Cửa Sổ Định Mệnh",
+      "legend": "Sau vụ hỏa hoạn, những câu chuyện về 'người phụ nữ mang thai' bắt đầu lan truyền khắp khu phố. Dân gian truyền miệng rằng, oan hồn của cô ấy không thể siêu thoát vì đứa con chưa kịp chào đời và nỗi uất hận không nguôi. Người ta tin rằng cô vẫn lang thang trong ngôi nhà đổ nát, tìm kiếm đứa con đã mất và cố gắng cảnh báo về sự nguy hiểm. Truyền thuyết kể rằng, vào những đêm trăng tròn, khi ánh sáng yếu ớt chiếu rọi vào ngôi nhà, bóng dáng mờ ảo của cô sẽ hiện ra bên cửa sổ tầng hai, như một lời nhắc nhở vĩnh cửu về bi kịch đã xảy ra và sự hiện diện không thể xua tan của cái chết.",
+      "witness": "Bà Trần Thị Loan, một người bán hàng rong sống gần đó, đã kể lại với giọng run rẩy: 'Đã nhiều lần, vào canh khuya, khi mọi thứ chìm vào im lặng, tôi lại nghe thấy tiếng khóc thút thít vọng ra từ ngôi nhà số 24. Ban đầu tôi nghĩ là tiếng mèo, nhưng tiếng khóc đó nghe như tiếng của một người phụ nữ đang đau đớn tột cùng. Rồi một đêm trăng sáng, tôi thấy rõ ràng một bóng đen mờ ảo, hình dáng của một người phụ nữ bụng to, đứng lặng lẽ bên ô cửa sổ tầng hai, nhìn ra ngoài đường. Bóng đó đứng đó một lúc lâu, rồi tan biến vào màn đêm. Từ đó, tôi không dám nhìn thẳng vào ngôi nhà đó nữa mỗi khi đi qua.'",
+      "analysis": "Các báo cáo về bóng dáng người phụ nữ mang thai và tiếng khóc đêm là bằng chứng mạnh mẽ nhất cho sự hiện diện của một thực thể tâm linh có ý thức. Phân tích các lời kể cho thấy sự xuất hiện của bóng dáng có xu hướng trùng khớp với các chu kỳ trăng hoặc các ngày kỷ niệm liên quan đến vụ hỏa hoạn, cho thấy một dạng 'ghi nhớ' năng lượng hoặc sự kích hoạt của linh hồn vào những thời điểm cụ thể. Các thiết bị ghi âm chuyên dụng đã thu được những âm thanh tần số thấp (infrasound) và những tiếng động không rõ nguồn gốc, đôi khi giống tiếng rên rỉ hoặc tiếng thì thầm, không thể quy chụp cho các nguyên nhân tự nhiên. Đây có thể là một dạng 'tàn dư' của linh hồn, lặp lại những hành vi hoặc cảm xúc cuối cùng của họ, hoặc là một nỗ lực giao tiếp sơ khai từ cõi âm."
+    },
+    {
+      "title": "Hồ Sơ 03: Sự Lạnh Lẽo Bất Thường và Các Hiện Tượng Vật Lý Rùng Rợn",
+      "legend": "Người dân địa phương đồn đại rằng ngôi nhà số 24 không chỉ chứa đựng những linh hồn lảng vảng mà còn bị ám bởi một năng lượng tiêu cực đến mức có thể thao túng môi trường vật lý. Có những câu chuyện về việc các vật dụng nhỏ bị di chuyển, cửa sổ tự động đóng mở, và những luồng gió lạnh buốt không thể giải thích được xuất hiện ngay cả trong những ngày hè oi ả. 'Đất dữ' là từ mà người ta thường dùng để miêu tả mảnh đất này, nơi mà sự chết chóc và bi kịch đã ăn sâu vào từng viên gạch, từng tấc đất, khiến cho ranh giới giữa thế giới vật chất và thế giới tâm linh trở nên vô cùng mong manh và dễ bị xuyên thủng.",
+      "witness": "Vào năm 2005, một nhóm thanh niên liều lĩnh đã đột nhập vào ngôi nhà để quay phim. Một trong số họ, anh Lê Văn Hùng, kể lại trải nghiệm: 'Ngay khi bước qua ngưỡng cửa, một luồng khí lạnh buốt ập vào mặt tôi, không phải cái lạnh của gió mà là cái lạnh thấu xương, như có ai đó đang thở phả vào gáy. Nhiệt kế cầm tay của tôi đột ngột giảm xuống 5 độ C trong vòng vài giây. Rồi cánh cửa sổ cũ kỹ ở tầng trệt, vốn đã được đóng chặt bằng dây thép, bỗng dưng bật mở một cách khó hiểu, tạo ra tiếng cọt kẹt rợn người. Chúng tôi không thấy bất cứ luồng gió nào, cũng không có ai chạm vào. Cả nhóm hoảng loạn và bỏ chạy thục mạng. Tôi còn thề là nghe thấy tiếng cười khúc khích yếu ớt, đầy sự chế giễu vang vọng từ phía cầu thang khi chúng tôi chạy ra.'",
+      "analysis": "Các báo cáo về nhiệt độ giảm đột ngột và hiện tượng poltergeist (hiện tượng vật lý do linh hồn gây ra) cho thấy mức độ hoạt động tâm linh tại ngôi nhà đang gia tăng và có khả năng tương tác trực tiếp với môi trường vật chất. Các thiết bị đo nhiệt độ hồng ngoại đã ghi nhận các 'điểm lạnh' (cold spots) cục bộ, nơi nhiệt độ thấp hơn đáng kể so với môi trường xung quanh mà không có nguyên nhân vật lý rõ ràng. Các cảm biến chuyển động cũng đã phát hiện những chuyển động không giải thích được trong các khu vực trống rỗng. Giả thuyết cho rằng các thực thể tâm linh đang tiêu hao năng lượng từ môi trường để biểu hiện vật lý, gây ra sự thay đổi nhiệt độ và thậm chí là di chuyển các vật thể nhỏ. Điều này cảnh báo về một mức độ nguy hiểm cao hơn, khi các linh hồn không chỉ hiện diện mà còn có thể tác động đến thế giới của người sống."
+    },
+    {
+      "title": "Hồ Sơ 04: Lời Thì Thầm Đáng Sợ và Cảm Giác Bị Chiếm Hữu",
+      "legend": "Trong văn hóa dân gian Việt Nam, những linh hồn chết oan, đặc biệt là những người mang theo nỗi uất hận hoặc chưa hoàn thành tâm nguyện, có thể trở thành 'oan hồn' với khả năng ảnh hưởng đến tâm trí người sống. Những lời đồn đại về ngôi nhà số 24 Lý Thái Tổ bắt đầu biến đổi, không chỉ còn là những bóng ma lảng vảng mà còn là một thực thể có ý thức, có thể thì thầm vào tai người, gieo rắc sự sợ hãi và thậm chí là ý nghĩ tiêu cực. Các câu chuyện kinh dị nhất kể về việc những người tiếp xúc với ngôi nhà cảm thấy một sự thôi thúc kỳ lạ, một cảm giác bị giám sát và đôi khi là những giấc mơ ám ảnh về vụ hỏa hoạn.",
+      "witness": "Cô Nguyễn Thị Hoa, một nhà ngoại cảm nghiệp dư đã từng thử nghiệm khả năng của mình gần ngôi nhà vào năm 2010, đã mô tả trải nghiệm: 'Ngay khi tôi tập trung năng lượng, một luồng sóng điện cực mạnh xuyên qua đầu tôi. Tôi nghe thấy những tiếng thì thầm chồng chéo, không rõ ngôn ngữ, nhưng tràn ngập sự tuyệt vọng và giận dữ. Rồi một giọng nói, rõ ràng và lạnh lẽo, thì thầm bên tai tôi: 'Đứa bé... cứu con tôi... trả thù!' Tôi cảm thấy một bàn tay lạnh lẽo như băng chạm vào vai, và trong khoảnh khắc đó, tôi có cảm giác như không còn là chính mình nữa, một nỗi buồn và sự phẫn nộ không phải của tôi bỗng trào dâng. Tôi đã phải bỏ chạy, cơ thể run rẩy và tâm trí hỗn loạn trong nhiều ngày sau đó.'",
+      "analysis": "Hiện tượng lời thì thầm và cảm giác bị chiếm hữu cho thấy sự phát triển của hoạt động tâm linh tại 24 Lý Thái Tổ từ dạng tàn dư năng lượng sang một dạng thực thể có ý thức, hoặc thậm chí là nhiều thực thể có khả năng tương tác trực tiếp với tâm trí con người. Các cuộc kiểm tra tâm lý đối với những người từng tiếp xúc đã cho thấy các triệu chứng của căng thẳng sau chấn thương, rối loạn lo âu và đôi khi là các triệu chứng phân ly tạm thời. Điều này củng cố giả thuyết về khả năng linh hồn có thể gây ảnh hưởng đến tâm trí, gieo rắc ý nghĩ hoặc cảm xúc. Các thiết bị ghi âm kỹ thuật số đã thu được những tín hiệu Giọng Nói Điện Tử (EVP) loại A và B, với những câu từ ngắn, đôi khi rõ ràng, thường mang nội dung tiêu cực hoặc cầu xin. Đây là dấu hiệu của một mối đe dọa tâm linh nghiêm trọng, tiềm ẩn nguy cơ về sự ám ảnh hoặc nhập hồn nếu không có biện pháp phòng ngừa và thanh tẩy hiệu quả."
+    }
+  ],
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: The tragic fire and haunting at 24 Lý Thái Tổ. Scene: A blurry, dark silhouette of a pregnant woman standing by a broken window in a dilapidated, smoke-stained house, shrouded in a thin, unnatural fog. The streetlights cast long, distorted shadows. style: grainy, 1990s aesthetic, low light, unsettling, with visible film imperfections and a sense of dread."
+}
+---
+[GEMINI_RESPONSE] 2026-03-13T08:07:10.784Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Hồ sơ này ghi lại các báo cáo và phân tích về hiện tượng tâm linh tại Trường THPT Nguyễn Thị Minh Khai, tiền thân là trường nữ sinh Gia Long. Trung tâm của các sự kiện là truyền thuyết về hồn ma một nữ sinh mặc áo dài tím, thường xuất hiện dưới gốc cây đa cổ thụ trong sân trường. Các báo cáo nhân chứng thường mô tả một bóng hình mờ ảo, mang theo cảm giác u buồn và lạnh lẽo, đặc biệt vào những đêm trăng rằm hoặc khi trường vắng lặng. Hiện tượng này đã tồn tại qua nhiều thế hệ, trở thành một phần không thể tách rời của lịch sử và văn hóa dân gian địa phương, gây ra sự lo lắng và tò mò trong cộng đồng học sinh và dân cư xung quanh. Các cuộc điều tra ban đầu cho thấy đây có thể là một thực thể ma quỷ lưu trú, với tiềm năng gây ra các tác động tâm lý đối với những người tiếp xúc.",
+  "visitor_reports": "Các báo cáo nhân chứng quan trọng nhất đều tập trung vào hình ảnh một bóng người nữ mặc áo dài màu tím than, xuất hiện chập chờn dưới gốc cây đa cổ thụ hoặc dọc hành lang khu vực cũ của trường. Nhiều người kể lại cảm giác lạnh buốt đột ngột, dù nhiệt độ môi trường không thay đổi đáng kể, kèm theo một nỗi buồn sâu sắc không rõ nguyên nhân. Một số học sinh và nhân viên bảo vệ còn ghi nhận những tiếng khóc thút thít hoặc tiếng thở dài não nề vào đêm khuya, đặc biệt vào các đêm trăng rằm. Các trường hợp tiếp xúc gần hơn mô tả bóng ma có vẻ ngoài mờ nhạt, không rõ nét khuôn mặt, nhưng ánh mắt dường như chứa đựng nỗi đau khổ vô tận, rồi tan biến nhanh chóng khi bị phát hiện. Không có báo cáo về hành vi gây hấn trực tiếp, nhưng sự hiện diện này gây ra sự hoang mang và ám ảnh tâm lý sâu sắc.",
+  "risk_assessment": "Đánh giá rủi ro tổng hợp cho thấy thực thể tâm linh tại Trường THPT Nguyễn Thị Minh Khai là một 'entitas residua' (thực thể lưu trú) hoặc 'entitas intelligens' (thực thể có ý thức) ở mức độ thấp, tập trung vào việc tái hiện một sự kiện bi kịch trong quá khứ. Mức độ nguy hiểm trực tiếp về thể chất là thấp. Tuy nhiên, rủi ro về tâm lý là đáng kể, bao gồm gây ra lo lắng, sợ hãi, rối loạn giấc ngủ và ám ảnh cho những cá nhân nhạy cảm, đặc biệt là học sinh. Hiện tượng lạnh buốt cục bộ và nhiễu loạn EMF đã được ghi nhận, cho thấy sự hiện diện vật lý tiềm tàng. Khuyến cáo an toàn bao gồm: 1. Hạn chế tối đa việc tiếp cận khu vực gốc cây đa và các dãy nhà cũ vào ban đêm. 2. Lắp đặt hệ thống giám sát nhiệt độ và EMF tại các điểm nóng. 3. Tổ chức các buổi tư vấn tâm lý cho học sinh và nhân viên có dấu hiệu bị ảnh hưởng. 4. Cân nhắc thực hiện các nghi thức thanh tẩy tâm linh truyền thống để giảm thiểu hoạt động của thực thể, nhưng cần phải có sự giám sát chặt chẽ từ chuyên gia để tránh kích động.",
+  "records": [
+    {
+      "title": "Hồ Sơ 001A: Bóng Áo Dài Tím Dưới Cây Đa Cổ Thụ",
+      "legend": "Cây đa tại sân trường Nguyễn Thị Minh Khai không chỉ là một biểu tượng về tuổi đời của ngôi trường mà còn là trung tâm của mọi truyền thuyết tâm linh. Theo các câu chuyện được truyền miệng từ thời Gia Long, đây là nơi một nữ sinh đã kết liễu cuộc đời mình vì một mối tình ngang trái, hoặc một bi kịch gia đình không thể hóa giải. Linh hồn cô gái, gắn liền với bộ áo dài tím – màu sắc truyền thống của nữ sinh Gia Long thời bấy giờ, được cho là đã bị mắc kẹt tại đây, không thể siêu thoát. Người dân địa phương và các thế hệ học sinh kể rằng, vào những đêm trăng rằm, khi ánh trăng xuyên qua tán lá rậm rạp, bóng dáng mờ ảo của cô gái sẽ hiện ra, đứng lặng lẽ dưới gốc cây, đôi mắt hướng về một điểm vô định, tràn ngập bi ai. Cây đa cổ thụ, với bộ rễ chằng chịt và tán lá rộng lớn, được coi là một cổng nối giữa hai thế giới, nơi năng lượng tâm linh được tích tụ và bộc lộ mạnh mẽ nhất.",
+      "witness": "Vào tháng 10 năm 2017, anh Trần Văn Hùng, nhân viên bảo vệ ca đêm, đã báo cáo một sự việc bất thường. 'Khoảng 2 giờ sáng, khi tôi đang đi tuần ngang qua sân trường, có một luồng gió lạnh buốt bất thường thổi qua, dù lúc đó trời không có gió. Tôi quay lại nhìn gốc cây đa, thì thấy một bóng người phụ nữ mặc áo dài tím đứng lặng lẽ dưới tán cây. Bóng hình mờ ảo, không rõ mặt, nhưng tôi cảm nhận được một nỗi buồn vô hạn tỏa ra từ đó. Tim tôi đập thình thịch. Khi tôi chớp mắt, bóng hình đó đã biến mất. Tôi thề là tôi không say và không ngủ gật.' Anh Hùng sau đó đã phải nghỉ việc vì ám ảnh tâm lý kéo dài, thường xuyên gặp ác mộng về hình ảnh đó.",
+      "analysis": "Phân tích hiện trường cho thấy khu vực gốc cây đa có sự giảm nhiệt độ đột ngột từ 3-5 độ C so với môi trường xung quanh vào thời điểm báo cáo của anh Hùng. Máy đo EMF (Trường Điện Từ) cũng ghi nhận những dao động bất thường, lên tới 25-30 mG (milligauss), cao hơn nhiều so với mức nền thông thường (dưới 1 mG). Đây là những chỉ số thường thấy ở các điểm nóng hoạt động của thực thể ma quỷ. Giả thuyết ban đầu cho rằng đây là một hiện tượng 'residual haunting' (ám ảnh tàn dư), nơi năng lượng cảm xúc mạnh mẽ từ một sự kiện bi kịch đã ghi dấu ấn vào môi trường, tái hiện lại. Tuy nhiên, khả năng 'intelligent haunting' (ám ảnh có ý thức) cũng không thể loại trừ, khi thực thể dường như có khả năng tương tác gián tiếp với người chứng kiến thông qua việc gây ra cảm xúc mạnh và sự biến mất có chủ đích. Cần theo dõi thêm các báo cáo về hành vi tương tác rõ ràng hơn."
+    },
+    {
+      "title": "Hồ Sơ 002B: Tiếng Khóc Nỉ Non và Hiện Tượng Âm Thanh Bất Thường",
+      "legend": "Truyền thuyết về tiếng khóc nỉ non gắn liền với hồn ma áo dài tím đã được ghi nhận từ rất lâu, đặc biệt vào những đêm trăng rằm khi trường vắng lặng. Người ta tin rằng đó là tiếng lòng của nữ sinh không thể siêu thoát, than khóc cho số phận bi thảm của mình. Các câu chuyện kể rằng, tiếng khóc này không phải lúc nào cũng rõ ràng, đôi khi chỉ là một tiếng thở dài, một khúc hát buồn xa xăm, hoặc những âm thanh thút thít rất nhỏ, đủ để gây rợn người và khiến bất kỳ ai nghe thấy cũng cảm thấy bất an. Nó thường xuất hiện từ khu vực sân sau, gần các lớp học cũ hoặc khu vực nhà vệ sinh nữ, những nơi được cho là có mối liên hệ mật thiết với cuộc sống của nữ sinh Gia Long ngày xưa.",
+      "witness": "Chị Nguyễn Thị Lan, một phụ huynh sống gần trường, đã chia sẻ trải nghiệm vào tháng 3 năm 2019: 'Vào đêm rằm tháng Giêng, tôi đang ngồi ban công thì nghe thấy tiếng khóc rất nhỏ, nỉ non như từ trong trường vọng ra. Tiếng khóc rất buồn, như của một cô gái trẻ. Tôi đã cố gắng lắng nghe xem nó phát ra từ đâu, nhưng âm thanh cứ lúc ẩn lúc hiện, không thể định vị được. Nó không giống tiếng khóc của trẻ con hay người lớn bình thường, mà mang một sự ai oán rất lạ. Cảm giác lúc đó rất lạnh người, tôi phải đóng cửa sổ lại và không dám nhìn ra ngoài nữa.' Chị Lan khẳng định đây không phải là tiếng mèo kêu hay bất kỳ âm thanh thông thường nào khác.",
+      "analysis": "Đội ngũ chuyên gia đã tiến hành đặt các thiết bị ghi âm tần số rộng tại các điểm nóng được báo cáo. Kết quả ban đầu cho thấy có sự hiện diện của các tần số hạ âm (infrasound) dưới 20 Hz, không thể nghe thấy bằng tai người nhưng có khả năng gây ra cảm giác lo lắng, sợ hãi và khó chịu về thể chất. Các phân tích phổ âm thanh cũng ghi nhận những dao động âm thanh bất thường, không có nguồn gốc vật lý rõ ràng, đôi khi có dạng sóng tương tự như tiếng thở dài hoặc tiếng khóc yếu ớt. Điều này củng cố giả thuyết về một thực thể tâm linh có khả năng thao túng hoặc tạo ra các sóng âm thanh để tác động đến môi trường vật lý. Các hiệu ứng tâm lý từ việc nghe những âm thanh này có thể gây ra ảo giác thính giác và tăng cường cảm giác bị ám ảnh cho các cá nhân nhạy cảm."
+    },
+    {
+      "title": "Hồ Sơ 003C: Nhiễu Loạn Vật Lý và Cảm Giác Bị Quan Sát",
+      "legend": "Ngoài những hiện tượng thị giác và thính giác, các câu chuyện về sự nhiễu loạn vật lý nhỏ cũng được ghi nhận. Dù không phải là các hiện tượng poltergeist mạnh mẽ, nhưng việc các vật dụng nhỏ bị di chuyển, cửa sổ tự động đóng mở, hoặc cảm giác 'lạnh gáy' khi ở một mình trong các phòng học cũ đã trở thành một phần của truyền thuyết. Người ta kể rằng hồn ma không chỉ xuất hiện mà còn đôi khi 'chạm' vào thế giới vật chất, để lại dấu vết của sự hiện diện. Đặc biệt, các vật phẩm có màu tím hoặc liên quan đến nữ sinh xưa cũ thường là mục tiêu của những hoạt động này, như thể thực thể đang cố gắng tái tạo hoặc tương tác với quá khứ của mình.",
+      "witness": "Cô Nguyễn Thị Thảo, giáo viên dạy môn Văn, đã báo cáo một sự việc kỳ lạ vào tháng 9 năm 2020. 'Khi tôi đang chấm bài trong phòng giáo viên vào buổi tối, khoảng 7 giờ, tự nhiên chiếc quạt trần đang quay đều bỗng khựng lại rồi quay ngược chiều kim đồng hồ trong vài giây, sau đó lại quay bình thường. Cùng lúc đó, tôi cảm thấy một luồng hơi lạnh phả vào gáy, dù cửa sổ đã đóng kín. Tôi có cảm giác như có ai đó đang đứng phía sau lưng mình, quan sát rất gần. Tôi không dám quay lại, chỉ cố gắng giữ bình tĩnh và sau đó nhanh chóng thu dọn đồ đạc để về.' Cô Thảo cho biết không có bất kỳ sự cố điện nào được ghi nhận vào thời điểm đó.",
+      "analysis": "Các cuộc điều tra sau báo cáo của cô Thảo đã không tìm thấy bằng chứng về sự cố điện hay lỗi kỹ thuật của quạt trần. Tuy nhiên, máy đo EMF đặt tại phòng giáo viên và hành lang gần đó đã ghi nhận những đỉnh cao bất thường, dao động mạnh mẽ trong khoảng thời gian cô Thảo báo cáo. Điều này cho thấy khả năng một thực thể tâm linh đã tác động đến trường điện từ cục bộ, gây ra sự nhiễu loạn vật lý nhỏ như việc quạt đổi chiều. Cảm giác 'bị quan sát' và luồng hơi lạnh là những phản ứng tâm lý và sinh lý điển hình khi tiếp xúc với năng lượng tâm linh. Đây là bằng chứng cho thấy thực thể có khả năng tương tác ở mức độ tinh vi với môi trường vật lý, vượt ra ngoài khái niệm 'ám ảnh tàn dư', và có thể là một 'ám ảnh có ý thức' đang cố gắng thể hiện sự hiện diện của mình một cách rõ ràng hơn. Cần tăng cường giám sát và phân tích các sự kiện nhiễu loạn vật lý nhỏ."
+    },
+    {
+      "title": "Hồ Sơ 004D: Lời Nguyền Áo Dài Tím và Dấu Vết Lịch Sử",
+      "legend": "Thâm sâu hơn các câu chuyện về bóng ma, có một lời nguyền thầm kín được truyền tai nhau trong giới học sinh cũ: những ai cố tình chế giễu hoặc làm tổn hại đến khu vực cây đa sẽ gặp phải vận rủi. Lời nguyền này gắn liền với sự tôn kính đối với 'nữ sinh áo dài tím' và sự bi thảm của cô. Ngoài ra, các ghi chép lịch sử không chính thức hoặc nhật ký cũ của học sinh Gia Long đôi khi ám chỉ về những cái chết bí ẩn hoặc những biến cố buồn xảy ra trong khuôn viên trường vào những năm đầu thế kỷ 20, những sự kiện này có thể là nguồn gốc sâu xa hơn cho sự tồn tại của thực thể. Các câu chuyện kể rằng, hồn ma áo dài tím không chỉ là một hiện tượng đơn lẻ mà còn là một phần của dòng chảy năng lượng tâm linh kéo dài hàng thập kỷ tại ngôi trường này.",
+      "witness": "Bà Lê Thị Mai, cựu học sinh Gia Long khóa 1960-1967, kể lại trong một cuộc phỏng vấn năm 2022: 'Hồi đó chúng tôi đã nghe kể về cô nữ sinh chết oan dưới gốc cây đa. Chúng tôi thường tránh xa khu vực đó vào buổi tối. Có lần, một nhóm bạn nữ nghịch ngợm đã cố ý trêu chọc bằng cách mặc áo dài tím và giả vờ khóc dưới cây. Đêm đó, một trong số họ đã bị sốt cao mê man, nói sảng về việc nhìn thấy một khuôn mặt trắng bệch và đôi mắt đầy căm phẫn. Sau đó, cô ấy phải chuyển trường vì quá sợ hãi.' Bà Mai khẳng định rằng những lời cảnh báo về việc tôn trọng khu vực đó là có thật và cần được tuân thủ.",
+      "analysis": "Phân tích các báo cáo và truyền thuyết lịch sử cho thấy có một 'nghi thức' tâm linh không chính thức đã hình thành xung quanh hồn ma áo dài tím, nơi sự tôn trọng được xem là điều kiện tiên quyết để tránh bị quấy phá. Trường hợp của nhóm học sinh trêu chọc và bị ốm đau có thể là một ví dụ về 'phản ứng' của thực thể khi bị khiêu khích, hoặc đơn giản là hiệu ứng tâm lý cộng hưởng với niềm tin mạnh mẽ vào lời nguyền. Các tư liệu lịch sử dù mơ hồ nhưng cũng gợi ý về một nền tảng thực tế cho truyền thuyết này, có thể là những cái chết không được công bố hoặc những vụ việc bí ẩn đã bị che đậy trong quá khứ. Việc tìm kiếm các hồ sơ cũ, nhật ký học sinh hoặc tài liệu lưu trữ của trường từ thời Gia Long có thể cung cấp thêm manh mối về danh tính và bi kịch của nữ sinh áo dài tím, từ đó giúp hiểu rõ hơn về bản chất và mục đích của thực thể. Cần tiếp tục nghiên cứu sâu rộng về lịch sử tâm linh của địa điểm này."
+    }
+  ],
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Trường THPT Nguyễn Thị Minh Khai haunting at Nguyễn Thị Minh Khai High School, Ho Chi Minh City, Vietnam. Scene: A shadowy, translucent figure in a traditional purple áo dài standing under a large, ancient banyan tree at night, obscured by thick fog, with faint moonlight filtering through. The figure's face is indistinct, but its posture conveys profound sadness. style: grainy, 1990s aesthetic, low light, unsettling atmosphere, slight motion blur, a sense of cold dread."
+}
+---
+[GEMINI_RESPONSE] 2026-03-13T08:12:48.688Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Hồ sơ này ghi nhận các hiện tượng dị thường tại Chung cư 727 Trần Hưng Đạo, Thành phố Hồ Chí Minh, một công trình từng là khách sạn Building President. Lịch sử của tòa nhà chìm trong bóng tối từ những năm 1960, khi quá trình xây dựng chứng kiến hàng loạt tai nạn chết người không giải thích được, đặc biệt là tại tầng 13, nơi chưa bao giờ được hoàn thiện. Dân gian đồn rằng, để trấn yểm những linh hồn oán hận và xua đi vận rủi, chủ đầu tư đã thực hiện một nghi lễ rùng rợn, chôn cất bốn trinh nữ tại bốn góc móng tòa nhà. Kể từ đó, tòa nhà trở thành trung tâm của vô số lời kể về ma ám, từ những tiếng động kỳ lạ, bóng hình thoảng qua cho đến những trải nghiệm kinh hoàng của cư dân và khách vãng lai. Các báo cáo cho thấy một trường năng lượng tiêu cực mạnh mẽ, ảnh hưởng đến cả tâm lý và thể chất của những người sống và làm việc tại đây, biến 727 Trần Hưng Đạo thành một trong những điểm nóng tâm linh đáng sợ nhất của thành phố.",
+  "visitor_reports": "Các báo cáo nhân chứng thu thập được từ cư dân hiện tại, cựu cư dân, nhân viên bảo vệ và khách vãng lai đều cho thấy sự nhất quán đáng sợ về các hoạt động siêu nhiên. Nhiều người đã tường thuật về việc nhìn thấy những bóng trắng mờ ảo lướt qua hành lang, đặc biệt là vào ban đêm hoặc trong điều kiện ánh sáng yếu. Các tiếng động không rõ nguồn gốc như tiếng bước chân trên tầng không có người, tiếng trẻ con khóc, tiếng phụ nữ than vãn, hay tiếng đồ vật rơi vỡ thường xuyên được ghi nhận, gây ra sự hoang mang tột độ. Một số nhân chứng còn mô tả cảm giác bị theo dõi, bị chạm vào bởi một lực vô hình, hoặc trải qua sự thay đổi nhiệt độ đột ngột, lạnh giá bất thường trong không gian kín. Tầng 13, dù bị niêm phong, vẫn là tâm điểm của những lời kể kinh hoàng nhất, với nhiều người khẳng định nghe thấy tiếng rên rỉ và cảm nhận được sự hiện diện mãnh liệt của các linh hồn bị giam cầm.",
+  "risk_assessment": "Chung cư 727 Trần Hưng Đạo được phân loại là khu vực Rủi Ro Cấp Độ Cao (Level 4/5 Paranormal Risk). Sự hiện diện của nhiều thực thể được cho là có liên hệ với các cái chết bi thảm và nghi lễ trấn yểm đã tạo ra một môi trường tâm linh cực kỳ bất ổn và nguy hiểm. Các rủi ro chính bao gồm: tác động tâm lý nghiêm trọng lên cư dân (lo âu, trầm cảm, mất ngủ, ảo giác), tiềm ẩn các hiện tượng poltergeist gây hại vật chất (đồ vật di chuyển, rơi vỡ, trục trặc thiết bị), và khả năng bị các thực thể chiếm hữu hoặc gây tổn thương vật lý gián tiếp (gây tai nạn, té ngã). Việc phớt lờ các dấu hiệu hoặc cố gắng thách thức các thực thể có thể dẫn đến hậu quả không thể lường trước.\nKhuyến cáo an toàn:\n1. Hạn chế tiếp xúc: Tuyệt đối không tự ý tiếp cận hoặc cố gắng xâm nhập tầng 13.\n2. Giám sát chặt chẽ: Lắp đặt hệ thống camera hồng ngoại và cảm biến chuyển động tại các khu vực chung, đặc biệt là hành lang và cầu thang, với giám sát 24/7.\n3. Hỗ trợ tâm lý: Cung cấp dịch vụ tư vấn tâm lý chuyên sâu cho cư dân bị ảnh hưởng bởi các hiện tượng.\n4. Bảo vệ cá nhân: Khuyến nghị không ở một mình trong các khu vực vắng vẻ vào ban đêm và trang bị các vật phẩm hộ mệnh tâm linh nếu có niềm tin.\n5. Đội ngũ chuyên trách: Chỉ những đội ngũ điều tra chuyên nghiệp, được trang bị đầy đủ và có kinh nghiệm sâu rộng về trấn yểm mới được phép tiến hành nghiên cứu sâu hơn và các biện pháp can thiệp.",
+  "records": [
+    {
+      "title": "HỒ SƠ 001: Nền Móng Bất An và Lời Nguyền Khởi Thủy",
+      "legend": "Vào những năm 1960, khi Saigon đang phát triển rực rỡ, dự án khách sạn Building President được khởi công với tham vọng trở thành biểu tượng kiến trúc. Tuy nhiên, ngay từ giai đoạn đặt nền móng, một chuỗi các tai nạn xây dựng kinh hoàng đã bắt đầu xảy ra. Các công nhân liên tục gặp phải những sự cố khó hiểu: giàn giáo đổ sập không rõ nguyên nhân, vật liệu xây dựng rơi từ trên cao một cách bí ẩn, và thậm chí có những trường hợp công nhân biến mất không để lại dấu vết. Những tin đồn về một lời nguyền cổ xưa, hay việc công trình được xây dựng trên một khu đất mộ địa bị quấy phá, bắt đầu lan truyền trong giới lao động. Nỗi sợ hãi bao trùm công trường, khiến nhiều người từ chối làm việc vào ban đêm hoặc ở những khu vực nhất định, dù đã có những nỗ lực trấn an và phủ nhận từ phía chủ đầu tư. Nhưng mỗi khi một tai nạn mới xảy ra, lời nguyền lại càng được củng cố, gieo rắc sự bất an vào từng viên gạch của tòa nhà.",
+      "witness": "Ông Trần Văn Hùng, 82 tuổi, cựu công nhân xây dựng của dự án, với giọng run rẩy kể lại: “Tôi vẫn nhớ như in cái đêm thằng Tèo bị dàn giáo đè chết. Lúc đó trời quang mây tạnh, không gió, nhưng tự nhiên giàn giáo đổ sập như có ai đó giật dây. Trước đó, nhiều anh em đã nghe thấy tiếng khóc than văng vẳng ở khu móng, những tiếng thì thầm bằng thứ ngôn ngữ cũ kỹ mà không ai hiểu được. Tôi cũng từng thấy một bóng đen lướt qua rất nhanh trên tầng đang xây dở vào lúc chạng vạng, cảm giác lạnh toát sống lưng. Có lần, tôi đang khiêng gạch thì cảm thấy có bàn tay lạnh ngắt chạm vào vai, quay lại thì không có ai. Sau đó, tôi bị ngã, suýt chút nữa thì rơi xuống hố móng. Chúng tôi biết, mảnh đất này có thứ gì đó không muốn tòa nhà được xây lên.”",
+      "analysis": "Phân tích ban đầu cho thấy khu vực nền móng tòa nhà có thể chứa đựng một lượng lớn năng lượng dư ảnh (residual energy) từ các sự kiện bi thảm trong quá khứ. Các tai nạn lặp đi lặp lại không chỉ là ngẫu nhiên mà có thể là biểu hiện của một thực thể hoặc trường năng lượng tiêu cực đã tồn tại từ trước hoặc được 'kích hoạt' bởi quá trình xây dựng. Việc công nhân cảm thấy bị 'chạm vào' hoặc nhìn thấy 'bóng đen' cho thấy sự hiện diện của các thực thể có tri giác. Giả thuyết về 'lời nguyền' hoặc 'mộ địa bị quấy phá' cần được điều tra thêm qua các ghi chép lịch sử địa phương và khảo sát địa chất chuyên sâu. Việc khảo sát điện từ trường (EMF) tại khu vực nền móng có thể cho thấy các điểm nóng năng lượng bất thường, đồng thời cần đánh giá tác động tâm lý lâu dài lên những người từng làm việc tại đây."
+    },
+    {
+      "title": "HỒ SƠ 002: Tầng 13 – Vùng Cấm và Những Bóng Ma Trinh Nữ",
+      "legend": "Tầng 13 của Chung cư 727 Trần Hưng Đạo là một bí ẩn không lời, một vùng cấm bị niêm phong vĩnh viễn và chưa bao giờ được hoàn thiện. Theo truyền thuyết đô thị, sau hàng loạt tai nạn kinh hoàng và cái chết bí ẩn của nhiều công nhân, đặc biệt là tại khu vực tầng này, chủ đầu tư đã rơi vào tuyệt vọng. Họ tìm đến một thầy pháp quyền năng, người đã đưa ra một giải pháp trấn yểm rùng rợn: chôn cất bốn trinh nữ còn sống tại bốn góc móng của tòa nhà để xoa dịu các linh hồn quỷ dữ và mang lại sự ổn định cho công trình. Nghi lễ đen tối này được cho là đã diễn ra trong bí mật, và từ đó, mọi tai nạn lớn dường như lắng xuống. Tuy nhiên, cái giá phải trả là sự ám ảnh vĩnh cửu của những linh hồn trinh nữ bị giam cầm, những người mãi mãi gắn liền với tầng 13 lạnh lẽo và bị lãng quên, trở thành một phần không thể tách rời của truyền thuyết đen tối về tòa nhà.",
+      "witness": "Anh Nguyễn Văn Minh, cựu nhân viên bảo vệ ca đêm tại 727 Trần Hưng Đạo, đã từng tình cờ mở được cửa vào tầng 13 do lỗi hệ thống. Anh kể lại với vẻ mặt tái mét: “Cái lạnh ở tầng đó không giống bất cứ cái lạnh nào tôi từng cảm nhận, nó buốt thấu xương như mùa đông âm phủ. Tôi nghe thấy tiếng thút thít rất nhỏ, như tiếng con gái khóc nấc, rồi tiếng hát ru ai oán từ đâu vọng lại. Ánh đèn pin của tôi liên tục chập chờn, dù pin còn đầy. Tôi thề là tôi đã nhìn thấy bốn bóng hình mờ ảo của những cô gái trẻ, mặc đồ trắng, đứng lặng lẽ ở bốn góc tầng, quay lưng lại với tôi. Cảm giác đau khổ, tuyệt vọng dâng lên trong lòng tôi mạnh đến nỗi tôi không thể chịu đựng được. Tôi bỏ chạy thục mạng và không bao giờ dám đến gần khu vực đó nữa. Tôi đã xin nghỉ việc ngay sau đó, không dám làm ở đây một ngày nào nữa.”",
+      "analysis": "Tầng 13 là tâm điểm của hoạt động siêu nhiên tại tòa nhà, hoạt động như một điểm hội tụ năng lượng tiêu cực. Sự kiện 'chôn sống trinh nữ' (nếu có thật) đã tạo ra một dạng thực thể thông minh (intelligent entity) hoặc dư ảnh tâm linh (residual haunting) cực kỳ mạnh mẽ, bị ràng buộc vĩnh viễn với địa điểm. Những cảm giác lạnh lẽo tột độ, tiếng khóc than và hình ảnh 'bóng ma trinh nữ' là dấu hiệu rõ ràng của các linh hồn đang chịu đựng sự khổ đau. Chúng có thể đang tìm kiếm sự giải thoát hoặc báo thù. Việc hệ thống điện tử bị ảnh hưởng (đèn chập chờn) cũng cho thấy sự tác động vật lý của các thực thể. Cần tiến hành đo đạc điện từ trường (EMF) và sử dụng camera hồng ngoại, full-spectrum tại khu vực này để ghi lại bằng chứng, nhưng với sự thận trọng cao nhất do tính chất nguy hiểm của các thực thể."
+    },
+    {
+      "title": "HỒ SƠ 003: Những Tiếng Khóc Vọng Từ Quá Khứ",
+      "legend": "Chung cư 727 Trần Hưng Đạo không chỉ ám ảnh bởi những hình ảnh mà còn bởi những âm thanh rùng rợn, dường như vọng lại từ những thời khắc đau thương nhất của nó. Truyền thuyết kể rằng, tòa nhà này là một 'cỗ máy ghi âm' khổng lồ, lưu giữ mọi tiếng khóc, tiếng than, tiếng cười và cả những lời nguyền rủa từ hàng thập kỷ. Từ những tiếng kêu cứu của công nhân gặp nạn, tiếng than khóc của bốn trinh nữ bị trấn yểm, cho đến những lời thì thầm của các linh hồn lang thang không nơi nương tựa, tất cả đều được cho là vẫn còn vương vấn trong không gian, chờ đợi thời khắc thích hợp để hiện hữu. Nhiều cư dân đã tường thuật về việc nghe thấy những âm thanh lạ lùng vào ban đêm, không rõ nguồn gốc, khiến họ không thể ngủ yên và luôn sống trong trạng thái lo âu, sợ hãi, như thể đang chia sẻ không gian sống với những oan hồn bất hạnh.",
+      "witness": "Bà Lê Thị Hương, một cư dân đã sống tại chung cư này hơn 20 năm, kể lại với đôi mắt mệt mỏi: “Đêm nào cũng vậy, khoảng từ 2 đến 3 giờ sáng, tôi thường nghe thấy tiếng trẻ con khóc thét từ hành lang, nhưng khi tôi mở cửa ra thì không có ai cả. Có lần, tôi nghe rõ mồn một tiếng đàn bà hát ru một bài hát rất buồn bằng tiếng Việt cổ, vọng từ căn hộ đối diện dù nó đã bỏ trống nhiều năm. Tôi còn nghe thấy tiếng bước chân đi lại trong nhà mình khi không có ai khác ở đó, rồi tiếng chén đĩa va vào nhau trong bếp. Những âm thanh đó cứ lặp đi lặp lại, khiến tôi không thể nào ngủ ngon được. Nhiều lúc tôi cảm thấy như có ai đó đang gọi tên mình rất khẽ, nhưng khi tôi hỏi lại thì không có ai trả lời. Nó khiến tôi phát điên lên mất.”",
+      "analysis": "Các hiện tượng thính giác tại Chung cư 727 Trần Hưng Đạo cho thấy sự hiện diện của cả dư ảnh tâm linh (residual haunting) – nơi các âm thanh từ quá khứ được 'phát lại' – và các thực thể thông minh (intelligent entity) có khả năng tương tác, như việc gọi tên hoặc tạo ra tiếng động có chủ đích. Việc các âm thanh xuất hiện đều đặn vào một khung giờ nhất định (2-3 giờ sáng) có thể liên quan đến 'giờ ma quỷ' hoặc một chu kỳ năng lượng cụ thể. Cần sử dụng thiết bị ghi âm chuyên dụng (EVP recorder) và micro độ nhạy cao để thu lại các tần số âm thanh không thể nghe bằng tai thường. Phân tích phổ âm thanh có thể giúp xác định nguồn gốc và tính chất của các tiếng động. Ngoài ra, việc theo dõi các yếu tố môi trường như nhiệt độ, độ ẩm, và hoạt động địa từ có thể cung cấp thêm manh mối về các điều kiện thúc đẩy những hiện tượng này."
+    },
+    {
+      "title": "HỒ SƠ 004: Ám Ảnh Khu Vực Chung và Hệ Thống An Ninh",
+      "legend": "Sự ám ảnh tại 727 Trần Hưng Đạo không chỉ giới hạn trong các căn hộ riêng lẻ mà còn lan tỏa khắp các khu vực chung của tòa nhà, nơi hàng ngàn lượt người đã từng qua lại trong suốt lịch sử thăng trầm của nó. Các hành lang dài, cầu thang bộ u tối, và đặc biệt là hệ thống thang máy cũ kỹ được cho là những 'cửa ngõ' hoặc 'điểm dừng chân' yêu thích của các linh hồn. Truyền thuyết kể rằng, những thực thể này không chỉ tồn tại mà còn có khả năng tương tác với môi trường vật lý và công nghệ, gây ra sự cố cho các thiết bị điện tử và hệ thống an ninh. Các khu vực chung trở thành nơi mà cư dân và nhân viên bảo vệ thường xuyên đối mặt với những hiện tượng khó hiểu, tạo ra một không khí căng thẳng và sợ hãi bao trùm toàn bộ tòa nhà, biến mọi góc khuất đều có thể ẩn chứa một điều kinh hoàng.",
+      "witness": "Ông Phan Thanh Hải, nhân viên bảo vệ ca đêm hiện tại, tường thuật: “Thang máy ở đây có ý thức riêng. Nhiều lần nó tự động dừng ở tầng 13 dù không có ai gọi, hoặc tự mở cửa vào một hành lang tối om không có người. Tôi đã nhìn thấy bóng người lướt qua trên màn hình camera giám sát ở hành lang tầng 7, nhưng khi chạy lên kiểm tra thì không có một bóng người nào. Đèn hành lang thì cứ chập chờn, có lúc tắt phụt hoàn toàn khiến tôi phải mò mẫm trong bóng tối. Một đêm nọ, tôi đang ngồi ở phòng bảo vệ thì nghe tiếng đổ vỡ lớn từ sảnh chính. Chạy ra thì thấy một chậu cây cảnh lớn bị lật úp, đất vương vãi khắp nơi, nhưng camera không ghi nhận bất kỳ ai đến gần. Tôi không dám đi tuần một mình sau 1 giờ sáng nữa, cảm giác như có ai đó luôn theo dõi mình từ phía sau.”",
+      "analysis": "Các báo cáo về sự cố hệ thống điện tử và vật lý trong khu vực chung cho thấy khả năng tồn tại của các thực thể có khả năng gây ảnh hưởng đến vật chất (poltergeist activity) hoặc tương tác trực tiếp với công nghệ. Thang máy dừng ở tầng 13, đèn nhấp nháy, và các vật thể bị di chuyển mà không có tác nhân vật lý rõ ràng là những dấu hiệu điển hình của hoạt động này. Các khu vực có lưu lượng người qua lại cao như hành lang và thang máy có thể tích tụ năng lượng tâm linh, trở thành điểm nóng cho các biểu hiện. Việc camera giám sát ghi lại 'bóng người' hoặc không ghi lại sự kiện vật lý bất thường là rất quan trọng, đòi hỏi phải phân tích kỹ lưỡng các khung hình và kiểm tra tính toàn vẹn của thiết bị. Cần lắp đặt thêm các cảm biến chuyển động hồng ngoại và thiết bị đo điện từ trường chuyên dụng tại các khu vực này để thu thập dữ liệu chính xác và tìm kiếm các mẫu hình hoạt động."
+    }
+  ],
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Chung cư 727 Trần Hưng Đạo at Thành phố Hồ Chí Minh. Scene: Mờ sương, ánh sáng yếu, lạnh lẽo, một hành lang dài của chung cư cũ với những cánh cửa gỗ mục nát, có bóng người lướt qua ở cuối hành lang. style: Hạt nhiễu, phong cách thập niên 1990."
+}
+---
+[GEMINI_RESPONSE] 2026-03-13T08:52:23.684Z Status: 503 Service Unavailable
+[GEMINI_ERROR] {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+[GEMINI_RESPONSE] 2026-03-13T09:02:21.366Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Huyền thoại về Bảo tàng Mỹ thuật TP.HCM, hay còn được biết đến với cái tên lạnh lẽo 'Biệt thự 99 cửa', bắt nguồn từ bi kịch của gia tộc Hứa Bổn Hỏa, một trong tứ đại phú hộ Sài Gòn xưa. Ngôi biệt thự tọa lạc tại số 97 Phó Đức Chính, Quận 1, không chỉ là một kiệt tác kiến trúc Pháp cổ kính mà còn là chứng nhân câm lặng cho một câu chuyện tình yêu, sự xa hoa và nỗi đau tột cùng. Truyền thuyết kể rằng, Hứa Tiểu Lan, cô con gái độc nhất của ông Hứa Bổn Hỏa, một giai nhân tuyệt sắc với vẻ đẹp chim sa cá lặn, bỗng mắc phải căn bệnh phong quái ác. Để giữ kín sự thật đau lòng này khỏi ánh mắt tò mò của xã hội thượng lưu và bảo vệ danh tiếng gia đình, ông Hứa đã buộc phải giam cầm con gái mình trong một căn phòng bí mật trên lầu cao nhất của dinh thự. Căn phòng đó, với những bức tường dày và cửa sổ khóa kín, trở thành nhà tù xa hoa cho một linh hồn trẻ tuổi đang tàn tạ. Nơi đó, Tiểu Lan đã sống những năm tháng cuối đời trong cô độc, chỉ bầu bạn với nỗi tuyệt vọng và tiếng khóc than xé lòng. Người ta đồn rằng, cô thường xuyên nhìn ra cửa sổ, khao khát được hòa nhập với thế giới bên ngoài, nhưng chỉ có thể nhìn thấy những bóng hình mơ hồ qua lớp kính mờ. Sau khi Tiểu Lan qua đời trong sự cô quạnh, linh hồn của cô được cho là vẫn còn vương vấn trong biệt thự, không thể siêu thoát vì nỗi uất hận và khao khát tự do chưa được thỏa mãn. Tiếng khóc than ai oán, bóng hình thiếu nữ áo trắng lướt qua hành lang, hay cảm giác lạnh lẽo bất thường là những câu chuyện được kể lại qua nhiều thế hệ, biến dinh thự tráng lệ này thành một địa điểm bị ám ảnh đáng sợ, nơi ranh giới giữa sự sống và cái chết trở nên mong manh hơn bao giờ hết. Sự cô độc tột cùng của một người con gái bị giam hãm trong chính ngôi nhà của mình đã tạo nên một năng lượng tâm linh cực kỳ mạnh mẽ, luẩn quẩn không ngừng trong từng ngóc ngách của tòa nhà, tạo nên một bản giao hưởng bi ai của những linh hồn không thể siêu thoát. Cái tên '99 cửa' cũng gợi lên hình ảnh một mê cung, nơi linh hồn Tiểu Lan vẫn đang lạc lối, mãi mãi tìm kiếm lối thoát khỏi sự giam cầm vĩnh cửu.",
+  "chronological_history": "Lịch sử của Biệt thự 99 cửa, nay là Bảo tàng Mỹ thuật TP.HCM, bắt đầu vào những năm đầu thập niên 1920 khi Hứa Bổn Hỏa, một thương nhân gốc Hoa giàu có bậc nhất Sài Gòn, cho xây dựng công trình này. Dinh thự được hoàn thành vào khoảng năm 1929, với kiến trúc kết hợp hài hòa giữa phong cách Pháp cổ điển và chi tiết Á Đông tinh tế, trở thành biểu tượng cho sự xa hoa và quyền lực của gia tộc Hứa. Khoảng giữa thập niên 1930, bi kịch bắt đầu ập đến khi cô con gái duy nhất của ông, Hứa Tiểu Lan, được cho là đã mắc bệnh phong. Đây là một căn bệnh bị kỳ thị nặng nề vào thời điểm đó. Để bảo vệ con gái khỏi sự miệt thị và giữ gìn danh tiếng gia tộc, ông Hứa đã quyết định giữ kín bí mật này và giam lỏng Tiểu Lan trong một căn phòng biệt lập trên tầng cao nhất của biệt thự. Trong suốt nhiều năm, Tiểu Lan sống trong cô độc, chỉ có vài người hầu thân cận được phép tiếp cận. Cô qua đời trong chính căn phòng đó vào một ngày không xác định của thập niên 1940, để lại sau lưng một câu chuyện bi thương và một linh hồn được cho là vẫn còn vương vấn. Sau năm 1975, dinh thự này được nhà nước tiếp quản và đến năm 1987, chính thức được chuyển đổi công năng thành Bảo tàng Mỹ thuật TP.HCM. Kể từ đó, những câu chuyện về các hiện tượng siêu nhiên bắt đầu xuất hiện dày đặc hơn. Vào những năm 1990, các nhân viên bảo vệ thường xuyên báo cáo về việc nghe thấy tiếng khóc thút thít, tiếng bước chân nhẹ nhàng trên các tầng lầu trống vắng vào ban đêm, và cảm giác lạnh lẽo bất thường ở khu vực được cho là phòng của Tiểu Lan. Đầu những năm 2000, nhiều du khách và nhân viên bảo tàng đã kể lại việc nhìn thấy một bóng dáng phụ nữ mặc áo trắng lướt qua các hành lang cổ kính, đặc biệt là gần khu vực cầu thang chính và các căn phòng trên tầng hai. Các sự cố về thiết bị điện tử bị trục trặc không rõ nguyên nhân, đèn tự động bật tắt, hoặc cảm biến chuyển động kích hoạt mà không có sự hiện diện vật lý cũng được ghi nhận rải rác trong suốt hai thập kỷ qua, đặc biệt là trong các đợt cải tạo hoặc bảo trì khu vực tầng trên. Gần đây nhất, vào năm 2018-2019, trong một dự án trùng tu nhỏ, một số công nhân đã bỏ việc vì quá sợ hãi sau khi nghe thấy những tiếng thì thầm không rõ nguồn gốc và cảm giác bị chạm vào khi làm việc một mình vào ban đêm. Những sự kiện này đã củng cố thêm niềm tin về một linh hồn bị giam cầm, mãi mãi lang thang trong mê cung 99 cửa của biệt thự.",
+  "witnesses": [
+    {
+      "name": "Trần Văn Sáu",
+      "testimony": "Tôi là bảo vệ ca đêm ở đây hơn 15 năm rồi, từ hồi bảo tàng mới mở cửa lại. Ban đầu tôi nghĩ mấy chuyện ma quỷ chỉ là lời đồn, nhưng rồi tôi đã tận mắt chứng kiến. Khoảng năm 2003, vào một đêm mưa gió tầm 2 giờ sáng, tôi đang đi tuần tra ở tầng hai, nơi trưng bày mấy bức tranh cổ. Đột nhiên, một luồng gió lạnh buốt ập đến, dù tất cả cửa sổ đều đóng kín. Cảm giác như có ai đó đang đứng ngay sau lưng tôi. Tôi quay phắt lại, không thấy gì cả, nhưng rồi tôi nghe thấy tiếng khóc thút thít rất nhỏ, như tiếng trẻ con bị bỏ rơi vậy. Tiếng khóc yếu ớt đó dẫn tôi đến gần căn phòng cuối hành lang, cái căn phòng mà người ta đồn là phòng của cô Tiểu Lan. Cánh cửa gỗ cũ kỹ khẽ hé mở một khe nhỏ, và qua khe đó, tôi thề là tôi đã thấy một bóng trắng lướt qua. Chỉ là một cái thoáng qua rất nhanh, nhưng tôi cảm nhận được nỗi buồn và sự tuyệt vọng tột cùng từ bóng hình đó. Lạnh sống lưng, tôi vội vã chạy xuống tầng trệt, không dám quay lại cho đến sáng. Kể từ đó, tôi luôn đeo một chuỗi hạt Phật khi đi làm ca đêm, không dám lơ là dù chỉ một giây.",
+      "date": "23/11/2003"
+    },
+    {
+      "name": "Nguyễn Thị Hoa",
+      "testimony": "Tôi là nhân viên phục chế tranh ở đây đã gần 10 năm. Công việc của tôi đôi khi đòi hỏi phải làm việc muộn, một mình trong xưởng ở tầng trệt. Mấy năm đầu thì không sao, nhưng khoảng 3 năm trở lại đây, tôi bắt đầu cảm thấy có gì đó bất thường. Có lần, tôi đang tỉ mẩn làm việc với một bức tranh sơn dầu cũ, bỗng nhiên chiếc cọ vẽ trên bàn tự động lăn xuống đất. Tôi nghĩ chắc do tôi sơ ý, nhưng rồi một lúc sau, những chiếc lọ màu nhỏ trên kệ cũng lần lượt đổ xuống, không theo một quy luật nào cả. Không có gió, không có ai khác trong phòng. Lần khác, tôi đang sắp xếp lại kho tư liệu ở tầng một, tôi nghe rõ ràng tiếng ai đó đang hát ru khe khẽ từ tầng trên vọng xuống. Giọng hát rất buồn, rất ai oán, nghe mà rợn tóc gáy. Tôi cố gắng trấn tĩnh, nghĩ là mình nghe nhầm, nhưng cái cảm giác bị theo dõi, bị quan sát không ngừng ám ảnh tôi. Tôi không dám nhìn lên cầu thang chính nữa, vì mỗi khi tôi nhìn, tôi luôn có cảm giác như có ai đó đang đứng ở chiếu nghỉ trên cao, lặng lẽ nhìn xuống tôi với đôi mắt đầy nước mắt. Nơi đây không chỉ có nghệ thuật, mà còn có một nỗi buồn quá lớn.",
+      "date": "08/07/2019"
+    }
+  ],
+  "spectral_analysis": "Phân tích quang phổ tại Bảo tàng Mỹ thuật TP.HCM đã ghi nhận những bất thường đáng kể, cho thấy sự hiện diện của các dạng năng lượng phi vật chất. Các máy đo trường điện từ (EMF) liên tục báo động các đỉnh đột biến bất thường, đặc biệt tập trung ở khu vực tầng hai và tầng ba, nơi được cho là phòng giam của Hứa Tiểu Lan. Các chỉ số EMF tăng vọt từ mức nền 0.5mG lên đến 5-10mG một cách ngẫu nhiên, không theo bất kỳ quy luật nào liên quan đến hệ thống điện của tòa nhà. Nhiệt độ môi trường cũng là một yếu tố đáng chú ý; chúng tôi đã ghi nhận sự sụt giảm nhiệt độ đột ngột từ 2-5 độ C chỉ trong vài giây ở các điểm nóng được xác định, tạo ra những 'điểm lạnh' cục bộ không thể giải thích bằng luồng không khí hay hệ thống điều hòa. Điều này thường đi kèm với cảm giác ớn lạnh không rõ nguyên nhân của các điều tra viên. Thiết bị ghi âm chuyên dụng đã thu được một số hiện tượng giọng nói điện tử (EVP) cấp độ 2 và 3, bao gồm những tiếng thì thầm không rõ nghĩa, tiếng thở dài và đôi khi là một âm thanh giống như tiếng khóc thút thít rất nhỏ, đặc biệt rõ ràng khi phát lại ở tần số thấp. Phân tích quang phổ ánh sáng hồng ngoại cũng cho thấy sự xuất hiện của các 'quầng sáng' (orbs) và 'màn sương' (ectoplasmic mist) không định hình trong các bức ảnh chụp ở điều kiện ánh sáng cực thấp, những hiện tượng này không phải do bụi hay hơi nước. Giả thuyết tâm linh đặt ra là Biệt thự 99 cửa đang chịu ảnh hưởng của một dạng 'ám ảnh thông minh' (intelligent haunting), nơi linh hồn của Hứa Tiểu Lan vẫn còn ý thức và tương tác với môi trường, được thúc đẩy bởi nỗi đau và sự cô lập tột cùng khi còn sống. Đồng thời, cũng có dấu hiệu của 'ám ảnh tàn dư' (residual haunting), nơi những sự kiện bi thảm trong quá khứ đã để lại một dấu ấn năng lượng, tự động lặp lại theo chu kỳ hoặc khi có yếu tố kích thích. Sự phức tạp của kiến trúc với nhiều cửa và hành lang được cho là đã tạo ra một 'mê cung năng lượng', giữ chân các thực thể tâm linh và khuếch đại sự hiện diện của chúng. Các thông số đo đạc cho thấy mức độ hoạt động tâm linh ở mức trung bình đến cao, đặc biệt vào ban đêm hoặc trong điều kiện môi trường tĩnh lặng.",
+  "risk_assessment": "Đánh giá rủi ro tổng hợp cho Biệt thự 99 cửa cho thấy đây là một địa điểm có mức độ hoạt động tâm linh đáng kể, tiềm ẩn nguy cơ tâm lý và cảm xúc đối với những cá nhân nhạy cảm hoặc không chuẩn bị. Mức độ rủi ro được xếp vào loại 'Trung bình đến Cao', chủ yếu do tính chất dai dẳng của các hiện tượng siêu nhiên và tác động cảm xúc mà chúng gây ra. Nguy cơ vật lý trực tiếp được đánh giá là 'Thấp', chưa có báo cáo nào về các vụ tấn công vật lý nghiêm trọng. Tuy nhiên, nguy cơ gián tiếp từ sự hoảng loạn hoặc mất tập trung do các hiện tượng bất ngờ có thể dẫn đến tai nạn. Rủi ro tâm lý là 'Cao', với các báo cáo về cảm giác bị theo dõi, lo lắng, sợ hãi, và thậm chí là trầm cảm sau khi tiếp xúc kéo dài với môi trường này. Năng lượng u uất từ linh hồn được cho là của Hứa Tiểu Lan có thể gây ra sự suy giảm năng lượng tinh thần và cảm xúc tiêu cực cho những người có khả năng cảm nhận. Các khuyến cáo an toàn bao gồm: 1. **Hạn chế tiếp xúc:** Không khuyến khích các cá nhân không có kinh nghiệm hoặc nhạy cảm ở lại địa điểm này một mình, đặc biệt là vào ban đêm. 2. **Đi theo nhóm:** Khi tiến hành điều tra hoặc làm việc muộn, luôn duy trì ít nhất một nhóm gồm hai người trở lên. 3. **Trang bị bảo hộ:** Sử dụng thiết bị ghi âm, quay phim và đo đạc chuyên dụng để thu thập dữ liệu và giảm thiểu việc tiếp xúc trực tiếp không cần thiết. 4. **Chuẩn bị tâm lý:** Cần có sự chuẩn bị tâm lý vững vàng và hiểu rõ về bản chất của các hiện tượng có thể xảy ra. 5. **Tôn trọng:** Luôn giữ thái độ tôn trọng đối với linh hồn được cho là đang hiện diện tại đây, tránh các hành vi khiêu khích hoặc thiếu lịch sự. 6. **Ghi chép và báo cáo:** Mọi hiện tượng bất thường cần được ghi chép chi tiết và báo cáo ngay lập tức cho đội ngũ chuyên gia. 7. **Giải trừ năng lượng:** Cân nhắc thực hiện các nghi thức giải trừ năng lượng tiêu cực định kỳ bởi các chuyên gia tâm linh có kinh nghiệm để giảm bớt sự tích tụ và ảnh hưởng của các thực thể. Việc tuân thủ nghiêm ngặt các khuyến nghị này sẽ giúp giảm thiểu rủi ro và đảm bảo an toàn tối đa cho mọi cá nhân tương tác với Biệt thự 99 cửa.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Bảo tàng Mỹ thuật TP.HCM (Biệt thự 99 cửa) at 97 Phó Đức Chính, Quận 1, TP.HCM. Scene: foggy, low light, unsettling, a faint, ethereal silhouette of a young woman in a long, flowing white dress is glimpsed through a half-open, ornate wooden door on an upper floor, her face obscured by shadow and long hair. The hallway is dimly lit by a single, flickering bulb, revealing peeling paint and dusty, antique floor tiles. Old, French colonial architecture with intricate details is visible in the background, adding to the eerie atmosphere. style: grainy, 1990s aesthetic, VHS tape visual distortion, subtle chromatic aberration, timestamp in the corner."
+}
+---
+[GEMINI_RESPONSE] 2026-03-13T09:25:05.431Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Khu Vĩnh Biệt tại Bệnh viện Chợ Rẫy, một góc khuất u ám ít người biết đến nhưng lại ẩn chứa vô vàn câu chuyện rùng rợn, không chỉ là nơi lưu giữ những thi thể không có thân nhân mà còn là điểm hội tụ của những linh hồn không siêu thoát. Nguồn gốc của những truyền thuyết này đã ăn sâu vào tiềm thức người dân Sài Gòn từ những thập niên 70, 80, khi bệnh viện còn là nơi tiếp nhận hàng ngàn ca tử vong từ chiến tranh và dịch bệnh. Quan niệm dân gian Việt Nam cho rằng, một linh hồn không được chôn cất tử tế, không có người thờ cúng sẽ mãi mãi vất vưởng, không thể tìm thấy bình yên. Khu Vĩnh Biệt, với hàng trăm, thậm chí hàng ngàn tử thi vô danh qua các thời kỳ, chính là hiện thân cho nỗi sợ hãi đó. Người ta tin rằng, những linh hồn này, bị giam hãm giữa ranh giới sống và chết, mang theo nỗi đau, sự tiếc nuối và cả sự oán hận, tạo nên một trường năng lượng tiêu cực khổng lồ. Các truyền thuyết kể về những tiếng khóc than vọng lại trong đêm, những bóng trắng lướt qua hành lang, hay cảm giác bị chạm vào bởi một bàn tay vô hình. Những câu chuyện này không chỉ là lời đồn đại mà còn là lời cảnh báo về sự hiện diện của những \"cư dân\" không mời mà đến, những linh hồn lạc lối đang tìm kiếm sự giải thoát hoặc đơn giản là muốn được nhớ đến. Sự cô lập về mặt cảm xúc và thể xác của những người đã khuất tại đây dường như đã tạo ra một cổng năng lượng, thu hút và giữ chân các thực thể tâm linh. Đây không chỉ là một nhà xác, mà là một lằn ranh mờ ảo giữa thế giới hữu hình và vô hình, nơi cái chết không phải là kết thúc mà là sự khởi đầu của một sự tồn tại khác, đầy ám ảnh và bí ẩn.",
+  "chronological_history": "Lịch sử của Khu Vĩnh Biệt gắn liền với sự phát triển và biến động của Bệnh viện Chợ Rẫy, một trong những bệnh viện lớn nhất Đông Nam Á, được thành lập từ năm 1900. Ban đầu, khu vực này có thể chỉ là một phần nhỏ của nhà xác tổng thể. Tuy nhiên, các mốc thời gian quan trọng đã định hình nên sự ám ảnh hiện tại:  \n- **Thập niên 1940-1950:** Giai đoạn chiến tranh Đông Dương lần thứ nhất, số lượng thương vong tăng vọt, nhiều thi thể không xác định được danh tính hoặc không có thân nhân đến nhận. Khu vực này bắt đầu trở thành nơi tập trung những người đã khuất không nơi nương tựa.  \n- **Thập niên 1960-1975:** Chiến tranh Việt Nam leo thang, Bệnh viện Chợ Rẫy trở thành trung tâm cấp cứu lớn, tiếp nhận hàng ngàn nạn nhân từ các chiến trường và vụ đánh bom. Giai đoạn này chứng kiến đỉnh điểm của các thi thể vô danh, nhiều người chết trong đau đớn, cô độc, không kịp trăn trối. Đây được xem là khởi nguồn mạnh mẽ nhất của các hiện tượng tâm linh. Các nhân viên trực đêm bắt đầu ghi nhận những sự kiện bất thường.  \n- **1980s:** Sau chiến tranh, bệnh viện tiếp tục phục vụ nhu cầu y tế của một thành phố lớn. Tuy nhiên, những câu chuyện về 'ma bệnh viện' tại Khu Vĩnh Biệt bắt đầu lan truyền mạnh mẽ trong giới y bác sĩ và nhân viên. Các báo cáo nội bộ không chính thức về tiếng động lạ, bóng người, và cảm giác lạnh lẽo gia tăng. Một số nhân viên đã từ chức vì không chịu nổi áp lực tâm lý.  \n- **1990s-2000s:** Với sự phát triển của y học và quản lý bệnh viện, quy trình xử lý thi thể được cải thiện, nhưng số lượng thi thể vô danh vẫn còn đáng kể. Các câu chuyện tâm linh trở thành một phần của văn hóa truyền miệng bệnh viện, được kể lại cho thế hệ nhân viên mới. Giai đoạn này chứng kiến một số nỗ lực không chính thức của các sư thầy, pháp sư được mời đến để 'yên ổn' các linh hồn, nhưng hiệu quả không rõ ràng.  \n- **Hiện tại:** Khu Vĩnh Biệt vẫn tồn tại, dù đã được cải tạo và quản lý chặt chẽ hơn. Tuy nhiên, những dư âm của quá khứ vẫn còn đó, thỉnh thoảng lại xuất hiện những báo cáo mới về các hiện tượng kỳ lạ, chứng tỏ rằng các thực thể tâm linh tại đây vẫn chưa thực sự được siêu thoát.",
+  "witnesses": [
+    {
+      "name": "Nguyễn Thị Hoa",
+      "testimony": "Tôi làm công việc lao công ở Chợ Rẫy đã hơn ba mươi năm, cái khu Vĩnh Biệt đó tôi thuộc từng ngóc ngách. Hồi trẻ tôi không tin ma quỷ đâu, nhưng sau cái đêm đó thì không còn dám nói nữa. Khoảng năm 1995, tôi trực ca đêm, gần sáng thì phải dọn dẹp ở hành lang khu Vĩnh Biệt. Lúc đó trời mưa tầm tã, gió lùa lạnh buốt xương. Đang lau sàn thì tôi nghe tiếng nấc nghẹn ngào rất rõ ràng, như tiếng con nít khóc. Tôi rọi đèn pin khắp nơi nhưng không thấy ai. Rồi đèn pin của tôi tự nhiên nhấp nháy liên tục rồi tắt hẳn. Trong bóng tối, tôi cảm thấy có cái gì đó lướt qua chân mình, lạnh toát. Khi bật lại được đèn, tôi thấy một vệt nước nhỏ như dấu chân trẻ con trên sàn vừa lau khô. Tôi thề là tôi đã lau sạch sẽ rồi! Từ hôm đó, tôi không bao giờ dám đi một mình vào khu đó vào ban đêm nữa, cứ có cảm giác như có ai đó đang nhìn mình từ phía sau, thở dài nặng nề.",
+      "date": "17/08/1995"
+    },
+    {
+      "name": "Trần Văn Tám",
+      "testimony": "Tôi là bảo vệ trực đêm ở Chợ Rẫy gần hai mươi năm rồi, cái khu Vĩnh Biệt thì ai cũng sợ, tôi cũng vậy. Nhưng nghề nghiệp mà, phải làm thôi. Khoảng năm 2008, có lần tôi đi tuần tra, ngang qua khu Vĩnh Biệt thì nghe thấy tiếng radio phát ra rất rè rè, như kiểu đài cũ bị nhiễu sóng. Điều lạ là ở đó không hề có radio nào cả. Tôi cứ nghĩ là ai đó quên tắt thiết bị gì đó, nhưng khi đến gần, tiếng radio biến thành tiếng thì thầm, không rõ lời nhưng mang theo một sự u uất đến rợn người. Tiếng thì thầm đó như đang kể lể, than vãn gì đó. Tôi đứng sững lại, chân tay cứng đờ. Khi tôi lấy hết can đảm soi đèn vào trong, thì mọi thứ im bặt, không một tiếng động nào. Tôi chạy ra ngoài, mồ hôi vã ra như tắm. Từ đó, mỗi khi đi qua đó, tôi đều niệm Phật liên tục, không dám nán lại dù chỉ một giây.",
+      "date": "03/11/2008"
+    },
+    {
+      "name": "Lê Thị Thu",
+      "testimony": "Tôi là y tá mới về làm ở Chợ Rẫy được hai năm. Lúc đầu tôi không tin mấy chuyện ma quỷ này đâu, nghĩ là do mọi người tự huyễn hoặc thôi. Cho đến một đêm năm ngoái, tôi được phân công hỗ trợ sắp xếp hồ sơ ở một phòng gần khu Vĩnh Biệt. Lúc đó đã khuya lắm rồi, không khí bệnh viện vắng lặng đến đáng sợ. Đang tập trung làm việc thì tôi ngửi thấy một mùi hương lạ, không phải mùi thuốc sát trùng mà là mùi hoa lài rất nồng, nhưng lại kèm theo một thứ mùi ngai ngái khó tả, như mùi tử khí thoang thoảng. Cùng lúc đó, nhiệt độ trong phòng giảm đột ngột, tôi nổi da gà khắp người. Tôi quay sang nhìn cửa sổ, thấy một bóng đen mờ ảo lướt qua rất nhanh, như một người phụ nữ mặc áo dài trắng. Bóng đó rất cao và gầy, không có gương mặt rõ ràng. Tôi hét lên một tiếng rồi ngã khuỵu xuống. Từ đó, tôi luôn cảm thấy có một ánh mắt vô hình dõi theo mình mỗi khi đi ngang qua khu vực đó, một sự lạnh lẽo không thể giải thích được.",
+      "date": "22/05/2023"
+    }
+  ],
+  "spectral_analysis": "Phân tích quang phổ và các thông số đo đạc tại Khu Vĩnh Biệt cho thấy những dấu hiệu rõ rệt của sự nhiễu loạn trường năng lượng và các hiện tượng siêu nhiên. Các thiết bị đo EMF (Trường Điện Từ) thường xuyên ghi nhận mức tăng đột biến không giải thích được, dao động từ 5mG đến 20mG tại các điểm nóng nhất, đặc biệt là vào ban đêm và những thời điểm vắng người. Điều này cao hơn nhiều so với mức nền thông thường của môi trường bệnh viện. Nhiệt độ môi trường cũng được ghi nhận giảm đột ngột từ 5-10 độ C trong vòng vài giây mà không có nguyên nhân vật lý rõ ràng, tạo ra các 'điểm lạnh' cục bộ. Đây là một chỉ dấu điển hình cho sự hiện diện của các thực thể tâm linh hấp thụ năng lượng nhiệt.  \nPhân tích âm thanh bằng thiết bị ghi âm chuyên dụng đã thu được nhiều EVP (Electronic Voice Phenomena) ở dải tần số thấp, thường là những tiếng thì thầm, tiếng rên rỉ, hoặc những âm thanh không rõ ràng nhưng mang nặng cảm xúc đau khổ, tuyệt vọng. Một số đoạn ghi âm còn chứa các từ ngữ rời rạc bằng tiếng Việt cổ hoặc thổ ngữ địa phương, cho thấy sự đa dạng về nguồn gốc của các linh hồn bị mắc kẹt.  \nGiả thuyết tâm linh cho rằng, Khu Vĩnh Biệt là một 'nút thắt' năng lượng âm, nơi sự đau khổ và cái chết cô độc tạo ra một 'dấu ấn' cực mạnh trong trường etheric. Các linh hồn ở đây có thể thuộc hai loại chính: thực thể tồn lưu (residual haunting) – những dấu ấn năng lượng của cảm xúc và sự kiện lặp lại, và thực thể có ý thức (intelligent haunting) – những linh hồn còn giữ được ý thức và khả năng tương tác ở mức độ nhất định, có thể đang tìm kiếm sự giúp đỡ hoặc sự công nhận. Các thông số đo đạc cho thấy mức độ tập trung của 'âm khí' tại khu vực này là cực kỳ cao, tạo ra một môi trường thuận lợi cho các hiện tượng siêu nhiên. Mức độ nguy hiểm được đánh giá là trung bình đến cao, tùy thuộc vào thời gian tiếp xúc và độ nhạy cảm của cá nhân. Sự hiện diện của các thực thể này không chỉ gây ra các hiện tượng vật lý mà còn ảnh hưởng đến tâm lý người tiếp xúc, gây ra cảm giác sợ hãi, lo âu, và thậm chí là cảm giác bị theo dõi.",
+  "risk_assessment": "Đánh giá rủi ro tổng hợp tại Khu Vĩnh Biệt của Bệnh viện Chợ Rẫy cho thấy mức độ nguy hiểm là CAO đối với những cá nhân nhạy cảm hoặc tiếp xúc trong thời gian dài mà không có biện pháp bảo vệ. Các rủi ro chính bao gồm:  \n1.  **Rủi ro tâm lý:** Tiếp xúc với trường năng lượng tiêu cực và các hiện tượng siêu nhiên có thể gây ra căng thẳng tâm lý nghiêm trọng, lo âu, mất ngủ, ám ảnh và thậm chí là các rối loạn tâm thần nhẹ. Cảm giác bị theo dõi, bị chạm vào có thể dẫn đến hoang tưởng.  \n2.  **Rủi ro về thể chất:** Mặc dù hiếm khi có báo cáo về tổn thương thể chất trực tiếp, nhưng sự giảm nhiệt độ đột ngột có thể gây sốc nhiệt nhẹ hoặc làm suy giảm hệ miễn dịch tạm thời. Các trường hợp bị cào cấu nhẹ hoặc vết bầm tím không rõ nguyên nhân cũng đã được ghi nhận, mặc dù cần xác minh thêm.  \n3.  **Rủi ro 'bám víu' (attachment):** Các linh hồn không siêu thoát, đặc biệt là những thực thể có ý thức, có thể cố gắng 'bám víu' vào người sống để tìm kiếm sự chú ý, năng lượng, hoặc một con đường thoát khỏi nơi bị giam cầm. Điều này có thể dẫn đến cảm giác mệt mỏi liên tục, suy nhược tinh thần, và các hiện tượng lạ xảy ra tại nơi ở của cá nhân sau khi rời khỏi khu vực.  \n**Khuyến cáo an toàn:**  \n-   **Hạn chế tiếp cận:** Tuyệt đối không vào khu vực Khu Vĩnh Biệt một mình, đặc biệt là vào ban đêm. Chỉ tiến hành công việc cần thiết và phải có ít nhất hai người đi cùng.  \n-   **Bảo hộ tâm linh:** Mang theo các vật phẩm hộ mệnh theo tín ngưỡng cá nhân (ví dụ: bùa hộ mệnh, chuỗi hạt, kinh Phật nhỏ) để tạo một lớp bảo vệ năng lượng.  \n-   **Thái độ tôn trọng:** Luôn giữ thái độ tôn trọng đối với những người đã khuất. Tránh nói lời lẽ bất kính, cười đùa hoặc gây ồn ào.  \n-   **Giám sát y tế:** Bất kỳ nhân viên nào làm việc thường xuyên tại khu vực này cần được kiểm tra sức khỏe tâm thần định kỳ. Báo cáo ngay lập tức các triệu chứng bất thường về tâm lý hoặc thể chất.  \n-   **Thanh tẩy định kỳ:** Khuyến nghị thực hiện các nghi thức thanh tẩy tâm linh định kỳ cho khu vực, dù là theo truyền thống Phật giáo hay các hình thức khác, để giúp giải thoát các linh hồn và làm sạch năng lượng tiêu cực.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Bệnh viện Chợ Rẫy (Khu Vĩnh Biệt) at Chợ Rẫy Hospital, Ho Chi Minh City, Vietnam. Scene: a dimly lit, damp, and neglected corridor within the hospital's morgue/unclaimed bodies area, an old, rusty metal gurney stands isolated, a faint, blurred, transparent spectral figure of a woman in traditional white ao dai is barely visible in the deep background, a sense of profound loneliness and despair permeates the air. Style: grainy, 1990s aesthetic, VHS quality, low resolution, desaturated colors, subtle light leaks, unsettling, paranormal."
+}
+---
+[GEMINI_RESPONSE] 2026-03-13T09:45:28.885Z Status: 200 OK
+[GEMINI_TEXT] ```json
+[
+  {
+    "name": "Ho Chi Minh City Fine Arts Museum Haunting",
+    "type": "GHOST",
+    "description": "The Ho Chi Minh City Fine Arts Museum, once the mansion of wealthy businessman Hui Bon Hoa, is rumored to be haunted by the spirit of his beloved daughter. She reportedly died young from an aggressive illness, and her grieving father kept her body in a stone coffin within her former room, which became her mausoleum. Visitors and staff have since reported ghostly encounters within the building.",
+    "latitude": 10.7709,
+    "longitude": 106.6989,
+    "severity": 3
+  },
+  {
+    "name": "727 Tran Hung Dao Apartment Complex Haunting",
+    "type": "GHOST",
+    "description": "The now-demolished 727 Tran Hung Dao apartment complex in District 5 was widely known for its eerie atmosphere and numerous ghost stories. Legends claim that during its construction in the 1960s, many workers died due to 'bad luck' associated with the building's 13 floors. To counteract this, a shaman reportedly buried the bodies of four virgins in the foundation to appease spirits. Residents have reported hearing screams, military parades, and seeing the apparitions of an American soldier with a Vietnamese girlfriend.",
+    "latitude": 10.755715,
+    "longitude": 106.682832,
+    "severity": 4
+  },
+  {
+    "name": "727 Tran Hung Dao Construction Accidents",
+    "type": "ACCIDENT",
+    "description": "During the construction of the 727 Tran Hung Dao apartment complex in the 1960s, numerous fatal accidents occurred, which local folklore attributed to 'bad luck' stemming from the building's 13-story design. A shaman was reportedly consulted to address these spiritual deficiencies, leading to a ritual involving the burial of four virgin corpses in the building's foundation to stabilize its 'bad vibes' and allow construction to continue.",
+    "latitude": 10.755715,
+    "longitude": 106.682832,
+    "severity": 4
+  },
+  {
+    "name": "Tao Dan Park Ghost of the Murdered Man",
+    "type": "GHOST",
+    "description": "Tao Dan Park is subject to an urban legend about the ghost of a young man who was murdered there in an attack and now wanders the park searching for his lost love. While park officials have reportedly denied the specific ghost story, a real murder did occur in July 1989 when a young man named Nguyen Diet Hoang Tuan was robbed and killed in the park.",
+    "latitude": 10.7749,
+    "longitude": 106.6959,
+    "severity": 4
+  },
+  {
+    "name": "Tao Dan Park Motorbike Murder (1989)",
+    "type": "MURDER",
+    "description": "In July 1989, a young man named Nguyen Diet Hoang Tuan was robbed and murdered in Tao Dan Park. He was lured to the park under the pretense of selling his motorbike, only to be killed by his supposed friend and an accomplice who intended to steal his bike.",
+    "latitude": 10.7749,
+    "longitude": 106.6959,
+    "severity": 5
+  },
+  {
+    "name": "Le Thi Rieng Park Soldier Ghosts",
+    "type": "GHOST",
+    "description": "Le Thi Rieng Park is rumored to have been a mass burial site for soldiers who died during the Mau Than battle in 1968. Local legends describe sightings of various spirits, including a pale-faced child on the swings awaiting its parents and groups of soldiers patrolling the park at night, unaware of the existing peace.",
+    "latitude": 10.7761,
+    "longitude": 106.6775,
+    "severity": 3
+  },
+  {
+    "name": "Cho Ray Hospital Farewell House Spirits",
+    "type": "GHOST",
+    "description": "The Farewell House, a morgue located within the old Cho Ray Hospital, is a source of local tales about restless spirits. It is believed that patients who died suddenly and did not accept their fate return to the morgue, seeking reasons to remain on Earth.",
+    "latitude": 10.7577,
+    "longitude": 106.6657,
+    "severity": 3
+  },
+  {
+    "name": "Thuan Kieu Plaza Jealousy Murder-Suicide",
+    "type": "MURDER",
+    "description": "In 2005, a tragic incident occurred at Thuan Kieu Plaza where a man, driven by jealousy, murdered his girlfriend before taking his own life. Their spirits are reportedly seen haunting the complex by some locals.",
+    "latitude": 10.7547,
+    "longitude": 106.6669,
+    "severity": 5
+  },
+  {
+    "name": "Thuan Kieu Plaza Construction Curse",
+    "type": "ACCIDENT",
+    "description": "Thuan Kieu Plaza is subject to rumors of construction workers dying due to unsafe conditions during its development. It is believed that the poorly compensated families of these workers placed a curse on the property, leading to unfortunate events and contributing to the plaza's reputation for being haunted.",
+    "latitude": 10.7547,
+    "longitude": 106.6669,
+    "severity": 4
+  },
+  {
+    "name": "Bui Huu Dat Serial Murders (District 3)",
+    "type": "MURDER",
+    "description": "In early 1976, Bui Huu Dat committed a series of murders in Ho Chi Minh City, with one of the burned bodies of a young woman discovered at a landfill on Dien Bien Phu Road in District 3. Dat was responsible for multiple brutal killings of young women during this period.",
+    "latitude": 10.7818,
+    "longitude": 106.6939,
+    "severity": 5
+  },
+  {
+    "name": "Nguyen Thi Minh Khai High School Phantom",
+    "type": "GHOST",
+    "description": "Nguyen Thi Minh Khai High School, formerly Gia Long High School for Girls, is known for the urban legend of a phantom in a purple áo dài. Generations of students have reported seeing this spectral figure under the banyan tree on campus, particularly on nights with a full moon.",
+    "latitude": 10.7788,
+    "longitude": 106.6925,
+    "severity": 3
+  }
+]
+```
+---
+[GEMINI_RESPONSE] 2026-03-13T09:46:11.754Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "The legend of the \"Phantom of the Purple Áo Dài\" at Nguyen Thi Minh Khai High School, formerly the prestigious Gia Long High School for Girls, is not merely an urban myth but a deeply woven tapestry within the fabric of Saigon's spectral folklore. Its origins are shrouded in the tumultuous history of Vietnam, particularly during periods of conflict and social upheaval. The school itself, an architectural relic dating back to the French colonial era, carries the weight of generations of students, their hopes, dreams, and unspoken tragedies. The central figure of this enduring legend is a spectral young woman, perpetually clad in a traditional purple áo dài, often seen lingering beneath the ancient banyan tree that dominates the campus courtyard. This specific shade of purple is said to symbolize mourning, unfulfilled love, or a life cut tragically short, resonating with common themes in Vietnamese ghost stories. Whispers suggest the phantom is the spirit of a student who met a tragic end within the school's walls, perhaps during the Indochina Wars or the Vietnam War. One pervasive narrative speaks of a girl who committed suicide after a heartbreak, or one who was a victim of a violent incident on campus, her spirit unable to depart, forever bound to the place of her last earthly moments. The banyan tree itself, a symbol of longevity and often considered a dwelling place for spirits in Vietnamese culture, serves as a poignant anchor for her lingering presence. Its gnarled roots and sprawling branches are believed to be conduits for the ethereal, making it a natural nexus for paranormal activity. Over decades, the tale has evolved, passed down from senior students to freshmen, becoming a rite of passage for many attending the institution. The phantom's appearances are often described as fleeting glimpses, a sudden chill in the air, or the faint scent of jasmine, leaving behind a profound sense of melancholy rather than outright terror. This pervasive narrative hints at a deeply rooted sorrow, a soul trapped between worlds, yearning for peace it never found. The legend serves not just as a ghost story, but as a somber reflection of the school's long and often painful past, echoing the silent cries of countless lives touched by history's cruel hand. The specific details vary, but the core image of the purple áo dài and the banyan tree remains constant, a haunting reminder of an unresolved past.",
+  "chronological_history": "The documented history of spectral phenomena at what is now Nguyen Thi Minh Khai High School, originally Gia Long High School for Girls, spans over half a century, interweaving with the profound social and political transformations of Vietnam. In 1913, the institution was established as Lycée Gia Long, a prestigious school for Vietnamese girls during the French colonial period. Initial construction and early years were largely uneventful from a paranormal perspective, though the seeds of future spectral energy may have been sown in the emotional intensity of its academic environment. During the 1940s-1950s, amidst the tumultuous period of French colonial rule and the First Indochina War, the school, like many public spaces, would have witnessed periods of unrest, fear, and personal tragedies among its students and staff. It is during this era that the earliest, albeit vague, accounts of \"unexplained presences\" began to surface, often dismissed as wartime stress or adolescent anxieties. No specific \"purple áo dài\" reports have been definitively linked to this precise timeframe, but a general sense of unease was noted. Post-Geneva Accords in 1954, with the division of Vietnam, Saigon became the capital of South Vietnam. Gia Long High School continued to operate, attracting students from prominent families. Reports of strange occurrences, such as faint singing, unexplained cold spots, and fleeting shadows, became slightly more frequent, particularly in the older wings of the school and near the banyan tree. The late 1960s to early 1970s, coinciding with the Vietnam War, marked a significant increase in reported sightings. The intensified conflict, the presence of American forces, and the overall atmosphere of anxiety and loss in Saigon are believed to have amplified the spectral energy. It is during this time that the specific image of a young woman in a purple áo dài began to coalesce in eyewitness accounts. Students recall seeing a figure, always distant, under the banyan tree, or glimpsing her reflection in classroom windows. These sightings were often associated with nights of heightened tension or full moons. The consistent purple áo dài suggests a specific, perhaps traumatic, event from this era or slightly before. In 1975, with the Fall of Saigon and the reunification of Vietnam, Gia Long High School was renamed Nguyen Thi Minh Khai High School. The period of transition was marked by emotional upheaval for many, and anecdotal evidence suggests a temporary surge in paranormal activity, as if the collective emotional energy of the city's inhabitants stirred the dormant spirits. Reports described disembodied whispers and the distinct feeling of being watched. Throughout the 1980s and 1990s, the legend solidified. The \"Phantom of the Purple Áo Dài\" became an established part of school lore. Students intentionally sought out the banyan tree at night, daring each other to witness the spirit. While many were hoaxes, genuine, unsettling encounters continued to be reported, often by those not actively seeking out the paranormal. The consistency of the description across different generations of students lends credence to the legend. From the 2000s to the present, despite modernization and increased skepticism, the legend persists. With the advent of mobile phone cameras, there have been a few blurry, inconclusive photos and videos circulated, often showing indistinct figures or light anomalies near the banyan tree or in dimly lit corridors. The phantom is now an intrinsic part of the school's identity, a chilling reminder of its long and layered past. The banyan tree remains the epicenter of these persistent spectral claims, a silent sentinel to decades of haunting.",
+  "witnesses": [
+    {
+      "name": "Lê Thị Bích Vân",
+      "testimony": "I was a night-duty student, preparing for my final exams back in '98. The campus was eerily quiet, just the hum of the fluorescent lights from the library. Around 2 AM, I decided to take a short break, walking past the banyan tree. It was a full moon, casting long, distorted shadows. That's when I saw her. A young woman, dressed in a faded purple áo dài, standing perfectly still under the deepest part of the tree's shadow. Her back was to me. I thought she was another student, maybe studying late too, but there was something... off. Her posture was too rigid, almost unnatural. I called out, 'Hey, you alright?' My voice echoed. She didn't move. I took a step closer, and then, slowly, she turned her head. Her face was indistinct, shrouded in shadow and a strange, almost shimmering haze. But her eyes... I couldn't see them clearly, but I felt them, a profound, ancient sorrow. A cold dread gripped me, freezing me in place. She didn't make a sound, just looked. Then, as if the moonlight itself pulled her away, she simply... dissolved. Not faded, not walked away, but utterly vanished into the air. I ran, screaming, back to the dorm. I didn't sleep for days. It wasn't menacing, just heartbreakingly sad, but the memory still chills me to the bone.",
+      "date": "17/08/1998"
+    },
+    {
+      "name": "Trần Anh Khoa",
+      "testimony": "It was a dare, typical high school nonsense. Me and a couple of friends, late one night in 2005, sneaking back onto campus to 'prove' the ghost wasn't real. We had flashlights, giggling, feeling invincible. We went straight for the banyan tree. Nothing. We were about to leave, calling each other chicken, when suddenly, the air went dead cold. Not just a breeze, but an unnatural, oppressive chill that went right through my bones. Our flashlights flickered, then one by one, they died. We were plunged into near-total darkness, only the faint glow of the distant city lights. Then, a sound. It wasn't a whisper, more like a sigh, incredibly mournful, coming from directly above us in the branches. And then, a fleeting glimpse, a shimmering outline of a figure, draped in something purple, swaying gently in the tree, as if caught in a silent, invisible breeze. My friend Lâm screamed, a primal sound of pure terror. We didn't wait. We scrambled over the fence and didn't stop running until we were miles away. I've never set foot on that campus after dark again. The silence, the cold, and that indescribable sigh... it wasn't a prank. It was real.",
+      "date": "03/11/2005"
+    }
+  ],
+  "spectral_analysis": "Analysis of the recurring phenomena at Nguyen Thi Minh Khai High School suggests a persistent residual haunting, potentially exacerbated by an intelligent, yet passive, spiritual entity. Our T.S.E. team conducted preliminary sweeps using standard environmental and electromagnetic detection equipment, yielding several concerning anomalies. Consistent spikes in Electromagnetic Field (EMF) readings were recorded around the banyan tree, particularly between 01:00 and 03:00 hours, reaching levels of 5-10 milligauss (mG) on multiple occasions, far exceeding ambient background levels (typically <1 mG). These spikes were localized and transient, correlating with reported periods of activity. Interestingly, the highest readings were not necessarily accompanied by visual manifestations but often by subjective feelings of unease or cold spots. Significant, localized drops in ambient temperature, sometimes as much as 5-8 degrees Celsius (9-14 degrees Fahrenheit) below the surrounding environment, were detected. These cold spots would manifest suddenly and dissipate just as quickly, often without any discernable environmental cause like drafts or air conditioning. These thermal anomalies are a classic indicator of energy displacement associated with spectral presence. While no clear, direct communication was captured, several Electronic Voice Phenomena (EVP) samples contained faint, indistinct whispers and what sounds like a melancholic sigh. These were often at the threshold of audibility, requiring filtering and amplification. The linguistic content, when discernible, appeared to be fragments of Vietnamese, though highly distorted. Our hypothesis is that the \"Phantom of the Purple Áo Dài\" appears to be an enduring psychic imprint, a residual energy from a traumatic event or intense emotional state, possibly from the mid-20th century. The consistent description suggests a strong, recurring memory loop. However, the interactive elements reported by witnesses (the turning of the head, the perceived gaze) indicate a level of intelligence, suggesting that the residual energy may be sentient, or at least capable of limited interaction with its environment. The banyan tree acts as a powerful energetic anchor; its age and traditional spiritual significance potentially amplifying the manifestation. The \"purple áo dài\" points to a specific identity or a symbolic representation of her fate. The entity seems to be in a state of perpetual sorrow, lacking aggressive intent but capable of inducing profound fear and melancholy in observers. The energy signature is primarily melancholic and passive, though its sudden manifestations can be psychologically distressing. The full moon correlation could relate to tidal forces influencing subtle energy fields or simply be a cultural/mythological amplifier. The spectral analysis points to a highly localized, persistent, and somewhat interactive entity, drawing energy from its environment and possibly the emotional state of observers. Further long-term monitoring with advanced sensory equipment is recommended to discern the precise nature of its energy source and interaction patterns.",
+  "risk_assessment": "The \"Phantom of the Purple Áo Dài\" at Nguyen Thi Minh Khai High School presents a moderate-to-high psychological risk and a low physical risk. While there are no documented instances of physical harm, the consistent and often sudden manifestations of the entity have a profound psychological impact on witnesses. The psychological risk is high: eyewitness accounts consistently describe feelings of intense fear, dread, profound sorrow, and a pervasive sense of unease. The sudden appearance and disappearance, coupled with the chilling, indistinct nature of the entity, can lead to severe anxiety, nightmares, sleep disturbances, and in some cases, acute distress. The melancholic aura associated with the phantom can also induce feelings of sadness and despondency, particularly in impressionable individuals. The long-term psychological effects on students and staff exposed to these phenomena, even indirectly through pervasive rumors, should not be underestimated. There is also a risk of increased suggestibility and mass hysteria, especially among student populations. The physical risk is low: there is no evidence suggesting the entity is capable of physical interaction or causing direct bodily harm. However, the sudden onset of fear can cause individuals to panic, leading to falls, collisions, or other self-inflicted injuries while attempting to flee. The cold spots, while significant, do not pose a direct hypothermia risk during typical encounters but contribute to the overall unsettling atmosphere. The spiritual/energetic risk is moderate: prolonged exposure to any persistent spectral energy, even a passive one, can potentially lead to subtle energetic drain or a feeling of being 'watched' or 'followed'. While the entity does not appear malevolent, its persistent melancholic energy could subtly influence the emotional atmosphere of the immediate vicinity, potentially contributing to a pervasive sense of sadness or unresolved tension within the school grounds. Recommendations include: 1. Containment/Mitigation: Implement a policy discouraging night-time access to the banyan tree area, especially during full moons. Install motion-activated lighting, not to deter the entity, but to provide a sense of security for human observers and potentially disrupt the conditions favorable for manifestation. 2. Education: Provide discreet counseling and support services for students or staff who report encounters. Acknowledge their experiences without validating or dismissing them, focusing on psychological well-being. 3. Monitoring: Continue covert, non-intrusive spectral monitoring of the banyan tree and surrounding areas using passive sensors to gather more data on energy signatures and patterns without provoking the entity. 4. Cultural Sensitivity: Given the deep cultural roots of such legends in Vietnam, any intervention must be handled with extreme cultural sensitivity, avoiding actions that could be perceived as disrespectful to local beliefs or the spirit itself. A spiritual cleansing by local practitioners, if deemed appropriate and carefully managed, might offer a psychological balm to the community, even if its direct effect on the entity is uncertain. The primary goal is to ensure the safety and well-being of the school community while respecting the historical and cultural significance of the phenomenon.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Nguyen Thi Minh Khai High School Phantom at Nguyen Thi Minh Khai High School, under the ancient banyan tree. Scene: late night, foggy, heavy dew on the ground, extreme low light, a faint, almost transparent silhouette of a figure in a traditional áo dài visible near the base of the banyan tree's massive trunk, unsettling atmosphere. style: extremely grainy, desaturated colors, VHS aesthetic, timestamp in the corner '03:17 AM 17/08/1998', a subtle lens flare or distortion typical of old camcorders."
+}
+---
+[GEMINI_RESPONSE] 2026-03-13T09:47:16.814Z Status: 200 OK
+[GEMINI_TEXT] ```json
+[
+  {
+    "name": "Chung cư 727 Trần Hưng Đạo",
+    "type": "GHOST",
+    "description": "Tòa chung cư cũ này nổi tiếng với những lời đồn đại về việc trấn yểm bằng xác trinh nữ trong quá trình xây dựng, dẫn đến nhiều tai nạn và cái chết bí ẩn. Nhiều người dân địa phương và những người từng sống tại đây kể lại rằng họ đã nhìn thấy bóng ma của những cô gái trẻ lang thang và nghe thấy tiếng khóc than ai oán vào ban đêm.",
+    "latitude": 10.757,
+    "longitude": 106.685,
+    "severity": 4
+  },
+  {
+    "name": "Dinh thự 99 cửa (Bảo tàng Mỹ thuật TP.HCM)",
+    "type": "GHOST",
+    "description": "Ngôi biệt thự cổ này, từng là của đại gia Hứa Bổn Hỏa, được cho là bị ám bởi hồn ma của cô con gái độc nhất, Hứa Tiểu Lan, người đã biến mất một cách bí ẩn và sau đó được báo là đã chết. Tiếng khóc than thảm thiết và bóng dáng cô gái mặc váy ngủ trắng muốt được đồn đại thường xuất hiện vào đêm khuya.",
+    "latitude": 10.770,
+    "longitude": 106.699,
+    "severity": 4
+  },
+  {
+    "name": "Nhà số 24 Lý Thái Tổ",
+    "type": "GHOST",
+    "description": "Căn nhà bỏ hoang này gắn liền với một vụ hỏa hoạn thương tâm khiến bảy người thiệt mạng, trong đó có một phụ nữ mang thai. Người ta đồn rằng bóng ma của người phụ nữ mang thai vẫn thường xuất hiện bên cửa sổ.",
+    "latitude": 10.769,
+    "longitude": 106.680,
+    "severity": 3
+  },
+  {
+    "name": "Khu Vĩnh Biệt Bệnh viện Chợ Rẫy",
+    "type": "GHOST",
+    "description": "Khu vực này, nơi lo liệu hậu sự cho người đã khuất, được đồn đại là có oan hồn của một nữ hộ lý tự tử và nhiều linh hồn không siêu thoát. Những tiếng động lạ, tiếng khóc và bóng ma cụt đầu được cho là xuất hiện trong khuôn viên vào ban đêm.",
+    "latitude": 10.759,
+    "longitude": 106.665,
+    "severity": 4
+  },
+  {
+    "name": "Bệnh viện Từ Dũ",
+    "type": "RUMOR",
+    "description": "Bệnh viện này có nhiều câu chuyện truyền miệng về việc y tá gặp ma và linh hồn sản phụ vương vấn sau khi qua đời vì băng huyết, bồng con đi lại trong hành lang. Ngoài ra, khu trưng bày các hài nhi dị dạng do chất độc màu da cam cũng tạo nên một không khí u ám, góp phần vào những lời đồn tâm linh.",
+    "latitude": 10.767,
+    "longitude": 106.685,
+    "severity": 3
+  },
+  {
+    "name": "Công viên Lê Thị Riêng",
+    "type": "GHOST",
+    "description": "Công viên này trước đây là nghĩa trang Đô Thành, nơi chôn cất nhiều binh lính vô danh. Người dân địa phương kể lại những câu chuyện về linh hồn lính chết trận hiện về và bóng ma một bé gái ngồi đung đưa trên xích đu cũ vào buổi tối.",
+    "latitude": 10.776,
+    "longitude": 106.669,
+    "severity": 3
+  },
+  {
+    "name": "Vụ án mạng đường Trần Đình Xu, Quận 1",
+    "type": "MURDER",
+    "description": "Năm 2014, tại đường Trần Đình Xu, quận 1, Đặng Văn Tuấn đã sát hại và phân xác bà Bùi Thị H. một cách dã man.",
+    "latitude": 10.763,
+    "longitude": 106.693,
+    "severity": 5
+  },
+  {
+    "name": "Vụ án mạng hẻm 72, Quận Phú Nhuận",
+    "type": "MURDER",
+    "description": "Vào năm 2010, tại một con hẻm ở phường 15, quận Phú Nhuận, một vụ tấn công kinh hoàng đã xảy ra khiến bà Đặng Thu Hồng, Phó bí thư Quận ủy, tử vong và hai người khác bị thương nặng.",
+    "latitude": 10.796,
+    "longitude": 106.683,
+    "severity": 5
+  }
+]
+```
+---
+[GEMINI_RESPONSE] 2026-03-13T09:48:15.730Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Hẻm 72, thuộc phường 15, Quận Phú Nhuận, từ lâu đã mang một vẻ u tịch khó tả, như thể thời gian ngừng đọng lại nơi đây, bị che phủ bởi một màn sương mờ của quá khứ. Ít ai biết, sâu thẳm dưới lớp nhựa đường và bê tông của con hẻm hiện đại này là một lớp nền lịch sử đầy bi thương và những truyền thuyết rùng rợn đến gai người. Theo những ghi chép không chính thức và lời truyền miệng của các cụ cao niên trong vùng, khu vực này từng là một phần của nghĩa địa cổ vô danh từ thời nhà Nguyễn, nơi chôn cất những người dân nghèo, không có thân nhân hoặc những nạn nhân của dịch bệnh, loạn lạc bị bỏ mặc. Người ta kể rằng, khi thực dân Pháp mở rộng đô thị Sài Gòn, nhiều ngôi mộ đã bị san ủi một cách vội vã, không qua nghi thức an táng chu đáo, khiến vô số linh hồn vất vưởng không tìm được chốn dung thân, mãi mãi mắc kẹt giữa hai thế giới. Oán khí của họ tích tụ qua nhiều thế hệ, biến mảnh đất này thành “đất dữ”, một nơi mà năng lượng tiêu cực luôn âm ỉ, chờ đợi một khoảnh khắc thích hợp để bùng phát. Truyền thuyết còn kể về một \"cây đa cụt ngọn\" từng đứng sừng sững ở đầu hẻm, được cho là nơi trú ngụ của một thực thể cổ xưa, một \"bà mụ\" bị thất lạc con cái trong một trận hỏa hoạn lịch sử tàn khốc, bà ta cứ mãi tìm kiếm những đứa trẻ vô tội để bầu bạn trong cõi u minh. Dù cây đa đã không còn, nhưng bóng ma của nó vẫn in hằn trong tâm thức người dân, như một lời nhắc nhở lạnh lẽo về sự hiện diện vô hình, một lời nguyền thầm lặng. Những biến cố bất thường xảy ra trong hẻm 72 không phải là mới lạ; từ những vụ mất tích bí ẩn của vật nuôi không để lại dấu vết, tiếng khóc trẻ con văng vẳng lúc nửa đêm khiến người ta rợn tóc gáy, cho đến những vụ tai nạn bất ngờ không rõ nguyên nhân, tất cả đều được gắn liền với sự quấy phá của những linh hồn bị bỏ quên. Vụ án mạng năm 2010, với tính chất tàn bạo và khó hiểu, chỉ là một đỉnh điểm đáng sợ của một chuỗi dài các sự kiện ma quái đã bị chôn vùi trong ký ức tập thể của người dân địa phương. Nó đã đánh thức một thứ gì đó cổ xưa hơn, tăm tối hơn, mà người phàm không thể nào lý giải nổi, một thực thể khao khát sự tồn tại và trả thù.",
+  "chronological_history": "Lịch sử của hẻm 72, Quận Phú Nhuận, là một chuỗi các sự kiện kỳ lạ, đan xen giữa thực tại và những lời đồn thổi ghê rợn, dẫn đến đỉnh điểm là vụ án mạng kinh hoàng năm 2010. Các mốc thời gian quan trọng cần được lưu ý:\n\n*   **Thế kỷ 19 – Đầu thế kỷ 20**: Khu vực hẻm 72 là vùng đất ngoại ô Sài Gòn, chủ yếu là đất nghĩa trang hoang vắng, xen kẽ vài căn nhà lụp xụp của người lao động nghèo. Các ghi nhận không chính thức từ những người đi đường xa xưa kể về ánh sáng ma trơi lập lòe trong đêm, tiếng than khóc ai oán từ bãi đất trống, và cảm giác lạnh lẽo dù trời oi bức.\n*   **Những năm 1950 – 1970**: Quá trình đô thị hóa diễn ra mạnh mẽ, nhiều ngôi mộ bị di dời hoặc san ủi một cách vội vã, không kỹ lưỡng để xây dựng nhà cửa. Cư dân mới chuyển đến thường xuyên than phiền về cảm giác bị theo dõi, tiếng động lạ trong đêm như tiếng bước chân, tiếng thì thầm, và những giấc mơ kỳ quái về những gương mặt không quen biết, đầy đau khổ.\n*   **Thập niên 1980**: Một số gia đình sống trong hẻm phải chuyển đi vì không chịu nổi những hiện tượng siêu nhiên ngày càng gia tăng. Có tin đồn về một người phụ nữ lớn tuổi tự tử trong căn nhà số 72/5 vì \"bị ám ảnh bởi những đứa trẻ không mặt\" liên tục kéo gọi bà ta. Hồ sơ ghi nhận vài vụ hỏa hoạn nhỏ không rõ nguyên nhân, chỉ gây thiệt hại về tài sản nhưng để lại mùi khét lẹt, ngai ngái kéo dài nhiều ngày, không thể nào tẩy sạch.\n*   **Cuối thập niên 1990 – Đầu 2000**: Các vụ mất tích của chó, mèo và chim cảnh trong hẻm gia tăng đột biến, không để lại dấu vết, như thể chúng bị bốc hơi vào không khí. Nhiệt độ trong hẻm thường thấp hơn đáng kể so với các khu vực lân cận vào những đêm không trăng, tạo cảm giác rùng mình. Cảm biến EMF (Trường điện từ) của một nhóm nghiên cứu nghiệp dư từng ghi nhận những dao động bất thường, nhưng không ai tin vào những kết quả đó, cho rằng đó chỉ là lỗi thiết bị.\n*   **Đầu năm 2010**: Trước vụ án mạng, nhiều hộ dân gần căn nhà 72/12 (nơi xảy ra vụ án) báo cáo về việc nghe thấy tiếng rên rỉ, thút thít như trẻ con vào ban đêm, đôi khi kèm theo tiếng cào cấu nhẹ vào cửa sổ hoặc tiếng gõ cửa từ bên trong một cách yếu ớt. Đèn đường trong hẻm thường xuyên chập chờn, nhấp nháy liên tục, dù đã được sửa chữa nhiều lần, tạo nên một khung cảnh u ám, bất an.\n*   **Ngày 26/03/2010**: Đêm định mệnh. Bà Đặng Thu Hồng, Phó bí thư Quận ủy, cùng một người thân và tài xế bị tấn công một cách dã man trong căn nhà 72/12. Mặc dù kẻ thủ ác được xác định là một đối tượng tâm thần, nhưng tính chất của vụ tấn công lại mang nhiều điểm bất thường: nạn nhân bị tấn công với sức mạnh phi thường, vết thương sâu và không theo quy luật thông thường của một người bị tâm thần, mà giống như bị xé nát bởi một thứ gì đó nguyên thủy. Đặc biệt, theo lời khai ban đầu của tài xế (người sống sót nhưng bị thương nặng), trước khi bị tấn công, ông cảm thấy một luồng khí lạnh cực độ bao trùm căn nhà, và thoáng thấy một \"bóng đen\" lướt qua nhanh như chớp, với đôi mắt đỏ rực.\n*   **Sau năm 2010**: Dù vụ án đã khép lại, nhưng sự ám ảnh vẫn còn đó. Căn nhà 72/12 bị bỏ hoang, không ai dám mua lại hay thuê, biến thành một biểu tượng của nỗi sợ hãi. Tiếng động lạ, cảm giác bị theo dõi vẫn tiếp diễn, thậm chí còn mạnh hơn. Nhiều người dân tin rằng, kẻ thủ ác chỉ là một \"vật chủ\" bị điều khiển bởi một thế lực tà ác đã ngủ yên từ lâu, và vụ án mạng kinh hoàng đó chỉ là cách để nó \"thức tỉnh\" hoàn toàn, đánh dấu sự trở lại của một nỗi kinh hoàng cổ xưa.",
+  "witnesses": [
+    {
+      "name": "Bà Nguyễn Thị Tám",
+      "testimony": "Tôi là Tám, năm nay đã ngoài 70, sống ở đây từ bé, từ khi hẻm này còn là đường đất hoang. Cái đêm bà Hồng bị nạn, tôi không ngủ được, cứ trằn trọc mãi. Tự nhiên thấy lạnh toát cả sống lưng, dù trời nóng nực như đổ lửa. Tôi nghe tiếng chó sủa rống lên từng hồi, không phải sủa người lạ mà là sủa một cái gì đó vô hình, sủa trong sợ hãi tột cùng. Rồi tôi nghe tiếng la thất thanh, tiếng đổ vỡ loảng xoảng, tiếng gào thét đến xé lòng. Nhưng kỳ lạ nhất là trước đó vài đêm, tôi cứ thấy một bóng người lấp ló ở ngã ba hẻm, không phải người, nó cứ lướt qua như làn khói mỏng. Lại còn có mùi ngai ngái, như mùi đất ẩm trộn với mùi hoa sứ héo úa, rất khó chịu. Tôi biết ngay là có chuyện chẳng lành rồi. Tôi đã nói với con cháu là đất này dữ lắm, đừng có ở lại lâu. Nhưng ai mà tin lời bà già lẩm cẩm này chứ? Giờ thì... mọi chuyện đã xảy ra rồi. Tôi thấy thương cho bà Hồng, nhưng cũng biết trước là sẽ có chuyện.",
+      "date": "05/04/2010"
+    },
+    {
+      "name": "Anh Trần Văn Hùng",
+      "testimony": "Tôi Hùng, 35 tuổi, nhà tôi cách căn nhà số 72/12 vài căn. Sau cái đêm kinh hoàng đó, tôi không dám đi làm về khuya nữa. Có lần, tôi về đến đầu hẻm khoảng 11 giờ đêm, tự nhiên xe chết máy giữa chừng. Tôi đạp mãi không nổ, đành dắt bộ trong bóng đêm đặc quánh. Khi đi ngang qua căn nhà bị án mạng, tôi thấy một luồng gió lạnh buốt thổi qua, lạnh hơn cả hơi máy lạnh, như thể có ai đó đang thở phả vào gáy mình. Rồi tôi nghe tiếng ai đó thì thầm tên mình, rõ mồn một, như tiếng vọng từ vực sâu. Tôi quay lại không thấy ai, nhưng cảm giác có ai đó đứng ngay sau lưng mình, một hơi thở lạnh lẽo phả vào cổ. Tóc gáy tôi dựng đứng. Tôi chạy thục mạng về nhà, khóa cửa cài then ba lớp. Đêm đó tôi không tài nào chợp mắt được. Cảm giác như có ai đó đang nhìn chằm chằm qua cửa sổ, một đôi mắt vô hình đang xuyên thấu qua mọi thứ. Từ đó, tôi luôn mang theo một lá bùa hộ mệnh. Tôi không tin mấy chuyện ma quỷ đâu, nhưng chuyện này thì... thật sự quá đáng sợ, nó như một cơn ác mộng có thật.",
+      "date": "12/04/2010"
+    },
+    {
+      "name": "Chị Lê Thị Mai",
+      "testimony": "Tôi là Mai, làm nghề giao hàng, thỉnh thoảng có giao đồ cho mấy nhà trong hẻm 72 này. Một buổi chiều nọ, khoảng một tuần trước khi xảy ra vụ án mạng, tôi đang đi xe máy vào hẻm thì bỗng nhiên nhìn thấy một đứa bé gái đứng ở góc hẻm, ngay gần căn nhà 72/12. Bé mặc đồ trắng, tóc dài che gần hết mặt, trông rất nhợt nhạt và đứng bất động. Tôi tưởng bé bị lạc nên định dừng xe hỏi, nhưng khi tôi vừa chớp mắt một cái, bé đã biến mất không dấu vết. Tôi dụi mắt mấy lần, nhìn kỹ lại thì không thấy ai, cứ nghĩ mình mệt mỏi nên nhìn nhầm. Nhưng sau vụ án, khi đọc báo, tôi rợn người nhận ra cái chỗ mà tôi thấy đứa bé đó, chính là nơi mà bà Hồng bị tấn công. Giờ nghĩ lại, tôi vẫn thấy lạnh cả xương sống. Đó không phải là một đứa bé bình thường. Ánh mắt của nó... dù không nhìn rõ mặt, tôi vẫn cảm thấy một sự trống rỗng, vô hồn khủng khiếp, như một cái hố đen nuốt chửng mọi thứ.",
+      "date": "18/04/2010"
+    }
+  ],
+  "spectral_analysis": "Dựa trên các cuộc khảo sát chuyên sâu và phân tích dữ liệu thu thập được tại hiện trường vụ án mạng hẻm 72, Quận Phú Nhuận, các chuyên gia của Tactical Spectral Engine (TSE) đã đưa ra những kết luận đáng báo động về hoạt động tâm linh tại đây.\n\n*   **Dữ liệu EMF (Trường điện từ)**: Các thiết bị đo EMF chuyên dụng đã ghi nhận những dao động trường điện từ cực đoan tại căn nhà 72/12 và khu vực lân cận, đặc biệt là vào ban đêm, với cường độ không thể giải thích bằng các nguồn điện thông thường. Cường độ dao động có thể lên tới 50-70 mG (milligauss), cao hơn gấp nhiều lần mức nền tự nhiên (0.1-0.5 mG) và mức gây nhiễu điện tử thông thường. Đáng chú ý, các đỉnh điểm dao động thường trùng khớp với những báo cáo về tiếng động lạ hoặc cảm giác bị theo dõi, bị chạm vào của người dân, cho thấy một sự tương quan rõ rệt với các hiện tượng siêu nhiên.\n*   **Nhiệt độ**: Thiết bị đo nhiệt độ hồng ngoại và cảm biến nhiệt đã phát hiện những \"điểm lạnh\" bất thường, nơi nhiệt độ giảm đột ngột từ 5-10 độ C trong vòng vài giây, ngay cả trong môi trường không có luồng gió hay điều hòa. Những điểm lạnh này thường di chuyển, tập trung ở các góc tối, hành lang hoặc các khu vực mà nhân chứng báo cáo có sự hiện diện của thực thể, tạo ra cảm giác ớn lạnh đến tận xương tủy.\n*   **Sóng hạ âm (Infrasound)**: Các ghi âm chuyên sâu đã thu được những tần số hạ âm cực thấp (dưới 20 Hz) mà tai người không thể nghe thấy. Tuy nhiên, những sóng này có thể gây ra cảm giác lo lắng tột độ, sợ hãi vô cớ, khó thở, và thậm chí là ảo giác thị giác/thính giác ở người. Giả thuyết cho rằng đây là \"tiếng nói\", \"tiếng rên rỉ\" hoặc \"rung động\" của thực thể tâm linh, có khả năng ảnh hưởng trực tiếp đến trạng thái tâm lý và thần kinh của con người, đẩy họ vào trạng thái hoảng loạn hoặc hung hãn.\n*   **Giả thuyết tâm linh**: Dựa trên các dữ liệu thu thập và lời khai nhân chứng, giả thuyết hàng đầu là một thực thể tâm linh có \"oán khí\" cực mạnh đã bị đánh thức. Thực thể này có thể là một linh hồn bị bỏ quên từ nghĩa địa cổ, hoặc một tập hợp nhiều linh hồn hợp lại, bị \"giam giữ\" trong khu vực này qua hàng thế kỷ. Năng lượng tiêu cực của chúng tích tụ qua nhiều thập kỷ, đến năm 2010 đạt đến đỉnh điểm và tìm cách \"biểu hiện\" thông qua một vật chủ (kẻ thủ ác) hoặc trực tiếp gây ra bạo lực man rợ. Các chuyên gia của TSE cho rằng đây không chỉ là một vong hồn đơn lẻ mà là một \"điểm tụ năng lượng\" (Ectoplasmic Nexus) – một dạng cổng năng lượng tiêu cực, nơi ranh giới giữa thế giới vật chất và thế giới linh hồn trở nên mỏng manh nhất, cho phép thực thể dễ dàng tương tác với thế giới của chúng ta. Thực thể này có khả năng thao túng vật chất ở mức độ nhất định (gây ra vết thương sâu, di chuyển vật thể nhỏ một cách bạo lực) và đặc biệt là tác động mạnh mẽ đến tâm trí con người, gây ra sự hoảng loạn, hung hãn hoặc ảo giác kinh hoàng.\n*   **Đánh giá mức độ nguy hiểm**: Dựa trên thang đo SPIRIT (Spectral Phenomenon Intensity Rating Index Threshold), khu vực hẻm 72/12 được xếp ở mức Đỏ Cực Đoan (Extreme Red), cho thấy mức độ nguy hiểm cao nhất đối với sự an toàn thể chất và tinh thần của con người, đòi hỏi các biện pháp can thiệp khẩn cấp và cực kỳ thận trọng.",
+  "risk_assessment": "Đánh giá rủi ro tổng hợp cho khu vực hẻm 72, đặc biệt là căn nhà số 72/12, cho thấy đây là một điểm nóng tâm linh cực kỳ nguy hiểm, có khả năng gây ra những hậu quả thảm khốc cho bất kỳ ai tiếp xúc. Mức độ nguy hiểm được xếp vào loại Tối Thượng (Catastrophic).\n\n**Các rủi ro chính:**\n\n1.  **Nguy hiểm vật lý trực tiếp**: Thực thể tâm linh tại đây đã chứng minh khả năng tác động vật lý lên môi trường và con người một cách tàn bạo, gây ra các vụ tấn công bạo lực, thương tích nghiêm trọng hoặc thậm chí tử vong (như đã xảy ra với bà Đặng Thu Hồng). Sức mạnh của thực thể này vượt xa khả năng đối phó của người thường, và nó có thể xuất hiện bất ngờ, không báo trước. Bất kỳ ai xâm nhập vào khu vực trung tâm đều có nguy cơ bị tấn công dữ dội.\n2.  **Tổn thương tâm lý và tinh thần vĩnh viễn**: Sự hiện diện của thực thể gây ra cảm giác sợ hãi tột độ, lo lắng không ngừng, hoang tưởng kéo dài và ảo giác kinh hoàng. Những người tiếp xúc lâu dài có thể bị suy nhược thần kinh nghiêm trọng, trầm cảm lâm sàng, rối loạn tâm thần cấp tính, hoặc bị \"ảnh hưởng\" đến mức mất khả năng tự chủ, trở thành vật chủ tiềm năng cho thực thể, bị điều khiển để thực hiện các hành vi bạo lực.\n3.  **Lây lan năng lượng tiêu cực**: Mặc dù tập trung ở căn nhà 72/12, năng lượng tiêu cực có xu hướng lan tỏa ra các khu vực lân cận, gây ra các hiện tượng bất thường và ảnh hưởng đến sức khỏe tinh thần của cộng đồng dân cư trong hẻm. Các hiện tượng như mất ngủ, ác mộng, cảm giác bị theo dõi, và sự gia tăng các vụ cãi vã, xung đột nhỏ trong các hộ gia đình lân cận đều là những dấu hiệu của sự lan tỏa này.\n\n**Khuyến cáo an toàn khẩn cấp:**\n\n1.  **Phong tỏa và cấm tiếp cận tuyệt đối**: Toàn bộ căn nhà 72/12 phải được phong tỏa vĩnh viễn bằng vật liệu kiên cố và cấm mọi hoạt động tiếp cận, thâm nhập không có sự cho phép đặc biệt từ TSE. Bất kỳ sự vi phạm nào cũng phải được coi là hành vi tự sát.\n2.  **Giám sát liên tục và cảnh báo sớm**: Triển khai hệ thống giám sát quang phổ, âm thanh và nhiệt độ 24/7 tại khu vực trung tâm (72/12) và các điểm lân cận để theo dõi mọi biến động năng lượng bất thường và đưa ra cảnh báo sớm cho cộng đồng dân cư.\n3.  **Hỗ trợ tâm lý bắt buộc**: Cung cấp tư vấn tâm lý bắt buộc và thường xuyên cho tất cả cư dân sống trong hẻm 72 đã từng báo cáo về các hiện tượng bất thường hoặc có dấu hiệu bị ảnh hưởng tâm lý, nhằm ngăn chặn các tổn thương lâu dài.\n4.  **Nghi lễ thanh tẩy và trấn yểm cấp cao**: Cân nhắc tổ chức các nghi lễ thanh tẩy tâm linh bởi các chuyên gia có kinh nghiệm sâu rộng (người có khả năng dẫn dắt linh hồn, pháp sư tâm linh cấp cao) để trấn an và siêu thoát các linh hồn vất vưởng, nhằm giảm thiểu oán khí và đóng lại \"cổng năng lượng\" tại khu vực. Tuy nhiên, cần phải hết sức thận trọng vì các nghi lễ không đúng cách có thể làm tình hình trở nên tồi tệ hơn, kích động thực thể.\n5.  **Di dời vĩnh viễn**: Trong trường hợp tình hình không cải thiện, khuyến nghị di dời vĩnh viễn các hộ dân sống quá gần căn nhà 72/12 để đảm bảo an toàn tuyệt đối, vì đây là mối đe dọa thường trực.\n6.  **Tuyệt đối không khiêu khích hoặc liên lạc**: Không cố gắng liên lạc, khiêu khích hoặc thử nghiệm các phương pháp \"giao tiếp\" với thực thể dưới bất kỳ hình thức nào. Điều này có thể gây ra những phản ứng cực kỳ nguy hiểm, khó lường và không thể kiểm soát, đẩy tình hình vào vực thẳm.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Vụ án mạng hẻm 72, Quận Phú Nhuận. Scene: A narrow, dark, and wet alleyway in Ho Chi Minh City at night, shrouded in an unnatural, chilling mist. The view is from a low-quality, shaky camcorder, capturing the entrance to a dilapidated house with a partially open, creaking wooden door. A faint, blurry silhouette of a small, gaunt figure or a distorted, child-like shadow is barely visible in the doorway, its eyes glowing faintly red in the gloom. The air is thick with a palpable sense of dread, streetlights are flickering erratically, casting long, unsettling shadows that seem to writhe. style: grainy, VHS aesthetic, 1990s aesthetic, low light, unsettling atmosphere, subtle motion blur, with a date timestamp '26/03/2010' in the corner."
+}
+---
+[GEMINI_RESPONSE] 2026-03-13T10:01:16.489Z Status: 200 OK
+[GEMINI_TEXT] ```json
+[
+  {
+    "name": "Flat 727 - Tran Hung Dao Street",
+    "type": "GHOST",
+    "description": "This former tallest building in Saigon, also known as the President Hotel, is widely rumored to be haunted due to its unlucky 13 floors and numerous accidents during construction. Residents have reported hearing the sounds of US soldiers marching at night, and some claim to have seen the ghosts of a blond man and a Vietnamese girl, linked to a tragic love story. Local folklore also suggests that four virgin corpses were buried in its foundation to appease spirits and counteract bad luck.",
+    "latitude": 10.755715,
+    "longitude": 106.682832,
+    "severity": 4
+  },
+  {
+    "name": "Ho Chi Minh City Fine Arts Museum",
+    "type": "GHOST",
+    "description": "Once the opulent Hua's Mansion, this building is believed to be haunted by the spirit of Mr. Hua's youngest daughter, who tragically died from leprosy at a young age. Stories suggest her restless spirit remains within the mansion, which was her home.",
+    "latitude": 10.7709,
+    "longitude": 106.6997,
+    "severity": 3
+  },
+  {
+    "name": "Le Thi Rieng Park",
+    "type": "GHOST",
+    "description": "This popular park is rumored to have been a collective graveyard for fallen soldiers after the 1968 Mau Than battle, particularly around its lake. Visitors have reported seeing the ghost of a pale-faced child on the swings and groups of soldiers patrolling after dark. Additionally, the park's pond is rumored to be a 'people-swallowing lake,' with beliefs that previous drowning victims pull others to their deaths.",
+    "latitude": 10.7766,
+    "longitude": 106.6738,
+    "severity": 4
+  },
+  {
+    "name": "Tao Dan Park",
+    "type": "MURDER",
+    "description": "Tao Dan Park is associated with a motorbike murder in July 1989, where Nguyen Diet Hoang Tuan was robbed and killed. Urban legends also speak of a man murdered in 2007 while with his girlfriend, whose ghost now wanders the park searching for his lost love and frightening visitors after dark.",
+    "latitude": 10.7749,
+    "longitude": 106.6946,
+    "severity": 5
+  },
+  {
+    "name": "Thuan Kieu Plaza",
+    "type": "MURDER",
+    "description": "This plaza has a dark history, including a real-life incident in 2005 where a man killed his girlfriend and then himself out of jealousy. There are also rumors of a mysterious fire that claimed several lives, contributing to its reputation as a haunted location.",
+    "latitude": 10.7565,
+    "longitude": 106.6645,
+    "severity": 5
+  },
+  {
+    "name": "Nguyen Thi Minh Khai High School",
+    "type": "GHOST",
+    "description": "Generations of students at this historic all-girls school, formerly known as Gia Long High School, have shared stories of a phantom in a purple áo dài. This ghostly figure is said to wander under the banyan tree on campus, particularly on nights with a full moon.",
+    "latitude": 10.7808,
+    "longitude": 106.6948,
+    "severity": 3
+  },
+  {
+    "name": "Cho Ray Hospital Farewell House",
+    "type": "GHOST",
+    "description": "As one of the oldest hospitals in Ho Chi Minh City, Cho Ray Hospital's morgue, known as the Farewell House, is rumored to be haunted. Tales suggest that the spirits of patients who died suddenly and could not complete their treatment linger, yearning for peace.",
+    "latitude": 10.7583,
+    "longitude": 106.6667,
+    "severity": 4
+  },
+  {
+    "name": "Flat 727 Construction Accidents",
+    "type": "ACCIDENT",
+    "description": "During the construction of Flat 727, numerous fatal accidents occurred, particularly on the unfinished 13th floor. These incidents were attributed to bad luck associated with the number 13, leading the developer to reportedly hire a shaman to bury four virgin corpses in the building's foundation to appease malevolent spirits and allow construction to proceed.",
+    "latitude": 10.755715,
+    "longitude": 106.682832,
+    "severity": 4
+  },
+  {
+    "name": "Le Thi Rieng Park Drownings",
+    "type": "ACCIDENT",
+    "description": "The lake within Le Thi Rieng Park is rumored to be a dangerous spot, with local legends suggesting that those who have drowned there in the past exert a spiritual pull, contributing to subsequent drownings. This belief has led to the lake being colloquially known as a 'people-swallowing lake.'",
+    "latitude": 10.7766,
+    "longitude": 106.6738,
+    "severity": 3
+  }
+]
+```
+---
+[GEMINI_RESPONSE] 2026-03-13T10:18:41.106Z Status: 200 OK
+[GEMINI_TEXT] ```json
+[
+  {
+    "name": "Flat 727 - Tran Hung Dao Street Haunting",
+    "type": "GHOST",
+    "description": "This dilapidated 13-story building, once known as the President Hotel, is widely rumored to be haunted due to numerous accidents during its construction in the 1960s, which locals attribute to bad luck. Legends claim that four virgin girls were buried in the foundation to appease malevolent spirits. Residents have reported hearing the marching sounds of US soldiers and seeing apparitions, including a blond man with a Vietnamese girl and a legless girl in a red cheongsam.",
+    "latitude": 10.755715,
+    "longitude": 106.682832,
+    "severity": 4
+  },
+  {
+    "name": "Le Thi Rieng Park Spectral Soldiers",
+    "type": "GHOST",
+    "description": "Le Thi Rieng Park is rumored to be a mass grave for soldiers who perished during the 1968 Mau Than battle, particularly around its central lake. Visitors and locals have reported sightings of ghostly soldiers patrolling the park at night and the spirit of a pale-faced child on the swings. Recent suicide attempts within the park have further fueled these paranormal rumors.",
+    "latitude": 10.7850,
+    "longitude": 106.6830,
+    "severity": 3
+  },
+  {
+    "name": "Ho Chi Minh City Fine Arts Museum Haunting",
+    "type": "GHOST",
+    "description": "The Ho Chi Minh City Fine Arts Museum, formerly the opulent Hua's Mansion, is believed to be haunted by the spirit of Mr. Hua's youngest daughter, who tragically died from leprosy. Museum visitors have reported hearing disembodied crying echoing through the corridors and witnessing the apparition of a young girl in white floating through the building's walls.",
+    "latitude": 10.7700,
+    "longitude": 106.7020,
+    "severity": 3
+  },
+  {
+    "name": "Tao Dan Park Murder Ghost",
+    "type": "MURDER",
+    "description": "Tao Dan Park is associated with a chilling urban legend about a young man murdered in 2007 while with his girlfriend, whose ghost is said to wander the park searching for his lost love. Additionally, an official murder occurred in July 1989, where Nguyen Diet Hoang Tuan was robbed and killed, with some believing his vengeful spirit now haunts the area. Visitors have reported experiencing strange phenomena, including ghostly apparitions, mysterious noises, and sudden cold breezes.",
+    "latitude": 10.7740,
+    "longitude": 106.6940,
+    "severity": 4
+  },
+  {
+    "name": "Thuan Kieu Plaza Cursed Construction",
+    "type": "RUMOR",
+    "description": "Thuan Kieu Plaza has a notorious reputation for being haunted, stemming from rumors of construction workers dying due to unsafe conditions, leading their families to place a curse on the property. Local lore also includes tales of a mysterious fire that claimed several lives and a real-life incident in 2005 where a man committed murder-suicide with his girlfriend, whose spirits are reportedly seen haunting the complex. The building's design and a road built through it are also believed to have created bad feng shui, contributing to its misfortune and eerie atmosphere.",
+    "latitude": 10.7560,
+    "longitude": 106.6660,
+    "severity": 5
+  },
+  {
+    "name": "Ly Thai To Street House Fire Spirit",
+    "type": "ACCIDENT",
+    "description": "At 24 Ly Thai To Street, a tragic fire in December 2001 resulted in the deaths of seven family members. Urban legends suggest that the spirit of a terrified pregnant woman, who was unable to escape from the balcony during the blaze, still lingers at the site. The fire was reportedly started by one of the sons, who suffered from a mental illness.",
+    "latitude": 10.7700,
+    "longitude": 106.6860,
+    "severity": 4
+  },
+  {
+    "name": "Nguyen Thi Minh Khai High School Phantom",
+    "type": "GHOST",
+    "description": "Nguyen Thi Minh Khai High School is known for an urban legend among students who claim to have seen a phantom dressed in a purple áo dài beneath a banyan tree on the campus grounds, particularly during full moon nights.",
+    "latitude": 10.7800,
+    "longitude": 106.6900,
+    "severity": 2
+  },
+  {
+    "name": "Cho Ray Hospital Farewell House Haunting",
+    "type": "RUMOR",
+    "description": "The morgue at Cho Ray Hospital, colloquially known as the 'Farewell House,' is rumored to be haunted by the spirits of patients who died suddenly and were unable to accept their passing. It is believed that these restless spirits return to the hospital at night.",
+    "latitude": 10.7580,
+    "longitude": 106.6650,
+    "severity": 3
+  },
+  {
+    "name": "On Lang Assembly Hall Spirit Beating Ritual",
+    "type": "SPIRITUAL ACTIVITY",
+    "description": "On Lang Assembly Hall, also known as Chua Ba On Lang, is an ancient and significant spiritual landmark in Ho Chi Minh City's Cholon district. It is a place where people engage in the long-standing Chinese-Vietnamese custom of 'beating the petty spirit,' a ritual performed to ward off harmful or troublesome spirits.",
+    "latitude": 10.7550,
+    "longitude": 106.6640,
+    "severity": 1
+  }
+]
+```
+---
+[GEMINI_RESPONSE] 2026-03-13T10:19:51.067Z Status: 200 OK
+[GEMINI_TEXT] ```json
+[
+  {
+    "name": "Chung cư 727 Trần Hưng Đạo",
+    "type": "GHOST",
+    "description": "Tòa nhà này, ban đầu là khách sạn Building President, được đồn đại là nơi xảy ra nhiều tai nạn chết người bí ẩn trong quá trình xây dựng tầng 13, dẫn đến việc phải mời thầy pháp về trấn yểm bằng cách chôn xác bốn trinh nữ ở bốn góc. Nhiều người dân kể lại rằng họ thường xuyên nhìn thấy bóng dáng các cô gái trẻ lang thang và khóc than vào ban đêm.",
+    "latitude": 10.7577,
+    "longitude": 106.6858,
+    "severity": 5
+  },
+  {
+    "name": "Ngôi nhà số 24 Lý Thái Tổ",
+    "type": "ACCIDENT",
+    "description": "Ngôi nhà này từng là hiện trường của một vụ hỏa hoạn thương tâm cướp đi sinh mạng của bảy thành viên trong một gia đình, bao gồm một phụ nữ mang thai. Sau vụ việc, nhiều lời đồn đại về việc nhìn thấy hồn ma người phụ nữ mang thai bồng con xuất hiện bên cửa sổ, sau đó biến mất vào ngọn lửa, khiến nơi đây trở thành địa điểm bị ma ám.",
+    "latitude": 10.7680,
+    "longitude": 106.6790,
+    "severity": 4
+  },
+  {
+    "name": "Dinh thự Hứa Bổn Hỏa (Bảo tàng Mỹ thuật TP.HCM)",
+    "type": "GHOST",
+    "description": "Dinh thự cổ kính này, nay là Bảo tàng Mỹ thuật TP.HCM, nổi tiếng với truyền thuyết về hồn ma cô con gái duy nhất của đại gia Hứa Bổn Hỏa. Cô được cho là đã bị nhốt trong phòng kín vì bệnh phong và sau đó biến mất một cách bí ẩn. Tiếng khóc than thảm thiết được cho là vẫn vọng ra từ tòa nhà vào những đêm khuya.",
+    "latitude": 10.7709,
+    "longitude": 106.6999,
+    "severity": 4
+  },
+  {
+    "name": "Công viên Tao Đàn",
+    "type": "RUMOR",
+    "description": "Công viên Tao Đàn được đồn đại là có ma ám, đặc biệt là sau khi trời tối, do sự hiện diện của một ngôi mộ cổ không rõ nguồn gốc bên trong công viên. Nhiều người dân địa phương và trẻ em thường được cảnh báo không nên ở lại đây vào buổi tối.",
+    "latitude": 10.7730,
+    "longitude": 106.6930,
+    "severity": 3
+  },
+  {
+    "name": "Khu vực cầu Chữ Y",
+    "type": "MURDER",
+    "description": "Tại khu vực cầu Chữ Y, một vụ án mạng đã xảy ra vào năm 2017 khi hai người đàn ông mâu thuẫn về tiền bạc đã hẹn nhau giải quyết và dẫn đến ẩu đả, khiến một người tử vong do bị đâm.",
+    "latitude": 10.7450,
+    "longitude": 106.6750,
+    "severity": 4
+  },
+  {
+    "name": "Đường Trần Hưng Đạo (Quận 1)",
+    "type": "MURDER",
+    "description": "Một vụ án mạng nghiêm trọng đã xảy ra tại một cơ sở giải trí trên mặt tiền đường Trần Hưng Đạo, Quận 1, khiến chủ quán người Hàn Quốc tử vong và một nhân viên bị thương nặng do một cuộc ẩu đả bạo lực.",
+    "latitude": 10.7700,
+    "longitude": 106.7000,
+    "severity": 5
+  },
+  {
+    "name": "Chợ Bến Thành (Cửa Nam)",
+    "type": "RUMOR",
+    "description": "Vào tháng 3 năm 2025, một nhóm người đã thực hiện hành vi khiêng quan tài diễu phố trước khu vực cửa Nam chợ Bến Thành để quảng cáo, gây xôn xao dư luận và bị xử lý vì tội gây rối trật tự công cộng. Sự việc này đã tạo ra một tin đồn kỳ lạ trong cộng đồng.",
+    "latitude": 10.7723,
+    "longitude": 106.6980,
+    "severity": 2
+  },
+  {
+    "name": "Thuận Kiều Plaza",
+    "type": "GHOST",
+    "description": "Tòa nhà Thuận Kiều Plaza được bao quanh bởi nhiều lời đồn ma quái, bao gồm việc ba công nhân đã tử vong trong quá trình xây dựng và linh hồn của họ vẫn còn ám ảnh tòa nhà. Ngoài ra, còn có tin đồn về việc nhìn thấy một cô gái mặc sườn xám đỏ không có chân.",
+    "latitude": 10.7540,
+    "longitude": 106.6710,
+    "severity": 4
+  },
+  {
+    "name": "Công viên Lê Thị Riêng",
+    "type": "GHOST",
+    "description": "Công viên này từng là nghĩa trang Đô Thành và sau đó là nghĩa trang Chí Hòa, nơi chôn cất nhiều nấm mồ vô danh, đặc biệt là lính tử trận. Người dân địa phương thường truyền tai nhau những câu chuyện về linh hồn lính chết trận hiện về khóc than và hồn ma một bé gái ngồi đu đưa trên xích đu cũ.",
+    "latitude": 10.7740,
+    "longitude": 106.6690,
+    "severity": 4
+  },
+  {
+    "name": "Bệnh viện Chợ Rẫy (Nhà Vĩnh Biệt)",
+    "type": "RUMOR",
+    "description": "Khu vực Nhà Vĩnh Biệt của Bệnh viện Chợ Rẫy, nơi lưu giữ thi thể những bệnh nhân không có người thân nhận, được đồn đại là có nhiều 'hồn ma bệnh viện' luẩn quẩn. Những linh hồn này được cho là vẫn còn đau đáu vì không có ai bên cạnh lúc lìa đời và không được đưa về với đất.",
+    "latitude": 10.7580,
+    "longitude": 106.6660,
+    "severity": 3
+  }
+]
+```
+---
+[GEMINI_RESPONSE] 2026-03-13T10:20:55.643Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Công viên Tao Đàn, một ốc đảo xanh giữa lòng Sài Gòn sôi động, từ lâu đã mang trong mình một tấm màn bí ẩn và những truyền thuyết rùng rợn, đặc biệt là sau khi màn đêm buông xuống. Nguồn gốc của những câu chuyện ma quái này thường được gắn liền với một ngôi mộ cổ không tên, nằm ẩn mình giữa những tán cây cổ thụ hàng trăm năm tuổi. Các nhà nghiên cứu lịch sử và tâm linh cho rằng, khu vực công viên ngày nay từng là một phần của vùng đất linh thiêng hoặc một nghĩa địa cổ đại từ thời kỳ trước khi Sài Gòn được khai phá mạnh mẽ. Truyền thuyết kể rằng, ngôi mộ này là nơi an nghỉ của một vị quan lại triều Nguyễn hoặc một nhân vật quyền quý nào đó mà không rõ danh tính, bị chôn cất vội vã hoặc không được hưởng nghi lễ an táng trọn vẹn. Một phiên bản khác lại cho rằng đây là mộ của một oan hồn, một người phụ nữ bị sát hại dã man và bị chôn lấp một cách phi nhân tính, khiến linh hồn cô không thể siêu thoát và mãi mãi bị giam cầm trong khu đất này. Sự xáo trộn khi xây dựng công viên Jardin de la Ville vào thời Pháp thuộc, với việc san ủi và quy hoạch lại địa hình, có thể đã vô tình đánh thức hoặc giải phóng những năng lượng tâm linh bị kìm nén. Người dân địa phương từ nhiều thế hệ đã truyền tai nhau về những hiện tượng kỳ lạ: tiếng khóc ai oán văng vẳng trong gió, bóng người lướt qua trong sương đêm, và cảm giác lạnh lẽo thấu xương ngay cả vào những đêm hè oi ả. Trẻ em được nghiêm cấm chơi gần khu mộ cổ sau hoàng hôn, và người lớn thì thường kể lại những câu chuyện về việc nhìn thấy một 'bóng trắng' mặc áo dài, đôi khi là một 'người đàn ông' với dáng vẻ u uất, đi bộ quanh khu vực này. Những câu chuyện này không chỉ là lời đồn đại mà đã trở thành một phần của văn hóa dân gian đô thị, tạo nên một bức màn u ám bao phủ công viên, biến nơi đây từ một không gian công cộng thành một địa điểm mà nhiều người phải rùng mình khi nhắc đến sau khi mặt trời lặn. Năng lượng tiêu cực dường như đã tích tụ qua nhiều thập kỷ, biến ngôi mộ không tên thành một điểm hội tụ của những linh hồn vất vưởng, những uẩn khúc chưa được giải tỏa, mãi mãi tìm kiếm sự an nghỉ hoặc một lời giải đáp.",
+  "chronological_history": "Lịch sử của Công viên Tao Đàn, đặc biệt là những sự kiện liên quan đến các hiện tượng siêu nhiên, là một chuỗi các mốc thời gian đáng chú ý, được ghi nhận qua lời kể và các báo cáo không chính thức. \n\n**Trước 1869 (Thời kỳ cổ đại - Tiền Pháp thuộc):** Vùng đất này được cho là một khu vực hoang vu, có thể là rừng ngập mặn hoặc một phần của vùng đất cao hơn được sử dụng làm nơi chôn cất từ rất lâu đời. Các di chỉ khảo cổ ngẫu nhiên trong khu vực Sài Gòn thường xuyên phát hiện các mộ táng cổ, cho thấy khả năng tồn tại các khu nghĩa địa chưa được biết đến. Ngôi mộ cổ không tên trong công viên có thể có niên đại từ thời kỳ này, là di tích của một nền văn hóa hoặc một nhân vật lịch sử bị lãng quên.\n\n**1869:** Chính quyền Pháp quy hoạch và thành lập 'Jardin de la Ville' (Vườn Bách Thảo Sài Gòn). Quá trình san ủi, xây dựng và cải tạo cảnh quan diễn ra mạnh mẽ. Có khả năng các công trình cũ, bao gồm nhiều ngôi mộ và di tích tâm linh, đã bị phá bỏ hoặc di dời. Việc duy trì một ngôi mộ cổ đơn độc giữa công viên hiện đại cho thấy nó có thể quá khó khăn để di chuyển hoặc mang một ý nghĩa đặc biệt nào đó, hoặc đơn giản là bị bỏ sót, từ đó trở thành điểm neo của năng lượng tâm linh.\n\n**Thập niên 1930 - 1950:** Jardin de la Ville được đổi tên và phát triển thành Công viên Tao Đàn như ngày nay. Những lời đồn đại đầu tiên về các hiện tượng kỳ lạ bắt đầu xuất hiện trong giới công nhân và bảo vệ công viên. Họ kể về những tiếng động lạ, bóng người lướt nhanh, và cảm giác lạnh lẽo bất thường quanh khu vực ngôi mộ sau khi trời tối. Tuy nhiên, những câu chuyện này còn lẻ tẻ và chưa phổ biến rộng rãi.\n\n**Thập niên 1960 - 1970:** Trong giai đoạn này, khi Sài Gòn phát triển mạnh mẽ và công viên trở thành điểm đến quen thuộc, các câu chuyện về 'ma Tao Đàn' bắt đầu lan truyền rộng hơn. Các cặp tình nhân hẹn hò muộn, những người đi tập thể dục sớm hoặc những người vô gia cư ngủ lại trong công viên là những nhân chứng thường xuyên. Các báo cáo bao gồm việc nhìn thấy một 'bóng trắng' hoặc 'người phụ nữ tóc dài' gần ngôi mộ và các cây đa cổ thụ, tiếng khóc than, tiếng cười ma quái, hoặc cảm giác bị ai đó chạm vào từ phía sau mà không có ai. Thiết bị điện tử như đài cassette, đèn pin đôi khi bị nhiễu hoặc tự động tắt/bật.\n\n**Thập niên 1990:** Đây là giai đoạn mà các lời đồn và báo cáo đạt đến đỉnh điểm. Với sự bùng nổ của văn hóa đô thị và sự tò mò của giới trẻ, nhiều nhóm thanh thiếu niên đã tổ chức các cuộc thám hiểm 'săn ma' trong công viên vào ban đêm. Nhiều người khẳng định đã có những trải nghiệm đáng sợ hơn, từ việc nghe thấy tiếng thì thầm gọi tên mình, nhìn thấy những hình ảnh mờ ảo rõ nét hơn, cho đến việc cảm nhận sự thay đổi nhiệt độ đột ngột và mạnh mẽ. Một số báo cáo chi tiết về việc nhìn thấy một 'người phụ nữ' đứng trên ngôi mộ hoặc bay lơ lửng trên mặt đất. Các phương tiện truyền thông địa phương cũng đôi khi đăng tải các câu chuyện ngắn, gián tiếp xác nhận sự tồn tại của những lời đồn này, càng làm tăng thêm sự huyền bí cho công viên.\n\n**2000 - Hiện tại:** Mặc dù công viên được cải tạo, lắp đặt thêm đèn chiếu sáng và tăng cường an ninh, các câu chuyện về ma quỷ vẫn tiếp tục tồn tại và được truyền lại cho thế hệ trẻ. Các thiết bị ghi hình hiện đại đôi khi vẫn ghi lại được những 'dị thường' về ánh sáng hoặc bóng mờ không giải thích được. Ngôi mộ cổ vẫn là tâm điểm, và khu vực xung quanh nó vẫn được coi là 'điểm nóng' về năng lượng tâm linh. Những trải nghiệm cá nhân vẫn tiếp tục được ghi nhận, mặc dù ít công khai hơn. Sự kiện tại Công viên Tao Đàn không chỉ là một huyền thoại mà là một hiện tượng dai dẳng, thách thức mọi lời giải thích khoa học và tiếp tục gieo rắc nỗi ám ảnh vào tâm trí những ai dám mạo hiểm khám phá bí ẩn của nó.",
+  "witnesses": [
+    {
+      "name": "Ông Nguyễn Văn Hùng",
+      "testimony": "Tôi đã làm bảo vệ ở đây gần ba mươi năm rồi, từ cái thời công viên còn vắng vẻ lắm. Lúc đầu, tôi chẳng tin ba cái chuyện ma quỷ đâu, nghĩ là người ta tự hù dọa nhau. Nhưng rồi, chính mắt tôi thấy, chính tai tôi nghe. Nhiều đêm, khoảng 2-3 giờ sáng, khi mọi thứ chìm vào tĩnh lặng, tôi hay đi tuần tra quanh khu mộ cổ. Có lần, tôi thấy một luồng khí lạnh buốt ập đến, dù trời đang nóng nực. Lạnh đến nỗi tôi rùng mình, nổi da gà khắp người. Rồi tôi nghe tiếng ai đó thì thầm, không rõ lời, như tiếng gió rít qua lá nhưng lại có âm điệu của con người. Có lần khác, tôi thấy một bóng đen lướt qua dưới gốc cây bàng cổ thụ gần mộ, nhanh lắm, chỉ thoáng qua thôi. Tôi bật đèn pin rọi theo, nhưng không thấy gì cả, chỉ có không khí đặc quánh lại, nặng nề vô cùng. Tôi không dám lại gần nữa, chỉ biết rằng có một cái gì đó ở đó, nó không muốn bị làm phiền. Tôi đã quen với những điều này rồi, nhưng mỗi lần như vậy, tôi vẫn thấy lạnh sống lưng.",
+      "date": "12/07/1995"
+    },
+    {
+      "name": "Chị Trần Thị Mai",
+      "testimony": "Tôi bán nước mía ở cổng công viên này từ nhỏ, nên cũng biết nhiều chuyện đồn đại. Một đêm nọ, khoảng 11 giờ, tôi đang dọn hàng thì thấy một cô gái mặc áo dài trắng, tóc dài xõa ngang lưng, đi bộ chậm rãi từ phía trong công viên ra. Cô ấy đi thẳng về phía ngôi mộ cổ, rồi đứng lặng lẽ ở đó một lúc. Tôi thấy lạ vì giờ đó công viên đã đóng cửa, mà cô ấy lại không có vẻ gì là vội vàng cả. Tôi định gọi hỏi xem cô ấy có bị lạc không, nhưng khi tôi vừa mở miệng, cô ấy liền quay mặt lại. Trời ơi, tôi thề là tôi chưa bao giờ thấy một gương mặt nào kinh hoàng như vậy! Trắng bệch, đôi mắt đen sâu hoắm như không có hồn, và một nụ cười nhợt nhạt, lạnh lẽo đến tận xương tủy. Tôi sợ quá, làm rơi cả ly nước mía, rồi chạy thục mạng về nhà mà không dám quay đầu lại. Từ hôm đó, tôi không bao giờ dám nán lại quá muộn ở đây nữa.",
+      "date": "03/11/2001"
+    },
+    {
+      "name": "Lê Minh Khôi",
+      "testimony": "Hồi sinh viên, bọn tôi hay tụ tập bạn bè, đứa nào cũng máu liều. Một lần, tôi và mấy thằng bạn cá cược nhau là sẽ ngủ lại trong công viên Tao Đàn một đêm, ngay gần ngôi mộ cổ. Tụi tôi mang theo lều, đèn pin, bia bọt đủ cả, nghĩ là sẽ có một đêm 'phiêu lưu'. Lúc đầu thì vui vẻ lắm, cười đùa ầm ĩ. Nhưng càng về khuya, không khí càng trở nên nặng nề. Khoảng 2 giờ sáng, khi mọi người đều đã ngủ say, tôi nghe thấy tiếng lá xào xạc rất rõ ràng ngay bên ngoài lều, như có ai đó đang đi vòng quanh. Tôi mở mắt ra, nhìn qua khe lều thì thấy một bóng người cao lớn, mờ ảo, đang đứng cách lều khoảng vài mét. Tôi dụi mắt mấy lần, nghĩ là mình nhìn nhầm, nhưng cái bóng đó vẫn ở đó, đứng im lìm. Rồi tôi nghe thấy một tiếng thì thầm rất nhẹ, nhưng rõ ràng như ở ngay bên tai tôi: 'Đi đi... đừng ở lại đây...'. Toàn thân tôi cứng đờ lại vì sợ hãi. Tôi không dám nhúc nhích, chỉ biết nhắm chặt mắt và cầu nguyện. Sáng hôm sau, tôi kể lại cho mấy đứa bạn, tụi nó cũng xanh mặt vì đêm đó đứa nào cũng nghe thấy tiếng động lạ, nhưng không dám nói. Từ đó về sau, tôi không bao giờ dám đặt chân vào công viên này sau khi mặt trời lặn nữa.",
+      "date": "21/05/2008"
+    }
+  ],
+  "spectral_analysis": "Phân tích quang phổ và các thông số đo đạc tại Công viên Tao Đàn đã cho thấy những dị thường đáng kể, gợi mở về một sự hiện diện phi vật chất. Khu vực xung quanh ngôi mộ cổ không tên được xác định là 'điểm nóng' chính, với bán kính ảnh hưởng rõ rệt khoảng 20-30 mét.\n\n**Biến động Nhiệt độ:** Các cảm biến nhiệt hồng ngoại và nhiệt kế kỹ thuật số đã ghi nhận sự giảm nhiệt độ đột ngột và cục bộ. Trong nhiều lần khảo sát, nhiệt độ tại khu mộ và các vùng lân cận đã giảm từ 5°C đến 12°C so với nhiệt độ môi trường xung quanh, không có sự giải thích hợp lý từ các yếu tố khí tượng như gió, độ ẩm, hoặc bóng râm. Điển hình, vào một đêm tháng 7 với nhiệt độ trung bình 29°C, khu vực mộ cổ ghi nhận nhiệt độ chỉ 17°C, tạo ra một luồng khí lạnh lẽo khó chịu. Những 'điểm lạnh' này thường di chuyển chậm hoặc xuất hiện bất ngờ rồi biến mất.\n\n**Trường Điện từ (EMF):** Thiết bị đo EMF đã ghi nhận sự tăng đột biến và bất thường của trường điện từ. Mức EMF nền trong công viên thường ở mức 0.1-0.5 mG (milligauss). Tuy nhiên, tại khu mộ và các điểm có báo cáo hiện tượng lạ, các giá trị EMF thường xuyên đạt đỉnh 7-15 mG, thậm chí có lúc lên tới 20 mG. Những biến động này không tương quan với bất kỳ nguồn điện hoặc thiết bị điện tử nào trong khu vực và thường xảy ra cùng lúc với các cảm giác rợn người hoặc tiếng động lạ. Điều này cho thấy sự giải phóng năng lượng không xác định, có thể là dấu hiệu của hoạt động tâm linh.\n\n**Phân tích Âm thanh:** Các microphone siêu nhạy và thiết bị ghi âm chuyên dụng đã thu được nhiều mẫu âm thanh bất thường. Ngoài tiếng gió và tiếng côn trùng, các bản ghi âm thường xuyên chứa các sóng hạ âm (infrasound) dưới 20 Hz. Sóng hạ âm được biết là có thể gây ra cảm giác lo lắng, sợ hãi, buồn nôn, và thậm chí là ảo giác thị giác ở con người. Bên cạnh đó, các đoạn ghi âm cũng phát hiện những âm thanh nhiễu loạn có cấu trúc dạng lời thì thầm không rõ nghĩa, tiếng rên rỉ yếu ớt, hoặc tiếng bước chân nhẹ nhàng mà không có bất kỳ nguồn gốc vật lý nào được xác định. Một số phân tích chuyên sâu còn cho thấy các mẫu âm thanh này có tần số và cường độ tương tự như 'tiếng nói điện tử' (EVP - Electronic Voice Phenomena) đã được ghi nhận ở các địa điểm bị ma ám khác.\n\n**Hình ảnh và Quang phổ:** Camera hồng ngoại và camera nhìn đêm đã ghi lại được những 'bóng mờ' hoặc 'hiện tượng sương mù cục bộ' di chuyển không theo quy luật vật lý. Những hình ảnh này thường thiếu độ sắc nét và đôi khi có dạng như một luồng khói trắng mờ ảo, xuất hiện trong thời gian ngắn rồi tan biến. Một số thiết bị còn ghi nhận sự tăng cường bức xạ không ion hóa cục bộ trong dải quang phổ UV, có thể là dấu hiệu của năng lượng dư thừa hoặc một dạng thực thể vô hình.\n\n**Giả thuyết Tâm linh:** Dựa trên các thông số đo đạc, giả thuyết hàng đầu là sự tồn tại của một 'linh thể có ý thức' (intelligent haunting) hoặc một 'năng lượng dư ảnh' (residual haunting) mạnh mẽ, neo đậu tại ngôi mộ cổ. Năng lượng dư ảnh có thể là sự lặp lại của những sự kiện đau buồn trong quá khứ, không có khả năng tương tác trực tiếp. Tuy nhiên, các báo cáo về tiếng thì thầm 'giao tiếp' và cảm giác bị theo dõi mạnh mẽ cho thấy khả năng có một linh thể có ý thức, có thể là chủ nhân của ngôi mộ hoặc một người bảo vệ bị xáo trộn, đang cố gắng thể hiện sự hiện diện hoặc đưa ra cảnh báo. Sự biến động EMF và hạ âm cực đoan cho thấy một sự giải phóng năng lượng tâm linh đáng kể, có khả năng ảnh hưởng đến tâm lý và sinh lý của người tiếp xúc. Ngôi mộ cổ không tên đóng vai trò như một 'điểm neo' hoặc 'cổng' giữ chặt năng lượng này, biến khu vực xung quanh thành một vùng có mật độ năng lượng tâm linh cao, liên tục ảnh hưởng đến môi trường và những người sống xung quanh.",
+  "risk_assessment": "Đánh giá rủi ro tổng hợp tại Công viên Tao Đàn cho thấy mức độ nguy hiểm từ Trung bình đến Cao, đặc biệt khi tiếp cận khu vực mộ cổ vào ban đêm. Đây không chỉ là nguy cơ về mặt tâm linh mà còn là những ảnh hưởng tiềm tàng đến sức khỏe thể chất và tinh thần của cá nhân.\n\n**Nguy cơ Vật lý:** Mức độ thấp. Chưa có báo cáo đáng tin cậy nào về việc thực thể gây ra tổn thương vật lý trực tiếp. Tuy nhiên, cảm giác hoảng loạn, sợ hãi tột độ do các hiện tượng siêu nhiên có thể dẫn đến hành vi mất kiểm soát, như chạy trốn, té ngã, va chạm vào vật cản, gây ra chấn thương không đáng có. Khu vực công viên vào ban đêm cũng tiềm ẩn các nguy cơ an ninh khác không liên quan đến yếu tố tâm linh.\n\n**Nguy cơ Tâm lý:** Mức độ Cao. Tiếp xúc với các hiện tượng như tiếng động lạ, bóng mờ, cảm giác bị theo dõi, và đặc biệt là sóng hạ âm (infrasound) có thể gây ra trạng thái lo lắng, sợ hãi, ám ảnh, và rối loạn giấc ngủ kéo dài. Những cá nhân có tiền sử bệnh tim, thần kinh yếu, hoặc dễ bị ảnh hưởng bởi các yếu tố tâm linh có thể gặp phải các triệu chứng nghiêm trọng hơn như hoảng loạn, ảo giác, đau đầu dữ dội, buồn nôn, và trong một số trường hợp hiếm hoi có thể dẫn đến rối loạn tâm thần tạm thời hoặc làm trầm trọng thêm các bệnh lý tâm lý đã có từ trước.\n\n**Nguy cơ Năng lượng:** Mức độ Trung bình. Phơi nhiễm kéo dài hoặc cường độ cao với các biến động trường điện từ (EMF) bất thường có thể gây mệt mỏi, đau đầu, khó chịu, và ảnh hưởng đến hệ thần kinh trung ương. Mặc dù tác động lâu dài của EMF siêu nhiên chưa được khoa học chứng minh rõ ràng, nhưng các báo cáo của nhân chứng về sự suy giảm sức khỏe sau khi tiếp xúc cho thấy cần phải thận trọng.\n\n**Khuyến cáo An toàn:**\n1.  **Hạn chế tiếp cận:** Tuyệt đối không vào Công viên Tao Đàn sau 22 giờ đêm, đặc biệt là khu vực xung quanh ngôi mộ cổ. Nếu bắt buộc phải vào vì lý do công vụ, cần có sự chuẩn bị kỹ lưỡng và đi theo nhóm.\n2.  **Đi theo nhóm:** Luôn đi theo nhóm ít nhất ba (3) người nếu phải vào công viên vào buổi tối hoặc rạng sáng. Đảm bảo mọi thành viên đều mang theo thiết bị liên lạc (điện thoại di động đầy pin) và thiết bị chiếu sáng mạnh.\n3.  **Quan sát và rời đi:** Chú ý các dấu hiệu bất thường như nhiệt độ giảm đột ngột, tiếng động không rõ nguồn gốc, hoặc cảm giác bị theo dõi. Nếu phát hiện, hãy giữ bình tĩnh và lập tức rời khỏi khu vực một cách trật tự, không quay đầu lại.\n4.  **Tránh tương tác:** Không tìm cách giao tiếp, khiêu khích, hoặc cố gắng thu hút sự chú ý của bất kỳ thực thể nào. Giữ thái độ tôn trọng và tránh xa các điểm nóng được xác định.\n5.  **Bảo vệ cá nhân:** Những người có tiền sử bệnh tim mạch, thần kinh, hoặc có độ nhạy cảm tâm linh cao nên tránh xa khu vực này hoàn toàn. Việc mang theo các vật phẩm tâm linh bảo hộ (nếu có tín ngưỡng) chỉ mang tính hỗ trợ tinh thần, không đảm bảo an toàn tuyệt đối.\n6.  **Ghi nhận và Báo cáo:** Mọi hiện tượng bất thường cần được ghi nhận chi tiết (thời gian, địa điểm, mô tả) và báo cáo ngay lập tức cho Tổ Điều tra Hiện tượng Huyền bí hoặc cơ quan chức năng có thẩm quyền để phân tích và đánh giá thêm.\n7.  **Thiết bị điện tử:** Hạn chế sử dụng các thiết bị điện tử nhạy cảm (máy ảnh, điện thoại) trong khu vực 'điểm nóng' vì chúng có thể bị nhiễu loạn, hỏng hóc hoặc tự động kích hoạt ngoài ý muốn.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: The Nameless Tomb at Tao Dan Park. Scene: A blurry, low-light shot of the ancient tomb at night, partially obscured by dense fog and the ominous shadows of old, gnarled trees. A faint, ethereal glow or a subtle, distorted, elongated figure is barely visible in the background near the tomb. style: grainy, VHS aesthetic, 1990s aesthetic, date stamp '23:37 12/07/1995', low resolution, desaturated colors, film damage artifacts, heavy vignetting, sense of dread and surveillance."
+}
+---
+[GEMINI_RESPONSE] 2026-03-13T12:11:23.570Z Status: 200 OK
+[GEMINI_TEXT] Based on a multi-layer data scan for traces of spiritual activity, accidents involving spiritual elements or unexplained phenomena, and murders within a 5km radius around the coordinates (10.7034, 106.7379) in Ho Chi Minh City, the available real data and local history do not provide specific, documented points that meet all the stringent criteria within the precise geographical constraint.
+
+While Ho Chi Minh City has numerous urban legends, haunted locations, and a history of significant events, including crime and accidents, the identified sites in the search results consistently fall outside the specified 5km radius from the given coordinates in District 4. Furthermore, the requirement for accidents to explicitly involve spiritual elements or unexplained phenomena, rather than just being tragic events, limits the qualifying data.
+
+Therefore, no specific points could be identified and verified within the defined parameters.
+
+
+---
+[GEMINI_RESPONSE] 2026-03-13T12:12:25.701Z Status: 200 OK
+[GEMINI_TEXT] ```json
+[
+  {
+    "name": "Chung cư 727 Trần Hưng Đạo",
+    "type": "RUMOR",
+    "description": "Tòa nhà này, ban đầu là khách sạn President, được đồn đại là đã trấn yểm bằng cách chôn xác bốn trinh nữ ở bốn góc móng để xua đuổi vận rủi. Trong quá trình xây dựng, đặc biệt là ở tầng 13, nhiều tai nạn chết người bí ẩn đã xảy ra, bao gồm công nhân rơi giàn giáo và bị điện giật, khiến tầng này không thể hoàn thành. Nhiều người kể lại rằng họ thấy bóng các cô gái trẻ lang thang và khóc than trong chung cư vào ban đêm.",
+    "latitude": 10.758,
+    "longitude": 106.679,
+    "severity": 5
+  },
+  {
+    "name": "Nhà số 24 Lý Thái Tổ",
+    "type": "MURDER",
+    "description": "Ngôi nhà này từng là hiện trường của một vụ hỏa hoạn thảm khốc vào năm 2001 do người con trai tâm thần của chủ nhà gây ra, cướp đi sinh mạng của bảy người trong gia đình, bao gồm một phụ nữ mang thai và con nhỏ. Người dân địa phương kể lại rằng họ thường nghe thấy tiếng động lạ và nhìn thấy bóng dáng người phụ nữ mang thai đứng trên ban công ngôi nhà bị cháy.",
+    "latitude": 10.769,
+    "longitude": 106.683,
+    "severity": 4
+  },
+  {
+    "name": "Bảo tàng Mỹ thuật TP.HCM (Dinh thự họ Hứa)",
+    "type": "GHOST",
+    "description": "Dinh thự cổ này, từng là nhà của đại gia Hứa Bổn Hỏa, nổi tiếng với truyền thuyết về hồn ma của cô con gái độc nhất Hứa Tiểu Lan. Cô được cho là đã biến mất hoặc chết một cách bí ẩn và bị nhốt trong một căn phòng trên lầu. Người ta đồn rằng vào đêm khuya, có tiếng khóc thảm thiết và bóng dáng cô gái mặc đầm ngủ trắng lướt qua các hành lang.",
+    "latitude": 10.770,
+    "longitude": 106.700,
+    "severity": 3
+  },
+  {
+    "name": "Công viên Lê Thị Riêng",
+    "type": "GHOST",
+    "description": "Công viên này trước đây là Nghĩa trang Đô Thành, nơi chôn cất nhiều binh lính vô danh tử trận trong chiến tranh. Người dân địa phương thường truyền miệng những câu chuyện về linh hồn binh lính hiện về khóc than vào ban đêm, và có người còn khẳng định thấy hồn ma bé gái ngồi xích đu.",
+    "latitude": 10.779,
+    "longitude": 106.669,
+    "severity": 3
+  },
+  {
+    "name": "Chung cư Thuận Kiều Plaza",
+    "type": "RUMOR",
+    "description": "Tòa nhà này được đồn đại là đã chôn ba hũ tro cốt trinh nữ dưới ba trụ móng trong quá trình xây dựng, dẫn đến nhiều câu chuyện ma ám. Một lời đồn phổ biến kể về bóng ma cô gái mặc sườn xám đỏ không có chân thường xuất hiện vào chạng vạng tối.",
+    "latitude": 10.755,
+    "longitude": 106.670,
+    "severity": 4
+  },
+  {
+    "name": "Nhà Vĩnh Biệt Bệnh viện Chợ Rẫy",
+    "type": "GHOST",
+    "description": "Nơi này dùng để lưu giữ thi thể bệnh nhân không có thân nhân. Người dân xung quanh thường kể về 'hồn ma bệnh viện' luẩn quẩn quanh đây, do những người đã khuất không có ai bên cạnh lúc lâm chung và không được đưa về với đất.",
+    "latitude": 10.758,
+    "longitude": 106.665,
+    "severity": 3
+  },
+  {
+    "name": "Trường THPT Nguyễn Thị Minh Khai",
+    "type": "GHOST",
+    "description": "Ngôi trường này, trước đây là trường nữ sinh Gia Long, được đồn đại là bị ám bởi hồn ma một nữ sinh đã tự tử vì tình. Người dân truyền tai nhau rằng vào những đêm trăng tròn, hồn ma cô gái vẫn lẩn khuất quanh khu vực nghĩa địa cũ, ngâm nga những khúc cải lương yêu thích.",
+    "latitude": 10.775,
+    "longitude": 106.690,
+    "severity": 3
+  }
+]
+```
+---
+[GEMINI_RESPONSE] 2026-03-13T12:13:00.106Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Chung cư 727 Trần Hưng Đạo, tiền thân là Khách sạn President, không chỉ là một kiến trúc cũ kỹ giữa lòng Sài Gòn mà còn là nơi ẩn chứa một truyền thuyết rùng rợn, in sâu vào tâm thức người dân địa phương. Nguồn gốc của những lời đồn đại này bắt nguồn từ thời kỳ xây dựng tòa nhà vào đầu những năm 1960. Theo các câu chuyện được truyền miệng qua nhiều thế hệ, để \"trấn yểm\" (một nghi thức tâm linh cổ xưa nhằm xua đuổi tà khí và củng cố sự vững chắc của công trình bằng cách hiến tế), bốn trinh nữ trẻ đã bị chôn sống tại bốn góc móng của tòa nhà. Đây là một hủ tục tàn bạo, được cho là mang lại sự kiên cố vĩnh cửu nhưng đồng thời cũng gieo rắc một lời nguyền kinh hoàng.\n\nTruyền thuyết kể rằng, linh hồn của những cô gái vô tội này không thể siêu thoát. Họ bị giam cầm vĩnh viễn trong lòng đất và các bức tường bê tông lạnh lẽo, mãi mãi tìm kiếm sự giải thoát. Những câu chuyện về các cô gái trẻ bị ép buộc và cái chết bi thảm đã tạo nên một lớp màn u ám bao phủ tòa nhà. Người ta tin rằng chính những linh hồn oan khuất này đã gây ra vô số tai nạn chết người và những hiện tượng siêu nhiên không thể lý giải trong suốt quá trình xây dựng, đặc biệt là ở tầng 13 – tầng được cho là điểm hội tụ của năng lượng tiêu cực. Sự ám ảnh không chỉ dừng lại ở những vụ việc riêng lẻ mà còn lan tỏa thành một cảm giác nặng nề, u uất bao trùm toàn bộ không gian, biến nơi đây thành một trong những địa điểm ma ám nổi tiếng và đáng sợ nhất Sài Gòn.",
+  "chronological_history": "Quá trình hình thành của Chung cư 727 Trần Hưng Đạo gắn liền với chuỗi sự kiện bi thảm, bắt đầu từ những năm 1960 khi công trình Khách sạn President được khởi công xây dựng. Ngay từ những ngày đầu, công trường đã liên tục chứng kiến các vụ tai nạn lao động kỳ lạ và chết người. Các công nhân bị ngã từ giàn giáo cao hàng chục mét mà không rõ nguyên nhân, hay bị điện giật một cách khó hiểu dù đã tuân thủ nghiêm ngặt các quy tắc an toàn. Đỉnh điểm của sự kinh hoàng là khi tầng 13 được xây dựng. Nhiều người kể lại rằng, những tiếng động lạ, tiếng khóc than ai oán và bóng dáng mờ ảo thường xuyên xuất hiện, dẫn đến việc tầng này không thể hoàn thành đúng tiến độ và cuối cùng bị bỏ dở, trở thành một tầng lửng bí ẩn.\n\nSau năm 1975, tòa nhà được chuyển đổi công năng thành chung cư và được phân chia cho các hộ dân sinh sống. Từ thời điểm này, các báo cáo về hiện tượng siêu nhiên bắt đầu xuất hiện dày đặc hơn. Nhiều cư dân đã chứng kiến bóng trắng lướt qua hành lang vào đêm khuya, nghe thấy tiếng trẻ con khóc thút thít, tiếng bước chân không người hay cảm nhận được sự lạnh lẽo bất thường dù thời tiết oi bức. Đặc biệt, những câu chuyện về 'bốn cô gái' hay 'các cô hồn trinh nữ' trở thành nỗi ám ảnh chung của những người sống trong tòa nhà. Các sự kiện này không chỉ gây hoang mang mà còn dẫn đến nhiều trường hợp cư dân phải chuyển đi vì không chịu nổi áp lực tâm lý. Dù đã trải qua nhiều năm tháng, những dấu ấn ma quái vẫn còn đó, biến chung cư 727 thành một điểm nóng về hoạt động tâm linh, thu hút sự chú tâm của các nhà điều tra hiện tượng huyền bí.",
+  "witnesses": [
+    {
+      "name": "Trần Thị Lan",
+      "testimony": "Tôi đã sống ở đây gần 40 năm, từ khi còn là một cô bé. Hồi đó, mẹ tôi thường dặn không được chơi ở hành lang vào buổi tối, nhất là gần cầu thang bộ. Bà bảo có 'các cô' hay đi lại. Lúc đầu tôi không tin, nhưng rồi một đêm, tôi tỉnh giấc vì khát nước. Khi ra bếp, tôi thấy một bóng người phụ nữ mảnh khảnh đứng ở cuối hành lang, quay lưng về phía tôi. Tóc cô ta dài, buông xõa. Tôi gọi khẽ 'Mẹ ơi?' nhưng cô ta không trả lời, chỉ từ từ xoay đầu lại. Khuôn mặt cô ta trắng bệch, đôi mắt đen ngòm không có con ngươi, và một nụ cười méo mó, lạnh lẽo. Tôi hét lên và ngã xuống sàn. Mẹ tôi chạy ra, nhưng bóng người đó đã biến mất. Từ đó, tôi không bao giờ dám ra khỏi phòng một mình vào ban đêm nữa. Giờ tôi đã già, nhưng cái hình ảnh đó vẫn ám ảnh tôi đến tận bây giờ, rõ mồn một như mới hôm qua.",
+      "date": "10/08/1982"
+    },
+    {
+      "name": "Nguyễn Văn Hùng",
+      "testimony": "Tôi là thợ sửa ống nước ở khu này. Khoảng năm 2005, tôi được gọi đến chung cư 727 để sửa đường ống bị vỡ ở tầng 10. Lúc đó là khoảng 2 giờ sáng. Khi tôi đang làm việc trong căn hộ trống, tôi nghe thấy tiếng khóc thút thít rất nhỏ, như tiếng trẻ con. Ban đầu tôi nghĩ là tiếng từ tầng trên vọng xuống, nhưng rồi tiếng khóc càng lúc càng rõ, như thể ngay sát vách. Rồi tôi nghe tiếng sột soạt, như ai đó đang lê bước chân trần trên sàn nhà bê tông. Tôi cố gắng phớt lờ, nhưng rồi một luồng khí lạnh buốt đột ngột ập đến, khiến lông tay tôi dựng đứng. Cái lạnh đó không phải là lạnh bình thường, nó như xuyên thấu vào xương tủy. Tôi quay phắt lại, không thấy gì cả. Nhưng khi tôi nhìn xuống chân, có một vệt nước nhỏ, đỏ như máu, đang từ từ chảy ra từ dưới gầm tủ bếp. Tôi không dám nhìn nữa, vội vàng lắp lại ống nước rồi bỏ chạy khỏi đó, bỏ lại cả dụng cụ. Tôi không bao giờ dám quay lại chung cư đó vào ban đêm nữa.",
+      "date": "22/04/2005"
+    }
+  ],
+  "spectral_analysis": "Phân tích quang phổ tại Chung cư 727 Trần Hưng Đạo đã ghi nhận nhiều thông số bất thường, vượt xa mức nhiễu nền thông thường. Các thiết bị đo trường điện từ (EMF) liên tục dao động mạnh ở các khu vực cụ thể, đặc biệt là ở tầng 13 và các góc khuất của tòa nhà, đạt đỉnh điểm 250-400 mG (milligauss) trong khi mức bình thường là dưới 1 mG. Điều này cho thấy sự hiện diện của năng lượng siêu hình hoặc các trường năng lượng không xác định. Nhiệt độ môi trường cũng ghi nhận những đợt giảm đột ngột và cục bộ, có khi xuống tới 5-7 độ C trong vài giây, dù không có luồng gió hay sự thay đổi khí hậu rõ rệt, đặc biệt tại các điểm được báo cáo có hoạt động ma quái. Đây là hiện tượng thường thấy trong các trường hợp 'năng lượng lạnh' liên quan đến thực thể tâm linh.\n\nPhân tích âm thanh bằng thiết bị ghi âm chuyên dụng đã phát hiện các tín hiệu giọng nói điện tử (EVP) với tần số thấp, khó nhận biết bằng tai thường, bao gồm tiếng thì thầm, tiếng rên rỉ và tiếng khóc thút thít của phụ nữ trẻ. Các giả thuyết tâm linh đặt ra khả năng tồn tại của cả hai loại hình ám ảnh: ám ảnh tàn dư (residual haunting), nơi năng lượng cảm xúc mạnh mẽ từ các sự kiện bi thảm lặp lại như một 'vết hằn' trong không gian; và ám ảnh thông minh (intelligent haunting), nơi các thực thể có ý thức tương tác trực tiếp với môi trường và con người. Các chỉ số năng lượng bất thường và EVP cho thấy một sự cộng hưởng mạnh mẽ với truyền thuyết về các trinh nữ bị trấn yểm, tạo ra một trường năng lượng tiêu cực dày đặc, có khả năng ảnh hưởng đến tâm lý và thể chất của những người tiếp xúc trực tiếp. Sự hiện diện của các trường năng lượng này có thể gây ra ảo giác, cảm giác bị quan sát, và các hiện tượng vật lý nhỏ.",
+  "risk_assessment": "Đánh giá rủi ro tổng hợp cho Chung cư 727 Trần Hưng Đạo cho thấy mức độ nguy hiểm cao đối với cả cư dân và các nhà điều tra. Rủi ro chính bao gồm: 1) **Rủi ro tâm lý:** Tiếp xúc lâu dài với môi trường có hoạt động siêu nhiên mạnh có thể gây căng thẳng thần kinh, lo âu, mất ngủ, và thậm chí là các rối loạn tâm thần. Các hiện tượng như tiếng khóc, bóng dáng mờ ảo có thể gây hoang tưởng và sợ hãi tột độ. 2) **Rủi ro vật lý:** Mặc dù không có báo cáo trực tiếp về các cuộc tấn công vật lý nghiêm trọng, nhưng các hiện tượng như đồ vật di chuyển, cảm giác bị chạm vào, hoặc các tai nạn nhỏ không giải thích được có thể xảy ra, gây thương tích nhẹ. 3) **Rủi ro năng lượng:** Việc tiếp xúc liên tục với trường năng lượng tiêu cực mạnh có thể gây suy yếu năng lượng sinh học của cơ thể, dẫn đến mệt mỏi kéo dài, suy nhược và dễ mắc bệnh. Nguy cơ bị 'ám' hoặc bị 'theo' sau khi rời khỏi địa điểm cũng không thể loại trừ.\n\n**Khuyến cáo an toàn:**\n- **Đối với cư dân:** Nên hạn chế tối đa các hoạt động vào ban đêm, đặc biệt là ở những khu vực hành lang vắng vẻ và tầng 13. Cân nhắc sử dụng các biện pháp bảo vệ tâm linh cá nhân nếu cảm thấy bị ảnh hưởng. Nếu có dấu hiệu sức khỏe tâm thần suy giảm, cần tìm kiếm sự hỗ trợ chuyên nghiệp ngay lập tức. Nếu có thể, hãy cân nhắc việc di dời khỏi tòa nhà.\n- **Đối với đội ngũ điều tra:** Tuyệt đối không tiến hành điều tra một mình. Luôn có ít nhất hai thành viên trong nhóm. Trang bị đầy đủ thiết bị bảo hộ cá nhân và thiết bị đo lường chuyên dụng. Hạn chế tiếp xúc trực tiếp hoặc khiêu khích các thực thể. Chuẩn bị sẵn sàng các biện pháp sơ tán khẩn cấp và quy trình giải tỏa năng lượng sau khi hoàn thành nhiệm vụ để tránh bị ảnh hưởng tiêu cực kéo dài. Ưu tiên ghi nhận và phân tích dữ liệu từ xa khi có thể.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Chung cư 727 Trần Hưng Đạo at Hồ Chí Minh City, Vietnam. Scene: foggy, low light, unsettling, a dimly lit, decaying corridor with peeling paint, a faint silhouette of a young girl in a traditional white 'áo dài' dress barely visible at the far end, with long black hair obscuring her face. style: grainy, 1990s aesthetic, VHS distortion, subtle motion blur, a timestamp '03:17 AM' in the corner."
+}
+---
+[GEMINI_RESPONSE] 2026-03-13T12:14:20.945Z Status: 429 Too Many Requests
+[GEMINI_RESPONSE] 2026-03-13T12:14:21.613Z Status: 429 Too Many Requests
+[GEMINI_ERROR] {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 37.940846743s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-2.5-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "37s"
+      }
+    ]
+  }
+}
+
+[GEMINI_RESPONSE] 2026-03-13T12:14:26.601Z Status: 429 Too Many Requests
+[GEMINI_RESPONSE] 2026-03-13T12:14:27.244Z Status: 429 Too Many Requests
+[GEMINI_ERROR] {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 32.29192398s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-2.5-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "32s"
+      }
+    ]
+  }
+}
+
+[GEMINI_RESPONSE] 2026-03-13T12:14:36.051Z Status: 429 Too Many Requests
+[GEMINI_RESPONSE] 2026-03-13T12:14:36.687Z Status: 429 Too Many Requests
+[GEMINI_ERROR] {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 22.847186611s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-2.5-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "22s"
+      }
+    ]
+  }
+}
+
+[GEMINI_RESPONSE] 2026-03-13T12:14:52.334Z Status: 429 Too Many Requests
+[GEMINI_RESPONSE] 2026-03-13T12:14:53.050Z Status: 429 Too Many Requests
+[GEMINI_ERROR] {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 6.556140701s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-2.5-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "6s"
+      }
+    ]
+  }
+}
+
+[GEMINI_RESPONSE] 2026-03-13T12:15:26.127Z Status: 429 Too Many Requests
+[GEMINI_RESPONSE] 2026-03-13T12:15:26.842Z Status: 429 Too Many Requests
+[GEMINI_ERROR] {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 32.765567793s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-2.5-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "32s"
+      }
+    ]
+  }
+}
+

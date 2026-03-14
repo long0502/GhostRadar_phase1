@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import { globalStats } from '../core/metrics';
 import { getGeminiModel } from '../utils/env';
 import { recordAiUsageTokens } from './quota.service';
@@ -6,6 +7,7 @@ type GeminiCallParams = {
   endpoint: 'scan' | 'expand' | 'normalization' | 'ai-health';
   prompt: string;
   responseMimeType?: 'application/json' | 'text/plain';
+  responseSchema?: any;
   temperature?: number;
   aiCallsThisRequest: number;
   beforeAttempt?: () => Promise<
@@ -20,6 +22,13 @@ type GeminiCallParams = {
     clientIp: string;
   };
   tools?: any[];
+  model?: string;
+  maxOutputTokens?: number;
+  systemInstruction?: string;
+  safetySettings?: Array<{
+    category: string;
+    threshold: string;
+  }>;
 };
 
 type GeminiCallResult = {
@@ -37,13 +46,14 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
     aiCallsThisRequest,
     beforeAttempt,
     usageContext,
+    model: modelOverride,
   } = params;
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     throw new Error('GEMINI_API_KEY missing');
   }
 
-  const model = getGeminiModel();
+  const model = modelOverride || getGeminiModel();
   const maxAttempts = 2;
   let response: Response | null = null;
   let resolvedUsageContext = usageContext;
@@ -56,31 +66,42 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
   }
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
-    const body = {
+    const body: any = {
       contents: [{ parts: [{ text: prompt }] }],
       generationConfig: {
         temperature,
         responseMimeType,
+        ...(responseMimeType === 'application/json' && params.responseSchema ? { responseSchema: params.responseSchema } : {}),
+        ...(params.maxOutputTokens ? { maxOutputTokens: params.maxOutputTokens } : {}),
       },
       tools: params.tools,
     };
+
+    if (params.systemInstruction) {
+      body.systemInstruction = {
+        parts: [{ text: params.systemInstruction }]
+      };
+    }
+
+    if (params.safetySettings) {
+      body.safetySettings = params.safetySettings;
+    }
     // console.log(`[GEMINI_BODY] ${JSON.stringify(body, null, 2)}`);
+    console.log(`[GEMINI_REQUEST] URL: https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`);
+    console.log(`[GEMINI_REQUEST] Body: ${JSON.stringify(body).slice(0, 500)}...`);
 
     response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: {
-            temperature,
-            responseMimeType,
-          },
-          tools: params.tools,
-        }),
+        body: JSON.stringify(body),
       }
     );
+
+    console.log(`[GEMINI_RESPONSE] Status: ${response.status} ${response.statusText}`);
+    const statusLog = `[GEMINI_RESPONSE] ${new Date().toISOString()} Status: ${response.status} ${response.statusText}\n`;
+    fs.appendFileSync('gemini_debug.log', statusLog);
 
     if (response.status === 429 && attempt < maxAttempts) {
       await new Promise((resolve) => setTimeout(resolve, 300 * attempt));
@@ -96,6 +117,7 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
 
   if (!response.ok) {
     const errorBody = await response.text();
+    fs.appendFileSync('gemini_debug.log', `[GEMINI_ERROR] ${errorBody}\n`);
     console.warn(
       `gemini_usage_missing endpoint=${endpoint} modelVersion=${model} totalTokenCount=missing ai_calls_this_request=${aiCallsThisRequest}`
     );
@@ -116,6 +138,7 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
   };
 
   const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+  fs.appendFileSync('gemini_debug.log', `[GEMINI_TEXT] ${text}\n---\n`);
   if (!text) {
     throw new Error('Gemini response missing text');
   }

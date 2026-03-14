@@ -30,6 +30,8 @@ export default async function eventsRoutes(app: FastifyInstance, opts: FastifyPl
 
     const lang = (query.lang as string) || 'en';
 
+    request.log.info({ eventId: id, lang, requestId: request.id }, 'expand.request.start');
+
     const result = await expandEventLevelOne(
       id,
       lang,
@@ -46,7 +48,9 @@ export default async function eventsRoutes(app: FastifyInstance, opts: FastifyPl
         };
       }
     );
+
     if (result.notFound) {
+      request.log.warn({ eventId: id, requestId: request.id }, 'expand.request.not_found');
       throw app.httpErrors.notFound('Event not found');
     }
     if ((result as { aiFailure?: boolean }).aiFailure) {

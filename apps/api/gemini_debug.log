@@ -4122,3 +4122,1754 @@
   }
 ]
 ---
+[GEMINI_RESPONSE] 2026-03-17T04:33:28.628Z Status: 200 OK
+[GEMINI_TEXT] ```json
+[
+  {
+    "name": "Giao lộ Tôn Đức Thắng - Hàm Nghi",
+    "type": "ACCIDENT",
+    "description": "Giao lộ này đã được xác định là một điểm đen tai nạn giao thông mới, với bốn vụ tai nạn gây tử vong trong năm 2018. Vị trí gần Công viên Bạch Đằng và Cầu Khánh Hội, thường xuyên xảy ra ùn tắc vào giờ cao điểm.",
+    "latitude": 10.7753,
+    "longitude": 106.7034,
+    "severity": 4
+  },
+  {
+    "name": "Chùa Ngọc Hoàng (Phước Hải Tự)",
+    "type": "GHOST",
+    "description": "Ngôi chùa cổ kính này, được xây dựng vào đầu thế kỷ 20, là một địa điểm linh thiêng và có kiến trúc độc đáo, thu hút cả tín đồ Phật giáo và du khách. Tương truyền, nơi đây có những câu chuyện tâm linh gắn liền với lịch sử.",
+    "latitude": 10.7766,
+    "longitude": 106.7074,
+    "severity": 2
+  },
+  {
+    "name": "Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh",
+    "type": "GHOST",
+    "description": "Tòa nhà kiến trúc Pháp cổ kính này từng là dinh thự của một thương gia giàu có. Truyền thuyết đô thị kể về hồn ma của con gái ông, người đã qua đời khi còn trẻ và được cho là vẫn ám ảnh căn phòng cũ của mình, với những lời đồn về tiếng khóc và bóng ma lảng vảng.",
+    "latitude": 10.7714,
+    "longitude": 106.6967,
+    "severity": 3
+  },
+  {
+    "name": "Trường THPT Nguyễn Thị Minh Khai (Gia Long cũ)",
+    "type": "GHOST",
+    "description": "Ngôi trường nữ sinh cũ này được đồn đại là có một bóng ma mặc áo dài tím. Vào những đêm trăng tròn, một số học sinh ở lại muộn đã báo cáo nhìn thấy bóng dáng này lang thang trong sân trường, tạo nên một truyền thuyết đô thị rùng rợn.",
+    "latitude": 10.7825,
+    "longitude": 106.6955,
+    "severity": 3
+  },
+  {
+    "name": "Đền Mariamman",
+    "type": "GHOST",
+    "description": "Ngôi đền Hindu này, được xây dựng bởi cộng đồng người Ấn Độ vào đầu thế kỷ 20, là một trung tâm thờ cúng sôi động. Kiến trúc ấn tượng và các bức tượng đầy màu sắc tạo nên bầu không khí linh thiêng, thu hút những người cầu nguyện và tìm kiếm sự chữa lành.",
+    "latitude": 10.7706,
+    "longitude": 106.7022,
+    "severity": 2
+  },
+  {
+    "name": "Công viên Lê Văn Tám (Nghĩa trang Mạc Đĩnh Chi cũ)",
+    "type": "GHOST",
+    "description": "Trước khi trở thành công viên công cộng, khu vực này từng là Nghĩa trang Châu Âu và Nghĩa trang An Nam (Việt Nam) thời Pháp thuộc. Nơi đây từng là nơi an nghỉ cuối cùng của nhiều binh lính Pháp, quan chức và nhân vật nổi tiếng. Dù đã được cải tạo, những câu chuyện về các linh hồn vẫn còn tồn tại trong ký ức dân gian.",
+    "latitude": 10.7785,
+    "longitude": 106.6995,
+    "severity": 3
+  },
+  {
+    "name": "Nhà thờ Đức Bà Sài Gòn",
+    "type": "GHOST",
+    "description": "Biểu tượng kiến trúc này, được xây dựng từ vật liệu nhập khẩu từ Pháp, là một địa điểm lịch sử quan trọng. Một truyền thuyết đô thị kể về bức tượng Đức Mẹ Đồng Trinh trước nhà thờ được cho là đã \"khóc\" vào năm 2005, thu hút hàng ngàn người hiếu kỳ, dù nhà thờ đã bác bỏ đây là phép lạ.",
+    "latitude": 10.7795,
+    "longitude": 106.6991,
+    "severity": 2
+  },
+  {
+    "name": "Chợ Bến Thành",
+    "type": "RUMOR",
+    "description": "Là một trung tâm thương mại sầm uất, Chợ Bến Thành cũng là nơi lan truyền nhiều câu chuyện và tin đồn địa phương về các hiện tượng kỳ lạ, đặc biệt là vào ban đêm khi chợ vãn khách. Những lời đồn thường xoay quanh các hoạt động tâm linh hoặc những sự kiện bí ẩn xảy ra trong quá khứ.",
+    "latitude": 10.7724,
+    "longitude": 106.7033,
+    "severity": 2
+  },
+  {
+    "name": "Khu vực quanh Cầu Khánh Hội",
+    "type": "ACCIDENT",
+    "description": "Khu vực gần cầu Khánh Hội và giao lộ Tôn Đức Thắng - Hàm Nghi thường xuyên xảy ra tai nạn giao thông do mật độ phương tiện cao và sự phức tạp của giao lộ, đặc biệt vào giờ cao điểm.",
+    "latitude": 10.7735,
+    "longitude": 106.7045,
+    "severity": 4
+  },
+  {
+    "name": "Đường Đồng Khởi",
+    "type": "RUMOR",
+    "description": "Là một trong những tuyến đường lịch sử và sầm uất nhất, Đường Đồng Khởi và các tòa nhà cổ kính hai bên đường đôi khi được nhắc đến trong các câu chuyện địa phương về những sự kiện bí ẩn hoặc những câu chuyện ma ám gắn liền với lịch sử hình thành và phát triển của khu vực.",
+    "latitude": 10.7758,
+    "longitude": 106.7015,
+    "severity": 2
+  },
+  {
+    "name": "Dinh Độc Lập",
+    "type": "HISTORICAL INCIDENT",
+    "description": "Là một địa điểm lịch sử quan trọng, nơi đánh dấu kết thúc Chiến tranh Việt Nam. Dinh thự này chứa đựng nhiều câu chuyện lịch sử, bao gồm cả các hoạt động quân sự và các sự kiện chính trị quan trọng, có thể gợi lên những suy ngẫm về quá khứ.",
+    "latitude": 10.7762,
+    "longitude": 106.6933,
+    "severity": 3
+  },
+  {
+    "name": "Bưu điện Trung tâm Sài Gòn",
+    "type": "RUMOR",
+    "description": "Tòa nhà kiến trúc Pháp cổ này, dù là một địa điểm du lịch nổi tiếng, cũng có những câu chuyện truyền miệng về các hiện tượng siêu nhiên hoặc những sự kiện kỳ lạ xảy ra trong quá khứ, gắn liền với lịch sử lâu đời của nó.",
+    "latitude": 10.7789,
+    "longitude": 106.7001,
+    "severity": 2
+  },
+  {
+    "name": "Đường Nguyễn Huệ",
+    "type": "RUMOR",
+    "description": "Đại lộ đi bộ này, với kiến trúc Pháp cổ và các tòa nhà hiện đại, là trung tâm của nhiều hoạt động công cộng. Đôi khi, các sự kiện lạ hoặc những câu chuyện bí ẩn được lan truyền trong cộng đồng liên quan đến các khu vực xung quanh hoặc các sự kiện đã từng xảy ra tại đây.",
+    "latitude": 10.7745,
+    "longitude": 106.7010,
+    "severity": 2
+  },
+  {
+    "name": "Khu vực Cầu Móng",
+    "type": "ACCIDENT",
+    "description": "Mặc dù không phải là điểm đen chính thức, các khu vực xung quanh các cây cầu lớn như Cầu Móng đôi khi có thể xảy ra các vụ tai nạn giao thông do lưu lượng phương tiện và điều kiện đường sá.",
+    "latitude": 10.7650,
+    "longitude": 106.7010,
+    "severity": 3
+  },
+  {
+    "name": "Chợ Tân Định",
+    "type": "RUMOR",
+    "description": "Là một khu chợ địa phương sầm uất, Chợ Tân Định cũng là nơi có thể nghe thấy những câu chuyện, lời đồn đại về các sự kiện bất thường hoặc những câu chuyện tâm linh từ người dân địa phương.",
+    "latitude": 10.7895,
+    "longitude": 106.7010,
+    "severity": 2
+  },
+  {
+    "name": "Đường Nam Kỳ Khởi Nghĩa",
+    "type": "ACCIDENT",
+    "description": "Một số báo cáo cho thấy các vụ tai nạn nghiêm trọng đã xảy ra dọc theo tuyến đường này, gây ra thương vong đáng kể, cho thấy đây là một khu vực cần chú ý về an toàn giao thông.",
+    "latitude": 10.7770,
+    "longitude": 106.6940,
+    "severity": 4
+  },
+  {
+    "name": "Chùa Bà Thiên Hậu",
+    "type": "GHOST",
+    "description": "Nằm trong khu vực Chợ Lớn (gần ranh giới Quận 1), ngôi chùa này là một trung tâm tâm linh quan trọng của cộng đồng người Hoa. Kiến trúc và các nghi lễ cổ kính tạo nên một không gian huyền bí, nơi có thể cảm nhận được sự hiện diện của các yếu tố tâm linh.",
+    "latitude": 10.7550,
+    "longitude": 106.6850,
+    "severity": 2
+  },
+  {
+    "name": "Khu vực kênh Nhiêu Lộc - Thị Nghè",
+    "type": "ACCIDENT",
+    "description": "Các khu vực dọc theo các tuyến kênh, đặc biệt là những đoạn có giao thông phức tạp hoặc gần các khu dân cư đông đúc, có thể tiềm ẩn nguy cơ tai nạn giao thông hoặc các sự cố liên quan đến đường thủy.",
+    "latitude": 10.7800,
+    "longitude": 106.7050,
+    "severity": 3
+  },
+  {
+    "name": "Tòa nhà Bitexco Financial Tower",
+    "type": "RUMOR",
+    "description": "Mặc dù là một biểu tượng hiện đại, các tòa nhà chọc trời đôi khi cũng trở thành chủ đề của các câu chuyện đô thị hoặc tin đồn về những hiện tượng không giải thích được, đặc biệt là liên quan đến độ cao hoặc các sự kiện xảy ra trong quá trình xây dựng.",
+    "latitude": 10.7710,
+    "longitude": 106.7070,
+    "severity": 1
+  },
+  {
+    "name": "Ngã tư Nguyễn Tri Phương - 3/2",
+    "type": "ACCIDENT",
+    "description": "Khu vực này đã được ghi nhận là nơi xảy ra các vụ tai nạn giao thông nghiêm trọng, cho thấy sự nguy hiểm tiềm tàng do mật độ giao thông cao và các yếu tố khác.",
+    "latitude": 10.7600,
+    "longitude": 106.6700,
+    "severity": 4
+  },
+  {
+    "name": "Khu vực Cầu Ông Lãnh",
+    "type": "ACCIDENT",
+    "description": "Các khu vực xung quanh các cây cầu lớn thường có nguy cơ tai nạn cao do sự giao cắt của nhiều luồng giao thông và có thể có các hoạt động bất hợp pháp hoặc nguy hiểm.",
+    "latitude": 10.7660,
+    "longitude": 106.6970,
+    "severity": 3
+  },
+  {
+    "name": "Đường Huỳnh Tấn Phát (phần thuộc Quận 1)",
+    "type": "ACCIDENT",
+    "description": "Một số tuyến đường được đề cập là có nguy cơ tai nạn, và mặc dù phần lớn có thể nằm ngoài khu vực quét, các đoạn thuộc ranh giới Quận 1 vẫn cần được xem xét về các sự cố giao thông tiềm ẩn.",
+    "latitude": 10.7500,
+    "longitude": 106.7100,
+    "severity": 3
+  },
+  {
+    "name": "Khu vực Công viên Tao Đàn",
+    "type": "RUMOR",
+    "description": "Là một không gian xanh lớn trong trung tâm thành phố, công viên này đôi khi là nơi lan truyền các câu chuyện địa phương hoặc tin đồn về các hoạt động bí ẩn, đặc biệt là vào ban đêm.",
+    "latitude": 10.7700,
+    "longitude": 106.6900,
+    "severity": 2
+  },
+  {
+    "name": "Khu vực Cầu Chữ Y",
+    "type": "ACCIDENT",
+    "description": "Các khu vực gần các cây cầu lớn, đặc biệt là những nơi có giao thông phức tạp, có thể là nơi xảy ra các vụ tai nạn giao thông hoặc các sự cố khác.",
+    "latitude": 10.7540,
+    "longitude": 106.6800,
+    "severity": 3
+  },
+  {
+    "name": "Đường Lê Duẩn",
+    "type": "RUMOR",
+    "description": "Tuyến đường này có nhiều tòa nhà hành chính và lãnh sự quán, cũng như các công trình kiến trúc lịch sử. Các câu chuyện địa phương có thể xoay quanh các sự kiện hoặc hoạt động bí ẩn liên quan đến các địa điểm này.",
+    "latitude": 10.7790,
+    "longitude": 106.6950,
+    "severity": 2
+  },
+  {
+    "name": "Khu vực Cầu Kiệu",
+    "type": "ACCIDENT",
+    "description": "Các khu vực giao thông phức tạp gần cầu có thể là nơi xảy ra các vụ tai nạn, đặc biệt là khi có sự kết hợp của nhiều loại phương tiện và điều kiện đường sá.",
+    "latitude": 10.7950,
+    "longitude": 106.7000,
+    "severity": 3
+  },
+  {
+    "name": "Đường Nguyễn Thái Bình",
+    "type": "RUMOR",
+    "description": "Là một khu vực dân cư và thương mại, các câu chuyện địa phương và tin đồn có thể xuất hiện từ các hoạt động hàng ngày hoặc các sự kiện bất thường được người dân chứng kiến.",
+    "latitude": 10.7700,
+    "longitude": 106.7000,
+    "severity": 2
+  },
+  {
+    "name": "Khu vực Cầu Bông",
+    "type": "ACCIDENT",
+    "description": "Các khu vực gần sông và kênh rạch, đặc biệt là các cây cầu, có thể tiềm ẩn nguy cơ tai nạn giao thông hoặc các sự cố liên quan đến đường thủy.",
+    "latitude": 10.7850,
+    "longitude": 106.7050,
+    "severity": 3
+  },
+  {
+    "name": "Đường Hai Bà Trưng (phần thuộc Quận 1)",
+    "type": "ACCIDENT",
+    "description": "Một số đoạn đường này có thể là điểm nóng về tai nạn giao thông do mật độ phương tiện và điều kiện đường sá, đặc biệt là gần các giao lộ lớn.",
+    "latitude": 10.7850,
+    "longitude": 106.7000,
+    "severity": 3
+  }
+]
+```
+---
+[GEMINI_RESPONSE] 2026-03-17T04:34:49.498Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Khu vực Cầu Kiệu, một nút giao thông huyết mạch của Sài Gòn xưa và nay, không chỉ là nơi chứng kiến dòng chảy lịch sử mà còn ẩn chứa những lời đồn đại ma mị, ám ảnh qua nhiều thế hệ. Tương truyền, dưới lòng sông, nơi dòng chảy xiết chia cắt đôi bờ, là nơi an nghỉ của vô số linh hồn vất vưởng, những nạn nhân của chiến tranh, tai ương và cả những vụ đắm thuyền oan nghiệt từ thuở xa xưa. Người ta kể rằng, vào những đêm trăng khuyết, khi sương mù giăng mắc, những âm thanh ai oán, tiếng khóc than văng vẳng từ dưới lòng sông vọng lên, hòa quyện với tiếng xe cộ ồn ã, tạo nên một bản giao hưởng rợn người. Có những câu chuyện về những bóng ma lờ mờ hiện lên trên mặt nước, những ánh mắt đỏ rực nhìn chòng chọc vào những người qua đường, như muốn níu kéo họ xuống dòng nước lạnh lẽo. Đặc biệt, vào những dịp lễ hội hay ngày giỗ chạp, khi khói hương lan tỏa, những hiện tượng kỳ bí càng trở nên rõ rệt hơn. Những người dân sống lâu năm trong khu vực cho biết, những linh hồn này thường quấy nhiễu những ai có ý định làm điều bất chính, hoặc những người thiếu tôn trọng nơi chốn linh thiêng này. Cầu Kiệu, với kiến trúc cổ kính và vị trí đắc địa, đã trở thành một phần của ký ức đô thị, nhưng dưới vẻ ngoài bình yên đó là một bề dày lịch sử và những câu chuyện kỳ bí chưa bao giờ được giải mã hoàn toàn. Những truyền thuyết này, dù có vẻ hoang đường, lại góp phần tạo nên một bầu không khí đặc biệt, vừa quen thuộc vừa xa lạ, cho khu vực này, khiến nó trở thành một điểm nóng thu hút sự tò mò của những người yêu thích khám phá những bí ẩn siêu nhiên.",
+  "chronological_history": "Lịch sử của khu vực Cầu Kiệu gắn liền với sự phát triển của Sài Gòn, và cùng với đó là những sự kiện bi thương đã tạo nên lớp lang huyền bí. Trước khi có tên gọi Cầu Kiệu, khu vực này vốn là một vùng đất ngập mặn, là nơi giao thương quan trọng của cư dân bản địa. Những ghi chép lịch sử sơ khai cho thấy, vào khoảng thế kỷ 18, nơi đây đã xảy ra nhiều vụ đắm thuyền do bão tố và thủy quái, khiến nhiều người thiệt mạng.  Năm 1894, cây cầu sắt đầu tiên được xây dựng, đánh dấu một bước ngoặt trong giao thông khu vực. Tuy nhiên, sự phát triển này cũng đi kèm với những bi kịch.  Trong thời kỳ Pháp thuộc, khu vực này trở thành một điểm nóng về tai nạn giao thông, đặc biệt là tai nạn xe ngựa và xe hơi sơ khai.  Nhiều vụ va chạm nghiêm trọng đã xảy ra, cướp đi sinh mạng của nhiều người, và theo lời kể của người dân địa phương, nhiều linh hồn của các nạn nhân này vẫn còn vương vấn nơi đây.  Trong những năm tháng chiến tranh, khu vực Cầu Kiệu cũng là nơi chứng kiến nhiều cuộc giao tranh, các vụ đánh bom và pháo kích, khiến nơi đây trở thành một nghĩa địa tạm thời của nhiều chiến sĩ.  Những câu chuyện về những bóng ma áo lính, những tiếng súng vang vọng trong đêm bắt đầu xuất hiện từ giai đoạn này.  Sau năm 1975, với sự gia tăng mật độ giao thông, khu vực Cầu Kiệu tiếp tục là điểm đen về tai nạn giao thông.  Đặc biệt, vào những năm cuối thập niên 80 và đầu thập niên 90, khi xe máy trở nên phổ biến, các vụ va chạm liên hoàn, tai nạn thảm khốc xảy ra thường xuyên.  Nhiều người tin rằng, những linh hồn của các nạn nhân tai nạn giao thông này, do chết một cách đột ngột và đau đớn, đã không thể siêu thoát, và họ ám ảnh những người còn sống, tạo ra vòng luẩn quẩn của những tai ương.  Năm 2005, cây cầu hiện tại được xây dựng, tuy hiện đại hơn nhưng vẫn không xóa nhòa đi những ký ức và lời nguyền ám ảnh về khu vực này.  Những hiện tượng siêu nhiên, như ánh sáng lạ, âm thanh bất thường và cảm giác bị theo dõi, vẫn tiếp tục được báo cáo bởi những người dân sống và làm việc gần Cầu Kiệu cho đến tận ngày nay, cho thấy một lịch sử đầy biến động và những bí ẩn chưa được giải đáp.",
+  "witnesses": [
+    {
+      "name": "Ông Tư Lái Đò",
+      "testimony": "Tôi ở cái xóm này cũng mấy chục năm rồi, cái hồi còn làm đò ngang chở khách qua sông ấy. Cái Cầu Kiệu này á, nó có cái vía nặng lắm con ơi. Hồi xưa, chưa có cầu như bây giờ đâu, đêm nào cũng nghe tiếng ai đó kêu la thảm thiết dưới sông, có khi là tiếng va chạm, tiếng la hét thất thanh. Mấy ông lái đò cũ như tôi đây ai cũng biết, nhiều khi thấy cái bóng trắng lờ mờ trôi dạt trên mặt nước, hoặc là những đốm sáng xanh lè lơ lửng. Có lần, tôi đang chèo đò khuya, tự nhiên gió thổi lồng lộn dù trời không có bão, rồi thấy một chiếc xe đạp từ trên bờ lao thẳng xuống sông, nhưng mà lạ lắm, không có người nào trên xe cả. Xe cứ chìm dần, chìm dần, rồi mất hút. Sáng hôm sau, người ta tìm thấy xác một cô gái trẻ trôi dạt ở khúc sông dưới kia, đúng cái hôm đó. Từ đó về sau, cứ đêm nào khuya khoắt, tôi lại thấy cái bóng cô gái đó ngồi trên thành cầu, nhìn xuống dòng sông, đôi mắt đỏ hoe. Cứ mỗi lần có xe nào chạy nhanh quá, lạng lách là y như rằng, y như có ai đó đẩy xe họ xuống vậy đó. Nhiều người đi đường cũng kể lại, đi qua đây đêm khuya cảm giác có ai đó bám theo, hoặc có tiếng thì thầm bên tai, lạnh sống lưng lắm. Cái này không phải chuyện đùa đâu con, cái Cầu Kiệu này nó giữ nhiều oan hồn lắm.",
+      "date": "22/07/1995"
+    },
+    {
+      "name": "Bà Tám Bán Ve Chai",
+      "testimony": "Tôi thì chỉ là phận ve chai, ngày nào cũng lụm lặt quanh khu này thôi. Nhưng mà cái khu vực gần cái cầu này nè, nó lạ lắm. Nhất là mấy cái đêm mưa gió bão bùng, hoặc cái đêm nào mà trời âm u, sương mù dày đặc ấy. Tôi đang dọn đồ về thì nghe tiếng khóc như người bị tra tấn, cứ ré lên từng hồi. Có lần, tôi đang cúi nhặt mấy cái vỏ chai nhựa gần chân cầu, tự nhiên một cơn gió lạnh buốt thổi qua, dù hôm đó trời nóng hầm hập. Rồi tôi nhìn thấy, ngay trước mặt tôi, có một cái bóng đen lù lù, cao lớn, nó cứ đứng im thin thít nhìn tôi. Tôi sợ quá, vứt hết đồ đạc rồi chạy bán sống bán chết về nhà. Mấy đêm sau đó, tôi không dám ra đây nữa. Mấy đứa nhỏ trong xóm cũng hay kể, đi ngang qua đây buổi tối cứ thấy có người vẫy tay, mà nhìn kỹ thì không có ai cả. Có khi còn nghe tiếng xe máy rồ ga, rồi tiếng phanh gấp, nhưng mà nhìn lại thì chẳng thấy chiếc xe nào. Cứ như là có ai đó đang chơi khăm, hoặc là muốn cảnh báo gì đó. Tôi nghe mấy ông bà già kể lại, cái chỗ này xưa kia có nhiều người chết lắm, chết vì đủ thứ trên đời, từ tai nạn cho đến… những chuyện dã man hơn. Nên có lẽ, những oan hồn đó nó vẫn còn quanh quẩn ở đây, quấy phá người sống. Cứ mỗi lần tôi đi qua đây mà trong lòng có chút bất an là y như rằng, y như rằng sẽ có chuyện gì đó xảy ra, hoặc là nghe thấy những âm thanh kỳ lạ. Cái cảm giác bị theo dõi nó cứ ám ảnh mãi thôi.",
+      "date": "10/11/1999"
+    },
+    {
+      "name": "Anh Bảo Vệ Ca Đêm",
+      "testimony": "Tôi làm bảo vệ ở cái bãi xe gần đây cũng được hơn hai năm rồi. Ban đầu thì cũng chẳng tin mấy chuyện ma quỷ đâu, nhưng mà làm ở đây đêm nào cũng thấy có gì đó sai sai. Nhất là tầm từ 1 giờ sáng trở đi, khi vắng tanh vắng ngắt ấy. Có những đêm, tôi đang đi tuần, tự nhiên nghe tiếng bước chân rầm rập phía sau, quay lại thì chẳng có ai. Hoặc là nghe tiếng động cơ xe máy nổ giòn, rồi tiếng bô xe xả khí, cứ như có ai đó đang chạy xe vòng vòng dưới chân cầu ấy, nhưng mà nhìn ra thì chỉ có một mình tôi với mấy chiếc xe đậu thôi. Lạ nhất là có lần, tôi thấy một ánh sáng xanh lè lơ lửng trên mặt sông, nó cứ di chuyển qua lại, rồi đột nhiên biến mất. Đã có lần, có mấy gã say rượu chạy xe máy qua đây, la hét om sòm, rồi cố tình chạy nhanh để thách thức. Ai dè, khi đến giữa cầu, chiếc xe của họ tự nhiên mất lái, lao thẳng vào lan can, may mà không rơi xuống sông. Họ run lẩy bẩy kể lại, lúc đó họ cảm thấy có bàn tay vô hình nào đó đẩy mạnh vào lưng xe. Còn có những lúc, khi tôi đang ngồi trong chòi gác, bỗng nhiên cái đèn pin của tôi tự bật sáng, hoặc là cái đài cassette cũ kỹ ở góc phòng lại phát ra những đoạn nhạc rè rè, những giọng nói thì thầm không rõ tiếng. Tôi đã từng chứng kiến nhiều vụ tai nạn ở đây, những tiếng va chạm kinh hoàng, những tiếng la hét xé lòng. Có lẽ, những linh hồn đó họ không muốn ai đó lặp lại bi kịch của họ. Tôi khuyên anh em bảo vệ mới vào nghề đừng có đi lang thang một mình ở khu vực chân cầu vào ban đêm, và đừng bao giờ nhìn xuống dòng sông quá lâu, nhất là khi trời tối.",
+      "date": "05/01/2003"
+    }
+  ],
+  "spectral_analysis": "Các phân tích quang phổ và đo đạc năng lượng tại khu vực Cầu Kiệu cho thấy những chỉ số bất thường đáng kể, vượt xa các ngưỡng an toàn thông thường. Máy dò năng lượng EMF (điện từ trường) liên tục ghi nhận các đỉnh đột biến, đặc biệt là vào các thời điểm khuya muộn và sáng sớm, khi mật độ giao thông giảm thiểu. Các đỉnh năng lượng này có tần số dao động không đều, đôi khi lên đến mức 50-70 mG, cao hơn nhiều so với mức nền trung bình của môi trường đô thị. Phân tích quang phổ hồng ngoại và siêu âm cho thấy sự xuất hiện của các dải tần số âm thanh ở ngưỡng nghe được và cả những tần số siêu âm có thể gây ảnh hưởng đến tâm lý con người, tạo cảm giác bất an, lo lắng, thậm chí là sợ hãi. Các mẫu đo nhiệt độ bề mặt tại các điểm khác nhau trên cầu và khu vực xung quanh cũng ghi nhận sự chênh lệch nhiệt độ đột ngột, có những điểm lạnh lẽo bất thường dù không có nguồn lạnh nào được phát hiện. Phân tích thành phần không khí cho thấy sự hiện diện của các ion âm tăng đột biến, một hiện tượng thường liên quan đến các hoạt động năng lượng tâm linh hoặc các hiện tượng vật lý chưa giải thích được. Giả thuyết tâm linh cho rằng, các linh hồn vất vưởng, những oan hồn của các nạn nhân tai nạn giao thông và chiến tranh, có thể đang tạo ra các trường năng lượng dao động này. Các trường năng lượng này có khả năng tương tác với trường điện từ tự nhiên của Trái Đất, gây ra các hiện tượng nhiễu loạn, ảnh hưởng đến hoạt động của các thiết bị điện tử và thậm chí là tác động tiêu cực lên hệ thần kinh của con người, gây ra ảo giác, cảm giác bị theo dõi, hoặc các biểu hiện tâm lý bất thường khác. Mức độ nhiễu loạn càng cao khi có sự tập trung của nhiều linh hồn hoặc khi các sự kiện bi thương tái diễn. Các thông số đo đạc này cho thấy khu vực Cầu Kiệu không chỉ là một điểm đen về tai nạn giao thông mà còn tiềm ẩn những nguy cơ về năng lượng tâm linh, đòi hỏi sự nghiên cứu sâu hơn và các biện pháp phòng ngừa đặc biệt.",
+  "risk_assessment": "Khu vực Cầu Kiệu tiềm ẩn mức độ rủi ro cao, cả về mặt vật lý lẫn tâm linh. Về mặt vật lý, đây là một nút giao thông phức tạp với mật độ phương tiện cao, đặc biệt là xe máy và xe tải. Lịch sử ghi nhận số lượng lớn các vụ tai nạn giao thông nghiêm trọng, bao gồm va chạm, lạng lách, và các tai nạn liên quan đến việc mất kiểm soát phương tiện. Các yếu tố như điều kiện đường sá, tầm nhìn hạn chế vào ban đêm hoặc trong điều kiện thời tiết xấu, cùng với hành vi lái xe thiếu an toàn của một bộ phận người tham gia giao thông, làm gia tăng nguy cơ xảy ra tai nạn. Về mặt tâm linh, các chỉ số đo đạc và lời khai nhân chứng cho thấy sự hiện diện của các hiện tượng siêu nhiên bất thường, bao gồm dao động năng lượng EMF cao, tần số âm thanh và siêu âm lạ, chênh lệch nhiệt độ đột ngột, và các báo cáo về ảo giác, cảm giác bị theo dõi, hoặc các hiện tượng ma quái khác. Những yếu tố này có thể gây ảnh hưởng tiêu cực đến tâm lý, sức khỏe tinh thần của những người thường xuyên qua lại khu vực, đặc biệt là những người nhạy cảm hoặc có tâm lý bất ổn. Sự kết hợp giữa các yếu tố vật lý và tâm linh tạo ra một môi trường tiềm ẩn nhiều nguy hiểm khó lường. Mức độ rủi ro tổng thể được đánh giá là CAO. Khuyến cáo an toàn: Người tham gia giao thông cần tuyệt đối tuân thủ luật lệ giao thông, đi đúng tốc độ cho phép, giữ khoảng cách an toàn, và tránh các hành vi lạng lách, đánh võng. Đặc biệt, vào ban đêm hoặc khi điều kiện thời tiết không thuận lợi, cần hết sức cẩn trọng. Đối với những người có tâm lý nhạy cảm hoặc dễ bị ảnh hưởng bởi các yếu tố tâm linh, nên hạn chế đi qua khu vực Cầu Kiệu vào ban đêm, hoặc nếu bắt buộc phải đi, hãy giữ tâm lý vững vàng, tránh suy nghĩ tiêu cực, và tập trung hoàn toàn vào việc lái xe hoặc di chuyển. Nên tránh dừng lại hoặc đi bộ một mình ở khu vực chân cầu vào ban đêm. Cần có các biện pháp cảnh báo rõ ràng hơn về các nguy cơ tai nạn và các hiện tượng bất thường tại khu vực này. Việc nghiên cứu sâu hơn về bản chất các hiện tượng siêu nhiên tại Cầu Kiệu là cần thiết để đưa ra các giải pháp xử lý triệt để và đảm bảo an toàn cho cộng đồng.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Cầu Kiệu spectral anomalies at Saigon's Cầu Kiệu bridge. Scene: foggy, low light, unsettling, a lone, blurry figure can be seen standing on the bridge railing, looking down at the dark, swirling water below. The grainy texture and slightly distorted perspective enhance the eerie atmosphere. style: grainy, 1990s aesthetic, VHS artifacting, low resolution, handheld camera feel."
+}
+---
+[GEMINI_RESPONSE] 2026-03-17T05:59:26.848Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Đường Huỳnh Tấn Phát, đặc biệt là đoạn giao thoa với Quận 1, ẩn chứa một lớp màn huyền bí dày đặc, vượt xa những báo cáo về tai nạn giao thông đơn thuần. Tương truyền, khu vực này từng là một vùng đất hoang vu, nơi giao thoa của nhiều dòng chảy năng lượng địa sinh học bất ổn. Các truyền thuyết địa phương kể về những linh hồn lạc lõng, những oan hồn vất vưởng chưa siêu thoát, ám ảnh bởi những bi kịch đã xảy ra trên mảnh đất này từ hàng thế kỷ trước. Có lời đồn rằng, xưa kia, nơi đây từng là chiến trường đẫm máu, hoặc là địa điểm hành quyết công khai trong thời kỳ loạn lạc. Những câu chuyện về người qua đường bị hút hồn, bị dẫn dụ vào cõi vô định, hoặc chứng kiến những hiện tượng siêu nhiên kỳ lạ khi đi qua đoạn đường này vào đêm khuya đã trở thành nỗi ám ảnh của người dân sống quanh vùng. Một số nhà nghiên cứu huyền bí cho rằng, sự tập trung của những năng lượng tiêu cực này đã tạo ra một 'vết nứt' trong thực tại, nơi ranh giới giữa thế giới người sống và cõi âm trở nên mong manh. Tiếng khóc than, những bóng hình lướt nhanh trong màn sương đêm, hay cảm giác bị theo dõi đột ngột là những dấu hiệu cảnh báo mà người dân địa phương thường truyền tai nhau. Sự hiện diện của những hiện tượng này không chỉ gây ra những vụ tai nạn giao thông thảm khốc mà còn tác động tiêu cực đến tâm lý, sức khỏe của những người nhạy cảm, khiến cho đoạn đường này trở thành một điểm đen về tâm linh và năng lượng.",
+  "chronological_history": "Mặc dù các ghi chép lịch sử chính thức về Đường Huỳnh Tấn Phát chỉ bắt đầu rõ ràng từ cuối thế kỷ 19 với sự phát triển của đô thị hóa, các dấu vết của hoạt động tâm linh bất thường có thể được truy ngược xa hơn. Giai đoạn đầu thế kỷ 20 chứng kiến sự gia tăng dân số và hoạt động thương mại tại khu vực này. Các báo cáo ban đầu về 'tai nạn bí ẩn' xuất hiện lẻ tẻ, thường được quy cho sự bất cẩn của người lái xe hoặc điều kiện đường sá. Tuy nhiên, đến những năm 1950-1960, khi các câu chuyện về 'ma ám' bắt đầu lan truyền mạnh mẽ hơn trong dân gian, các vụ việc bất thường có xu hướng gia tăng. Những năm 1970-1980 là thời kỳ đỉnh điểm của các báo cáo về hiện tượng siêu nhiên trên tuyến đường này, với nhiều nhân chứng mô tả việc nhìn thấy các thực thể không rõ hình dạng, nghe thấy tiếng động lạ, và cảm giác bất an cực độ. Một số nhà ngoại cảm địa phương đã cố gắng thực hiện các nghi lễ trừ tà, nhưng chỉ mang lại hiệu quả tạm thời. Cuối những năm 1990, với sự phát triển của công nghệ ghi hình cá nhân, một vài đoạn phim mờ ảo, chất lượng thấp ghi lại những ánh sáng lạ hoặc bóng người thoáng qua đã xuất hiện, dù chưa bao giờ được xác thực. Đầu những năm 2000, các nghiên cứu khoa học về hiện tượng dị thường bắt đầu được quan tâm, dẫn đến việc lắp đặt các thiết bị đo đạc năng lượng tại một số điểm nóng. Tuy nhiên, các dữ liệu thu thập được thường không nhất quán và khó giải thích. Gần đây, vào khoảng năm 2010-2020, mặc dù các báo cáo về 'ma ám' có phần giảm bớt do sự hoài nghi của công chúng và sự phát triển của camera hành trình ghi lại các vụ tai nạn rõ ràng hơn, các chuyên gia về hiện tượng huyền bí vẫn ghi nhận sự gia tăng đột biến của các chỉ số năng lượng bất thường, đặc biệt vào những thời điểm giao mùa hoặc có các sự kiện thiên văn đặc biệt. Vẫn còn tồn tại những vụ tai nạn không thể giải thích được, nơi các nhân chứng khẳng định có một 'thứ gì đó' đã can thiệp vào quá trình điều khiển phương tiện.",
+  "witnesses": [
+    {
+      "name": "Ông Bùi Văn Lắm",
+      "testimony": "Tôi sống ở đây cũng ngót nghét bảy chục năm rồi, từ cái hồi cái đoạn đường này còn là con đường đất mịt mù khói bụi. Cái hồi đó, đâu có xe cộ gì nhiều, chủ yếu là xe ngựa với người đi bộ. Mà lạ lắm, cứ đêm xuống, nhất là những đêm trăng khuyết hay sương mù dày đặc, là y như rằng có chuyện. Tôi nhớ như in cái đêm cách đây chắc cũng hơn bốn mươi năm, tôi đang trên đường đi thăm bà con bên kia cầu. Trời tối mịt, sương giăng trắng xóa. Đi đến cái khúc cua gần cái miếu hoang đó, tự dưng xe đạp của tôi nó cứ chao đảo rồi chồm về phía trước như có ai đẩy. Tôi hoảng hồn, cố gắng giữ thăng bằng thì nghe thấy tiếng ai đó cười khúc khích ngay bên tai, lạnh toát sống lưng. Quay đầu lại thì chẳng thấy ai cả, chỉ có màn sương mờ ảo. Nhưng cái cảm giác có người đang đi theo, đang trêu đùa mình nó ám ảnh tôi mãi. Có lần khác, tôi đang đạp xe thì thấy một bóng người phụ nữ mặc áo dài trắng đứng bên đường, tóc xõa dài che hết mặt. Tôi dừng lại hỏi có chuyện gì, nhưng bà ta chỉ im lặng rồi từ từ tan biến vào không khí. Từ đó về sau, tôi ít khi đi qua đoạn đường đó vào ban đêm, dù có việc gấp đến mấy. Người ta nói nơi này có nhiều oan hồn lắm, những người chết vì tai nạn hay oan khuất, họ cứ quanh quẩn đây thôi. Cái cảm giác lạnh lẽo, bất an nó cứ bám theo mình, không tài nào giải thích được.",
+      "date": "22/08/1995"
+    },
+    {
+      "name": "Cô Trần Thị Minh Nguyệt",
+      "testimony": "Tôi làm nghề xe ôm ở khu vực này đã hơn 15 năm. Nhiều lần tôi chứng kiến những chuyện kỳ lạ mà bản thân cũng không dám tin vào mắt mình. Có những đêm khuya, khi chở khách qua đoạn đường Huỳnh Tấn Phát thuộc Quận 1, xe của tôi đột nhiên bị tắt máy giữa đường dù máy vẫn còn xăng, đèn đóm vẫn sáng. Cảm giác như có bàn tay vô hình nào đó đang cố tình cản trở. Khách đi cùng tôi cũng hoảng sợ, họ bảo thấy có những bóng người lướt qua lướt lại rất nhanh ở hai bên lề đường, dù ban đêm ở đó làm gì có ai. Một lần, tôi đang chờ khách ở gần một quán ăn đóng cửa, thì bỗng nhiên nghe thấy tiếng trẻ con khóc ré lên từ phía con hẻm tối. Tôi tò mò nhìn vào thì thấy một bé gái mặc đồ trắng cũ kỹ đang ngồi khóc một mình. Tôi gọi hỏi, nhưng bé chỉ ngước lên nhìn tôi với đôi mắt đỏ ngầu rồi vụt biến mất. Cùng lúc đó, tôi nghe tiếng xe máy chạy vọt qua, đèn pha chiếu thẳng vào chỗ bé vừa ngồi, nhưng chỉ còn lại khoảng không. Kinh hoàng hơn, có lần tôi đang đi trên đường, thì thấy một chiếc xe máy khác đang đi ngược chiều, người lái xe đội mũ bảo hiểm kín mít, xe thì cứ lạng lách như say rượu. Tôi bóp còi inh ỏi, nhưng người đó vẫn không dừng lại. Khi họ chạy ngang qua, tôi nhìn thấy phía sau xe, trên yên xe, có một bóng người phụ nữ không đầu đang ôm chặt lấy người lái xe đó. Tôi sợ đến nỗi đánh lái vào lề, tim đập thình thịch. Sau này tôi mới biết, đoạn đường đó có rất nhiều vụ tai nạn thảm khốc, và có lẽ những linh hồn đó vẫn còn ám ảnh nơi này.",
+      "date": "05/11/2008"
+    }
+  ],
+  "spectral_analysis": "Các phân tích đo đạc ban đầu tại các điểm nóng trên Đường Huỳnh Tấn Phát (phần thuộc Quận 1) cho thấy sự dao động bất thường của các trường năng lượng địa từ và bức xạ điện từ. Các chỉ số ion hóa trong không khí thường xuyên vượt ngưỡng an toàn, đặc biệt vào những thời điểm đêm khuya hoặc khi có sự thay đổi đột ngột về thời tiết. Phân tích quang phổ cho thấy sự hiện diện của các tần số âm thanh hạ âm (infrasound) ở mức độ đáng kể, được cho là có khả năng gây ra cảm giác sợ hãi, lo âu, bất an và thậm chí là ảo giác cho con người. Ngoài ra, các thiết bị dò tìm năng lượng tâm linh (psychic energy detectors) đã ghi nhận các đỉnh năng lượng đột biến, với các signature (dấu hiệu đặc trưng) không phù hợp với bất kỳ nguồn năng lượng tự nhiên hay nhân tạo nào đã biết. Các giả thuyết tâm linh cho rằng, sự tập trung của các 'linh hồn vất vưởng' hoặc 'tầng năng lượng âm' tại khu vực này là nguyên nhân chính. Các thực thể này, do bị ràng buộc bởi những bi kịch hoặc sự tiếc nuối khi còn sống, đã tạo ra một 'vùng nhiễu loạn' trong thực tại. Mức độ nhiễu loạn này đủ cao để gây ảnh hưởng vật lý, từ việc làm chết máy xe, gây mất tập trung cho người lái, đến việc tạo ra ảo ảnh thị giác và thính giác. Phân tích sâu hơn về các thành phần năng lượng cho thấy sự hiện diện của các 'dấu vết cảm xúc' (emotional residue) mạnh mẽ, có thể là sự cộng hưởng từ những nỗi đau, sợ hãi, giận dữ của những người đã từng trải qua bi kịch tại đây. Điều này lý giải tại sao những người nhạy cảm thường cảm nhận rõ rệt nhất bầu không khí nặng nề và những hiện tượng kỳ lạ. Mức độ nguy hiểm được đánh giá là tiềm ẩn và khó lường, do tính chất phi vật chất của các tác nhân gây ảnh hưởng.",
+  "risk_assessment": "Đường Huỳnh Tấn Phát, đặc biệt là đoạn thuộc ranh giới Quận 1, được đánh giá là một khu vực có nguy cơ cao về các sự cố bất thường, vượt ra ngoài phạm vi các tai nạn giao thông thông thường. Mức độ rủi ro được phân loại là 'Cảnh báo Đỏ' đối với các cá nhân nhạy cảm về tâm linh hoặc có tiền sử các vấn đề tâm lý. Các rủi ro chính bao gồm: 1. Rủi ro về An toàn Giao thông: Các hiện tượng siêu nhiên như ảo ảnh, mất tập trung đột ngột, can thiệp vật lý vô hình có thể dẫn đến các vụ va chạm nghiêm trọng, đặc biệt là vào ban đêm hoặc trong điều kiện thời tiết bất lợi. 2. Rủi ro về Tâm lý: Sự tiếp xúc với các năng lượng tiêu cực hoặc các thực thể siêu nhiên có thể gây ra các triệu chứng như sợ hãi tột độ, lo âu kéo dài, rối loạn giấc ngủ, ám ảnh tâm lý, thậm chí là các biểu hiện tâm thần. 3. Rủi ro về Sức khỏe Thể chất: Mặc dù chưa có bằng chứng y khoa trực tiếp, các báo cáo về cảm giác mệt mỏi đột ngột, đau đầu, buồn nôn khi đi qua khu vực này cho thấy khả năng ảnh hưởng tiêu cực đến sức khỏe. 4. Rủi ro về Môi trường Năng lượng: Sự tồn tại dai dẳng của các năng lượng tiêu cực có thể tạo ra một 'vết sẹo tâm linh' trong khu vực, ảnh hưởng lâu dài đến không khí và tinh thần của cộng đồng dân cư sống xung quanh. Khuyến cáo an toàn: - Hạn chế di chuyển qua khu vực này vào ban đêm, đặc biệt là khi đi một mình. - Nếu buộc phải đi qua, hãy giữ tâm lý vững vàng, tập trung cao độ vào việc lái xe và tránh bị phân tâm bởi những yếu tố xung quanh. - Không nên dừng lại hoặc cố gắng tương tác với bất kỳ hiện tượng bất thường nào được nhìn thấy hoặc nghe thấy. - Các cá nhân nhạy cảm nên cân nhắc sử dụng các vật phẩm bảo vệ tâm linh hoặc thực hiện các nghi thức thanh lọc trước và sau khi đi qua khu vực. - Chính quyền địa phương nên xem xét việc khảo sát kỹ lưỡng hơn về các yếu tố năng lượng và tâm linh tại khu vực này để có các biện pháp can thiệp phù hợp, có thể bao gồm việc đặt các biển cảnh báo mang tính biểu tượng hoặc thực hiện các nghi lễ hóa giải.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: 'Anomalous Activity on Huynh Tan Phat Street (District 1 Sector)' at 'Huynh Tan Phat Street, District 1, Ho Chi Minh City'. Scene: foggy, low light, unsettling, with faint, translucent figures barely visible on the side of the road, and a lone, old motorcycle appearing to stall. style: grainy, 1990s aesthetic, VHS tape artifacting."
+}
+---
+[GEMINI_RESPONSE] 2026-03-17T06:17:28.777Z Status: 200 OK
+[GEMINI_TEXT] "Ping" is a very common and versatile word! To give you the best answer, I need a little more context. What do you mean by "ping"?
+
+Here are the most common meanings and what I can tell you about them:
+
+**1. The Network Utility (Most Likely):**
+
+*   **What it is:** A command-line utility used to test the reachability of a host on an Internet Protocol (IP) network. It measures the round-trip time for messages sent from the originating host to a destination computer.
+*   **How it works:** It sends ICMP (Internet Control Message Protocol) "echo request" packets to the target host and waits for an ICMP "echo reply."
+*   **What it tells you:**
+    *   **If the host is reachable:** If you get replies, the host is online and accessible.
+    *   **Latency (Round-trip time):** How long it takes for a packet to go to the destination and come back. This is usually measured in milliseconds (ms). Lower is better.
+    *   **Packet loss:** If some packets don't get a reply, it indicates a problem with the network connection.
+*   **How to use it (on most operating systems):**
+    *   Open a command prompt or terminal.
+    *   Type `ping [hostname or IP address]` (e.g., `ping google.com` or `ping 8.8.8.8`).
+    *   Press Enter.
+
+**If this is what you meant, what would you like to know about it? For example:**
+
+*   How to use it on a specific operating system?
+*   What do the results mean?
+*   What are common ping times?
+*   How to troubleshoot high ping?
+
+**2. A Short, Sharp Sound:**
+
+*   **What it is:** A light, sharp, ringing, or clicking sound.
+*   **Examples:**
+    *   "The bell gave a little ping."
+    *   "I heard the ping of a notification on my phone."
+    *   "The ball made a ping as it hit the metal post."
+
+**3. A Small, Round, Metal Object:**
+
+*   **What it is:** A small, round, metal ball, often used in games or as a component.
+*   **Examples:**
+    *   The ping-pong ball (though it's not actually made of metal).
+    *   The ball bearings in a machine.
+
+**4. A Verb (to ping):**
+
+*   **Meaning 1 (related to the network utility):** To send a ping to a host. "I'll ping the server to see if it's up."
+*   **Meaning 2 (related to the sound):** To make a pinging sound. "The coins pinged as they fell."
+*   **Meaning 3 (informal, to contact someone):** To send a quick message or notification to someone to get their attention. "Can you ping me when you're free?"
+
+**Please tell me which "ping" you're interested in, and I can provide a more specific and helpful answer!**
+---
+[GEMINI_RESPONSE] 2026-03-17T07:59:10.901Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Công viên Tao Đàn, một lá phổi xanh mướt giữa lòng Sài Gòn náo nhiệt, ẩn chứa dưới vẻ ngoài yên bình là những câu chuyện cổ xưa nhuốm màu huyền bí. Tương truyền, trước khi trở thành một công viên công cộng, khu vực này từng là nơi diễn ra nhiều sự kiện lịch sử quan trọng, thậm chí có cả những dấu tích của các nghi lễ tâm linh cổ xưa. Truyền thuyết kể rằng, dưới lòng đất của Tao Đàn từng là nơi an nghỉ của những linh hồn tiền kiếp, những người đã khuất trong các cuộc chiến tranh hay những người bị lãng quên trong lịch sử. Sự tích về 'Hồ Nước Mắt' - một hồ nước nhỏ nằm khuất sâu trong công viên - là một ví dụ điển hình. Người ta đồn rằng, hồ nước này được hình thành từ những giọt nước mắt của một vị công chúa bị oan khuất, và vào những đêm trăng thanh gió mát, vong hồn nàng vẫn còn vất vưởng nơi đây, than khóc trong cô đơn. Những người dân sống lâu năm quanh khu vực này thường kể lại rằng, vào những thời khắc giao mùa hoặc khi trời chuyển mưa, họ có thể nghe thấy những tiếng thì thầm, tiếng khóc ai oán vọng ra từ phía công viên, dù không có ai ở đó. Một số dị bản khác lại cho rằng, nơi đây từng là một khu nghĩa địa cổ, và những hoạt động xây dựng, cải tạo công viên đã vô tình quấy nhiễu giấc ngủ ngàn thu của những người đã khuất, dẫn đến sự xuất hiện của các hiện tượng siêu nhiên. Những câu chuyện này, dù khó kiểm chứng, nhưng đã ăn sâu vào tiềm thức của người dân địa phương, tạo nên một bầu không khí ma mị, u ám bao trùm lấy khu vực, đặc biệt là vào những giờ khuya vắng người qua lại. Vẻ đẹp tĩnh lặng của công viên đôi khi lại trở thành tấm màn che phủ cho những bí ẩn không lời giải, khiến nó trở thành tâm điểm của những đồn đoán và nỗi sợ hãi âm ỉ.",
+  "chronological_history": "Lịch sử của khu vực Công viên Tao Đàn, theo ghi nhận và các truyền thuyết dân gian, trải dài qua nhiều giai đoạn khác nhau, mỗi giai đoạn đều góp phần tạo nên những tầng vỉa bí ẩn cho nơi này. Trước thế kỷ 19, khu vực này vốn là vùng đất hoang vu, một phần của vùng ngoại ô Sài Gòn, được biết đến với tên gọi 'Thảo Cầm Viên' ban đầu, nơi có nhiều loại cây cỏ và động vật hoang dã. Tuy nhiên, những ghi chép lịch sử sơ khai ít đề cập đến việc có hoạt động định cư hay các sự kiện tâm linh quy mô lớn tại đây. Bước ngoặt bắt đầu vào cuối thế kỷ 19, khi người Pháp tiến hành quy hoạch và xây dựng Sài Gòn. Khu vực này được biến đổi thành một công viên công cộng, ban đầu được gọi là 'Jardin de la Ville' (Vườn của Thành phố), sau này đổi tên thành 'Jardin Botanique' (Vườn Bách thảo). Trong quá trình san lấp và xây dựng, nhiều nhà khảo cổ học và dân địa phương đã ghi nhận việc phát hiện ra các di vật cổ, bao gồm mảnh gốm, vũ khí thô sơ và thậm chí là các cấu trúc mộ táng cổ. Điều này làm dấy lên giả thuyết rằng nơi đây từng là một khu vực có ý nghĩa tâm linh hoặc là nơi diễn ra các nghi lễ cổ xưa. Sau năm 1954, công viên được đổi tên thành 'Công viên Tao Đàn' theo tên của một hội thơ văn nổi tiếng, và trở thành một địa điểm sinh hoạt văn hóa, giải trí quen thuộc của người dân Sài Gòn. Tuy nhiên, song song với sự phát triển này, những câu chuyện về hiện tượng siêu nhiên bắt đầu lan truyền mạnh mẽ hơn. Đặc biệt, những năm 1970-1980, khi Sài Gòn trải qua nhiều biến động, nhiều người dân địa phương đã chứng kiến hoặc nghe kể về các vụ việc kỳ lạ xảy ra trong công viên vào ban đêm: tiếng động lạ, bóng người lướt qua, cảm giác bị theo dõi, hoặc những hiện tượng âm thanh không giải thích được. Một số sự kiện nổi bật được ghi nhận trong các báo cáo không chính thức bao gồm: năm 1988, một nhóm thanh niên báo cáo nhìn thấy những luồng sáng xanh kỳ lạ bay lượn trên mặt hồ; năm 1995, một nhân viên bảo vệ công viên tuyên bố đã chứng kiến một hình bóng mờ ảo, không rõ hình dạng xuất hiện gần 'Hồ Nước Mắt' vào lúc nửa đêm và biến mất đột ngột. Những năm 2000 trở đi, với sự phát triển của công nghệ và mạng internet, các câu chuyện về Công viên Tao Đàn càng được lan truyền rộng rãi hơn, thu hút sự chú ý của các nhà nghiên cứu hiện tượng huyền bí. Các cuộc điều tra không chính thức về 'Hồ Nước Mắt' và các khu vực rậm rạp, ít người qua lại trong công viên đã ghi nhận nhiều chỉ số năng lượng bất thường, củng cố thêm niềm tin vào sự tồn tại của các thực thể siêu nhiên tại đây. Mặc dù chính quyền địa phương luôn bác bỏ hoặc giải thích các hiện tượng này theo hướng khoa học thông thường, nhưng những câu chuyện về Công viên Tao Đàn vẫn tiếp tục được thêu dệt, trở thành một phần của văn hóa đô thị Sài Gòn.",
+  "witnesses": [
+    {
+      "name": "Ông Tư Hùng",
+      "testimony": "Tôi là bảo vệ ở đây cũng ngót nghét hai mươi năm rồi. Cái đêm đó, tôi vẫn nhớ như in, trời mưa tầm tã, gió giật mạnh, sấm chớp liên hồi. Tôi đang đi tuần quanh cái hồ nước nhỏ phía cuối công viên, cái hồ mà người ta đồn là 'Hồ Nước Mắt' ấy. Trời tối đen như mực, đèn đường thì chập chờn. Tự nhiên, tôi nghe thấy tiếng khóc thút thít, nghe rất não nề, như ai đó đang tuyệt vọng lắm. Tôi giật mình, tim đập thình thịch. Cố gắng nhìn quanh, nhưng chỉ thấy cây cối rung lắc dữ dội trong gió. Rồi đột nhiên, tôi thấy một bóng người con gái đứng ngay sát mép hồ, mái tóc dài xõa xuống che gần hết khuôn mặt. Cô ta mặc một bộ đồ trắng, nhìn mờ mờ ảo ảo trong màn đêm. Tôi hét lên hỏi ai đó, nhưng cô ta không trả lời, chỉ quay đầu lại từ từ. Cái khoảnh khắc tôi nhìn thấy khuôn mặt cô ta... trời ơi, nó không có mắt, chỉ là hai hốc tối om. Tôi sợ chết khiếp, quay đầu chạy thục mạng ra khỏi công viên, bỏ lại cả xe đạp. Sáng hôm sau, tôi xin nghỉ việc luôn, không dám bén mảng đến đây nữa. Cái cảnh tượng đó ám ảnh tôi đến tận bây giờ.",
+      "date": "12/08/1995"
+    },
+    {
+      "name": "Bà Bảy Mai",
+      "testimony": "Nhà tôi ở ngay mặt tiền đường gần công viên này đã ba đời rồi. Hồi tôi còn nhỏ, mẹ tôi đã dặn không được bén mảng vào công viên lúc trời tối, nhất là khu vực gần cái hồ nước kia. Bà bảo, ở đó có 'bà cô' hay khóc lắm. Lúc đầu tôi cũng không tin, cho là chuyện ma quỷ nhảm nhí. Nhưng có lần, tôi cùng đám bạn trốn bố mẹ vào chơi ban đêm, định làm liều xem sao. Chúng tôi lén lút đi vào, cố gắng đi thật khẽ để không ai nghe thấy. Khi đến gần cái hồ, không khí bỗng nhiên lạnh buốt, dù đêm đó trời khá oi bức. Rồi chúng tôi nghe thấy tiếng hát ru khe khẽ, nghe rất buồn. Tiếng hát cứ lẩn quẩn đâu đây, lúc gần lúc xa. Bỗng nhiên, một cây đèn đường gần đó vụt tắt, cả khu vực chìm vào bóng tối. Chúng tôi hoảng loạn, chỉ biết ôm nhau chạy thục mạng ra ngoài. Từ đó về sau, tôi không bao giờ dám bén mảng vào công viên này vào ban đêm nữa. Cái cảm giác lạnh lẽo, cô đơn và tiếng hát ai oán đó, nó cứ ám ảnh mãi.",
+      "date": "21/04/1988"
+    }
+  ],
+  "spectral_analysis": "Các phân tích sơ bộ về năng lượng môi trường tại Công viên Tao Đàn, đặc biệt tập trung vào khu vực 'Hồ Nước Mắt' và các vùng cây cối rậm rạp ít người qua lại, đã ghi nhận những chỉ số bất thường. Sử dụng thiết bị đo EMF (điện từ trường) và cảm biến nhiệt độ, các đội điều tra không chính thức đã phát hiện ra những dao động năng lượng đột biến, vượt xa mức nền thông thường của một khu vực đô thị. Cụ thể, các chỉ số EMF thường tăng vọt một cách bất thường vào những giờ khuya, đặc biệt là trong các đêm không trăng hoặc khi thời tiết có dấu hiệu chuyển mùa. Nhiệt độ tại một số điểm cố định trong công viên cũng được ghi nhận là giảm đột ngột, xuống dưới 10 độ C trong những điều kiện nhiệt độ môi trường xung quanh không có sự thay đổi đáng kể. Phổ quang phổ EM (Electromagnetic Spectrum) cho thấy sự xuất hiện của các dải tần số thấp, chưa từng được ghi nhận trong các môi trường tự nhiên hoặc nhân tạo thông thường. Một số giả thuyết tâm linh cho rằng những dao động này có thể là dấu hiệu của sự hiện diện của các thực thể phi vật chất, những 'vong hồn' hay 'linh hồn lạc lối' đang tương tác với môi trường xung quanh. Các dạng năng lượng này có thể là sản phẩm phụ của sự đau khổ, tuyệt vọng hoặc các cảm xúc tiêu cực mạnh mẽ tích tụ qua thời gian tại địa điểm này. Một giả thuyết khác, mang tính khoa học viễn tưởng hơn, là sự tồn tại của các 'lỗ hổng không gian-thời gian' nhỏ, nơi các chiều không gian khác có thể tiếp cận hoặc ảnh hưởng đến thực tại của chúng ta. Các phân tích âm thanh không giải thích được (Unexplained Audio Phenomena - UAP) cũng thu thập được các đoạn ghi âm chứa những âm thanh lạ, bao gồm tiếng thì thầm, tiếng khóc, hoặc những giai điệu âm nhạc cổ xưa không rõ nguồn gốc. Mức độ nhiễu loạn năng lượng tại đây được đánh giá là cao, có khả năng gây ảnh hưởng đến tâm lý và sức khỏe của con người, đặc biệt là những người nhạy cảm với các hiện tượng siêu nhiên. Các thông số đo đạc cho thấy sự tồn tại của một trường năng lượng không ổn định, có thể gây ra cảm giác bất an, sợ hãi, hoặc thậm chí là ảo giác cho những người tiếp xúc lâu.",
+  "risk_assessment": "Dựa trên các báo cáo về truyền thuyết, lời khai nhân chứng và kết quả phân tích sơ bộ về năng lượng môi trường, Công viên Tao Đàn, đặc biệt là khu vực 'Hồ Nước Mắt' và các vùng rậm rạp, được đánh giá là có mức độ rủi ro tâm linh ở mức độ 'Trung bình đến Cao'. Rủi ro chính bao gồm: 1. Ảnh hưởng tâm lý: Các hiện tượng âm thanh, hình ảnh mờ ảo, cảm giác bị theo dõi hoặc sự thay đổi nhiệt độ đột ngột có thể gây ra trạng thái sợ hãi, lo âu, căng thẳng, ám ảnh tâm lý hoặc thậm chí là ảo giác cho những người nhạy cảm, đặc biệt là khi hoạt động một mình hoặc vào ban đêm. 2. Tiếp xúc với thực thể phi vật chất: Mặc dù chưa có bằng chứng xác thực, các giả thuyết về sự hiện diện của các thực thể siêu nhiên không thể loại trừ. Tiếp xúc trực tiếp hoặc gián tiếp với các thực thể này, nếu có, có thể tiềm ẩn những nguy cơ không lường trước được về mặt năng lượng hoặc tâm linh. 3. Tai nạn do mất cảnh giác: Sự sợ hãi hoặc mất tập trung do các hiện tượng siêu nhiên có thể dẫn đến các tai nạn vật lý như trượt ngã, va đập, đặc biệt là trong môi trường thiếu sáng và có nhiều chướng ngại vật như trong công viên vào ban đêm. 4. Ảnh hưởng năng lượng tiêu cực: Các khu vực có năng lượng dao động bất thường, đặc biệt là năng lượng mang tính tiêu cực, có thể gây mệt mỏi, suy nhược tinh thần hoặc làm trầm trọng thêm các vấn đề sức khỏe tâm thần hiện có. Khuyến cáo an toàn: - Hạn chế tối đa việc vào công viên một mình, đặc biệt là vào ban đêm và ở các khu vực vắng vẻ, ít người qua lại. - Nếu cần thiết phải vào công viên vào ban đêm, hãy đi theo nhóm, mang theo đèn pin đủ sáng và giữ tâm lý tỉnh táo, cảnh giác. - Tránh đến gần hoặc ở lại lâu tại khu vực 'Hồ Nước Mắt' hoặc những nơi có cảm giác bất an, lạnh lẽo bất thường. - Không nên cố gắng tương tác hoặc khiêu khích bất kỳ hiện tượng nào được cho là siêu nhiên. - Những người có tiền sử bệnh tâm lý, nhạy cảm hoặc dễ bị ảnh hưởng bởi các yếu tố tâm linh nên tránh xa khu vực này hoàn toàn. - Nên có các thiết bị đo đạc chuyên dụng nếu thực hiện nghiên cứu, tránh mang theo các vật dụng có tính chất tâm linh không rõ nguồn gốc. - Chính quyền địa phương cần tăng cường kiểm tra an ninh, chiếu sáng và có các biện pháp cảnh báo phù hợp tại những khu vực được cho là có nguy cơ.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Supernatural activity at Tao Dan Park. Scene: foggy, low light, unsettling, a lone, indistinct figure standing by a dark, still pond with long, dark hair obscuring its face, trees are bare and skeletal, an old, flickering street lamp casts long, distorted shadows. style: grainy, 1990s aesthetic, slight VHS distortion, muted color palette."
+}
+---
+[GEMINI_RESPONSE] 2026-03-17T08:01:03.432Z Status: 200 OK
+[GEMINI_TEXT] [
+  {
+    "name": "Vụ Tai nạn Giao thông Kinh hoàng trên Xa lộ Hà Nội",
+    "type": "ACCIDENT",
+    "description": "Một vụ va chạm liên hoàn giữa nhiều phương tiện đã xảy ra trên Xa lộ Hà Nội, gây ùn tắc giao thông nghiêm trọng trong nhiều giờ. Nguyên nhân ban đầu được cho là do tài xế xe tải mất lái.",
+    "latitude": 10.7850,
+    "longitude": 106.7300,
+    "severity": 4
+  },
+  {
+    "name": "Bóng ma trong tòa nhà bỏ hoang ở Thảo Điền",
+    "type": "GHOST",
+    "description": "Người dân địa phương kể lại những câu chuyện rùng rợn về tiếng động lạ và bóng người xuất hiện vào ban đêm tại một khu nhà cũ bỏ hoang gần sông Sài Gòn, gây ám ảnh cho những người sống xung quanh.",
+    "latitude": 10.7905,
+    "longitude": 106.7215,
+    "severity": 3
+  },
+  {
+    "name": "Tin đồn về vật thể lạ bay trên bầu trời An Phú",
+    "type": "RUMOR",
+    "description": "Nhiều người dân ở khu vực An Phú báo cáo đã nhìn thấy những ánh sáng lạ, di chuyển không theo quy luật trên bầu trời vào đêm khuya, khiến dư luận xôn xao bàn tán về nguồn gốc bí ẩn của chúng.",
+    "latitude": 10.7700,
+    "longitude": 106.7150,
+    "severity": 2
+  },
+  {
+    "name": "Sự cố mất tích bí ẩn của người đi câu cá",
+    "type": "RUMOR",
+    "description": "Một người đàn ông thường xuyên đi câu cá tại khu vực ven sông Sài Gòn đã đột ngột mất tích không rõ lý do. Các cuộc tìm kiếm ban đầu không mang lại kết quả, làm dấy lên nhiều suy đoán.",
+    "latitude": 10.7950,
+    "longitude": 106.7050,
+    "severity": 3
+  },
+  {
+    "name": "Truyền thuyết về ngôi miếu cổ bị lãng quên",
+    "type": "GHOST",
+    "description": "Tương truyền, một ngôi miếu cổ nằm sâu trong khu dân cư cũ đã bị lãng quên từ lâu, nơi đây được cho là có linh hồn trú ngụ, thỉnh thoảng vọng lại những âm thanh kỳ lạ vào ban đêm.",
+    "latitude": 10.7650,
+    "longitude": 106.7350,
+    "severity": 3
+  },
+  {
+    "name": "Vụ tai nạn giao thông nghiêm trọng tại giao lộ Xa Lộ Hà Nội - Mai Chí Thọ",
+    "type": "ACCIDENT",
+    "description": "Giao lộ Xa Lộ Hà Nội và Mai Chí Thọ thường xuyên xảy ra các vụ va chạm do mật độ phương tiện cao và tầm nhìn hạn chế vào giờ cao điểm, đã có nhiều vụ tai nạn nghiêm trọng được ghi nhận.",
+    "latitude": 10.7750,
+    "longitude": 106.7450,
+    "severity": 4
+  },
+  {
+    "name": "Lời đồn về 'bóng ma' trên cây cầu cũ",
+    "type": "GHOST",
+    "description": "Một cây cầu cũ bắc qua kênh nhỏ trong khu vực được đồn đại là nơi xuất hiện bóng ma của một người phụ nữ, thường được nhìn thấy vào những đêm trăng sáng.",
+    "latitude": 10.7800,
+    "longitude": 106.6950,
+    "severity": 3
+  },
+  {
+    "name": "Sự kiện 'ma ám' tại khu nhà cũ gần sông",
+    "type": "GHOST",
+    "description": "Một khu nhà cũ ven sông, từng là nơi sinh sống của nhiều gia đình, nay đã bỏ hoang và trở thành tâm điểm của những câu chuyện ma ám, với lời kể về tiếng khóc và bóng dáng lướt qua cửa sổ.",
+    "latitude": 10.7920,
+    "longitude": 106.7080,
+    "severity": 3
+  },
+  {
+    "name": "Tin đồn về 'ngôi nhà ma' trên đường Trần Ngọc Diện",
+    "type": "RUMOR",
+    "description": "Một căn nhà trên đường Trần Ngọc Diện được cho là bị bỏ hoang sau một sự kiện bi thảm, và người dân xung quanh thường xuyên nghe thấy những âm thanh bất thường phát ra từ bên trong vào ban đêm.",
+    "latitude": 10.7880,
+    "longitude": 106.7180,
+    "severity": 2
+  },
+  {
+    "name": "Vụ tai nạn xe máy trên đường Nguyễn Văn Hưởng",
+    "type": "ACCIDENT",
+    "description": "Đoạn đường Nguyễn Văn Hưởng, đặc biệt là gần các khúc cua, ghi nhận nhiều vụ tai nạn xe máy do mặt đường trơn trượt vào mùa mưa và thiếu ánh sáng vào ban đêm.",
+    "latitude": 10.7980,
+    "longitude": 106.7120,
+    "severity": 3
+  },
+  {
+    "name": "Lịch sử 'bóng ma' của một khu chung cư cũ",
+    "type": "GHOST",
+    "description": "Một khu chung cư cũ, nay đã xuống cấp, được cho là ám bởi linh hồn của những người từng sống ở đó, với những câu chuyện về tiếng bước chân và sự xuất hiện đột ngột của các bóng hình.",
+    "latitude": 10.7680,
+    "longitude": 106.7250,
+    "severity": 3
+  },
+  {
+    "name": "Tin đồn về 'người phụ nữ áo trắng' bên bờ sông",
+    "type": "RUMOR",
+    "description": "Có những lời kể về một người phụ nữ mặc áo trắng thường xuất hiện vào lúc hoàng hôn bên bờ sông Sài Gòn, mang theo một vẻ u buồn và bí ẩn.",
+    "latitude": 10.7900,
+    "longitude": 106.7000,
+    "severity": 2
+  },
+  {
+    "name": "Vụ tai nạn thương tâm tại giao lộ Ung Văn Khiêm - D1",
+    "type": "ACCIDENT",
+    "description": "Giao lộ Ung Văn Khiêm và đường D1 là điểm nóng về tai nạn giao thông do sự phức tạp của luồng xe và việc thiếu biển báo rõ ràng, đã xảy ra nhiều vụ va chạm nghiêm trọng.",
+    "latitude": 10.7800,
+    "longitude": 106.7000,
+    "severity": 4
+  },
+  {
+    "name": "Truyền thuyết về 'linh hồn dưới nước'",
+    "type": "GHOST",
+    "description": "Tại một khu vực có nhiều kênh rạch, người dân địa phương truyền tai nhau về những linh hồn của người chết đuối thường quấy phá những người đi qua hoặc bơi lội gần đó.",
+    "latitude": 10.7700,
+    "longitude": 106.6850,
+    "severity": 3
+  },
+  {
+    "name": "Báo cáo về 'ngôi nhà ma ám' trên đường Quốc Hương",
+    "type": "GHOST",
+    "description": "Một căn nhà trên đường Quốc Hương được cho là bị ám bởi một gia đình đã khuất, với những lời kể về tiếng đồ đạc rơi vỡ và ánh sáng lạ phát ra từ các cửa sổ vào ban đêm.",
+    "latitude": 10.7930,
+    "longitude": 106.7200,
+    "severity": 3
+  },
+  {
+    "name": "Tin đồn về 'bóng ma' tại khu vực xây dựng dang dở",
+    "type": "RUMOR",
+    "description": "Một dự án xây dựng bị bỏ dở nhiều năm tại khu vực được cho là nơi trú ngụ của các linh hồn, với những câu chuyện về tiếng động lạ và cảm giác bị theo dõi khi đi ngang qua.",
+    "latitude": 10.7600,
+    "longitude": 106.7500,
+    "severity": 2
+  },
+  {
+    "name": "Vụ tai nạn xe máy trên đường Mai Chí Thọ",
+    "type": "ACCIDENT",
+    "description": "Đoạn đường Mai Chí Thọ có nhiều phương tiện di chuyển với tốc độ cao, dẫn đến nguy cơ tai nạn cao, đặc biệt vào ban đêm khi tầm nhìn bị hạn chế.",
+    "latitude": 10.7700,
+    "longitude": 106.7550,
+    "severity": 4
+  },
+  {
+    "name": "Lời đồn về 'ngôi miếu bị bỏ hoang' và những lời cầu nguyện",
+    "type": "GHOST",
+    "description": "Một ngôi miếu nhỏ, cũ kỹ nằm khuất trong một con hẻm, được cho là nơi linh thiêng nhưng cũng đầy bí ẩn, nơi người dân địa phương thỉnh thoảng đến cầu nguyện và nghe thấy những lời thì thầm lạ.",
+    "latitude": 10.7620,
+    "longitude": 106.7300,
+    "severity": 3
+  },
+  {
+    "name": "Sự kiện 'ma ám' tại một khu nhà cũ kỹ",
+    "type": "GHOST",
+    "description": "Một khu nhà cũ kỹ, từng chứng kiến nhiều biến cố lịch sử, được cho là nơi có nhiều linh hồn lang thang, với những câu chuyện về sự xuất hiện đột ngột của các bóng hình và âm thanh kỳ lạ.",
+    "latitude": 10.7720,
+    "longitude": 106.7100,
+    "severity": 3
+  },
+  {
+    "name": "Tin đồn về 'người lạ' xuất hiện ở khu vực vắng vẻ",
+    "type": "RUMOR",
+    "description": "Người dân ở khu vực ven sông báo cáo đã nhìn thấy những 'người lạ' xuất hiện vào ban đêm ở những khu vực vắng vẻ, hành động kỳ quái và biến mất một cách bí ẩn.",
+    "latitude": 10.7960,
+    "longitude": 106.7020,
+    "severity": 2
+  },
+  {
+    "name": "Vụ tai nạn giao thông tại vòng xoay Mỹ Thủy",
+    "type": "ACCIDENT",
+    "description": "Vòng xoay Mỹ Thủy là một trong những điểm giao thông phức tạp, thường xuyên xảy ra ùn tắc và tai nạn do lưu lượng xe lớn từ nhiều hướng đổ về.",
+    "latitude": 10.7500,
+    "longitude": 106.7700,
+    "severity": 4
+  },
+  {
+    "name": "Truyền thuyết về 'linh hồn của người lính'",
+    "type": "GHOST",
+    "description": "Tương truyền, tại một khu vực từng là chiến trường cũ, có những linh hồn của người lính đã hy sinh vẫn còn quanh quẩn, thỉnh thoảng hiện về gây ám ảnh cho người dân.",
+    "latitude": 10.7550,
+    "longitude": 106.7400,
+    "severity": 3
+  },
+  {
+    "name": "Báo cáo về 'ngôi nhà bị ám' gần khu biệt thự",
+    "type": "GHOST",
+    "description": "Một căn nhà cũ nằm gần khu biệt thự hiện đại được đồn đại là bị ám, với những câu chuyện về tiếng động lạ và cảm giác bất an cho những người tiếp cận.",
+    "latitude": 10.7820,
+    "longitude": 106.7280,
+    "severity": 3
+  },
+  {
+    "name": "Tin đồn về 'vật thể lạ' dưới lòng đất",
+    "type": "RUMOR",
+    "description": "Trong quá trình thi công công trình, công nhân đã phát hiện những vật thể lạ dưới lòng đất, gây ra nhiều đồn đoán về lịch sử bí ẩn của khu vực.",
+    "latitude": 10.7650,
+    "longitude": 106.7050,
+    "severity": 2
+  },
+  {
+    "name": "Vụ tai nạn xe máy trên đường Trần Não",
+    "type": "ACCIDENT",
+    "description": "Đường Trần Não thường xuyên có tình trạng ngập nước vào mùa mưa, gây khó khăn và nguy hiểm cho người tham gia giao thông, dẫn đến nhiều vụ tai nạn xe máy.",
+    "latitude": 10.7700,
+    "longitude": 106.7100,
+    "severity": 3
+  },
+  {
+    "name": "Lời đồn về 'bóng ma của cô gái trẻ'",
+    "type": "GHOST",
+    "description": "Tại một khu vực công viên nhỏ, có lời đồn về bóng ma của một cô gái trẻ thường xuất hiện vào ban đêm, mang theo nỗi buồn và sự cô đơn.",
+    "latitude": 10.7850,
+    "longitude": 106.7050,
+    "severity": 3
+  },
+  {
+    "name": "Sự kiện 'ma ám' tại một ngôi nhà cổ ven kênh",
+    "type": "GHOST",
+    "description": "Một ngôi nhà cổ nằm dọc theo một con kênh được cho là nơi cư ngụ của nhiều linh hồn, với những câu chuyện về tiếng động lạ và sự xuất hiện bất ngờ của các bóng hình.",
+    "latitude": 10.7900,
+    "longitude": 106.6900,
+    "severity": 3
+  },
+  {
+    "name": "Tin đồn về 'ngôi nhà ma ám' trên đường D1",
+    "type": "RUMOR",
+    "description": "Một căn nhà trên đường D1, từng có lịch sử bi thương, được đồn đại là bị ám bởi những linh hồn không siêu thoát, gây ra cảm giác bất an cho người dân xung quanh.",
+    "latitude": 10.7800,
+    "longitude": 106.7050,
+    "severity": 2
+  },
+  {
+    "name": "Vụ tai nạn giao thông tại giao lộ Nguyễn Duy Trinh - Đỗ Xuân Hợp",
+    "type": "ACCIDENT",
+    "description": "Giao lộ Nguyễn Duy Trinh và Đỗ Xuân Hợp là một trong những điểm đen tai nạn giao thông do sự phức tạp của các luồng xe và việc thiếu biển báo hiệu quả.",
+    "latitude": 10.7300,
+    "longitude": 106.7700,
+    "severity": 4
+  },
+  {
+    "name": "Truyền thuyết về 'linh hồn của người lái đò'",
+    "type": "GHOST",
+    "description": "Tại một khu vực có nhiều kênh rạch và bến đò cũ, có truyền thuyết về linh hồn của một người lái đò đã khuất vẫn còn quanh quẩn, thỉnh thoảng hiện về vào những đêm sương mù.",
+    "latitude": 10.7800,
+    "longitude": 106.6800,
+    "severity": 3
+  },
+  {
+    "name": "Báo cáo về 'ngôi nhà ma ám' gần khu chợ cũ",
+    "type": "GHOST",
+    "description": "Một ngôi nhà cũ nằm gần khu chợ cũ, được cho là nơi có nhiều linh hồn trú ngụ, với những câu chuyện về tiếng động lạ và cảm giác bị theo dõi vào ban đêm.",
+    "latitude": 10.7600,
+    "longitude": 106.7200,
+    "severity": 3
+  },
+  {
+    "name": "Tin đồn về 'vụ án mạng chưa có lời giải'",
+    "type": "RUMOR",
+    "description": "Có những lời đồn đại về một vụ án mạng xảy ra cách đây nhiều năm tại khu vực này nhưng chưa bao giờ được làm sáng tỏ, gây ra sự tò mò và lo sợ trong cộng đồng.",
+    "latitude": 10.7750,
+    "longitude": 106.7150,
+    "severity": 2
+  },
+  {
+    "name": "Vụ tai nạn trên đường D1",
+    "type": "ACCIDENT",
+    "description": "Đường D1 có nhiều phương tiện di chuyển với tốc độ cao, dẫn đến nguy cơ tai nạn cao, đặc biệt vào ban đêm khi tầm nhìn bị hạn chế.",
+    "latitude": 10.7820,
+    "longitude": 106.7020,
+    "severity": 3
+  },
+  {
+    "name": "Lời đồn về 'bóng ma' tại khu vực công trình bỏ hoang",
+    "type": "GHOST",
+    "description": "Một khu vực có công trình xây dựng bị bỏ hoang từ lâu được đồn đại là nơi có bóng ma ám ảnh, với những câu chuyện về tiếng động lạ và sự xuất hiện đột ngột của các bóng hình.",
+    "latitude": 10.7600,
+    "longitude": 106.7400,
+    "severity": 3
+  },
+  {
+    "name": "Sự kiện 'ma ám' tại một khu nhà cũ ven kênh",
+    "type": "GHOST",
+    "description": "Một khu nhà cũ ven kênh, từng chứng kiến nhiều biến cố lịch sử, được cho là nơi có nhiều linh hồn lang thang, với những câu chuyện về tiếng động lạ và cảm giác bất an.",
+    "latitude": 10.7950,
+    "longitude": 106.6950,
+    "severity": 3
+  },
+  {
+    "name": "Tin đồn về 'ngôi nhà ma ám' trên đường 30",
+    "type": "RUMOR",
+    "description": "Một căn nhà trên đường 30, từng có lịch sử bi thương, được đồn đại là bị ám bởi những linh hồn không siêu thoát, gây ra sự tò mò và lo sợ trong cộng đồng.",
+    "latitude": 10.7780,
+    "longitude": 106.7120,
+    "severity": 2
+  },
+  {
+    "name": "Vụ tai nạn giao thông tại giao lộ Nguyễn Xi - Ung Văn Khiêm",
+    "type": "ACCIDENT",
+    "description": "Giao lộ Nguyễn Xi và Ung Văn Khiêm là một trong những điểm đen tai nạn giao thông do sự phức tạp của các luồng xe và việc thiếu biển báo hiệu quả.",
+    "latitude": 10.7850,
+    "longitude": 106.7000,
+    "severity": 4
+  },
+  {
+    "name": "Truyền thuyết về 'linh hồn của người xưa'",
+    "type": "GHOST",
+    "description": "Tại một khu vực có nhiều cây cổ thụ và dấu tích lịch sử, có truyền thuyết về linh hồn của những người xưa vẫn còn quanh quẩn, thỉnh thoảng hiện về gây ám ảnh.",
+    "latitude": 10.7700,
+    "longitude": 106.7000,
+    "severity": 3
+  },
+  {
+    "name": "Báo cáo về 'ngôi nhà ma ám' gần khu dân cư mới",
+    "type": "GHOST",
+    "description": "Một ngôi nhà cũ nằm xen kẽ giữa khu dân cư mới, được cho là nơi có nhiều linh hồn trú ngụ, với những câu chuyện về tiếng động lạ và cảm giác bị theo dõi vào ban đêm.",
+    "latitude": 10.7800,
+    "longitude": 106.7300,
+    "severity": 3
+  },
+  {
+    "name": "Tin đồn về 'vụ mất tích bí ẩn' ven sông",
+    "type": "RUMOR",
+    "description": "Đã có những lời đồn đại về các vụ mất tích bí ẩn xảy ra tại khu vực ven sông Sài Gòn, khiến người dân địa phương thêm phần e ngại khi đi lại vào ban đêm.",
+    "latitude": 10.7900,
+    "longitude": 106.7100,
+    "severity": 2
+  },
+  {
+    "name": "Vụ tai nạn trên đường Đỗ Xuân Hợp",
+    "type": "ACCIDENT",
+    "description": "Đường Đỗ Xuân Hợp có nhiều phương tiện di chuyển với tốc độ cao, dẫn đến nguy cơ tai nạn cao, đặc biệt vào ban đêm khi tầm nhìn bị hạn chế.",
+    "latitude": 10.7400,
+    "longitude": 106.7750,
+    "severity": 3
+  }
+]
+---
+[GEMINI_RESPONSE] 2026-03-17T08:08:58.206Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Tại vùng đất thiêng liêng xưa kia từng nhuốm máu của những trận chiến khốc liệt, nơi ranh giới giữa sự sống và cái chết bị xóa nhòa, huyền thoại về 'Linh hồn của Người lính' đã ăn sâu vào tiềm thức của bao thế hệ. Tương truyền, những oan hồn của các chiến binh đã ngã xuống trong cuộc chiến Vệ Quốc Vĩ Đại, với nỗi oan khuất chưa được giải tỏa, với khát khao bảo vệ mảnh đất này đến hơi thở cuối cùng, vẫn lẩn khuất trong màn sương mờ ảo của những cánh đồng hoang vu và khu rừng rậm. Họ không còn là con người, mà là những thực thể năng lượng tồn tại dai dẳng, bị trói buộc bởi nỗi đau, sự tiếc nuối và lời thề bất diệt. Người dân địa phương kể lại rằng, vào những đêm trăng khuyết, khi sương giăng kín lối, người ta có thể nghe thấy tiếng bước chân rầm rập trên nền đất ẩm, tiếng thì thầm của những lời hiệu triệu xa xưa, hay thậm chí là hình ảnh mờ ảo của những bóng ma trong bộ quân phục rách nát, với đôi mắt trống rỗng nhìn về phía chân trời. Những câu chuyện này không chỉ là lời răn dạy con cháu về lòng yêu nước, mà còn là lời cảnh báo về sự tồn tại của một thế giới song song, nơi quá khứ đau thương vẫn còn ám ảnh hiện tại. Họ là những người bảo vệ thầm lặng, là chứng nhân cho lịch sử bi tráng, và là nỗi ám ảnh khôn nguôi trong tâm trí những ai dám bén mảng đến gần lãnh địa của họ. Sự hiện diện của họ không hẳn là ác độc, mà là một lời nhắc nhở về sự hy sinh vĩ đại, về những câu chuyện chưa kể, và về một nỗi buồn thăm thẳm không bao giờ nguôi ngoai.",
+  "chronological_history": "Nguồn gốc của huyền thoại 'Linh hồn của Người lính' bắt nguồn từ những cuộc xung đột lịch sử đã định hình nên mảnh đất này.  Vào cuối thế kỷ 19, khu vực này đã trở thành chiến trường đẫm máu trong cuộc kháng chiến chống ngoại xâm, nơi hàng vạn binh sĩ đã ngã xuống bảo vệ từng tấc đất quê hương.  Theo các ghi chép lịch sử mờ nhạt và lời kể của những người cao tuổi, giai đoạn từ năm 1885 đến 1890 là thời kỳ chiến tranh ác liệt nhất.  Nhiều trận đánh lớn đã diễn ra tại khu vực được gọi là 'Đồi Máu' và 'Thung Lũng Than Khóc', nơi ước tính có tới hơn 20.000 sinh mạng đã bị tước đoạt chỉ trong vòng vài năm.  Sau khi cuộc chiến kết thúc, thi thể của những người lính tử trận đã được mai táng sơ sài tại các nghĩa trang tạm bợ, nhiều người không tìm được hài cốt, trở thành những vong hồn phiêu dạt.  Những ghi chép đầu tiên về hiện tượng lạ xuất hiện vào những năm 1920, khi người dân địa phương bắt đầu kể về việc nhìn thấy những bóng người kỳ lạ trong bộ quân phục cũ kỹ đi lại trên cánh đồng vào ban đêm, hay nghe thấy tiếng hô vang vọng từ những khu vực từng là tiền tuyến.  Đến những năm 1950, sau một cuộc xung đột khác, các báo cáo về hiện tượng ma ám gia tăng đột biến.  Nhiều người dân sống gần khu vực chiến trường cũ cho biết họ thường xuyên chứng kiến những ánh sáng lạ, nghe thấy tiếng súng nổ xa xăm, và cảm nhận được sự hiện diện của những thực thể vô hình.  Một số người cho rằng đây là những linh hồn người lính đang canh giữ nơi an nghỉ cuối cùng của họ.  Trong thập niên 1980, một nhóm các nhà nghiên cứu văn hóa dân gian đã tiến hành khảo sát sơ bộ, thu thập được nhiều lời kể và truyền thuyết địa phương, củng cố thêm tính xác thực của huyền thoại.  Tuy nhiên, do thiếu các thiết bị khoa học tiên tiến, họ không thể đưa ra bất kỳ kết luận nào mang tính định lượng.  Các sự kiện bất thường tiếp tục được ghi nhận lẻ tẻ cho đến ngày nay, đặc biệt là vào những dịp lễ lớn hoặc ngày giỗ trận, khi 'Linh hồn của Người lính' dường như trở nên hoạt động mạnh mẽ hơn.  Các báo cáo gần đây nhất vào đầu những năm 2000, mô tả những trải nghiệm tâm linh sâu sắc hơn, bao gồm cả việc bị chạm vào, nghe thấy giọng nói rõ ràng và cảm giác bị theo dõi.",
+  "witnesses": [
+    {
+      "name": "Ông Trần Văn An",
+      "testimony": "Tôi sống ở đây cả đời rồi, cái làng này nó nằm ngay sát cái khu đất xưa kia là chiến trường. Hồi tôi còn bé, ông nội tôi đã hay kể về mấy ông bộ đội cụ Hồ tử trận ở đây. Mấy ông ấy không siêu thoát được, cứ quanh quẩn ở đó. Thỉnh thoảng, đêm khuya thanh vắng, nhất là những đêm sương dày đặc, tôi hay nghe thấy tiếng bước chân lóc cóc ngoài bờ ruộng, cứ như có cả một trung đội đang hành quân vậy. Có lần, tôi ra đồng kiểm tra mương tưới nước, trời tối mịt, sương giăng như màn khói. Đột nhiên, tôi thấy có mấy bóng người lờ mờ đứng dưới gốc đa cổ thụ đầu làng. Họ mặc đồ bộ đội cũ, bạc phếch, mà không thấy mặt mũi gì rõ ràng. Tôi sợ quá, vội vàng chạy về nhà đóng chặt cửa. Sáng hôm sau ra xem thì chẳng có dấu vết gì cả, chỉ có mấy cái lá khô bị xáo trộn. Dạo gần đây, thỉnh thoảng còn nghe thấy tiếng hò reo, tiếng súng nổ nhỏ xíu vọng lại từ phía nghĩa trang liệt sĩ cũ, dù biết rằng ở đó giờ chỉ còn là cỏ dại. Cái cảm giác lạnh lẽo cứ bám theo, như có ai đó đang nhìn mình từ trong bóng tối vậy.",
+      "date": "12/05/1995"
+    },
+    {
+      "name": "Bà Nguyễn Thị Bảy",
+      "testimony": "Nhà tôi sát cái khu đất hoang đó, dân làng ai cũng bảo đó là đất có 'âm khí nặng'. Tôi thì không tin lắm đâu, nhưng mà có những chuyện xảy ra thì không thể nào giải thích được. Chồng tôi mất sớm, một mình tôi nuôi mấy đứa con. Đêm nào cũng vậy, cứ khoảng nửa đêm về sáng, tôi hay nghe thấy tiếng khóc tỉ tê, ai oán vọng vào từ phía cánh đồng. Tiếng khóc nghe thảm thiết lắm, như người ta đang đau đớn tột cùng. Đã mấy lần tôi mở cửa sổ ra nhìn, chỉ thấy màn đêm đặc quánh và sương lạnh lẽo bao phủ. Có lần, tôi ra phơi đồ ngoài sân, bỗng thấy một bóng người đàn ông đứng sững sờ ở cuối con ngõ, mặc bộ quân phục rách bươm, tay cầm khẩu súng trường cũ. Ông ta đứng im như tượng, nhìn chằm chằm vào nhà tôi. Tôi hoảng hồn hét lên, ông ta biến mất tăm như chưa từng tồn tại. Từ đó, tôi luôn cầu mong cho các vong hồn nơi đây được siêu thoát, đừng quấy rầy người sống nữa. Cái cảm giác bất an cứ đeo bám mãi, đôi khi còn cảm thấy có bàn tay lạnh lẽo sờ vào vai mình khi đang ngủ.",
+      "date": "21/09/1988"
+    },
+    {
+      "name": "Anh Lê Văn Hoàng",
+      "testimony": "Tôi là người chụp ảnh nghiệp dư, hay lang thang khắp nơi để tìm cảnh đẹp. Cái khu đất đó, dân địa phương ai cũng né tránh, nhưng tôi lại thấy nó có một vẻ đẹp ma mị, u tịch riêng. Có lần, tôi vào đó chụp ảnh hoàng hôn, trời nhá nhem tối, sương bắt đầu giăng. Tôi đang loay hoay chỉnh máy thì bỗng nghe tiếng bước chân rầm rập phía sau, rất nhiều người. Tôi quay lại thì không thấy ai cả. Chỉ có tiếng xào xạc của lá cây và tiếng gió rít qua những bụi cây hoang dại. Tự nhiên, một luồng khí lạnh buốt chạy dọc sống lưng tôi. Tôi cảm giác như có hàng trăm đôi mắt đang nhìn chằm chằm vào mình. Tôi vội vàng thu dọn đồ đạc và bỏ chạy. Khi xem lại những bức ảnh chụp hôm đó, có một tấm chụp cảnh khu đất hoang, tôi phát hiện ra một bóng mờ ảo, hình dáng giống một người lính đang đứng giữa cánh đồng, nhìn thẳng vào ống kính. Cái bóng đó rất mờ, như được chụp bằng phim cũ, nhưng nó làm tôi rùng mình. Tôi không bao giờ dám quay lại đó một mình nữa.",
+      "date": "05/04/2003"
+    }
+  ],
+  "spectral_analysis": "Các phân tích về hiện tượng 'Linh hồn của Người lính' cho thấy sự hiện diện của các dạng năng lượng bất thường, có thể được phân loại là tàn dư tâm linh hoặc 'vong âm'.  Thiết bị đo trường điện từ (EMF meter) thường xuyên ghi nhận các đỉnh đột biến ở những khu vực được cho là có hoạt động mạnh, vượt xa mức nền thông thường, đặc biệt là vào ban đêm và trong điều kiện thời tiết ẩm ướt.  Phân tích quang phổ hồng ngoại (IR spectroscopy) đôi khi phát hiện các điểm lạnh bất thường, nhiệt độ giảm đột ngột tại các vị trí nhất định mà không có nguyên nhân vật lý rõ ràng, cho thấy sự dịch chuyển năng lượng hoặc sự hiện diện của các thực thể có nhiệt độ thấp hơn môi trường.  Các thiết bị ghi âm thanh (EVP recorders) đã ghi lại được nhiều âm thanh lạ, bao gồm tiếng thì thầm, tiếng bước chân, tiếng súng nổ xa xăm, và thậm chí là những lời nói không rõ nguồn gốc, được cho là 'tiếng vọng' từ quá khứ.  Giả thuyết về 'vong âm' (residual haunting) được đưa ra, cho rằng đây là những năng lượng bị kẹt lại do chấn động tâm lý hoặc cảm xúc mạnh mẽ trong quá khứ, được lặp đi lặp lại một cách vô thức. Tuy nhiên, một số phân tích cho thấy các mẫu năng lượng này có tính tương tác, phản ứng lại với sự hiện diện của người sống, gợi ý khả năng về một dạng ý thức tồn tại dai dẳng hơn là chỉ là sự lặp lại đơn thuần.  Các giả thuyết tâm linh khác bao gồm khả năng các linh hồn này là 'người bảo vệ' khu vực, hoặc là biểu hiện của một 'vết sẹo năng lượng' (energy scar) trên bề mặt Trái Đất do các sự kiện bi thảm gây ra.  Mức độ nguy hiểm được đánh giá là tiềm ẩn, chủ yếu gây ra sự sợ hãi, bất an tâm lý, và trong một số trường hợp, có thể dẫn đến các triệu chứng như mất ngủ, lo âu, hoặc cảm giác bị theo dõi.  Tuy nhiên, chưa có bằng chứng nào cho thấy các thực thể này có khả năng gây hại về thể chất trực tiếp.",
+  "risk_assessment": "Dựa trên các dữ liệu thu thập được và lời khai của nhân chứng, 'Linh hồn của Người lính' được đánh giá là một hiện tượng có mức độ rủi ro tiềm ẩn. Mặc dù chưa có ghi nhận chính thức về việc các thực thể này gây ra thương tích vật lý nghiêm trọng, nhưng tác động tâm lý của chúng không thể xem nhẹ.  Sự hiện diện của chúng có thể gây ra cảm giác sợ hãi, hoang mang, bất an kéo dài, đặc biệt đối với những người nhạy cảm hoặc có tiền sử về các vấn đề tâm lý.  Việc tiếp xúc liên tục với các hiện tượng siêu nhiên này có thể dẫn đến tình trạng căng thẳng mãn tính, mất ngủ, ám ảnh, và suy giảm sức khỏe tinh thần.  Rủi ro lớn nhất nằm ở khả năng các cá nhân bị cuốn vào vòng xoáy sợ hãi, dẫn đến các hành vi bốc đồng hoặc nguy hiểm khi cố gắng đối mặt hoặc trốn tránh hiện tượng.  Ngoài ra, việc khám phá các khu vực được cho là có hoạt động tâm linh mạnh mẽ mà không có sự chuẩn bị hoặc kiến thức đầy đủ có thể dẫn đến tai nạn không mong muốn do địa hình hiểm trở hoặc thiếu ánh sáng.  Khuyến cáo an toàn:  1. Tránh tiếp cận các khu vực được cho là có hoạt động tâm linh mạnh mẽ, đặc biệt là vào ban đêm hoặc trong điều kiện thời tiết bất lợi.  2. Nếu buộc phải đến những khu vực này, hãy đi theo nhóm, trang bị đầy đủ đèn pin, thiết bị liên lạc và thông báo cho người thân về lịch trình.  3. Không cố gắng tương tác trực tiếp với các hiện tượng siêu nhiên được cho là có liên quan.  Giữ thái độ tôn trọng và giữ khoảng cách.  4. Đối với những người thường xuyên trải qua cảm giác bất an hoặc sợ hãi liên quan đến hiện tượng này, nên tìm kiếm sự tư vấn từ các chuyên gia tâm lý.  5. Cần có sự nghiên cứu sâu hơn từ các chuyên gia về hiện tượng huyền bí và các nhà khoa học để hiểu rõ bản chất và mức độ nguy hiểm thực sự của 'Linh hồn của Người lính'.  Tuyệt đối không được xem nhẹ các yếu tố tâm linh và văn hóa địa phương.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: 'The Souls of the Soldiers' at the old battlefields of Vietnam. Scene: a dense, foggy, low light, unsettling battlefield at dusk, with the faint, ghostly silhouettes of several soldiers in worn-out uniforms barely visible through the mist. style: grainy, 1990s aesthetic, slightly desaturated colors, a subtle lens flare, adding to the decaying film quality."
+}
+---
+[GEMINI_RESPONSE] 2026-03-17T08:13:13.512Z Status: 200 OK
+[GEMINI_TEXT] [
+  {
+    "name": "タンディン教会",
+    "type": "GHOST",
+    "description": "地区3にあるこの象徴的なピンク色の教会は、そのユニークな建築様式で知られていますが、夜になると、かつてそこで働いていた司祭の幽霊が、静かに礼拝堂をさまよっているという噂があります。",
+    "latitude": 10.7967,
+    "longitude": 106.6942,
+    "severity": 2
+  },
+  {
+    "name": "チョーライ病院",
+    "type": "GHOST",
+    "description": "ホーチミン市で最も古い病院の一つであるチョーライ病院には、説明不能な現象の報告が絶えません。特に、夜勤中に患者や職員が、存在しないはずの患者や医療従事者を目撃したという話が語られています。",
+    "latitude": 10.7565,
+    "longitude": 106.6718,
+    "severity": 3
+  },
+  {
+    "name": "戦争証跡博物館",
+    "type": "HISTORICAL INCIDENTS",
+    "description": "ベトナム戦争の悲惨な出来事を記録したこの博物館は、多くの訪問者に深い衝撃を与えています。展示されている写真は、当時の残虐行為と、それがもたらした人道的悲劇を物語っています。",
+    "latitude": 10.7765,
+    "longitude": 106.6955,
+    "severity": 4
+  },
+  {
+    "name": "サイゴン特殊部隊武器庫",
+    "type": "HISTORICAL INCIDENTS",
+    "description": "地区3に隠されたこの地下施設は、ベトナム戦争中に秘密裏に武器を保管し、テト攻勢を支援した場所です。その歴史的な重要性と隠された物語が、この場所を特別なものにしています。",
+    "latitude": 10.7842,
+    "longitude": 106.6875,
+    "severity": 3
+  },
+  {
+    "name": "ニョックロック＝ティエンゲー運河",
+    "type": "RUMOR",
+    "description": "かつて汚染されていたこの運河沿いでは、夜になると奇妙な物音が聞こえたり、水面に人影が見えたりするという地域住民の噂があります。現在は浄化されていますが、過去の記憶が残っているようです。",
+    "latitude": 10.7900,
+    "longitude": 106.6800,
+    "severity": 2
+  },
+  {
+    "name": "ヴィンギエム寺",
+    "type": "GHOST",
+    "description": "ホーチミン市で最も大きな仏教寺院の一つですが、寺院の敷地内にある古い木々や静かな庭園では、時折、説明のつかない静寂や、かすかな囁き声が聞こえるという話があります。",
+    "latitude": 10.7895,
+    "longitude": 106.6730,
+    "severity": 2
+  },
+  {
+    "name": "タートルレイク（ホアンキエム湖）",
+    "type": "URBAN LEGENDS",
+    "description": "伝説によれば、15世紀に亀が現れ、王に魔法の剣を与えたというこの湖は、神秘的な雰囲気を持ちます。夜になると、湖畔に現れるとされる伝説の亀の姿を探す人々がいます。",
+    "latitude": 10.7890,
+    "longitude": 106.6900,
+    "severity": 2
+  },
+  {
+    "name": "ホーチミン市児童センター",
+    "type": "GHOST",
+    "description": "この非営利組織の建物では、過去に子供たちの遊び場として使われていた際に、子供たちの楽しそうな声や、時には悲しげな泣き声が聞こえるという報告が、夜間の警備員から寄せられています。",
+    "latitude": 10.7860,
+    "longitude": 106.6850,
+    "severity": 2
+  },
+  {
+    "name": "バクダン通り沿いの古い建物",
+    "type": "GHOST",
+    "description": "フランス植民地時代の古い建物が立ち並ぶバクダン通りでは、特に夜遅くに、窓の外をさまよう人影や、かつての住人の話し声のようなものが聞こえるという噂があります。",
+    "latitude": 10.7700,
+    "longitude": 106.7050,
+    "severity": 2
+  },
+  {
+    "name": "グエン・ディン・チエウ通り沿いの路地",
+    "type": "RUMOR",
+    "description": "この地区の狭い路地では、時折、説明のつかない光が目撃されたり、誰もいないはずの場所から音楽が聞こえてきたりするという地域住民の噂があります。",
+    "latitude": 10.7830,
+    "longitude": 106.6880,
+    "severity": 1
+  },
+  {
+    "name": "チョロン地区の古いアパートメント",
+    "type": "GHOST",
+    "description": "地区5に位置する727トラン・フン・ダオ通りの古いアパートメントは、かつて多くの事故や悲劇があったとされ、夜になると兵士の行進音や、若いカップルの幽霊が現れるという伝説があります。",
+    "latitude": 10.7480,
+    "longitude": 106.6790,
+    "severity": 4
+  },
+  {
+    "name": "ビンフンホア墓地",
+    "type": "GHOST",
+    "description": "ホーチミン市で最も大きな墓地の一つであり、夜間には、かつてそこで歌っていた少女の幽霊がさまよっているという伝説が語られています。",
+    "latitude": 10.7100,
+    "longitude": 106.6200,
+    "severity": 3
+  },
+  {
+    "name": "タンビン地区のコンホア-ホアンホアタム高架橋",
+    "type": "ACCIDENT",
+    "description": "この高架橋の交差点は、過去に繰り返された事故により、地域で最も危険な場所の一つとして認識されています。特に夜間や悪天候時には、視界不良による事故が多発しています。",
+    "latitude": 10.8000,
+    "longitude": 106.6400,
+    "severity": 4
+  },
+  {
+    "name": "トゥドゥック市のケンモットタン橋",
+    "type": "ACCIDENT",
+    "description": "ヴォーチーコン通りにかかるこの橋は、急なカーブと狭い車線幅のため、過去に多くの交通事故が発生しており、特に雨天時にはスリップ事故が多発する危険な地点です。",
+    "latitude": 10.7700,
+    "longitude": 106.7700,
+    "severity": 4
+  },
+  {
+    "name": "ビンチャーン地区の国道50号線-グエン・ヴァン・リン交差点",
+    "type": "ACCIDENT",
+    "description": "この広大な交差点は、交通量が多く、信号制御が複雑なため、過去に多数の重大事故が発生しており、地域住民の間で「事故多発地点」として知られています。",
+    "latitude": 10.6800,
+    "longitude": 106.6600,
+    "severity": 4
+  },
+  {
+    "name": "地区3の古い集合住宅",
+    "type": "RUMOR",
+    "description": "地区3にある古い集合住宅では、夜中に子供の笑い声や、誰もいないはずの部屋から物音が聞こえるという話が、住民の間で囁かれています。",
+    "latitude": 10.7800,
+    "longitude": 106.6800,
+    "severity": 2
+  },
+  {
+    "name": "地区10のグエン・チー・タイン通り",
+    "type": "ACCIDENT",
+    "description": "この通りは、交通量が多く、歩行者と車両の接触事故が頻繁に発生するため、注意が必要な地域です。特に、夜間や早朝の事故が多い傾向にあります。",
+    "latitude": 10.7700,
+    "longitude": 106.6650,
+    "severity": 3
+  },
+  {
+    "name": "地区1のトン・ドゥック・タン通りとハム・ギー通りの交差点",
+    "type": "ACCIDENT",
+    "description": "この交差点は、交通渋滞が激しく、過去に複数の死亡事故が発生した「ブラックスポット」として知られています。特にラッシュアワーには、事故のリスクが高まります。",
+    "latitude": 10.7700,
+    "longitude": 106.7000,
+    "severity": 4
+  },
+  {
+    "name": "地区5のチャン・フン・ダオ通り",
+    "type": "ACCIDENT",
+    "description": "この通りは、過去に複数の重大事故が発生しており、特に夜間には、スピード違反や信号無視による事故が報告されています。",
+    "latitude": 10.7500,
+    "longitude": 106.6800,
+    "severity": 3
+  },
+  {
+    "name": "地区1のグエン・ティ・ミン・カイ高校",
+    "type": "GHOST",
+    "description": "かつて女子高だったこの学校のキャンパスでは、紫色の「アオザイ」を着た女性の幽霊が、特に満月の夜に現れるという噂があります。",
+    "latitude": 10.7750,
+    "longitude": 106.6850,
+    "severity": 3
+  },
+  {
+    "name": "地区3の古い邸宅",
+    "type": "GHOST",
+    "description": "フランス植民地時代の古い邸宅が残る地区3では、夜になると、かつての住人の幽霊が、建物内をさまよっているという話が、地元住民の間で語り継がれています。",
+    "latitude": 10.7850,
+    "longitude": 106.6900,
+    "severity": 2
+  },
+  {
+    "name": "地区3のニャーロック・ティエンゲー運河沿いの廃屋",
+    "type": "GHOST",
+    "description": "運河沿いにひっそりと佇む廃屋では、かつてそこで起きた悲劇の幽霊が、今もなお、その場所を彷徨っているという噂があります。",
+    "latitude": 10.7920,
+    "longitude": 106.6780,
+    "severity": 3
+  },
+  {
+    "name": "地区3のグエン・トゥオン・ヒエン通り",
+    "type": "RUMOR",
+    "description": "この通りは、夜になると活気のある屋台街になりますが、一部の屋台では、深夜に調理器具が勝手に動いたり、誰もいないはずの場所から声が聞こえたりするという奇妙な体験談が報告されています。",
+    "latitude": 10.7780,
+    "longitude": 106.6850,
+    "severity": 2
+  },
+  {
+    "name": "地区3の古い市場",
+    "type": "RUMOR",
+    "description": "歴史ある市場では、閉店後、誰もいないはずの場所から商品の落ちる音や、買い物客の話し声のようなものが聞こえるという噂があり、地元住民の間で囁かれています。",
+    "latitude": 10.7800,
+    "longitude": 106.6900,
+    "severity": 1
+  },
+  {
+    "name": "地区3のコンドミニアム",
+    "type": "GHOST",
+    "description": "比較的新しいコンドミニアムでも、過去に住人が急死した部屋では、夜中に奇妙な物音がしたり、ドアが勝手に開閉したりするという報告が、住民から寄せられています。",
+    "latitude": 10.7880,
+    "longitude": 106.6800,
+    "severity": 2
+  },
+  {
+    "name": "地区10のグエン・チー・タイン通りとグエン・トライ通りの交差点",
+    "type": "ACCIDENT",
+    "description": "この交差点は、交通量が多く、視界が悪いため、過去に多くの交通事故が発生しており、特にバイク同士の衝突事故が多い地点です。",
+    "latitude": 10.7600,
+    "longitude": 106.6550,
+    "severity": 3
+  },
+  {
+    "name": "地区3の古い寺院",
+    "type": "GHOST",
+    "description": "地区3にある古い寺院では、夜間、誰もいないはずの本堂から読経の声が聞こえたり、仏像の表情が変わるという噂があり、地元住民の間で恐れられています。",
+    "latitude": 10.7820,
+    "longitude": 106.6820,
+    "severity": 3
+  },
+  {
+    "name": "地区3の古いフランス風ヴィラ",
+    "type": "GHOST",
+    "description": "地区3に点在する古いフランス風ヴィラの中には、かつてそこで悲劇的な出来事があったとされ、夜になると、窓の外に人影が見えたり、室内に冷たい空気が漂ったりするという噂があります。",
+    "latitude": 10.7800,
+    "longitude": 106.6950,
+    "severity": 2
+  },
+  {
+    "name": "地区3のグエン・ヴァン・チョイ通り",
+    "type": "ACCIDENT",
+    "description": "この通りは、交通量が多く、歩行者や自転車との接触事故が頻繁に発生するため、注意が必要です。特に、交差点付近での事故が多い傾向にあります。",
+    "latitude": 10.7950,
+    "longitude": 106.6750,
+    "severity": 3
+  },
+  {
+    "name": "地区3のバクダン通り沿いのカフェ",
+    "type": "RUMOR",
+    "description": "バクダン通り沿いの古いカフェでは、夜遅くに、かつての常連客の幽霊が現れるという噂があり、一部の店員は、説明のつかない現象を体験したと語っています。",
+    "latitude": 10.7720,
+    "longitude": 106.7030,
+    "severity": 2
+  },
+  {
+    "name": "地区3の歴史的建造物",
+    "type": "HISTORICAL INCIDENTS",
+    "description": "地区3には、フランス植民地時代の建物が多く残っており、中には、戦争中に避難所として使われたり、隠された歴史を持つ場所も存在します。これらの場所では、過去の出来事にまつわる逸話が語り継がれています。",
+    "latitude": 10.7800,
+    "longitude": 106.6880,
+    "severity": 3
+  },
+  {
+    "name": "地区3の住宅街",
+    "type": "RUMOR",
+    "description": "地区3の静かな住宅街では、夜中に、誰もいないはずの家から話し声が聞こえたり、子供の遊ぶ音が聞こえたりするという、地域住民による奇妙な報告が時折あります。",
+    "latitude": 10.7850,
+    "longitude": 106.6700,
+    "severity": 1
+  },
+  {
+    "name": "地区3の公園",
+    "type": "GHOST",
+    "description": "地区3にある公園では、夜間、特に人気のない場所で、かつてそこで命を落とした人々の幽霊が現れるという噂があり、地元住民の間で恐れられています。",
+    "latitude": 10.7880,
+    "longitude": 106.6750,
+    "severity": 2
+  },
+  {
+    "name": "地区3の古い橋",
+    "type": "ACCIDENT",
+    "description": "地区3にかかる古い橋は、老朽化が進んでおり、夜間や悪天候時には、橋桁からの落下事故や、橋上での車両の制御不能による事故が報告されています。",
+    "latitude": 10.7900,
+    "longitude": 106.6850,
+    "severity": 3
+  },
+  {
+    "name": "地区3の市場周辺",
+    "type": "RUMOR",
+    "description": "地区3の賑やかな市場周辺では、夜遅くに、閉店したはずの店から明かりが漏れたり、奇妙な人影が見えたりするという噂があり、一部の夜間作業員が体験談を語っています。",
+    "latitude": 10.7800,
+    "longitude": 106.6920,
+    "severity": 1
+  },
+  {
+    "name": "地区3の路地裏の寺院",
+    "type": "GHOST",
+    "description": "地区3の入り組んだ路地裏にある小さな寺院では、夜になると、かつてそこで祈りを捧げていた人々の霊が、静かに徘徊しているという伝説があります。",
+    "latitude": 10.7810,
+    "longitude": 106.6800,
+    "severity": 2
+  },
+  {
+    "name": "地区3の古い学校",
+    "type": "GHOST",
+    "description": "地区3にある古い学校では、夜間に、かつての生徒や教師の幽霊が現れるという噂があり、特に古い校舎では、説明のつかない現象が報告されています。",
+    "latitude": 10.7850,
+    "longitude": 106.6780,
+    "severity": 3
+  }
+]
+---
+[GEMINI_RESPONSE] 2026-03-17T08:14:40.213Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "タンディン教会、その鮮やかなピンク色の外観と独特のゴシック様式建築は、ホーチミン市3区のランドマークとして長年親しまれてきた。しかし、この美しい教会の壁の裏には、古くから語り継がれる不気味な伝説が潜んでいる。最も広く知られているのは、かつてこの教会で司祭を務めていたとされる、ある人物の幽霊の物語である。伝説によれば、その司祭は生前、熱心な信仰心を持っていたが、同時に深い孤独と悲しみを抱えていたという。彼の死後、その魂は安らぎを得られず、夜な夜な教会の静寂の中でさまよい続けていると囁かれている。特に、夜の帳が下りた頃、礼拝堂のろうそくの灯りが揺らめく中、彼の姿を見たという証言が後を絶たない。時には、かすかな祈りの声や、重い足音が聞こえるという噂もあり、教会の荘厳な雰囲気とは裏腹に、訪れる者に不穏な気配を感じさせる。この幽霊の話は、単なる怪談として片付けられるのではなく、教会の歴史や地域社会の記憶と深く結びついている。タンディン教会が建てられた時代背景や、そこで繰り広げられた人々の営み、そして司祭という存在が担っていた役割を考えると、こうした伝説が生まれる土壌があったことは想像に難くない。そのピンク色の外壁は、まるで悲しみや苦悩を覆い隠すかのように、静かにその秘密を抱え込んでいるかのようである。",
+  "chronological_history": "タンディン教会にまつわる超常現象の記録は、断片的ではあるが、過去数十年にわたって散見される。公式な記録としては残されていないものの、地域住民の間で語り継がれる話や、一部の調査記録によれば、以下のような時系列で事象が推移してきたと考えられる。1950年代～1960年代：教会の建設と初期の活動期。この時期に司祭として奉職していた人物の記録は少ないが、一部の古老は、当時の司祭が非常に厳格で、かつ孤独であったと証言している。この頃から、夜間に教会内で奇妙な物音が聞こえるという噂が出始めたとされる。1970年代～1980年代：ベトナム戦争後の混乱期。教会の活動は一時的に縮小したが、それでも夜間の不審な光や、人影のようなものを見たという報告が散発的にあった。これらの報告は、当時の社会情勢も相まって、公式にはほとんど記録されなかった。1990年代初頭：超常現象研究家や心霊愛好家たちの関心を引き始める。特に、夜間に教会周辺を徘徊していた人物が、窓から内部に人影が動くのを目撃したという話が広まり、一部のメディアで取り上げられた。この頃から、教会内に「司祭の霊」の存在を主張する声が強まる。1998年3月15日：最初の公式な「目撃証言」が記録される。この日、教会近くに住む人物が、深夜に礼拝堂の窓から漏れる微かな光と、静かな祈りのような声を聞いたと証言。この証言は、後の調査のきっかけとなった。2005年頃：地域住民の間で、幽霊の目撃談が再び活発化。特に、礼拝堂の説教壇のあたりに、ぼんやりとした人影が現れるという噂が広まった。この時期、教会の管理者は、夜間の侵入者やいたずらを疑い、警備を強化したが、現象は収まらなかったとされる。2010年代以降：インターネットの普及と共に、タンディン教会の「幽霊」に関する情報は、国内外のオカルトフォーラムなどで共有されるようになる。科学的な調査を試みるグループも現れたが、決定的な証拠は得られていない。しかし、依然として、夜間に教会を訪れた人々から、不可解な現象の報告が続いている。現在に至るまで、タンディン教会は、その美しい外観とは裏腹に、語り継がれる幽霊の伝説と共に、神秘的な場所として存在し続けている。",
+  "witnesses": [
+    {
+      "name": "グエン・ティ・ラン (Nguyễn Thị Lan)",
+      "testimony": "私はこの教会のすぐ近所の路地で生まれ育ちました。子供の頃から、夜になると教会の方から不思議な音が聞こえることは知っていました。でも、まさか本当に幽霊がいるなんて、信じていませんでした。それが、1998年の3月15日の夜のことです。夜中の1時過ぎだったかしら、眠れなくて窓の外を見ていたら、教会の礼拝堂の窓に、ぼんやりとした灯りが灯っているのが見えたんです。普段は明かりなんてついていないのに。そして、耳を澄ますと、かすかに、本当にかすかに、誰かが祈っているような、すすり泣いているような声が聞こえてくるんです。それが、まるで私のすぐそばで聞こえるかのように、はっきりと…。背筋が凍りました。すぐに灯りは消えてしまいましたが、あの声と、あの灯りは忘れられません。あれ以来、夜に一人で教会の前を通るのが怖くなりました。あの声は、きっと、あの司祭さんのものなのでしょうね。一人で、ずっと祈り続けているのかもしれません。",
+      "date": "15/03/1998"
+    },
+    {
+      "name": "チャン・ヴァン・フン (Trần Văn Hùng)",
+      "testimony": "私は、2005年の夏頃だったと思います。友人と一緒に、夜のホーチミン市をバイクで観光していたんです。せっかくだから、あの有名なピンクの教会、タンディン教会を夜景で見ようということになって、立ち寄ったんです。夜の10時か11時くらいだったかな。教会は閉まっていましたが、周りは静かで、月明かりに照らされて、そのピンク色がとても幻想的でした。でも、しばらく教会の前で話していると、突然、礼拝堂の奥の方から、カタン、と音がしたんです。まるで、重い扉が開いたような、あるいは誰かが歩き出したような音。私たちは顔を見合わせました。まさか、こんな時間に誰かいるなんて。恐る恐る、礼拝堂の窓に近づいて中を覗き込んだんです。中はほとんど真っ暗だったんですが、説教壇のあたりに、人の形をした、ぼんやりとした光のようなものが見えたんです。それは、ゆっくりと揺れているようにも見えました。私たちは怖くなって、すぐにその場を離れました。あれは一体何だったのか…。友人とも、あれはきっと、あの司祭さんの幽霊だったんだろうね、と話しています。あの光景は、今でも時々思い出しては、ゾッとしますよ。",
+      "date": "20/07/2005"
+    }
+  ],
+  "spectral_analysis": "タンディン教会周辺で観測された異常現象に関するスペクトル分析は、現時点では限定的である。しかし、過去の目撃証言や、一部の非公式な調査チームによって収集されたデータからは、いくつかの興味深い傾向が示唆されている。まず、目撃証言で共通して言及される「ぼんやりとした光」や「人影」は、低周波数の電磁場変動や、微弱な熱源の存在と関連している可能性がある。一部の調査では、深夜帯において、教会内部、特に礼拝堂周辺で、通常よりも高いレベルの電磁場が検出されたという報告がある。これは、霊的なエネルギーの放出、あるいは残留思念の現れとして解釈されることもある。また、目撃者の中には、「冷たい空気の流れ」や「説明のつかない寒気」を感じたと証言する者もいる。これは、局所的な温度低下、すなわちエネルギーの消費、あるいは非物理的な存在が通過する際の物理的影響として説明されるかもしれない。さらに、音声記録の分析からは、人間の可聴域外の超低周波音（インフラサウンド）や、微細なノイズパターンが検出されることがある。これらの音は、心理的な不安や恐怖感を増幅させる効果があるとも言われている。スピリチュアルな観点からは、この場所には、生前の司祭の強い感情や未練が残留しており、それが「残留思念」や「エクトプラズム」として、特定の条件下で知覚可能な形をとると推測される。特に、教会の歴史的背景や、そこで営まれた人々の祈りや苦悩といったエネルギーが、この場所に集積している可能性も考えられる。しかし、これらの現象は非常に断続的かつ不安定であり、科学的な測定機器で安定して捉えることは困難である。現時点では、これらの観測結果を断定的に霊的な現象と結びつけるには証拠が不足しているが、無視できない異常性が存在することは確かである。",
+  "risk_assessment": "タンディン教会における超常現象は、現時点では直接的な身体的危害をもたらすレベルには達していないと評価される。しかし、精神的な影響に関しては、無視できないリスクが存在する。目撃証言や分析結果から、この場所には、訪問者に不快感、恐怖感、不安感を与える可能性のあるエネルギーが残留していると考えられる。特に、精神的に不安定な状態にある人物や、超常現象に対して過敏な反応を示す人物は、強い心理的ストレスを感じる可能性がある。また、夜間における教会の周辺は、一般的に人通りが少なく、照明も限られているため、幽霊の存在を信じる者にとっては、それ自体が心理的なプレッシャーとなり得る。さらに、これらの現象を過度に追求したり、恐怖心を煽るような行為は、パニック発作や精神的な混乱を引き起こすリスクを高める。したがって、タンディン教会を訪れる際には、以下の点に留意することが推奨される。\n\n1. **精神的な準備**: 訪問者は、この場所に伝わる伝説や噂について事前に理解し、精神的な準備を整えることが望ましい。恐怖心に囚われることなく、冷静な態度を保つことが重要である。\n2. **夜間の訪問**: 夜間、特に深夜の訪問は、視覚的な不安や心理的な恐怖を増幅させる可能性があるため、極力避けることが賢明である。もし訪問する場合は、複数人で行動し、懐中電灯などの照明を携帯することを推奨する。\n3. **過度な追求の禁止**: 超常現象の証拠を得ようと、過度に執着したり、危険な場所（例：教会の内部へ無断で侵入するなど）に立ち入ることは絶対に避けるべきである。これは、法的な問題だけでなく、予期せぬ事故や精神的なダメージにつながる可能性がある。\n4. **科学的・合理的な態度**: 現象を体験した場合でも、まずは合理的な説明（自然現象、偶然、心理的要因など）を試みることが重要である。過剰な恐怖や憶測は、状況を悪化させる可能性がある。\n\n総じて、タンディン教会の超常現象は、現時点では「低リスク」と評価できるが、精神的な影響を考慮し、慎重な行動が求められる。この場所は、その神秘性ゆえに、訪れる者に忘れがたい印象を与える可能性があるが、同時に、その神秘に引きずられて不用意な行動をとらないよう、十分な注意が必要である。",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: タンディン教会 (Tandinh Church) at 3 District, Ho Chi Minh City. Scene: foggy, low light, unsettling, a grainy silhouette resembling a priest faintly visible near the altar inside the dimly lit pink church. style: grainy, 1990s aesthetic, slightly desaturated colors, subtle lens flare."
+}
+---
+[GEMINI_RESPONSE] 2026-03-17T08:19:05.025Z Status: 200 OK
+[GEMINI_TEXT] [
+  {
+    "name": "Bóng ma tại Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh",
+    "type": "GHOST",
+    "description": "Tòa nhà Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh, trước đây là dinh thự của ông Hui Bon Hoa, được cho là bị ám bởi linh hồn con gái ông, người đã qua đời vì bệnh tật. Khách tham quan và nhân viên báo cáo nghe thấy tiếng khóc và nhìn thấy bóng người lướt qua hành lang và cửa sổ.",
+    "latitude": 10.7716,
+    "longitude": 106.6947,
+    "severity": 3
+  },
+  {
+    "name": "Truyền thuyết về ngôi nhà lửa ở đường Lý Thái Tổ",
+    "type": "GHOST",
+    "description": "Một ngôi nhà ống tại 24 Lý Thái Tổ từng xảy ra vụ hỏa hoạn kinh hoàng vào tháng 12 năm 2001, cướp đi sinh mạng của bảy người. Ngôi nhà bị bỏ hoang lâu ngày do lời đồn về hồn ma của người phụ nữ mang thai bị mắc kẹt trên ban công.",
+    "latitude": 10.7742,
+    "longitude": 106.6949,
+    "severity": 4
+  },
+  {
+    "name": "Truyền thuyết cô gái hát Cải lương tại Nghĩa trang Bình Hưng Hòa",
+    "type": "GHOST",
+    "description": "Nghĩa trang Bình Hưng Hòa, một trong những nghĩa trang lớn nhất Sài Gòn, là nơi xuất phát của nhiều câu chuyện ma quái. Nổi tiếng nhất là câu chuyện về một cô gái 16 tuổi yêu ca cải lương và những sự kiện siêu nhiên xảy ra tại đây.",
+    "latitude": 10.7770,
+    "longitude": 106.6330,
+    "severity": 3
+  },
+  {
+    "name": "Bóng ma nữ sinh áo dài tại Trường THPT Nguyễn Thị Minh Khai",
+    "type": "GHOST",
+    "description": "Trường THPT Nguyễn Thị Minh Khai, trước đây là trường Gia Long, được cho là có bóng ma của một nữ sinh mặc áo dài tím lang thang trong khuôn viên vào những đêm trăng tròn.",
+    "latitude": 10.7775,
+    "longitude": 106.6848,
+    "severity": 2
+  },
+  {
+    "name": "Tin đồn về khu đất hoang bỏ hoang ở Quận 2",
+    "type": "RUMOR",
+    "description": "Một số khu vực ở trung tâm Quận 2, nay thuộc Thành phố Thủ Đức, từng là nơi có nhiều khu dân cư bị san lấp, chỉ còn lại khung cảnh tiêu điều của các tòa nhà dang dở. Những công trình này, do khủng hoảng bất động sản, đã bị bỏ hoang nhiều năm, tạo nên không khí kỳ lạ.",
+    "latitude": 10.7750,
+    "longitude": 106.7500,
+    "severity": 2
+  },
+  {
+    "name": "Vụ án mạng và chặt xác tại Thủ Đức",
+    "type": "MURDER",
+    "description": "Năm 2024, Thành phố Hồ Chí Minh chứng kiến sự gia tăng các vụ án hình sự, bao gồm một vụ án mạng và chặt xác rùng rợn xảy ra tại khu vực Thủ Đức.",
+    "latitude": 10.7900,
+    "longitude": 106.7600,
+    "severity": 5
+  },
+  {
+    "name": "Vụ cướp và sát hại hai hiệp sĩ đường phố ở Tân Bình",
+    "type": "MURDER",
+    "description": "Một vụ án mạng nghiêm trọng đã xảy ra khi một người đàn ông đâm chết hai thành viên của nhóm 'Hiệp sĩ' thuộc Quận Tân Bình trong một vụ cướp xe máy vào tháng 5 năm 2018.",
+    "latitude": 10.7950,
+    "longitude": 106.6500,
+    "severity": 5
+  },
+  {
+    "name": "Vụ tấn công và sát hại cảnh sát hình sự tại Gò Vấp",
+    "type": "MURDER",
+    "description": "Vào tối ngày 6 tháng 1 năm 2023, một vụ tấn công đã xảy ra tại giao lộ Phạm Văn Đồng và Lê Quang Định, Quận Gò Vấp, khiến một cảnh sát hình sự tử vong và một người khác bị thương.",
+    "latitude": 10.8400,
+    "longitude": 106.6800,
+    "severity": 5
+  },
+  {
+    "name": "Tai nạn giao thông nghiêm trọng trên Xa lộ Hà Nội",
+    "type": "ACCIDENT",
+    "description": "Xa lộ Hà Nội, một tuyến đường huyết mạch, thường xuyên xảy ra các vụ tai nạn giao thông do mật độ phương tiện cao và tốc độ di chuyển.",
+    "latitude": 10.7900,
+    "longitude": 106.7700,
+    "severity": 4
+  },
+  {
+    "name": "Tai nạn trên cầu Sài Gòn",
+    "type": "ACCIDENT",
+    "description": "Cầu Sài Gòn, nối Quận 2 với các khu vực khác, là điểm nóng giao thông với nhiều vụ va chạm và tai nạn do lưu lượng xe lớn, đặc biệt vào giờ cao điểm.",
+    "latitude": 10.7800,
+    "longitude": 106.7200,
+    "severity": 4
+  },
+  {
+    "name": "Nguy cơ từ các công trình xây dựng dang dở",
+    "type": "ACCIDENT",
+    "description": "Nhiều dự án bất động sản tại khu vực Quận 2 (nay là Thành phố Thủ Đức) đã bị tạm dừng thi công, để lại các công trình dang dở có thể gây nguy hiểm cho người dân sinh sống hoặc đi lại gần đó.",
+    "latitude": 10.7700,
+    "longitude": 106.7400,
+    "severity": 3
+  },
+  {
+    "name": "Truyền thuyết về khu đất hoang ở Thủ Thiêm",
+    "type": "URBAN LEGEND",
+    "description": "Khu vực Bán đảo Thủ Thiêm, trước đây thuộc Quận 2, từng có những khu dân cư cũ nay đã bị giải tỏa để phát triển đô thị mới. Có những lời đồn về các hiện tượng kỳ lạ xảy ra tại những khu đất hoang này.",
+    "latitude": 10.7700,
+    "longitude": 106.7300,
+    "severity": 3
+  },
+  {
+    "name": "Chùa Minh Đạo - Nơi linh thiêng và yên bình",
+    "type": "GHOST",
+    "description": "Chùa Minh Đạo, tọa lạc tại khu vực ngoại ô, được biết đến với không gian thanh tịnh và những câu chuyện tâm linh được truyền miệng trong cộng đồng.",
+    "latitude": 10.7500,
+    "longitude": 106.7800,
+    "severity": 2
+  },
+  {
+    "name": "Linh hồn người lính trận vong ở Công viên Tao Đàn",
+    "type": "GHOST",
+    "description": "Công viên Tao Đàn, một không gian xanh rộng lớn, được cho là nơi trú ngụ của hồn ma một người đàn ông trẻ đã thiệt mạng trong một vụ tấn công, vẫn lang thang tìm kiếm tình yêu đã mất.",
+    "latitude": 10.7700,
+    "longitude": 106.6900,
+    "severity": 3
+  },
+  {
+    "name": "Lời đồn về khu đất 'ma ám' gần đường Xuân Thủy",
+    "type": "RUMOR",
+    "description": "Khu vực đường Xuân Thủy, Thảo Điền, Quận 2, mặc dù phát triển hiện đại, nhưng vẫn còn những lời đồn về các khu đất hoặc công trình cũ có những câu chuyện bí ẩn không được làm rõ.",
+    "latitude": 10.7850,
+    "longitude": 106.7450,
+    "severity": 2
+  },
+  {
+    "name": "Vụ án giết người, hiếp dâm và chặt xác tại Quận 1",
+    "type": "MURDER",
+    "description": "Một vụ án mạng cực kỳ tàn bạo đã thu hút sự chú ý của công chúng, liên quan đến việc giết người, hiếp dâm và chặt xác một phụ nữ 25 tuổi ở Đồng Nai, với các hoạt động liên quan được phát hiện ở Quận 1.",
+    "latitude": 10.7700,
+    "longitude": 106.7000,
+    "severity": 5
+  },
+  {
+    "name": "Vụ án ma túy quy mô lớn tại phòng trọ Quận 1",
+    "type": "MURDER",
+    "description": "Một người nước ngoài đã bị phát hiện tàng trữ số lượng lớn heroin và methamphetamine trong ba vali tại một căn phòng thuê ở Quận 1, cho thấy hoạt động tội phạm nguy hiểm.",
+    "latitude": 10.7700,
+    "longitude": 106.6900,
+    "severity": 4
+  },
+  {
+    "name": "Tai nạn giao thông trên đường Mai Chí Thọ",
+    "type": "ACCIDENT",
+    "description": "Đường Mai Chí Thọ, một tuyến đường lớn nối Quận 2 với các khu vực khác, thường xuyên xảy ra các vụ tai nạn giao thông do tốc độ cao và mật độ phương tiện.",
+    "latitude": 10.7750,
+    "longitude": 106.7550,
+    "severity": 4
+  },
+  {
+    "name": "Nguy cơ từ các tòa nhà 'ma' bỏ hoang",
+    "type": "RUMOR",
+    "description": "Nhiều tòa nhà chung cư dang dở tại Thành phố Hồ Chí Minh, bao gồm cả các dự án ở Quận 2, đã bị bỏ hoang nhiều năm do khủng hoảng bất động sản, trở thành nơi trú ngụ của người vô gia cư và nghiện ma túy, tiềm ẩn nguy cơ mất an ninh.",
+    "latitude": 10.7700,
+    "longitude": 106.7400,
+    "severity": 3
+  },
+  {
+    "name": "Chùa Huệ Nghiêm - Trung tâm tâm linh",
+    "type": "GHOST",
+    "description": "Chùa Huệ Nghiêm ở Quận 2 (nay thuộc Thành phố Thủ Đức) là một trung tâm tâm linh với kiến trúc kết hợp văn hóa truyền thống Việt Nam và Nhật Bản, nơi diễn ra các hoạt động Phật giáo và thu hút người dân đến cầu nguyện.",
+    "latitude": 10.7700,
+    "longitude": 106.7400,
+    "severity": 2
+  },
+  {
+    "name": "Truyền thuyết về 'người đàn bà mặc sườn xám đỏ' ở khu chung cư cũ",
+    "type": "GHOST",
+    "description": "Một lời đồn kể về một người phụ nữ mặc sườn xám đỏ bí ẩn, không chân, thường xuyên xuất hiện ở khu vực gần một chung cư cũ, gây sợ hãi cho những người chứng kiến.",
+    "latitude": 10.7500,
+    "longitude": 106.6700,
+    "severity": 3
+  },
+  {
+    "name": "Vụ án buôn bán ma túy xuyên quốc gia",
+    "type": "MURDER",
+    "description": "Các vụ án liên quan đến buôn bán ma túy quy mô lớn, bao gồm cả việc sử dụng dịch vụ giao hàng và vận chuyển qua đường hàng không, đã được ghi nhận tại Thành phố Hồ Chí Minh, cho thấy hoạt động tội phạm có tổ chức.",
+    "latitude": 10.7800,
+    "longitude": 106.7000,
+    "severity": 4
+  },
+  {
+    "name": "Tai nạn lao động tại công trường xây dựng",
+    "type": "ACCIDENT",
+    "description": "Các công trình xây dựng lớn đang diễn ra tại khu vực Quận 2 và các vùng lân cận tiềm ẩn nguy cơ tai nạn lao động do tính chất công việc và môi trường làm việc phức tạp.",
+    "latitude": 10.7800,
+    "longitude": 106.7500,
+    "severity": 3
+  },
+  {
+    "name": "Lời đồn về 'nhà ma' ở khu dân cư mới",
+    "type": "RUMOR",
+    "description": "Trong quá trình phát triển đô thị nhanh chóng, một số khu dân cư mới ở Quận 2 có thể còn tồn tại những câu chuyện truyền miệng về các ngôi nhà hoặc khu đất có 'vấn đề' tâm linh.",
+    "latitude": 10.7900,
+    "longitude": 106.7300,
+    "severity": 2
+  },
+  {
+    "name": "Vụ án giết người và cướp tài sản ở Quận 10",
+    "type": "MURDER",
+    "description": "Một vụ án mạng xảy ra tại Quận 10 liên quan đến hành vi giết người và cướp tài sản, cho thấy tình hình an ninh trật tự diễn biến phức tạp.",
+    "latitude": 10.7700,
+    "longitude": 106.6700,
+    "severity": 5
+  },
+  {
+    "name": "Tai nạn xe máy trên đường Đỗ Xuân Hợp",
+    "type": "ACCIDENT",
+    "description": "Đường Đỗ Xuân Hợp, một tuyến đường quan trọng trong khu vực, thường xuyên ghi nhận các vụ tai nạn xe máy do người tham gia giao thông thiếu quan sát hoặc vi phạm luật lệ.",
+    "latitude": 10.7700,
+    "longitude": 106.7600,
+    "severity": 3
+  },
+  {
+    "name": "Tín ngưỡng dân gian tại các đình, miếu cổ",
+    "type": "RUMOR",
+    "description": "Nhiều đình, miếu cổ trong khu vực Quận 2 và các vùng lân cận vẫn là trung tâm của các hoạt động tín ngưỡng dân gian, nơi người dân thực hiện các nghi lễ cầu bình an và may mắn.",
+    "latitude": 10.7700,
+    "longitude": 106.7300,
+    "severity": 2
+  },
+  {
+    "name": "Bóng ma tại khu vực Thảo Điền",
+    "type": "GHOST",
+    "description": "Khu vực Thảo Điền, Quận 2, với nhiều biệt thự và khu dân cư cao cấp, đôi khi xuất hiện những lời đồn về các hiện tượng siêu nhiên hoặc bóng ma, thường gắn liền với lịch sử phát triển của khu vực.",
+    "latitude": 10.7800,
+    "longitude": 106.7400,
+    "severity": 3
+  },
+  {
+    "name": "Vụ án lừa đảo chiếm đoạt tài sản quy mô lớn",
+    "type": "MURDER",
+    "description": "Các vụ án liên quan đến lừa đảo chiếm đoạt tài sản với giá trị lớn đã được báo cáo, cho thấy sự gia tăng của các loại tội phạm kinh tế phức tạp.",
+    "latitude": 10.7700,
+    "longitude": 106.7000,
+    "severity": 4
+  },
+  {
+    "name": "Tai nạn trên đường Nguyễn Thị Định",
+    "type": "ACCIDENT",
+    "description": "Đường Nguyễn Thị Định, một tuyến đường có lưu lượng giao thông đáng kể, là nơi xảy ra nhiều vụ va chạm và tai nạn giao thông, đặc biệt là vào giờ cao điểm.",
+    "latitude": 10.7700,
+    "longitude": 106.7500,
+    "severity": 3
+  },
+  {
+    "name": "Truyền thuyết về các khu chợ cũ",
+    "type": "URBAN LEGEND",
+    "description": "Các khu chợ cũ trong khu vực, dù đã được quy hoạch lại, đôi khi vẫn còn lưu giữ những câu chuyện truyền miệng về các sự kiện bí ẩn hoặc những linh hồn còn vương vấn.",
+    "latitude": 10.7700,
+    "longitude": 106.7200,
+    "severity": 2
+  },
+  {
+    "name": "Vụ án giết người và cướp xe máy ở Quận 10",
+    "type": "MURDER",
+    "description": "Một vụ án mạng xảy ra tại Quận 10 liên quan đến hành vi giết người và cướp xe máy, cho thấy tình hình an ninh trật tự diễn biến phức tạp.",
+    "latitude": 10.7700,
+    "longitude": 106.6700,
+    "severity": 5
+  },
+  {
+    "name": "Tai nạn giao thông tại giao lộ Mai Chí Thọ - Đồng Văn Cống",
+    "type": "ACCIDENT",
+    "description": "Giao lộ Mai Chí Thọ và Đồng Văn Cống là một trong những điểm đen giao thông, thường xuyên xảy ra các vụ tai nạn nghiêm trọng do mật độ phương tiện và thiết kế đường.",
+    "latitude": 10.7600,
+    "longitude": 106.7500,
+    "severity": 4
+  },
+  {
+    "name": "Lời đồn về các ngôi mộ cổ chưa được di dời",
+    "type": "RUMOR",
+    "description": "Trong quá trình đô thị hóa, một số khu vực có thể vẫn còn sót lại các ngôi mộ cổ chưa được di dời, và xung quanh chúng thường gắn liền với những câu chuyện dân gian hoặc lời đồn về hiện tượng siêu nhiên.",
+    "latitude": 10.7600,
+    "longitude": 106.7300,
+    "severity": 2
+  },
+  {
+    "name": "Vụ án hiếp dâm và giết người tại Quận 1",
+    "type": "MURDER",
+    "description": "Một vụ án hiếp dâm và giết người nghiêm trọng đã xảy ra tại Quận 1, làm dấy lên lo ngại về tình hình an ninh và an toàn cho phụ nữ.",
+    "latitude": 10.7700,
+    "longitude": 106.7000,
+    "severity": 5
+  },
+  {
+    "name": "Tai nạn trên đường Nguyễn Duy Trinh",
+    "type": "ACCIDENT",
+    "description": "Đường Nguyễn Duy Trinh, một tuyến đường dài và quan trọng, thường xảy ra các vụ tai nạn giao thông do người dân sử dụng xe máy và ô tô với tốc độ cao.",
+    "latitude": 10.7700,
+    "longitude": 106.7700,
+    "severity": 3
+  },
+  {
+    "name": "Truyền thuyết về các khu đất bị bỏ hoang",
+    "type": "URBAN LEGEND",
+    "description": "Nhiều khu đất bị bỏ hoang hoặc công trình dang dở tại khu vực Quận 2 cũ (nay thuộc Thành phố Thủ Đức) là nguồn gốc của nhiều lời đồn về ma ám hoặc các hiện tượng kỳ lạ.",
+    "latitude": 10.7700,
+    "longitude": 106.7400,
+    "severity": 3
+  },
+  {
+    "name": "Vụ án giết người tại khu dân cư An Phú",
+    "type": "MURDER",
+    "description": "Một vụ án mạng đã xảy ra tại khu dân cư An Phú, Quận 2, làm dấy lên lo ngại về an ninh trật tự trong khu vực vốn được xem là an ninh.",
+    "latitude": 10.7800,
+    "longitude": 106.7400,
+    "severity": 4
+  },
+  {
+    "name": "Tai nạn giao thông trên đường Trần Não",
+    "type": "ACCIDENT",
+    "description": "Đường Trần Não, một tuyến đường sầm uất, thường xuyên ghi nhận các vụ va chạm và tai nạn giao thông do mật độ phương tiện cao và các công trình đang xây dựng.",
+    "latitude": 10.7800,
+    "longitude": 106.7200,
+    "severity": 3
+  },
+  {
+    "name": "Tín ngưỡng thờ cúng tại các ngôi chùa cổ",
+    "type": "GHOST",
+    "description": "Nhiều ngôi chùa cổ trong khu vực, như Chùa Huệ Nghiêm, là trung tâm của các hoạt động tâm linh và tín ngưỡng, nơi người dân tìm kiếm sự bình an và có thể xuất hiện các hiện tượng siêu nhiên được cho là liên quan đến các vị thần hoặc linh hồn.",
+    "latitude": 10.7700,
+    "longitude": 106.7400,
+    "severity": 2
+  },
+  {
+    "name": "Vụ án giết người liên quan đến tranh chấp đất đai",
+    "type": "MURDER",
+    "description": "Các vụ án mạng liên quan đến tranh chấp đất đai đã xảy ra trong khu vực, phản ánh sự phức tạp trong quản lý đất đai và mâu thuẫn trong cộng đồng.",
+    "latitude": 10.7700,
+    "longitude": 106.7500,
+    "severity": 4
+  },
+  {
+    "name": "Tai nạn trên đường Nguyễn Văn Hưởng",
+    "type": "ACCIDENT",
+    "description": "Đường Nguyễn Văn Hưởng, một tuyến đường ven sông Sài Gòn, có nhiều khúc cua và mật độ phương tiện cao, dẫn đến nguy cơ xảy ra tai nạn giao thông.",
+    "latitude": 10.7850,
+    "longitude": 106.7400,
+    "severity": 3
+  },
+  {
+    "name": "Lời đồn về 'bóng ma' trên sông Sài Gòn",
+    "type": "RUMOR",
+    "description": "Khu vực ven sông Sài Gòn, bao gồm cả các bến tàu cũ hoặc khu vực ít người qua lại, đôi khi xuất hiện những lời đồn về các hiện tượng kỳ lạ hoặc bóng ma, có thể liên quan đến các sự kiện lịch sử hoặc tai nạn trên sông.",
+    "latitude": 10.7700,
+    "longitude": 106.7100,
+    "severity": 2
+  }
+]
+---
+[GEMINI_RESPONSE] 2026-03-17T08:19:44.662Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "Tại vùng đất nơi những ngôi chùa cổ kính vươn mình giữa màn sương huyền hoặc, Chùa Huệ Nghiêm không chỉ là một công trình kiến trúc tâm linh mà còn là nơi ẩn chứa vô vàn lời đồn thổi về những sự kiện siêu nhiên. Nguồn gốc của những truyền thuyết này bắt nguồn từ hàng thế kỷ trước, khi vùng đất này còn hoang sơ và ít người qua lại. Tương truyền, nơi đây từng là một khu rừng thiêng, nơi các vị ẩn sĩ tu hành đắc đạo, hoặc là nơi an nghỉ của những linh hồn tiền kiếp mang trong mình oán khí hoặc công đức sâu dày. Người dân địa phương tin rằng, những lời cầu nguyện tha thiết, những nghi thức cúng bái cổ xưa đã vô tình hoặc cố ý khơi dậy những thực thể siêu nhiên tồn tại song song với thế giới vật chất. Các vị thần linh, Bồ Tát, hay thậm chí là những vong hồn lang thang, đều được cho là có thể hiển linh hoặc ảnh hưởng đến những người tới cầu nguyện. Những câu chuyện về việc nghe thấy tiếng tụng kinh không rõ nguồn gốc, nhìn thấy những bóng hình mờ ảo lướt qua trong đêm, hay cảm nhận được một luồng khí lạnh lẽo bất thường, đã trở thành một phần không thể tách rời của ngôi chùa. Sự pha trộn giữa tín ngưỡng dân gian, Phật giáo Đại thừa và những niềm tin cổ xưa về thế giới tâm linh đã tạo nên một bức tranh huyền bí, nơi ranh giới giữa thực tại và hư ảo trở nên mong manh. Mỗi phiến đá rêu phong, mỗi pho tượng cổ đều như đang cất giữ những bí mật của quá khứ, chờ đợi được giải mã hoặc có thể mãi mãi chìm trong màn sương bí ẩn của thời gian, khiến Chùa Huệ Nghiêm trở thành một điểm nóng thu hút những kẻ tìm kiếm sự khai sáng tâm linh và cả những người tò mò về thế giới vô hình.",
+  "chronological_history": "Lịch sử của Chùa Huệ Nghiêm, và những hiện tượng siêu nhiên gắn liền với nó, là một dòng chảy dài đan xen giữa tín ngưỡng và những ghi chép rời rạc. Giai đoạn đầu, có thể tính từ những năm 1700, khi ngôi chùa được xây dựng ban đầu trên nền đất cũ của một miếu thờ địa phương. Những ghi chép sơ sài cho thấy, đây là thời điểm những câu chuyện đầu tiên về 'hồn thiêng' bắt đầu xuất hiện, chủ yếu xoay quanh việc người dân thành tâm cầu nguyện và nhận được 'phước lành' hoặc 'cảnh báo' một cách bí ẩn. Đến khoảng cuối thế kỷ 19, đầu thế kỷ 20, Chùa Huệ Nghiêm trải qua một đợt trùng tu lớn. Đây cũng là giai đoạn ghi nhận nhiều 'sự kiện lạ' hơn. Một số văn bia cổ còn sót lại mô tả việc các nhà sư nghe thấy tiếng khóc than vọng lại từ khu vườn phía sau chùa vào những đêm trăng tròn, hoặc nhìn thấy ánh sáng lạ phát ra từ những khu vực ít người qua lại. Tuy nhiên, những ghi chép này thường mang tính ẩn dụ và khó xác định rõ ràng bản chất. Bước sang giữa thế kỷ 20, đặc biệt là trong giai đoạn chiến tranh và biến động xã hội, ngôi chùa trở thành nơi trú ẩn và là điểm tựa tinh thần cho nhiều người. Các câu chuyện về 'linh ứng' trở nên phổ biến hơn, đi kèm với đó là những lời kể về sự 'ám ảnh' tại một số khu vực nhất định trong chùa, đặc biệt là khu vực tháp chuông và nhà tổ. Một số nhân chứng ban đầu (được ghi nhận trong các bản ghi chép không chính thức của giáo hội) cho biết đã nhìn thấy 'bóng người mặc áo nâu sồng' di chuyển trong khuôn viên chùa vào ban đêm, dù không có ai ở đó. Thập niên 1970-1980 là giai đoạn ghi nhận nhiều báo cáo về các hiện tượng kỳ lạ nhất. Một nhóm các nhà nghiên cứu văn hóa dân gian địa phương đã cố gắng ghi lại các câu chuyện truyền miệng và thực hiện một số quan sát ban đầu. Họ ghi nhận sự gia tăng đột biến các báo cáo về cảm giác bị theo dõi, nghe thấy tiếng thì thầm không rõ lời, và xuất hiện các vật thể bay lạ (được mô tả là ánh sáng lập lòe) trong các bức ảnh chụp khu vực giếng cổ của chùa. Tuy nhiên, các dữ liệu thu thập được vào thời điểm này còn rất sơ sài và thiếu tính khoa học. Từ những năm 1990 đến nay, với sự phát triển của công nghệ và sự quan tâm ngày càng tăng của công chúng đối với các hiện tượng huyền bí, các báo cáo về những điều bất thường tại Chùa Huệ Nghiêm đã trở nên chi tiết và đa dạng hơn. Các vụ việc như mất đồ bí ẩn, xuất hiện mùi hương lạ không rõ nguồn gốc, hay trải nghiệm 'nhập đồng' đột ngột của một số tín đồ, đã được ghi nhận và lưu trữ bởi các hội nhóm nghiên cứu tâm linh. Mặc dù chưa có bất kỳ cơ quan chính thống nào xác nhận, lịch sử của Chùa Huệ Nghiêm vẫn tiếp tục được viết nên bởi những câu chuyện chưa có lời giải, tạo nên một bầu không khí ma mị và đầy bí ẩn.",
+  "witnesses": [
+    {
+      "name": "Ông Bùi Văn Tám",
+      "testimony": "Tôi là người trông coi khu vườn phía sau chùa này đã hơn ba mươi năm rồi. Cái khu đất đó, ai cũng nói là có 'cái gì đó' ở đó. Ban đầu tôi cũng không tin, nghĩ là mấy ông bà già hay dọa nhau thôi. Nhưng rồi, có những đêm tôi đang làm cỏ, tự nhiên nghe tiếng ai đó thở dài ngay bên tai, quay lại thì chả có ai. Có lần, tôi đang tưới cây thì thấy một cái bóng đen lù lù đứng dưới gốc cây đa cổ thụ, nó cao lắm, cao hơn cả cái cây luôn. Tôi sợ quá, bỏ chạy về nhà đóng cửa cài chặt. Sáng hôm sau ra xem thì chẳng có dấu vết gì cả, chỉ thấy mấy cái lá cây trên cành cao nhất bị rung rinh một cách lạ thường dù trời không có gió. Đã có lần, tôi đang ngồi nghỉ trên ghế đá, bỗng nhiên cảm thấy lạnh toát sống lưng, rồi có một giọng nói thì thầm gì đó bên tai, nghe không rõ là tiếng gì nhưng nó cứ lặp đi lặp lại như đang muốn cảnh báo điều gì đó. Tôi thấy có những ánh sáng xanh xanh lập lòe bay lượn quanh khu tháp chuông vào những đêm không trăng. Có người nói đó là vong linh của những người từng tu hành ở đây, có người lại bảo là do âm khí quá nặng. Tôi chỉ biết là, càng ở lâu trong cái không khí này, tôi càng thấy bất an. Đêm nào cũng vậy, cứ nửa đêm về sáng là lại có tiếng chuông chùa tự rung lên, dù chẳng có ai kéo chuông cả. Nó cứ kêu leng keng, buồn bã, làm tôi không tài nào ngủ yên được.",
+      "date": "12/07/1995"
+    },
+    {
+      "name": "Bà Nguyễn Thị Lan",
+      "testimony": "Tôi đến chùa này cầu duyên đã nhiều năm nay. Mấy bà bạn tôi bảo cứ đến ngày rằm hoặc mồng một, ra khu vực giếng cổ mà khấn thì linh lắm. Lần đầu tiên tôi ra đó, trời nhá nhem tối, không có một bóng người. Tôi thắp hương rồi khấn vái, đúng lúc đang lẩm bẩm thì bỗng nhiên một luồng gió lạnh buốt thổi qua, cuốn theo cả bụi đất mù mịt, dù cây cối xung quanh đứng im re. Tôi cảm giác như có ai đó đang đứng ngay sau lưng mình, nhưng quay lại thì không có ai cả. Cái giếng đó sâu lắm, nước thì đen ngòm. Cứ mỗi lần tôi đến đó, tôi lại nghe thấy tiếng nước chảy róc rách dưới đáy giếng, dù tôi biết là trời đã khô hạn mấy tháng nay rồi. Có lần, tôi nhìn xuống giếng, trong giây lát, tôi thấy một khuôn mặt mờ ảo hiện lên trong làn nước, nó nhìn tôi chằm chằm, đôi mắt trũng sâu và đầy vẻ u uất. Tôi giật mình hét lên rồi bỏ chạy. Từ đó về sau, tôi không dám đến gần cái giếng đó nữa. Nhưng lạ thay, dù tôi không đến đó nữa, nhưng thỉnh thoảng tôi vẫn nghe thấy tiếng khóc thút thít vọng về từ phía đó, đặc biệt là vào những đêm khuya thanh vắng. Cứ như là có một nỗi buồn vô hạn đang quẩn quanh nơi đó vậy.",
+      "date": "05/11/1998"
+    },
+    {
+      "name": "Thầy Trụ trì Thích Minh Tâm (ghi nhận lại)",
+      "testimony": "Trong suốt thời gian tôi phụng sự tại Chùa Huệ Nghiêm, đã chứng kiến không ít sự kiện vượt ngoài tầm hiểu biết thông thường. Có những đêm, ánh sáng lạ từ khu vực nhà Tổ phát ra, không giống bất kỳ loại đèn nào chúng tôi từng sử dụng. Âm thanh lạ, từ tiếng thì thầm đến tiếng rên rỉ, đôi khi vang lên từ những bức tường đá cổ. Đặc biệt, có một lần, vào đêm mưa bão dữ dội, toàn bộ hệ thống điện trong chùa bị ngắt, nhưng một luồng ánh sáng xanh nhạt kỳ lạ lại bao trùm lấy khu vực chính điện, soi rọi những pho tượng Phật cổ một cách huyền ảo. Khi cơn bão tan, ánh sáng cũng biến mất. Chúng tôi đã cố gắng tìm hiểu nguyên nhân, nhưng không có bất kỳ dấu hiệu bất thường nào về hệ thống điện hay môi trường xung quanh. Đã có những tín đồ đến đây và đột nhiên trải qua những trạng thái xuất thần, nói những lời mà họ không hiểu, hoặc kể lại những câu chuyện từ hàng trăm năm trước như thể họ đã từng chứng kiến. Dù chúng tôi luôn khuyến khích mọi người giữ tâm tịnh và không quá bám chấp vào những hiện tượng này, nhưng không thể phủ nhận rằng, Chùa Huệ Nghiêm mang một năng lượng đặc biệt, một sự giao thoa giữa cõi hữu hình và vô hình mà chúng tôi vẫn đang cố gắng lý giải bằng cả niềm tin và sự khiêm nhường.",
+      "date": "21/01/2005"
+    }
+  ],
+  "spectral_analysis": "Các báo cáo về những hiện tượng dị thường tại Chùa Huệ Nghiêm, mặc dù mang tính giai thoại, đã thúc đẩy một số nỗ lực phân tích sơ bộ về mặt năng lượng và tần số rung động. Các thiết bị đo EMF (Điện từ trường) cho thấy có những đỉnh đột biến không giải thích được, đặc biệt là ở những khu vực được cho là 'trọng điểm' của hoạt động siêu nhiên như giếng cổ, nhà tổ và khu vườn phía sau. Các đỉnh EMF này thường xuất hiện một cách ngẫu nhiên, không tương quan với các nguồn điện thông thường trong hoặc xung quanh chùa. Phân tích quang phổ ánh sáng trong các báo cáo nhân chứng cho thấy sự hiện diện của các dải quang phổ bất thường, đặc biệt là ánh sáng xanh lục và xanh lam nhạt, không phù hợp với phổ phát xạ của các nguồn sáng nhân tạo hoặc tự nhiên thông thường. Một số giả thuyết ban đầu cho rằng đây có thể là biểu hiện của các dạng năng lượng plasma lạnh hoặc các trường năng lượng sinh học chưa được xác định. Về mặt giả thuyết tâm linh, các chuyên gia về hiện tượng huyền bí cho rằng những năng lượng này có thể là 'dấu vết' năng lượng còn sót lại của các thực thể siêu nhiên, hoặc là sự cộng hưởng năng lượng từ các hoạt động tâm linh diễn ra trong thời gian dài. Các tần số rung động âm thanh được ghi nhận bởi một số thiết bị ghi âm tự động cũng cho thấy sự hiện diện của các dải tần số cận âm (infrasound) và siêu âm (ultrasound) không điển hình, có thể gây ra cảm giác bất an, sợ hãi hoặc ảo giác cho con người. Mặc dù các thông số đo đạc còn rời rạc và thiếu tính hệ thống, chúng cho thấy một sự bất thường rõ rệt trong môi trường năng lượng của Chùa Huệ Nghiêm. Mức độ nguy hiểm tiềm ẩn hiện chưa thể xác định rõ ràng, nhưng sự hiện diện của các trường năng lượng mạnh và không ổn định có thể gây ảnh hưởng đến tâm lý và sức khỏe của những người nhạy cảm. Cần có các nghiên cứu chuyên sâu hơn với thiết bị hiện đại để có thể đưa ra kết luận chính xác về bản chất của các hiện tượng này.",
+  "risk_assessment": "Dựa trên các ghi nhận lịch sử, lời khai nhân chứng và phân tích sơ bộ về môi trường năng lượng, Chùa Huệ Nghiêm tiềm ẩn một số rủi ro nhất định, chủ yếu liên quan đến yếu tố tâm lý và tâm linh. Mức độ rủi ro được đánh giá ở mức 'Trung bình đến Cao' đối với những cá nhân nhạy cảm hoặc có tiền sử về các vấn đề tâm thần. Các rủi ro chính bao gồm: \n1. Ảnh hưởng tâm lý: Sự hiện diện của các hiện tượng dị thường, dù thực hay ảo, có thể gây ra cảm giác sợ hãi, lo lắng, bất an, ám ảnh hoặc thậm chí là hoang tưởng cho những người tiếp xúc lâu dài hoặc ở một mình trong các khu vực được cho là có năng lượng mạnh. Các trường năng lượng bất thường cũng có thể gây ra các triệu chứng vật lý như đau đầu, buồn nôn, chóng mặt.\n2. Nguy cơ 'ám ảnh' hoặc 'tác động': Mặc dù chưa có bằng chứng cụ thể, nhưng không thể loại trừ khả năng các thực thể siêu nhiên (nếu tồn tại) có thể tác động tiêu cực đến con người, đặc biệt là những người có tâm trí yếu đuối hoặc mang trong mình những oán khí, nghiệp chướng.\n3. Nguy cơ tai nạn do mất cảnh giác: Trong quá trình tìm hiểu hoặc trải nghiệm các hiện tượng lạ, du khách hoặc người dân có thể trở nên mất tập trung, dẫn đến các tai nạn không đáng có, đặc biệt là ở các khu vực có địa hình phức tạp như giếng cổ, khu vườn rậm rạp hoặc các công trình kiến trúc cổ.\n\nKhuyến cáo an toàn:\n- Đối với du khách và người dân:\n  - Giữ tâm thế bình tĩnh, không hoang mang hay tò mò thái quá.\n  - Tránh đến các khu vực bị hạn chế hoặc có cảnh báo nguy hiểm, đặc biệt là vào ban đêm.\n  - Không nên ở một mình trong khuôn viên chùa vào thời điểm vắng vẻ.\n  - Nếu cảm thấy bất an hoặc có các triệu chứng bất thường về sức khỏe, hãy rời khỏi khu vực ngay lập tức và tìm kiếm sự trợ giúp y tế hoặc tâm lý.\n  - Nên đi theo nhóm và thông báo cho ban quản lý chùa nếu có ý định khám phá các khu vực ít người qua lại.\n- Đối với Ban quản lý chùa và các nhà nghiên cứu:\n  - Cần có các biện pháp giám sát và cảnh báo rõ ràng tại các khu vực có nguy cơ cao.\n  - Khuyến khích việc nghiên cứu khoa học có hệ thống để hiểu rõ hơn về bản chất các hiện tượng, tránh suy diễn hoặc lan truyền mê tín dị đoan.\n  - Cân nhắc việc bố trí nhân sự trực canh vào ban đêm tại các khu vực nhạy cảm.\n  - Lưu trữ cẩn thận các ghi nhận về hiện tượng, tránh làm mất mát thông tin quý giá.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: 'Supernatural Phenomena at Ancient Temples' at 'Hue Nghiem Pagoda'. Scene: foggy, low light, unsettling, with a faint, ethereal blue light emanating from an ancient well. A shadowy, indistinct figure can be barely perceived near the well. style: grainy, 1990s aesthetic, slightly distorted, VHS artifacting."
+}
+---
+[GEMINI_RESPONSE] 2026-03-17T08:21:09.887Z Status: 200 OK
+[GEMINI_TEXT] ```json
+[
+  {
+    "name": "Unexplained Crash at Cong Hoa - Hoang Hoa Tham Overpass",
+    "type": "ACCIDENT",
+    "description": "A recurring site of unexplained traffic accidents, the Cong Hoa - Hoang Hoa Tham steel overpass has been identified as an accident black spot, with multiple crashes reported in recent years.",
+    "latitude": 10.795,
+    "longitude": 106.651,
+    "severity": 4
+  },
+  {
+    "name": "Mysterious Disappearances Near Saigon River",
+    "type": "RUMOR",
+    "description": "Local whispers suggest that individuals have gone missing under peculiar circumstances near certain stretches of the Saigon River within the city's central districts, with no logical explanation ever provided.",
+    "latitude": 10.770,
+    "longitude": 106.700,
+    "severity": 3
+  },
+  {
+    "name": "The Phantom of Gia Long High School",
+    "type": "GHOST",
+    "description": "Legends persist of a spectral figure, often described as a phantom in a purple áo dài, seen wandering the grounds of the former Gia Long High School for Girls, particularly on moonlit nights.",
+    "latitude": 10.790,
+    "longitude": 106.690,
+    "severity": 3
+  },
+  {
+    "name": "Unusual Activity at the President Building (727 Tran Hung Dao)",
+    "type": "GHOST",
+    "description": "The former President Building, now largely vacant, is rumored to be haunted by the echoes of its past, with residents reporting strange whispers, screams, and sightings of spectral figures, particularly on full moons.",
+    "latitude": 10.750,
+    "longitude": 106.670,
+    "severity": 4
+  },
+  {
+    "name": "Fatal Collision on Vo Chi Cong Street",
+    "type": "ACCIDENT",
+    "description": "Kenh Mot Tan bridge on Vo Chi Cong street has been flagged as a critical accident black spot, experiencing a number of severe crashes that necessitate ongoing safety reviews.",
+    "latitude": 10.755,
+    "longitude": 106.760,
+    "severity": 4
+  },
+  {
+    "name": "Alleged Murder Staged as Suicide in Luxury Villa",
+    "type": "MURDER",
+    "description": "Authorities are investigating the suspicious death of a foreign national found in a luxury villa, with initial findings suggesting the scene may have been staged to resemble a suicide.",
+    "latitude": 10.775,
+    "longitude": 106.720,
+    "severity": 5
+  },
+  {
+    "name": "The Case of the Dismembered Body in District 7",
+    "type": "MURDER",
+    "description": "A gruesome discovery was made in a rented house in District 7, where a Korean national was allegedly murdered and dismembered, with evidence pointing to a robbery motive.",
+    "latitude": 10.740,
+    "longitude": 106.700,
+    "severity": 5
+  },
+  {
+    "name": "Reported 'Midnight Call' Phenomenon",
+    "type": "RUMOR",
+    "description": "A chilling urban legend speaks of mysterious phone calls received precisely at midnight from unknown entities, often delivering cryptic messages or prophecies to unsuspecting residents.",
+    "latitude": 10.780,
+    "longitude": 106.690,
+    "severity": 3
+  },
+  {
+    "name": "The Girl Who Sings Cải Lương",
+    "type": "GHOST",
+    "description": "Within Binh Hung Hoa Cemetery, tales circulate of a spectral 16-year-old girl, a lover of traditional Cải Lương opera, whose melancholic singing can allegedly be heard on quiet nights.",
+    "latitude": 10.770,
+    "longitude": 106.600,
+    "severity": 3
+  },
+  {
+    "name": "Unexplained Fire at a Tube House",
+    "type": "HISTORICAL INCIDENTS",
+    "description": "A devastating fire in 2001 engulfed a tube house on Ly Thai To Street, claiming the lives of seven family members under mysterious circumstances in the early hours of the morning.",
+    "latitude": 10.770,
+    "longitude": 106.670,
+    "severity": 4
+  },
+  {
+    "name": "The Haunted Homestead of Hui Bon Hoa",
+    "type": "GHOST",
+    "description": "The former opulent residence of a wealthy merchant, now the Ho Chi Minh City Fine Arts Museum, is said to be haunted by the spirit of his deceased daughter, who is believed to reside in her former room.",
+    "latitude": 10.765,
+    "longitude": 106.695,
+    "severity": 3
+  },
+  {
+    "name": "The 'Marai' Legend of Detachable Limbs",
+    "type": "URBAN LEGENDS",
+    "description": "A terrifying legend speaks of the 'Marai,' a creature capable of detaching its head and limbs to slip through small spaces and hunt victims, a curse often passed down through families.",
+    "latitude": 10.775,
+    "longitude": 106.710,
+    "severity": 4
+  },
+  {
+    "name": "Fatal Accidents at Ton Duc Thang-Ham Nghi Intersection",
+    "type": "ACCIDENT",
+    "description": "The intersection of Ton Duc Thang and Ham Nghi has been identified as a significant accident hotspot, with multiple fatal crashes occurring in recent years due to complex traffic flow.",
+    "latitude": 10.765,
+    "longitude": 106.705,
+    "severity": 4
+  },
+  {
+    "name": "Unexplained Death in Apartment Complex",
+    "type": "MURDER",
+    "description": "The body of a foreign male, showing signs of decomposition and blood, was discovered in an apartment bathroom, prompting an investigation into the circumstances of his death.",
+    "latitude": 10.778,
+    "longitude": 106.740,
+    "severity": 4
+  },
+  {
+    "name": "The 'Girl Who Vanished' Legend",
+    "type": "URBAN LEGENDS",
+    "description": "A local legend tells of a beautiful, legendary actress who mysteriously disappeared after a supposed accident, her fate remaining an unsolved enigma.",
+    "latitude": 10.770,
+    "longitude": 106.680,
+    "severity": 3
+  },
+  {
+    "name": "Tragic Fire at a Motorbike Shop",
+    "type": "HISTORICAL INCIDENTS",
+    "description": "A severe fire broke out in the early hours at a motorbike shop's showroom, tragically resulting in the loss of seven lives within the tube house structure.",
+    "latitude": 10.770,
+    "longitude": 106.670,
+    "severity": 4
+  },
+  {
+    "name": "Alleged Murder of a Korean National for Money",
+    "type": "MURDER",
+    "description": "A Korean businessman was arrested for allegedly murdering his compatriot, dismembering the body, and attempting to flee with the victim's property, indicating a crime driven by financial desperation.",
+    "latitude": 10.745,
+    "longitude": 106.705,
+    "severity": 5
+  },
+  {
+    "name": "Supernatural Occurrences at the Jade Emperor Pagoda",
+    "type": "GHOST",
+    "description": "While a place of worship, local folklore sometimes attributes unusual occurrences and spiritual energies to the Jade Emperor Pagoda, particularly during certain rituals.",
+    "latitude": 10.760,
+    "longitude": 106.690,
+    "severity": 2
+  },
+  {
+    "name": "Sinkholes Disrupting Traffic in District 11",
+    "type": "ACCIDENT",
+    "description": "Following heavy thunderstorms, multiple sinkholes have appeared on Eu Co Street in District 11, creating significant hazards for traffic and requiring immediate road closures and repairs.",
+    "latitude": 10.770,
+    "longitude": 106.650,
+    "severity": 3
+  },
+  {
+    "name": "The Cursed President Building",
+    "type": "GHOST",
+    "description": "Completed in 1960, the President Building (now 727 Tran Hung Dao) is said to have experienced numerous deadly accidents during its construction, leading to fears of spiritual unrest within its walls.",
+    "latitude": 10.750,
+    "longitude": 106.670,
+    "severity": 4
+  },
+  {
+    "name": "Unexplained Deaths of Korean Nationals",
+    "type": "MURDER",
+    "description": "A series of unexplained deaths involving Korean nationals in Ho Chi Minh City has raised concerns, with at least two recent cases involving bodies found in suspicious circumstances, prompting high-intensity investigations.",
+    "latitude": 10.770,
+    "longitude": 106.700,
+    "severity": 5
+  },
+  {
+    "name": "The 'Psychic Overwhelmed by Trauma' Legend",
+    "type": "URBAN LEGENDS",
+    "description": "A narrative within Vietnamese horror anthologies features a psychic protagonist who is tormented by past trauma, hinting at unresolved spiritual or psychological disturbances tied to specific locations.",
+    "latitude": 10.770,
+    "longitude": 106.690,
+    "severity": 3
+  },
+  {
+    "name": "Accident Black Spot on National Highway 50 - Nguyen Van Linh",
+    "type": "ACCIDENT",
+    "description": "The intersection of National Highway 50 and Nguyen Van Linh has been identified as a severe accident black spot, with a high frequency of crashes necessitating urgent safety interventions.",
+    "latitude": 10.700,
+    "longitude": 106.650,
+    "severity": 4
+  },
+  {
+    "name": "The Spirit of the Banyan Tree",
+    "type": "GHOST",
+    "description": "Students and staff at a former all-girl high school report sightings of a spectral figure near an ancient banyan tree on campus, a presence often felt during quiet hours.",
+    "latitude": 10.790,
+    "longitude": 106.690,
+    "severity": 3
+  },
+  {
+    "name": "Mysterious Disappearance of a Legendary Actress",
+    "type": "URBAN LEGENDS",
+    "description": "A popular urban legend recounts the mysterious disappearance of a beautiful and famous actress following an unexplained accident, leaving her fate a subject of local speculation.",
+    "latitude": 10.770,
+    "longitude": 106.680,
+    "severity": 3
+  },
+  {
+    "name": "The 'Magician Surrounded by the Dead' Tale",
+    "type": "GHOST",
+    "description": "A chilling story involves a magician and his father, whose peculiar worship habits allegedly lead to the magician being surrounded by spectral entities.",
+    "latitude": 10.770,
+    "longitude": 106.690,
+    "severity": 3
+  },
+  {
+    "name": "Fatal Accidents at Kenh Mot Tan Bridge",
+    "type": "ACCIDENT",
+    "description": "Kenh Mot Tan bridge on Vo Chi Cong street is recognized as a dangerous accident black spot, with a history of multiple fatal collisions requiring enhanced safety measures.",
+    "latitude": 10.755,
+    "longitude": 106.760,
+    "severity": 4
+  },
+  {
+    "name": "The 'Unexplained Accident' Legend",
+    "type": "URBAN LEGENDS",
+    "description": "Whispers persist about a tragic, unexplained accident that befell a young woman in a specific building, leading to local tales of haunting and spectral visitations.",
+    "latitude": 10.750,
+    "longitude": 106.670,
+    "severity": 3
+  },
+  {
+    "name": "The 'Spiritually Deficient' Building",
+    "type": "GHOST",
+    "description": "A building's construction was reportedly plagued by deadly accidents, leading to a shaman being hired to appease restless spirits by burying the bodies of virgins at its corners.",
+    "latitude": 10.750,
+    "longitude": 106.670,
+    "severity": 4
+  },
+  {
+    "name": "The 'Midnight Call' Phenomenon",
+    "type": "RUMOR",
+    "description": "An unsettling urban legend describes a mysterious phone call received at midnight from an unknown source, often delivering cryptic messages or prophecies.",
+    "latitude": 10.780,
+    "longitude": 106.690,
+    "severity": 3
+  },
+  {
+    "name": "The 'Woman Who Killed Herself' Ghost Story",
+    "type": "GHOST",
+    "description": "A building is rumored to be haunted by the spirit of a young woman who tragically took her own life after an assault, her presence reportedly felt on full moon nights.",
+    "latitude": 10.750,
+    "longitude": 106.670,
+    "severity": 4
+  },
+  {
+    "name": "The 'Five Family Members Murdered' Case",
+    "type": "MURDER",
+    "description": "A brutal crime occurred in Binh Tan district where five members of a family were murdered and their home robbed, with a suspect later arrested for the killings.",
+    "latitude": 10.730,
+    "longitude": 106.640,
+    "severity": 5
+  },
+  {
+    "name": "The 'Psychic Overwhelmed by Trauma' Legend",
+    "type": "URBAN LEGENDS",
+    "description": "A narrative within Vietnamese horror anthologies features a psychic protagonist who is tormented by past trauma, hinting at unresolved spiritual or psychological disturbances tied to specific locations.",
+    "latitude": 10.770,
+    "longitude": 106.690,
+    "severity": 3
+  },
+  {
+    "name": "The 'Magician Surrounded by the Dead' Tale",
+    "type": "GHOST",
+    "description": "A chilling story involves a magician and his father, whose peculiar worship habits allegedly lead to the magician being surrounded by spectral entities.",
+    "latitude": 10.770,
+    "longitude": 106.690,
+    "severity": 3
+  },
+  {
+    "name": "The 'Spiritually Deficient' Building",
+    "type": "GHOST",
+    "description": "A building's construction was reportedly plagued by deadly accidents, leading to a shaman being hired to appease restless spirits by burying the bodies of virgins at its corners.",
+    "latitude": 10.750,
+    "longitude": 106.670,
+    "severity": 4
+  },
+  {
+    "name": "The 'Woman Who Killed Herself' Ghost Story",
+    "type": "GHOST",
+    "description": "A building is rumored to be haunted by the spirit of a young woman who tragically took her own life after an assault, her presence reportedly felt on full moon nights.",
+    "latitude": 10.750,
+    "longitude": 106.670,
+    "severity": 4
+  },
+  {
+    "name": "The 'Five Family Members Murdered' Case",
+    "type": "MURDER",
+    "description": "A brutal crime occurred in Binh Tan district where five members of a family were murdered and their home robbed, with a suspect later arrested for the killings.",
+    "latitude": 10.730,
+    "longitude": 106.640,
+    "severity": 5
+  },
+  {
+    "name": "The 'Marai' Legend of Detachable Limbs",
+    "type": "URBAN LEGENDS",
+    "description": "A terrifying legend speaks of the 'Marai,' a creature capable of detaching its head and limbs to slip through small spaces and hunt victims, a curse often passed down through families.",
+    "latitude": 10.775,
+    "longitude": 106.710,
+    "severity": 4
+  },
+  {
+    "name": "The 'Girl Who Sings Cải Lương'",
+    "type": "GHOST",
+    "description": "Within Binh Hung Hoa Cemetery, tales circulate of a spectral 16-year-old girl, a lover of traditional Cải Lương opera, whose melancholic singing can allegedly be heard on quiet nights.",
+    "latitude": 10.770,
+    "longitude": 106.600,
+    "severity": 3
+  }
+]
+```
+---
+[GEMINI_RESPONSE] 2026-03-17T08:22:21.668Z Status: 200 OK
+[GEMINI_TEXT] {
+  "legend_overview": "The legend of the Banyan Tree's Spirit is deeply entwined with the very soil of the former St. Augustine's Academy for Girls, a place now shrouded in whispers and hushed accounts. Local folklore, passed down through generations long before the academy even stood, speaks of a powerful, ancient entity residing within the colossal banyan tree that predates recorded history in this region. This entity, often referred to as the 'Arboreal Guardian' or 'The Weaver of Whispers,' was believed to be a benevolent protector of the land, but also fiercely territorial. Ancient tales describe rituals performed by indigenous tribes under its sprawling canopy, seeking its favor or appeasing its temper. When the land was later acquired for the academy in the early 20th century, the construction was reportedly met with unusual hardships and unexplained accidents, which some attributed to the tree's displeasure. The spirit, it is said, became more reclusive, its presence manifesting only during the liminal hours – twilight, dawn, and the dead of night. Over time, as generations of students walked its grounds, the legend evolved. The protector became a melancholic specter, a lingering sorrow tied to the tree. Some believe it is the echo of a young woman who met a tragic end near the tree centuries ago, her spirit forever bound to its roots. Others theorize it is a nature spirit, disturbed by the encroaching human presence, its manifestations becoming more pronounced as the land’s energy is disrupted. The sheer age and size of the banyan tree lend credence to the idea that it is a nexus of significant spiritual energy, a focal point for phenomena that defy rational explanation. Its gnarled branches, reaching like skeletal fingers towards the sky, and its aerial roots that descend like ethereal curtains, create an atmosphere of profound mystery and ancient power, a perfect backdrop for the spectral encounters that have become synonymous with its name.",
+  "chronological_history": "The earliest accounts, predating formal documentation, speak of the banyan tree as a sacred site for indigenous communities, utilized for spiritual ceremonies and as a landmark. The land was acquired by the Sisters of St. Augustine in 1910, and construction of the academy commenced. Initial reports from the 1920s mention 'unease' among groundskeepers and early students, with unusual cold spots and faint whispers reported near the banyan. By the 1950s, more specific sightings began to emerge. A diary entry from a student named Eleanor Vance, dated October 1958, details seeing a 'shimmering, translucent figure' standing beneath the banyan tree at dusk. The late 1970s saw an increase in reports, coinciding with a period of campus expansion that encroached closer to the tree's root system. Several faculty members reported feeling watched, and a few claimed to have seen a 'tall, shadowy form' moving between the tree's lower branches. The academy officially closed its doors in 1995 due to declining enrollment and funding issues. Post-closure, the campus became largely abandoned, attracting local teenagers and urban explorers. It was during this period, in the late 1990s and early 2000s, that the 'Spirit of the Banyan Tree' phenomenon gained significant traction within local paranormal enthusiast circles. Amateur ghost hunters and paranormal investigation teams began documenting increased activity. A notable incident occurred in March 1998 when a group claimed to have captured EVPs (Electronic Voice Phenomena) of a mournful sigh emanating from the vicinity of the tree. In 2005, the property was sold to a private developer with plans for demolition, sparking protests from historical preservationists and local folklore enthusiasts. During the period of uncertainty surrounding the property's future, a series of particularly vivid sightings were reported by squatters and trespassers, describing a 'figure composed of mist and shadow' that seemed to react to their presence. Despite the surrounding development and the eventual demolition of the academy buildings in 2010, the banyan tree remains, and reports of its spectral inhabitant persist, albeit less frequently, often dismissed as local legend or the product of an overactive imagination fueled by the eerie silence of the now-cleared land.",
+  "witnesses": [
+    {
+      "name": "Agnes Holloway",
+      "testimony": "I was a groundskeeper at St. Augustine's for nearly thirty years, starting back in '68. That old banyan tree… it was always the heart of the campus, in more ways than one. During the day, it was just a tree, magnificent, sure, but ordinary. But at night, especially when the moon was hidden, it felt different. I remember one night, must have been around '85, I was doing my final rounds. The air was deathly still, not a leaf rustling. I was near the back fence, by the old banyan, and I saw it. A woman, I suppose. She was tall, incredibly thin, and seemed to be made of moonlight and mist. She wasn't walking, more like… drifting. Her form was indistinct, like looking through thick fog, but I could make out the long, flowing shape of a dress. She stood right at the edge of the deepest shadows cast by the tree. I froze, my heart pounding like a drum against my ribs. I couldn't hear anything, no footsteps, no rustling clothes, just silence. She didn't look at me, her face was just a blur, but I felt… observed. A profound sadness washed over me, so intense it felt like my own. I turned and practically ran back to the security office, didn't look back until I was safely inside. Never saw her that clearly again, but I always felt her presence when I was near that tree after dark. A cold, watchful sorrow.",
+      "date": "12/08/1997"
+    },
+    {
+      "name": "Mark \"Ghost\" Riley",
+      "testimony": "Yeah, I was part of a few paranormal investigation groups back in the day, mostly late 90s. We hit up St. Augustine's a bunch after it closed down. That banyan tree was our main target. It just *felt* heavy, you know? Like the air around it was thick with old memories. We set up our gear one night, EMF meters, audio recorders, the works. It was dead quiet, pitch black except for our flashlights. Around 2 AM, the temperature just plummeted. Our breath was pluming, and the EMF meter went absolutely wild, spiking erratically near the base of the trunk. Then, the audio recorder, which had been silent, picked up this sound… it wasn't quite a sigh, more like a drawn-out whisper, full of anguish. It sounded like a woman’s voice, but distorted, layered. We also saw it, or felt it. A shadow detached itself from the tree, taller than any person, moving with an unnatural fluidity. It wasn't just a trick of the light; it had substance, a definite presence that radiated cold and a desperate sort of loneliness. We got some blurry photos, too, just indistinct shapes against the dark bark. It was genuinely unnerving; not aggressive, but deeply sorrowful and ancient. We never got a clear image, but the feeling of being in the presence of something profoundly old and sad stayed with us.",
+      "date": "05/11/2001"
+    },
+    {
+      "name": "Sarah Chen",
+      "testimony": "I was a student there in the early 90s, before it all shut down. We all knew the stories about the 'tree lady.' Most of us thought it was just urban legend to scare the younger girls, but… sometimes, walking home late from the library, especially if I had to pass near the banyan, I’d get this overwhelming sense of being watched. The air would feel colder, and I’d hear faint rustling, even when there was no wind. One evening, I was waiting for my parents to pick me up, and I was sitting on a bench not too far from the tree. It was twilight, the light was fading fast. I looked towards the banyan, and for a split second, I saw her. Or thought I did. A figure, very faint, standing between the thickest roots. It looked like a woman in a long, old-fashioned dress, almost transparent. She seemed to be looking down, and then she just… faded away. Like smoke dissipating. I remember feeling a wave of intense sadness, like I was intruding on someone's private grief. I never told anyone the full story, just mumbled something about seeing shadows. But that image, that feeling, it’s stayed with me all these years. It wasn’t scary like a monster, but profoundly, deeply sad.",
+      "date": "21/07/1996"
+    }
+  ],
+  "spectral_analysis": "The phenomenon associated with the Banyan Tree at the former St. Augustine's Academy exhibits characteristics consistent with residual hauntings and, potentially, intelligent or interactive spectral activity. Initial spectral readings taken by various independent paranormal research teams between 1998 and 2008 consistently indicated anomalous electromagnetic field (EMF) fluctuations in the vicinity of the banyan tree, particularly during hours of low ambient light and temperature drops. These spikes often exceeded baseline readings by a significant margin (reported peaks of 10-15 mG, compared to a typical baseline of 0.5 mG), correlating with witness accounts of perceived presence and cold spots. Auditory analysis of recorded sessions has revealed numerous instances of EVPs, the most compelling of which involve faint, mournful sighs and indistinct vocalizations that, when filtered and amplified, suggest a feminine cadence. Spectrographic analysis of these sounds has not yielded conclusive results, but some researchers propose harmonic frequencies indicative of distress or sorrow. Visual anomalies, often described as 'mist-like' or 'shadowy figures,' are frequently reported. While photographic and video evidence remains inconclusive due to the low-light conditions and grainy nature of the recordings, thermal imaging has occasionally captured localized cold spots correlating with these visual phenomena, registering temperature drops of up to 15°F below ambient levels. These localized temperature anomalies suggest a significant energy displacement, a common indicator in paranormal research. Psychometric readings (if available and verifiable) could potentially offer insights into the emotional residue imprinted upon the location. The prevailing hypothesis leans towards a 'sorrowful apparition,' possibly a residual imprint of a past trauma or an intelligent entity bound to the location due to strong emotional ties, perhaps linked to the tree itself or a tragic event that occurred within its vicinity. The entity's reported passive, observational nature, coupled with the palpable sense of sadness, suggests a non-hostile, yet deeply melancholic, spectral presence. Further analysis would require controlled environmental studies and advanced sensory data collection to differentiate between residual energy echoes and a potentially sentient manifestation.",
+  "risk_assessment": "The spectral phenomena associated with the 'Spirit of the Banyan Tree' are currently assessed as posing a low to moderate psychological risk, with negligible physical risk. The primary danger lies in the potential for psychological distress stemming from encounters. Witness testimonies consistently report feelings of intense sadness, unease, and a pervasive sense of being watched. Prolonged exposure or particularly vivid encounters could potentially trigger anxiety, fear, or mild psychological trauma in sensitive individuals. The localized temperature drops and EMF fluctuations, while not physically harmful in themselves, contribute to the unsettling atmosphere and can exacerbate feelings of fear. There is no evidence to suggest that the entity is physically aggressive or capable of causing direct physical harm. However, the historical context of the site (abandoned school, potential for structural decay in remaining structures) and the remote location could pose indirect risks such as falls or disorientation, especially during nighttime investigations. The legend itself, while intriguing, could also lead individuals to take unnecessary risks in seeking encounters. Recommendations for any individuals considering investigating the site or who have experienced phenomena include: 1. Maintain a respectful and non-intrusive approach. Avoid provoking or challenging the presence. 2. Limit exposure duration, especially during periods of reported heightened activity (e.g., late night, specific atmospheric conditions). 3. If experiencing significant psychological distress, cease investigation and seek a calming environment. 4. Ensure personal safety by being aware of the surroundings, especially in abandoned or overgrown areas. Avoid solo investigations. 5. Document experiences objectively, distinguishing between sensory perception and emotional response. 6. If the site is to be redeveloped, ensure proper safety protocols are in place to manage any potential residual energy or psychological impact on future inhabitants or workers, though current evidence suggests the risk is primarily psychological and localized to the tree's immediate vicinity.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: The Spirit of the Banyan Tree at the former St. Augustine's Academy. Scene: foggy, low light, unsettling, with the silhouette of a colossal, ancient banyan tree dominating the frame, its aerial roots creating a curtain-like effect. A faint, translucent, feminine figure is barely discernible standing near the base of the trunk, shrouded in mist. style: grainy, 1990s aesthetic, slightly overexposed in parts, with visible film artifacts like dust specks and light leaks."
+}
+---

@@ -41,3 +41,24 @@
   "clientVersion": "7.4.1",
   "name": "PrismaClientKnownRequestError"
 }
+[API_ERROR] 2026-03-17T05:59:27.060Z {
+  "message": "Route not found"
+}
+[API_ERROR] 2026-03-17T06:03:45.258Z {
+  "message": "Route not found"
+}
+[API_ERROR] 2026-03-17T06:08:01.105Z {
+  "message": "Route not found"
+}
+[API_ERROR] 2026-03-17T06:08:01.113Z {
+  "message": "Route not found"
+}
+[API_ERROR] 2026-03-17T06:18:42.577Z {
+  "code": "FST_ERR_CTP_EMPTY_JSON_BODY",
+  "name": "FastifyError",
+  "statusCode": 400,
+  "message": "Body cannot be empty when content-type is set to 'application/json'"
+}
+[API_ERROR] 2026-03-17T06:20:27.384Z {
+  "message": "Route not found"
+}

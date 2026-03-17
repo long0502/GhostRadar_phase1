@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import type { FastifyBaseLogger } from 'fastify';
 import { prisma } from '../db/prisma';
-import { callGemini } from './gemini.service';
+import { callGeminiQueued, callGeminiImageQueued } from './gemini.service';
 import { isAiDailyQuotaExceededError } from './quota.service';
 
 const LANGUAGE_MAP: Record<string, string> = {
@@ -152,7 +152,7 @@ Trả về định dạng JSON Schema nghiêm ngặt.
 required: ["legend_overview", "chronological_history", "witnesses", "spectral_analysis", "risk_assessment", "image_prompt"]
   };
 
-const result = await callGemini({
+const result = await callGeminiQueued({
   endpoint: 'expand',
   prompt,
   // Uses GEMINI_MODEL from .env (same model as scan)
@@ -316,6 +316,7 @@ export async function expandEventLevelOne(
         spectral_analysis: detail.spectral_analysis,
         risk_assessment: detail.risk_assessment,
         image_prompt: detail.image_prompt,
+        image_url: '',
       },
     },
   });

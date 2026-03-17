@@ -6,6 +6,7 @@ import gridCacheRoutes from './routes/gridCache';
 import scanRoutes from './routes/scan';
 import eventsRoutes from './routes/events';
 import aiHealthRoutes from './routes/aiHealth';
+import queueStatusRoutes from './routes/queue-status';
 import { Prisma } from '@prisma/client';
 import { ZodError } from 'zod';
 import { getGeminiModel, getPort } from './utils/env';
@@ -123,6 +124,7 @@ async function start() {
   app.register(scanRoutes, { prefix: '/scan' });
   app.register(eventsRoutes, { prefix: '/events' });
   app.register(aiHealthRoutes, { prefix: '/internal' });
+  app.register(queueStatusRoutes, { prefix: '/queue-status' });
   console.log('Metrics endpoint registered');
   app.log.info('\n' + app.printRoutes());
   try {

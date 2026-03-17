@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { prisma } from '../db/prisma';
 import { globalStats } from '../core/metrics';
 import type { ScanInput, ScanServiceResult } from '../domain/scan';
-import { callGemini } from './gemini.service';
+import { callGeminiQueued } from './gemini.service';
 import { computeScanGridId } from '../utils/grid';
 import { isAiDailyQuotaExceededError } from './quota.service';
 
@@ -377,7 +377,7 @@ async function generateWithGemini(
   aiCallCount += 1;
   console.log('Gemini Scan Prompt:', prompt);
 
-  const result = await callGemini({
+  const result = await callGeminiQueued({
     endpoint: 'scan',
     prompt,
     systemInstruction: 'You are a data API. You MUST respond with ONLY a raw JSON array. Do NOT include any text, explanation, introduction, markdown formatting, or commentary before or after the JSON. Your entire response must start with [ and end with ]. No exceptions.',

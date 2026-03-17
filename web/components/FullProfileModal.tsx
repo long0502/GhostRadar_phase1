@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import type { DetailedProfile, RadarEvent } from '@/lib/types';
 import { useTranslation } from '@/i18n/useTranslation';
+import { generateEventImage } from '@/lib/api';
 
 type FullProfileModalProps = {
     profile: DetailedProfile | null;
@@ -30,12 +31,66 @@ function prepareSections(sections: DetailedProfile['sections']): DetailedProfile
 
 export function FullProfileModal({ profile, event, isOpen, onClose, userLocation }: FullProfileModalProps) {
     const { t } = useTranslation();
+    const [asyncImageUrl, setAsyncImageUrl] = useState<string | null>(null);
+    const [imageLoading, setImageLoading] = useState(true); // Start true — assume loading
+    const [imageError, setImageError] = useState<string | null>(null);
 
     // Prepare and clean sections
     const cleanSections = useMemo(() => {
         if (!profile) return null;
         return prepareSections(profile.sections);
     }, [profile]);
+
+    // Reset states when event changes
+    useEffect(() => {
+        setAsyncImageUrl(null);
+        setImageLoading(false); // DISABLED: no image quota
+        setImageError(null);
+    }, [event?.id]);
+
+    // Async image generation — DISABLED (no image generation quota)
+    // To re-enable: remove the early return below
+    useEffect(() => {
+        if (!isOpen || !event || !cleanSections) return;
+
+        // If the detail already has an image (from cache), use it
+        const existingUrl = cleanSections.image_url;
+        if (existingUrl && existingUrl.length > 10) {
+            setAsyncImageUrl(existingUrl);
+            setImageLoading(false);
+            return;
+        }
+
+        // DISABLED: Image generation — uncomment when API quota is available
+        setImageLoading(false);
+        return;
+
+        /*
+        setAsyncImageUrl(null);
+        setImageLoading(true);
+        setImageError(null);
+        let cancelled = false;
+
+        generateEventImage(event.id)
+            .then((result) => {
+                if (cancelled) return;
+                if (result.image_url && result.image_url.length > 10) {
+                    setAsyncImageUrl(result.image_url);
+                } else if (result.error) {
+                    setImageError(result.error);
+                }
+            })
+            .catch((err) => {
+                if (cancelled) return;
+                setImageError(err instanceof Error ? err.message : 'Image generation failed');
+            })
+            .finally(() => {
+                if (!cancelled) setImageLoading(false);
+            });
+
+        return () => { cancelled = true; };
+        */
+    }, [isOpen, event?.id, cleanSections?.image_url]);
 
     if (!isOpen || !profile || !event || !cleanSections) return null;
 
@@ -52,6 +107,8 @@ export function FullProfileModal({ profile, event, isOpen, onClose, userLocation
         distanceStr = d.toFixed(2);
     }
 
+    const displayImageUrl = asyncImageUrl || cleanSections.image_url;
+
     return (
         <div className={`fixed inset-0 z-[200] pointer-events-none flex justify-center items-center transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
             <div className="w-full h-full max-w-[880px] bg-black/45 backdrop-blur-[15px] pointer-events-auto flex flex-col border-x border-[#00ff41]/20 shadow-[0_0_50px_rgba(0,0,0,0.8),inset_0_0_80px_rgba(0,255,65,0.03)] font-mono overflow-y-auto text-[#00ff41] relative">
@@ -61,7 +118,7 @@ export function FullProfileModal({ profile, event, isOpen, onClose, userLocation
                         onClick={onClose}
                         className="hover:bg-[#00ff41]/20 px-4 py-2 text-sm border border-[#00ff41] rounded uppercase tracking-widest transition-colors"
                     >
-                        &lt; QUAY LẠI RADAR
+                        &lt; {t('backToRadar')}
                     </button>
                     <button className="flex items-center gap-2 hover:bg-[#00ff41]/20 px-4 py-2 border border-[#00ff41]/50 rounded text-xs uppercase cursor-not-allowed opacity-50">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
@@ -76,9 +133,9 @@ export function FullProfileModal({ profile, event, isOpen, onClose, userLocation
                             {event.localizedTitle || event.title}
                         </h1>
                         <div className="flex flex-wrap gap-6 text-sm text-[#00ff41]/80 font-mono tracking-widest uppercase">
-                            <span className="text-red-500 font-bold">PHÂN LOẠI: {event.legend_type || event.type || 'UNKNOWN'}</span>
-                            <span className="text-red-500 font-bold">KHOẢNG CÁCH: {distanceStr} KM</span>
-                            <span>TỌA ĐỘ: {event.lat.toFixed(4)}, {event.lon.toFixed(4)}</span>
+                            <span className="text-red-500 font-bold">{t('classification')}: {event.legend_type || event.type || 'UNKNOWN'}</span>
+                            <span className="text-red-500 font-bold">{t('distanceLabel')}: {distanceStr} KM</span>
+                            <span>{t('coordinates')}: {event.lat.toFixed(4)}, {event.lon.toFixed(4)}</span>
                         </div>
                     </div>
 
@@ -86,12 +143,39 @@ export function FullProfileModal({ profile, event, isOpen, onClose, userLocation
                     <div className="w-full aspect-video bg-[#111] border border-[#00ff41]/20 rounded-xl mb-16 relative overflow-hidden group shadow-[0_0_30px_rgba(0,0,0,0.5)]">
                         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none"></div>
                         
-                        {cleanSections.image_url ? (
+                        {displayImageUrl && displayImageUrl.length > 10 ? (
                             <img 
-                                src={cleanSections.image_url} 
+                                src={displayImageUrl} 
                                 alt="Event Visual"
-                                className="w-full h-full object-cover grayscale brightness-75 contrast-125 opacity-80"
+                                className="w-full h-full object-cover grayscale brightness-75 contrast-125 opacity-80 animate-[fadeIn_0.5s_ease-in]"
                             />
+                        ) : imageLoading ? (
+                            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+                                {/* Scanning animation */}
+                                <div className="relative w-24 h-24">
+                                    <div className="absolute inset-0 border-4 border-[#00ff41]/10 rounded-full"></div>
+                                    <div className="absolute inset-0 border-4 border-transparent border-t-[#00ff41] rounded-full animate-spin"></div>
+                                    <div className="absolute inset-2 border-4 border-transparent border-b-[#00ff41]/50 rounded-full animate-spin" style={{animationDirection: 'reverse', animationDuration: '1.5s'}}></div>
+                                    <div className="absolute inset-0 flex items-center justify-center text-[#00ff41]/80 text-[10px] uppercase">
+                                        AI
+                                    </div>
+                                </div>
+                                <div className="text-[#00ff41]/60 text-sm uppercase tracking-widest animate-pulse font-bold">
+                                    ĐANG TẠO HÌNH ẢNH PHỤC DỰNG...
+                                </div>
+                                <div className="text-[#00ff41]/30 text-[10px] tracking-wider">
+                                    AI IMAGE GENERATION IN PROGRESS
+                                </div>
+                                {/* Progress bar animation */}
+                                <div className="w-48 h-1 bg-[#00ff41]/10 rounded-full overflow-hidden">
+                                    <div className="h-full bg-[#00ff41]/50 rounded-full animate-[progressSlide_2s_ease-in-out_infinite]" style={{width: '60%'}}></div>
+                                </div>
+                            </div>
+                        ) : imageError ? (
+                            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-red-400/50">
+                                <div className="text-sm uppercase tracking-widest">[ TÍN HIỆU HÌNH ẢNH THẤT BẠI ]</div>
+                                <div className="text-[10px] text-red-400/30">{imageError}</div>
+                            </div>
                         ) : (
                             <div className="absolute inset-0 flex items-center justify-center text-[#00ff41]/20">
                                 [ CAMERA FEED UNAVAILABLE - NO SIGNAL ]
@@ -102,20 +186,20 @@ export function FullProfileModal({ profile, event, isOpen, onClose, userLocation
                         <div className="absolute top-0 w-full h-1 bg-[#00ff41]/20 shadow-[0_0_10px_#00ff41] animate-[scanline_4s_linear_infinite] z-20"></div>
 
                         <div className="absolute top-4 right-4 bg-red-600 text-black text-[10px] font-bold px-2 py-1 uppercase rounded-sm z-30">
-                            HÌNH ẢNH_PHỤC_DỰNG
+                            {imageLoading ? 'ĐANG TẠO...' : imageError ? 'LỖI' : 'HÌNH ẢNH_PHỤC_DỰNG'}
                         </div>
                     </div>
 
                     {/* Content Blocks - 5-Part Structure */}
                     <div className="space-y-16 max-w-4xl">
                         <Section 
-                            title="1. LEGEND OVERVIEW (TỔNG QUAN HUYỀN THOẠI)" 
-                            badge="SPECTRAL DATA" 
+                            title={t('dossierLegendOverview')} 
+                            badge={t('badgeSpectralData')} 
                             text={cleanSections.legend_overview} 
                         />
                         <Section 
-                            title="2. CHRONOLOGICAL HISTORY (LỊCH SỬ DÒNG THỜI GIAN)" 
-                            badge="ARCHIVES" 
+                            title={t('dossierChronologicalHistory')} 
+                            badge={t('badgeArchives')} 
                             text={cleanSections.chronological_history} 
                         />
 
@@ -123,9 +207,9 @@ export function FullProfileModal({ profile, event, isOpen, onClose, userLocation
                         {cleanSections.witnesses && cleanSections.witnesses.length > 0 && (
                             <div className="relative pl-6 md:pl-8 border-l border-[#00ff41]/30">
                                 <div className="absolute left-[-5px] top-6 w-2.5 h-2.5 rounded-full bg-[#00ff41] shadow-[0_0_8px_#00ff41]"></div>
-                                <span className="text-[10px] text-red-500 font-bold uppercase tracking-widest mb-2 block">WITNESS</span>
+                                <span className="text-[10px] text-red-500 font-bold uppercase tracking-widest mb-2 block">{t('badgeWitness')}</span>
                                 <h2 className="text-2xl font-bold uppercase tracking-wide mb-6 text-white">
-                                    3. LOCAL WITNESS (NHÂN CHỨNG ĐỊA PHƯƠNG)
+                                    {t('dossierWitnesses')}
                                 </h2>
                                 <div className="space-y-6">
                                     {cleanSections.witnesses.map((w, i) => (
@@ -149,13 +233,13 @@ export function FullProfileModal({ profile, event, isOpen, onClose, userLocation
                         )}
 
                         <Section 
-                            title="4. SPECTRAL ANALYSIS (PHÂN TÍCH QUANG PHỔ)" 
-                            badge="TECHNICAL" 
+                            title={t('dossierSpectralAnalysis')} 
+                            badge={t('badgeTechnical')} 
                             text={cleanSections.spectral_analysis} 
                         />
                         <Section 
-                            title="5. RISK ASSESSMENT (ĐÁNH GIÁ RỦI RO)" 
-                            badge="DANGER LEVEL" 
+                            title={t('dossierRiskAssessment')} 
+                            badge={t('badgeDangerLevel')} 
                             text={cleanSections.risk_assessment} 
                             isDanger 
                         />
@@ -163,7 +247,7 @@ export function FullProfileModal({ profile, event, isOpen, onClose, userLocation
 
                     <div className="mt-24 pt-12 border-t border-[#00ff41]/20 flex flex-col items-center">
                         <p className="text-xs text-[#00ff41]/50 tracking-widest uppercase mb-6 text-center">
-                            END OF REPORT - GHOST RADAR PRO v3.2<br />
+                            {t('endOfReport')} - GHOST RADAR PRO v3.2<br />
                             [DATA ENCRYPTED]
                         </p>
                     </div>

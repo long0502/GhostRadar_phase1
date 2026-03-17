@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-export function LoadingProfile() {
+type LoadingProfileProps = {
+    queueLength?: number;
+    estimatedWaitSec?: number;
+};
+
+export function LoadingProfile({ queueLength, estimatedWaitSec }: LoadingProfileProps = {}) {
     const [msgIndex, setMsgIndex] = useState(0);
 
     const messages = [
@@ -39,6 +44,15 @@ export function LoadingProfile() {
                         {messages[msgIndex]}
                     </p>
                 </div>
+
+                {queueLength != null && queueLength > 0 && (
+                    <div className="mt-4 px-4 py-2 rounded-xl border border-yellow-500/40 bg-yellow-500/5">
+                        <p className="text-yellow-400 text-xs tracking-wider uppercase text-center">
+                            ⏳ QUEUE: {queueLength} pending
+                            {estimatedWaitSec != null && estimatedWaitSec > 0 ? ` — ~${estimatedWaitSec}s` : ''}
+                        </p>
+                    </div>
+                )}
 
                 <div className="w-64 h-1 bg-[#111] mt-8 overflow-hidden rounded-full">
                     <div className="h-full bg-[#00ff41] w-0 animate-[loading-bar_3s_ease-out_forwards]"></div>

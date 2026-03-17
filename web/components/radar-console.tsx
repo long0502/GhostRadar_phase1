@@ -8,7 +8,8 @@ import { LoadingProfile } from '@/components/LoadingProfile';
 import { getProfileFromCache, saveProfileToCache, DetailedProfile } from '@/lib/profileCache';
 import { OSMMap } from '@/components/osm-map';
 import { Radar } from '@/components/Radar';
-import { scanArea, expandEvent, clearRegistry } from '@/lib/api';
+import { scanArea, expandEvent, clearRegistry, getQueueStatus } from '@/lib/api';
+import type { QueueStatusResponse } from '@/lib/api';
 import type { RadarEvent } from '@/lib/types';
 import { useRadarAudio } from '@/hooks/useRadarAudio';
 import { useTranslation } from '@/i18n/useTranslation';
@@ -145,6 +146,7 @@ export function RadarConsole() {
   const [isTurbo, setIsTurbo] = useState(false);
   const [forceRefresh, setForceRefresh] = useState(false);
   const [clearStatus, setClearStatus] = useState<string | null>(null);
+  const [queueInfo, setQueueInfo] = useState<QueueStatusResponse | null>(null);
   const sweepRotationRef = useRef(0);
 
   const { t } = useTranslation();
@@ -168,6 +170,29 @@ export function RadarConsole() {
       handleScan(scanRadiusKm, true);
     }
   }, [language, scanRadiusKm, geoState.status]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Poll queue status while scanning or loading profile
+  useEffect(() => {
+    if (!isScanning && !isLoadingProfile) {
+      setQueueInfo(null);
+      return;
+    }
+
+    let cancelled = false;
+    const poll = async () => {
+      while (!cancelled) {
+        try {
+          const status = await getQueueStatus();
+          if (!cancelled) setQueueInfo(status);
+        } catch {
+          // ignore polling errors
+        }
+        await new Promise((r) => setTimeout(r, 2000));
+      }
+    };
+    poll();
+    return () => { cancelled = true; };
+  }, [isScanning, isLoadingProfile]);
 
   const { playSonar, isMuted, toggleMute } = useRadarAudio();
   const playSonarRef = useRef(playSonar);
@@ -562,6 +587,15 @@ export function RadarConsole() {
         </div>
       ) : null}
 
+      {(isScanning || isLoadingProfile) && queueInfo && queueInfo.queueLength > 0 ? (
+        <div className="w-full rounded-2xl border border-yellow-500/60 bg-black px-4 py-3 text-sm text-yellow-400 font-mono animate-pulse">
+          <span className="inline-block mr-2">⏳</span>
+          AI QUEUE: {queueInfo.queueLength} request{queueInfo.queueLength > 1 ? 's' : ''} pending
+          {queueInfo.estimatedWaitSec > 0 ? ` — ~${queueInfo.estimatedWaitSec}s` : ''}
+          <span className="block text-[10px] text-yellow-500/60 mt-1">RPM: {queueInfo.rpmUsed}/{queueInfo.rpmLimit}</span>
+        </div>
+      ) : null}
+
       {clearStatus ? (
         <div className="w-full rounded-2xl border border-[#00ff41] bg-black px-4 py-3 text-sm text-center font-bold text-[#00ff41] animate-pulse">
            &gt;&gt; {clearStatus} &lt;&lt;
@@ -612,7 +646,7 @@ export function RadarConsole() {
         onClose={() => { setModalOpen(false); setSummaryOpen(false); setSelectedEventId(null); }}
       />
 
-      {isLoadingProfile && <LoadingProfile />}
+      {isLoadingProfile && <LoadingProfile queueLength={queueInfo?.queueLength} estimatedWaitSec={queueInfo?.estimatedWaitSec} />}
     </div>
   );
 }

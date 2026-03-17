@@ -2,6 +2,8 @@ import * as fs from 'fs';
 import { globalStats } from '../core/metrics';
 import { getGeminiModel } from '../utils/env';
 import { recordAiUsageTokens } from './quota.service';
+import { enqueueAiCall } from './ai-queue.service';
+import { logAiCall } from './ai-logging.service';
 
 type GeminiCallParams = {
   endpoint: 'scan' | 'expand' | 'normalization' | 'ai-health';
@@ -57,6 +59,7 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
   }
 
   const model = modelOverride || getGeminiModel();
+  const aiStartTime = Date.now();
   const maxAttempts = 2;
   let response: Response | null = null;
   let resolvedUsageContext = usageContext;
@@ -126,6 +129,15 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
       `gemini_usage_missing endpoint=${endpoint} modelVersion=${model} totalTokenCount=missing ai_calls_this_request=${aiCallsThisRequest}`
     );
     console.error(`Gemini API Error Body: ${errorBody}`);
+    logAiCall({
+      endpoint,
+      model,
+      tokensInput: prompt.length,
+      tokensOutput: 0,
+      latencyMs: Date.now() - aiStartTime,
+      success: false,
+      errorMessage: `${response.status} - ${errorBody.slice(0, 200)}`,
+    });
     throw new Error(`Gemini API error: ${response.status} - ${errorBody}`);
   }
 
@@ -183,9 +195,178 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
     );
   }
 
+  // Fire-and-forget AI call log
+  logAiCall({
+    endpoint,
+    model: modelVersion,
+    tokensInput: prompt.length,
+    tokensOutput: typeof totalTokenCount === 'number' ? totalTokenCount : 0,
+    latencyMs: Date.now() - aiStartTime,
+    success: true,
+  });
+
   return {
     text,
     modelVersion,
     totalTokenCount,
   };
+}
+
+/**
+ * Queued version of callGemini — all calls go through the global RPM queue.
+ * Use this for any user-facing AI calls (scan, expand) to avoid 429 from Google.
+ */
+export async function callGeminiQueued(params: GeminiCallParams): Promise<GeminiCallResult> {
+  return enqueueAiCall(() => callGemini(params));
+}
+
+/**
+ * Generate an image using gemini-2.5-flash-image model.
+ * Returns base64 data URL or null if generation fails.
+ */
+export type GeminiImageResult = {
+  imageBase64: string;
+  mimeType: string;
+  dataUrl: string;
+} | null;
+
+async function callGeminiImage(prompt: string): Promise<GeminiImageResult> {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.error('[GEMINI_IMAGE] Missing GEMINI_API_KEY');
+    return null;
+  }
+
+  const model = 'gemini-2.5-flash-image';
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+  const aiStartTime = Date.now();
+
+  console.log(`[GEMINI_IMAGE] Generating image with prompt: "${prompt.slice(0, 100)}..."`);
+
+  try {
+    const body = {
+      contents: [{
+        parts: [{ text: prompt }],
+      }],
+      generationConfig: {
+        responseModalities: ['TEXT', 'IMAGE'],
+        temperature: 0.8,
+      },
+    };
+
+    const maxAttempts = 3;
+    let response: Response | null = null;
+
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      console.log(`[GEMINI_IMAGE] Attempt ${attempt}/${maxAttempts}...`);
+      response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+
+      console.log(`[GEMINI_IMAGE] Response: ${response.status} (attempt ${attempt})`);
+
+      if (response.status === 429 && attempt < maxAttempts) {
+        const waitMs = 2000 * attempt * attempt; // 2s, 8s, 18s
+        console.log(`[GEMINI_IMAGE] Rate limited, waiting ${waitMs}ms before retry...`);
+        await new Promise((resolve) => setTimeout(resolve, waitMs));
+        continue;
+      }
+
+      break;
+    }
+
+    if (!response) {
+      console.error('[GEMINI_IMAGE] No response after retries');
+      return null;
+    }
+
+    const latencyMs = Date.now() - aiStartTime;
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`[GEMINI_IMAGE] Error: ${response.status} - ${errorText.slice(0, 200)}`);
+      logAiCall({
+        endpoint: 'image',
+        model,
+        tokensInput: prompt.length,
+        tokensOutput: 0,
+        latencyMs,
+        success: false,
+        errorMessage: `${response.status} - ${errorText.slice(0, 200)}`,
+      });
+      return null;
+    }
+
+    const data = await response.json() as {
+      candidates?: Array<{
+        content?: {
+          parts?: Array<{
+            text?: string;
+            inlineData?: {
+              mimeType: string;
+              data: string;
+            };
+          }>;
+        };
+      }>;
+    };
+
+    // Find the image part in the response
+    const parts = data.candidates?.[0]?.content?.parts ?? [];
+    const imagePart = parts.find(p => p.inlineData?.data);
+
+    if (!imagePart?.inlineData) {
+      console.warn('[GEMINI_IMAGE] No image data in response');
+      logAiCall({
+        endpoint: 'image',
+        model,
+        tokensInput: prompt.length,
+        tokensOutput: 0,
+        latencyMs,
+        success: false,
+        errorMessage: 'No image data in response',
+      });
+      return null;
+    }
+
+    const { mimeType, data: imageBase64 } = imagePart.inlineData;
+    const dataUrl = `data:${mimeType};base64,${imageBase64}`;
+
+    console.log(`[GEMINI_IMAGE] Success: ${mimeType}, base64 length=${imageBase64.length}`);
+
+    logAiCall({
+      endpoint: 'image',
+      model,
+      tokensInput: prompt.length,
+      tokensOutput: 1290, // Fixed token cost per image
+      latencyMs,
+      success: true,
+    });
+
+    globalStats.total_ai_calls += 1;
+
+    return { imageBase64, mimeType, dataUrl };
+  } catch (error) {
+    const latencyMs = Date.now() - aiStartTime;
+    console.error('[GEMINI_IMAGE] Exception:', error instanceof Error ? error.message : error);
+    logAiCall({
+      endpoint: 'image',
+      model,
+      tokensInput: prompt.length,
+      tokensOutput: 0,
+      latencyMs,
+      success: false,
+      errorMessage: error instanceof Error ? error.message : String(error),
+    });
+    return null;
+  }
+}
+
+/**
+ * Queued version of callGeminiImage — goes through the RPM queue.
+ */
+export async function callGeminiImageQueued(prompt: string): Promise<GeminiImageResult> {
+  return enqueueAiCall(() => callGeminiImage(prompt));
 }

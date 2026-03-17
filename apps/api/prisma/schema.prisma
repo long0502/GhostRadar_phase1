@@ -119,3 +119,45 @@ model ai_usage_daily {
 
   @@id([scope, scope_key, usage_date])
 }
+
+model usage_logs {
+  id              String   @id @default(uuid())
+  timestamp       DateTime @default(now())
+  action          String
+  lat             Float?
+  lon             Float?
+  radius_km       Float?
+  lang            String?
+  grid_id         String?
+  event_id        String?
+  user_id         String?
+  ip              String?
+  cache_hit       Boolean  @default(false)
+  ai_called       Boolean  @default(false)
+  events_returned Int      @default(0)
+  response_ms     Int      @default(0)
+  error           String?
+
+  @@index([timestamp])
+  @@index([action])
+  @@index([grid_id])
+  @@index([ip])
+}
+
+model ai_call_logs {
+  id              String   @id @default(uuid())
+  timestamp       DateTime @default(now())
+  endpoint        String
+  model           String
+  tokens_input    Int      @default(0)
+  tokens_output   Int      @default(0)
+  estimated_cost  Float    @default(0)
+  event_id        String?
+  latency_ms      Int      @default(0)
+  success         Boolean  @default(true)
+  error_message   String?
+
+  @@index([timestamp])
+  @@index([endpoint])
+  @@index([model])
+}

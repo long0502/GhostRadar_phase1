@@ -587,6 +587,9 @@ video {
 .inset-4 {
   inset: 1rem;
 }
+.inset-2 {
+  inset: 0.5rem;
+}
 .left-0 {
   left: 0px;
 }
@@ -655,6 +658,9 @@ video {
 .mb-8 {
   margin-bottom: 2rem;
 }
+.mr-2 {
+  margin-right: 0.5rem;
+}
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -684,6 +690,9 @@ video {
 }
 .block {
   display: block;
+}
+.inline-block {
+  display: inline-block;
 }
 .flex {
   display: flex;
@@ -730,6 +739,12 @@ video {
 .h-full {
   height: 100%;
 }
+.h-16 {
+  height: 4rem;
+}
+.h-24 {
+  height: 6rem;
+}
 .max-h-\[65vh\] {
   max-height: 65vh;
 }
@@ -765,6 +780,15 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-16 {
+  width: 4rem;
+}
+.w-24 {
+  width: 6rem;
+}
+.w-48 {
+  width: 12rem;
 }
 .max-w-4xl {
   max-width: 56rem;
@@ -830,6 +854,12 @@ video {
 }
 .animate-spin {
   animation: spin 1s linear infinite;
+}
+.animate-\[fadeIn_0\.5s_ease-in\] {
+  animation: fadeIn 0.5s ease-in;
+}
+.animate-\[progressSlide_2s_ease-in-out_infinite\] {
+  animation: progressSlide 2s ease-in-out infinite;
 }
 .cursor-crosshair {
   cursor: crosshair;
@@ -1023,11 +1053,30 @@ video {
 .border-white\/15 {
   border-color: rgb(255 255 255 / 0.15);
 }
+.border-yellow-500\/40 {
+  border-color: rgb(234 179 8 / 0.4);
+}
+.border-yellow-500\/60 {
+  border-color: rgb(234 179 8 / 0.6);
+}
+.border-\[\#00ff41\]\/10 {
+  border-color: rgb(0 255 65 / 0.1);
+}
+.border-transparent {
+  border-color: transparent;
+}
 .border-b-transparent {
   border-bottom-color: transparent;
 }
 .border-t-transparent {
   border-top-color: transparent;
+}
+.border-t-\[\#00ff41\] {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(0 255 65 / var(--tw-border-opacity, 1));
+}
+.border-b-\[\#00ff41\]\/50 {
+  border-bottom-color: rgb(0 255 65 / 0.5);
 }
 .bg-\[\#00ff41\] {
   --tw-bg-opacity: 1;
@@ -1079,6 +1128,15 @@ video {
 }
 .bg-transparent {
   background-color: transparent;
+}
+.bg-yellow-500\/5 {
+  background-color: rgb(234 179 8 / 0.05);
+}
+.bg-\[\#00ff41\]\/10 {
+  background-color: rgb(0 255 65 / 0.1);
+}
+.bg-\[\#00ff41\]\/50 {
+  background-color: rgb(0 255 65 / 0.5);
 }
 .bg-\[url\(\'\/noise\.png\'\)\] {
   background-image: url('/noise.png');
@@ -1267,6 +1325,9 @@ video {
 .tracking-wide {
   letter-spacing: 0.025em;
 }
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
 .tracking-widest {
   letter-spacing: 0.1em;
 }
@@ -1334,6 +1395,25 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+.text-yellow-400 {
+  --tw-text-opacity: 1;
+  color: rgb(250 204 21 / var(--tw-text-opacity, 1));
+}
+.text-yellow-500\/60 {
+  color: rgb(234 179 8 / 0.6);
+}
+.text-\[\#00ff41\]\/30 {
+  color: rgb(0 255 65 / 0.3);
+}
+.text-\[\#00ff41\]\/60 {
+  color: rgb(0 255 65 / 0.6);
+}
+.text-red-400\/30 {
+  color: rgb(248 113 113 / 0.3);
+}
+.text-red-400\/50 {
+  color: rgb(248 113 113 / 0.5);
 }
 .opacity-0 {
   opacity: 0;

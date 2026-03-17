@@ -70,3 +70,28 @@ export async function clearRegistry(): Promise<{ success: boolean; message: stri
   });
   return parseJson<{ success: boolean; message: string }>(response);
 }
+
+export type QueueStatusResponse = {
+  queueLength: number;
+  estimatedWaitSec: number;
+  rpmLimit: number;
+  rpmUsed: number;
+};
+
+export async function getQueueStatus(): Promise<QueueStatusResponse> {
+  const response = await fetch(`${API_BASE_URL}/queue-status`);
+  return parseJson<QueueStatusResponse>(response);
+}
+
+export type GenerateImageResponse = {
+  image_url: string;
+  cached?: boolean;
+  error?: string;
+};
+
+export async function generateEventImage(eventId: string): Promise<GenerateImageResponse> {
+  const response = await fetch(`${API_BASE_URL}/events/${eventId}/generate-image`, {
+    method: 'POST',
+  });
+  return parseJson<GenerateImageResponse>(response);
+}

@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Admin-only table ───
+model admin_users {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  password_hash String
+  role          String    @default("admin")
+  created_at    DateTime  @default(now())
+  last_login    DateTime?
+}
+
+// ─── Read-only references to existing tables ───
+model usage_logs {
+  id              String   @id @default(uuid())
+  timestamp       DateTime @default(now())
+  action          String
+  lat             Float?
+  lon             Float?
+  radius_km       Float?
+  lang            String?
+  grid_id         String?
+  event_id        String?
+  user_id         String?
+  ip              String?
+  cache_hit       Boolean  @default(false)
+  ai_called       Boolean  @default(false)
+  events_returned Int      @default(0)
+  response_ms     Int      @default(0)
+  error           String?
+
+  @@index([timestamp])
+  @@index([action])
+  @@index([grid_id])
+  @@index([ip])
+}
+
+model ai_call_logs {
+  id              String   @id @default(uuid())
+  timestamp       DateTime @default(now())
+  endpoint        String
+  model           String
+  tokens_input    Int      @default(0)
+  tokens_output   Int      @default(0)
+  estimated_cost  Float    @default(0)
+  event_id        String?
+  latency_ms      Int      @default(0)
+  success         Boolean  @default(true)
+  error_message   String?
+
+  @@index([timestamp])
+  @@index([endpoint])
+  @@index([model])
+}
+
+model events {
+  id          String   @id @default(uuid())
+  grid_id     String
+  event_type  String
+  event_data  Json
+  has_detail  Boolean  @default(false)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model event_details {
+  id           String   @id @default(uuid())
+  event_id     String
+  level        Int      @default(1)
+  lang         String   @default("en")
+  story_text   String
+  witness      String
+  analysis     String
+  generated_at DateTime @default(now())
+  detail       Json
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+
+  @@index([event_id, lang])
+}
+
+model grid_cache {
+  id         String   @id @default(uuid())
+  grid_id    String   @unique
+  data       Json
+  expires_at DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}

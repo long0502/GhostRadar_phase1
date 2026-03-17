@@ -29,6 +29,9 @@ type GeminiCallParams = {
     category: string;
     threshold: string;
   }>;
+  thinkingConfig?: {
+    thinkingBudget?: number;
+  };
 };
 
 type GeminiCallResult = {
@@ -73,6 +76,7 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
         responseMimeType,
         ...(responseMimeType === 'application/json' && params.responseSchema ? { responseSchema: params.responseSchema } : {}),
         ...(params.maxOutputTokens ? { maxOutputTokens: params.maxOutputTokens } : {}),
+        ...(params.thinkingConfig ? { thinkingConfig: params.thinkingConfig } : {}),
       },
       tools: params.tools,
     };
@@ -140,6 +144,8 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
   const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
   fs.appendFileSync('gemini_debug.log', `[GEMINI_TEXT] ${text}\n---\n`);
   if (!text) {
+    console.error('[GEMINI_BLOCKED] Full response data:', JSON.stringify(data, null, 2));
+    fs.appendFileSync('gemini_debug.log', `[GEMINI_BLOCKED] ${JSON.stringify(data)}\n`);
     throw new Error('Gemini response missing text');
   }
 

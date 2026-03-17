@@ -1,402 +1,351 @@
-[SCAN_AI_ERROR] 2026-03-13T12:11:23.640Z Gemini response did not contain a JSON array
+[SCAN_AI_ERROR] 2026-03-16T02:13:56.915Z Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Error: Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:129:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:380:18)
+    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:622:23)
+    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
+[SCAN_AI_ERROR] 2026-03-16T02:14:07.721Z Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Error: Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:129:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:380:18)
+    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:622:23)
+    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
+[SCAN_AI_ERROR] 2026-03-16T02:14:11.516Z Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Error: Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:129:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:380:18)
+    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:622:23)
+    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
+[SCAN_AI_ERROR] 2026-03-16T02:16:28.920Z Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Error: Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:129:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:380:18)
+    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:622:23)
+    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
+[SCAN_AI_ERROR] 2026-03-16T02:16:33.388Z Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Error: Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:129:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:380:18)
+    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:622:23)
+    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
+[SCAN_AI_ERROR] 2026-03-16T02:16:35.976Z Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Error: Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:129:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:380:18)
+    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:622:23)
+    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
+[SCAN_AI_ERROR] 2026-03-16T02:20:11.946Z Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Error: Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:129:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:380:18)
+    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:622:23)
+    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
+[SCAN_AI_ERROR] 2026-03-16T02:22:26.986Z Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Error: Gemini API error: 429 - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:129:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:380:18)
+    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:622:23)
+    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
+[SCAN_AI_ERROR] 2026-03-16T02:55:15.389Z Gemini response did not contain a JSON array
 Error: Gemini response did not contain a JSON array
     at extractJsonArray (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:82:11)
-    at generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:349:20)
+    at generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:409:20)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:548:23)
-    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
-[SCAN_AI_ERROR] 2026-03-13T12:14:21.622Z Gemini API error: 429 - {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 37.940846743s.",
-    "status": "RESOURCE_EXHAUSTED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.Help",
-        "links": [
-          {
-            "description": "Learn more about Gemini API quotas",
-            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-        "violations": [
-          {
-            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
-            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
-            "quotaDimensions": {
-              "location": "global",
-              "model": "gemini-2.5-flash"
-            },
-            "quotaValue": "20"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo",
-        "retryDelay": "37s"
-      }
-    ]
-  }
-}
-
-Error: Gemini API error: 429 - {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 37.940846743s.",
-    "status": "RESOURCE_EXHAUSTED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.Help",
-        "links": [
-          {
-            "description": "Learn more about Gemini API quotas",
-            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-        "violations": [
-          {
-            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
-            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
-            "quotaDimensions": {
-              "location": "global",
-              "model": "gemini-2.5-flash"
-            },
-            "quotaValue": "20"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo",
-        "retryDelay": "37s"
-      }
-    ]
-  }
-}
-
-    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:125:11)
-    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:330:18)
-    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:548:23)
-    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
-[SCAN_AI_ERROR] 2026-03-13T12:14:27.251Z Gemini API error: 429 - {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 32.29192398s.",
-    "status": "RESOURCE_EXHAUSTED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.Help",
-        "links": [
-          {
-            "description": "Learn more about Gemini API quotas",
-            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-        "violations": [
-          {
-            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
-            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
-            "quotaDimensions": {
-              "location": "global",
-              "model": "gemini-2.5-flash"
-            },
-            "quotaValue": "20"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo",
-        "retryDelay": "32s"
-      }
-    ]
-  }
-}
-
-Error: Gemini API error: 429 - {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 32.29192398s.",
-    "status": "RESOURCE_EXHAUSTED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.Help",
-        "links": [
-          {
-            "description": "Learn more about Gemini API quotas",
-            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-        "violations": [
-          {
-            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
-            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
-            "quotaDimensions": {
-              "location": "global",
-              "model": "gemini-2.5-flash"
-            },
-            "quotaValue": "20"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo",
-        "retryDelay": "32s"
-      }
-    ]
-  }
-}
-
-    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:125:11)
-    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:330:18)
-    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:548:23)
-    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
-[SCAN_AI_ERROR] 2026-03-13T12:14:36.695Z Gemini API error: 429 - {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 22.847186611s.",
-    "status": "RESOURCE_EXHAUSTED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.Help",
-        "links": [
-          {
-            "description": "Learn more about Gemini API quotas",
-            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-        "violations": [
-          {
-            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
-            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
-            "quotaDimensions": {
-              "location": "global",
-              "model": "gemini-2.5-flash"
-            },
-            "quotaValue": "20"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo",
-        "retryDelay": "22s"
-      }
-    ]
-  }
-}
-
-Error: Gemini API error: 429 - {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 22.847186611s.",
-    "status": "RESOURCE_EXHAUSTED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.Help",
-        "links": [
-          {
-            "description": "Learn more about Gemini API quotas",
-            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-        "violations": [
-          {
-            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
-            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
-            "quotaDimensions": {
-              "location": "global",
-              "model": "gemini-2.5-flash"
-            },
-            "quotaValue": "20"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo",
-        "retryDelay": "22s"
-      }
-    ]
-  }
-}
-
-    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:125:11)
-    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:330:18)
-    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:548:23)
-    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
-[SCAN_AI_ERROR] 2026-03-13T12:14:53.055Z Gemini API error: 429 - {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 6.556140701s.",
-    "status": "RESOURCE_EXHAUSTED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.Help",
-        "links": [
-          {
-            "description": "Learn more about Gemini API quotas",
-            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-        "violations": [
-          {
-            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
-            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
-            "quotaDimensions": {
-              "location": "global",
-              "model": "gemini-2.5-flash"
-            },
-            "quotaValue": "20"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo",
-        "retryDelay": "6s"
-      }
-    ]
-  }
-}
-
-Error: Gemini API error: 429 - {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 6.556140701s.",
-    "status": "RESOURCE_EXHAUSTED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.Help",
-        "links": [
-          {
-            "description": "Learn more about Gemini API quotas",
-            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-        "violations": [
-          {
-            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
-            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
-            "quotaDimensions": {
-              "location": "global",
-              "model": "gemini-2.5-flash"
-            },
-            "quotaValue": "20"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo",
-        "retryDelay": "6s"
-      }
-    ]
-  }
-}
-
-    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:125:11)
-    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:330:18)
-    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:548:23)
-    at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
-[SCAN_AI_ERROR] 2026-03-13T12:15:26.849Z Gemini API error: 429 - {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 32.765567793s.",
-    "status": "RESOURCE_EXHAUSTED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.Help",
-        "links": [
-          {
-            "description": "Learn more about Gemini API quotas",
-            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-        "violations": [
-          {
-            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
-            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
-            "quotaDimensions": {
-              "location": "global",
-              "model": "gemini-2.5-flash"
-            },
-            "quotaValue": "20"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo",
-        "retryDelay": "32s"
-      }
-    ]
-  }
-}
-
-Error: Gemini API error: 429 - {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 32.765567793s.",
-    "status": "RESOURCE_EXHAUSTED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.Help",
-        "links": [
-          {
-            "description": "Learn more about Gemini API quotas",
-            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-        "violations": [
-          {
-            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
-            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
-            "quotaDimensions": {
-              "location": "global",
-              "model": "gemini-2.5-flash"
-            },
-            "quotaValue": "20"
-          }
-        ]
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo",
-        "retryDelay": "32s"
-      }
-    ]
-  }
-}
-
-    at callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:125:11)
-    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-    at async generateWithGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:330:18)
-    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:548:23)
+    at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:622:23)
     at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)

@@ -299,19 +299,69 @@ async function generateWithGemini(
 ): Promise<z.infer<typeof aiEventArraySchema>> {
   const targetLanguageName = LANGUAGE_MAP[langCode] || 'English';
 
+  // Compute bounding box for the scan radius
+  const latDelta = radiusKm / 111.32;
+  const lonScale = Math.cos((lat * Math.PI) / 180) || 1;
+  const lonDelta = radiusKm / (111.32 * lonScale);
+  const latMin = (lat - latDelta).toFixed(4);
+  const latMax = (lat + latDelta).toFixed(4);
+  const lonMin = (lon - lonDelta).toFixed(4);
+  const lonMax = (lon + lonDelta).toFixed(4);
+
   const prompt = [
-    `ACT AS A MULTI-LAYER DATA SCANNING SYSTEM.`,
-    `Search for all points with traces of spiritual activity, accidents, and murders within a ${radiusKm}km radius around coordinates (${lat.toFixed(4)}, ${lon.toFixed(4)}).`,
-    `Scan: Accident black spots, murder records, urban legends, local rumors.`,
+    `ACT AS A MULTI-LAYER GEOSPATIAL INTELLIGENCE SCANNING SYSTEM.`,
+    ``,
+    `SCAN CENTER: (${lat.toFixed(4)}, ${lon.toFixed(4)})`,
+    `SCAN RADIUS: ${radiusKm}km`,
+    `BOUNDING BOX: latitude ${latMin}–${latMax}, longitude ${lonMin}–${lonMax}`,
+    ``,
+    `Search for all traces of spiritual activity, accidents, murders, unexplained incidents, and local legends ONLY within the bounding box above.`,
+    `First, identify what neighborhood, district, ward, or rural area is located at coordinates (${lat.toFixed(4)}, ${lon.toFixed(4)}). Then search for events ONLY in that specific local area and its immediate surroundings within ${radiusKm}km.`,
+    ``,
+    `CRITICAL GEOGRAPHIC RULE:`,
+    `- EVERY event latitude MUST be between ${latMin} and ${latMax}.`,
+    `- EVERY event longitude MUST be between ${lonMin} and ${lonMax}.`,
+    `- Do NOT return events from the city center or other distant areas.`,
+    `- Do NOT return famous landmarks unless they are physically inside the bounding box.`,
+    `- If the area has fewer known incidents, generate plausible events based on local road conditions, old buildings, waterways, and community oral history within the bounding box.`,
+    ``,
+    `MANDATORY:`,
+    `Return a radar dataset of approximately ${radiusKm <= 5 ? '20–30' : '30–40'} points to ensure proper radar coverage of the area.`,
+    ``,
+    `DEEP SCAN CATEGORIES:`,
+    ``,
+    `1. ACCIDENT BLACK SPOTS`,
+    `Road intersections, bridges, highways, or railway crossings with repeated fatal accidents or unexplained crashes.`,
+    ``,
+    `2. MURDER RECORDS`,
+    `Historical crimes, cold cases, unexplained deaths, or violent incidents reported in local news.`,
+    ``,
+    `3. URBAN LEGENDS`,
+    `Abandoned buildings, old hospitals, cemeteries, haunted houses, temples, tunnels, or places with paranormal folklore.`,
+    ``,
+    `4. LOCAL RUMORS`,
+    `Strange events reported in local forums, blogs, social media, or oral history from the community.`,
+    ``,
+    `5. HISTORICAL INCIDENTS`,
+    `Major fires, disasters, war remnants, missing persons cases, or unexplained tragedies tied to the location.`,
     ``,
     `CONSTRAINTS:`,
-    `- Based on real data or local history only. Do NOT fabricate events.`,
-    `- Accidents (ACCIDENT) MUST involve spiritual elements or unexplained phenomena.`,
-    `- Coordinates must be within ${radiusKm}km from center.`,
-    `- Do NOT copy snippets verbatim. Rewrite as a complete story ending with a period.`,
-    `- LANGUAGE: ALL "name" and "description" values MUST be written in ${targetLanguageName}. This is MANDATORY.`,
+    `- Use real-world local context and historical knowledge when possible.`,
+    `- Do NOT fabricate unrealistic supernatural events.`,
+    `- Focus on locations with reported incidents or persistent rumors.`,
+    `- ALL coordinates MUST fall within the bounding box: lat ${latMin}–${latMax}, lon ${lonMin}–${lonMax}.`,
+    `- Events should be spatially distributed around the scan area, not clustered at the center.`,
+    `- Descriptions must read like investigative reports of unusual incidents.`,
     ``,
-    `Return a JSON array:`,
+    `TEXT RULES:`,
+    `- Do NOT copy search snippets verbatim.`,
+    `- Rewrite information as a concise narrative report.`,
+    `- The description must end with a period.`,
+    ``,
+    `LANGUAGE RULE:`,
+    `ALL values in "name" and "description" MUST be written in ${targetLanguageName}. This is mandatory.`,
+    ``,
+    `Return ONLY a JSON array:`,
     `\`\`\`json`,
     `[{"name", "type", "description", "latitude", "longitude", "severity"}]`,
     `\`\`\``,
@@ -319,8 +369,8 @@ async function generateWithGemini(
     `- "name": Event name (in ${targetLanguageName})`,
     `- "type": One of ["GHOST", "MURDER", "ACCIDENT", "RUMOR"]`,
     `- "description": Description in ${targetLanguageName}, last sentence MUST end with a period`,
-    `- "latitude": Latitude (number)`,
-    `- "longitude": Longitude (number)`,
+    `- "latitude": Latitude (number, MUST be between ${latMin} and ${latMax})`,
+    `- "longitude": Longitude (number, MUST be between ${lonMin} and ${lonMax})`,
     `- "severity": Danger level 1-5 (number)`,
   ].join('\n');
 
@@ -330,9 +380,10 @@ async function generateWithGemini(
   const result = await callGemini({
     endpoint: 'scan',
     prompt,
-    responseMimeType: 'text/plain', // Tools (Google Search) don't support application/json yet
-    temperature: 0.2, // Minimized creativity to prevent generic hallucinations
-    maxOutputTokens: 8192,
+    systemInstruction: 'You are a data API. You MUST respond with ONLY a raw JSON array. Do NOT include any text, explanation, introduction, markdown formatting, or commentary before or after the JSON. Your entire response must start with [ and end with ]. No exceptions.',
+    responseMimeType: 'text/plain',
+    temperature: 0.4,
+    maxOutputTokens: 32768,
     aiCallsThisRequest: 1,
     usageContext,
     tools: [
@@ -340,9 +391,18 @@ async function generateWithGemini(
         googleSearch: {},
       },
     ],
+    safetySettings: [
+      { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
+      { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
+      { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_NONE' },
+      { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' },
+    ],
+    thinkingConfig: {
+      thinkingBudget: 512,
+    },
   });
 
-  fs.appendFileSync('raw_ai.log', `[RAW_AI_RESPONSE] ${new Date().toISOString()}\n${result.text}\n---\n`);
+  fs.appendFileSync('raw_ai.log', `[PROMPT] ${new Date().toISOString()}\n${prompt}\n\n[RAW_AI_RESPONSE] ${new Date().toISOString()}\n${result.text}\n---\n`);
 
   console.log('GEMINI_RAW_RESPONSE_LENGTH:', result.text?.length);
   console.log('GEMINI_RAW_RESPONSE_PREVIEW:', result.text?.substring(0, 500));
@@ -371,14 +431,28 @@ async function generateWithGemini(
   });
 
   const parsedRaw = sanitizeAiEvents(eventsList);
-  const allGenerated = aiEventArraySchema.parse(parsedRaw);
+  console.log(`[SCAN_PIPELINE] After sanitize: ${Array.isArray(parsedRaw) ? (parsedRaw as any[]).length : 0} events`);
 
-  // STRICT FILTERING: Keep only events within radius
-  const filtered = allGenerated.filter((event) => {
-    if (event.lat === 0 && event.lon === 0) return false;
-    const distance = haversineKm(lat, lon, event.lat, event.lon);
-    return distance <= radiusKm;
-  });
+  const allGenerated = aiEventArraySchema.parse(parsedRaw);
+  console.log(`[SCAN_PIPELINE] After schema parse: ${allGenerated.length} events`);
+
+  // COORDINATE ENFORCEMENT: Clamp out-of-bounds events into the scan radius
+  // instead of discarding them (to preserve event density)
+  let clampedCount = 0;
+  const filtered = allGenerated
+    .filter((event) => !(event.lat === 0 && event.lon === 0))
+    .map((event) => {
+      const distance = haversineKm(lat, lon, event.lat, event.lon);
+      if (distance <= radiusKm) {
+        return event;
+      }
+      // Event is outside radius — relocate it to a random point within radius
+      clampedCount++;
+      const newPoint = rerollPointWithinRadius(lat, lon, radiusKm);
+      return { ...event, lat: newPoint.lat, lon: newPoint.lon };
+    });
+
+  console.log(`[SCAN_PIPELINE] After filtering: ${filtered.length} events (${clampedCount} clamped)`);
 
   return filtered;
 }

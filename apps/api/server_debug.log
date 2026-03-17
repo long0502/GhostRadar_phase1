@@ -2,3 +2,42 @@
   "message": "Failed to generate Level 1 detail",
   "code": "AI_ERROR"
 }
+[API_ERROR] 2026-03-14T11:09:53.613Z {
+  "message": "Route not found"
+}
+[API_ERROR] 2026-03-14T13:32:33.723Z {
+  "message": "Failed to generate Level 1 detail",
+  "code": "AI_ERROR"
+}
+[API_ERROR] 2026-03-14T13:32:50.052Z {
+  "message": "Failed to generate Level 1 detail",
+  "code": "AI_ERROR"
+}
+[API_ERROR] 2026-03-14T13:33:44.621Z {
+  "message": "Failed to generate Level 1 detail",
+  "code": "AI_ERROR"
+}
+[API_ERROR] 2026-03-14T13:38:29.829Z {
+  "message": "Failed to generate Level 1 detail",
+  "code": "AI_ERROR"
+}
+[API_ERROR] 2026-03-14T13:39:56.147Z {
+  "message": "Failed to generate Level 1 detail",
+  "code": "AI_ERROR"
+}
+[API_ERROR] 2026-03-16T02:10:47.535Z {
+  "code": "P1001",
+  "meta": {
+    "modelName": "grid_cache",
+    "driverAdapterError": {
+      "name": "DriverAdapterError",
+      "cause": {
+        "kind": "DatabaseNotReachable",
+        "host": "127.0.0.1",
+        "port": 5433
+      }
+    }
+  },
+  "clientVersion": "7.4.1",
+  "name": "PrismaClientKnownRequestError"
+}

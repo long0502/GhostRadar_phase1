@@ -1,0 +1,13 @@
+[phases.setup]
+nixPkgs = ['nodejs_20', 'npm-9_x']
+
+[phases.install]
+cmds = ['npm ci']
+cacheDirectories = []
+
+[phases.build]
+cmds = ['npm run build']
+cacheDirectories = []
+
+[start]
+cmd = 'npm start'

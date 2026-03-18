@@ -1,8 +1,0 @@
-[phases.install]
-cmds = ['npm ci']
-
-[phases.build]
-cmds = ['npx prisma generate', 'npx prisma db push', 'npm run build']
-
-[start]
-cmd = 'npm start'

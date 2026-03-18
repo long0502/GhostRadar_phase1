@@ -37,5 +37,20 @@ services:
       db:
         condition: service_healthy
 
+  admin:
+    build: ./apps/admin
+    container_name: ghost_admin
+    restart: always
+    environment:
+      DATABASE_URL: postgresql://${DB_USER:-ghostradar}:${DB_PASSWORD:-ghostradar}@${DB_HOST:-db}:${DB_PORT:-5432}/${DB_NAME:-ghostradar}
+      JWT_SECRET: ${ADMIN_JWT_SECRET:-ghostradar-admin-secret-change-in-production}
+      PORT: 4000
+      NODE_ENV: production
+    ports:
+      - '4000:4000'
+    depends_on:
+      db:
+        condition: service_healthy
+
 volumes:
   db_data:

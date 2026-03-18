@@ -4,3 +4,9 @@ dist
 .env.*
 !.env.example
 .DS_Store
+.next
+*.log
+build-log.txt
+seed-log.txt
+gen-log.txt
+server_debug.log

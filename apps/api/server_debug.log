@@ -62,3 +62,85 @@
 [API_ERROR] 2026-03-17T06:20:27.384Z {
   "message": "Route not found"
 }
+[API_ERROR] 2026-03-18T02:48:16.443Z {
+  "code": "P2010",
+  "meta": {
+    "driverAdapterError": {
+      "name": "DriverAdapterError",
+      "cause": {
+        "originalCode": "42P01",
+        "originalMessage": "relation \"ai_quota_policy\" does not exist",
+        "kind": "TableDoesNotExist",
+        "table": "ai_quota_policy"
+      }
+    }
+  },
+  "clientVersion": "7.4.1",
+  "name": "PrismaClientKnownRequestError"
+}
+[API_ERROR] 2026-03-18T03:06:00.606Z {
+  "code": "P2010",
+  "meta": {
+    "driverAdapterError": {
+      "name": "DriverAdapterError",
+      "cause": {
+        "originalCode": "42P01",
+        "originalMessage": "relation \"ai_usage_daily\" does not exist",
+        "kind": "TableDoesNotExist",
+        "table": "ai_usage_daily"
+      }
+    }
+  },
+  "clientVersion": "7.4.1",
+  "name": "PrismaClientKnownRequestError"
+}
+[API_ERROR] 2026-03-18T03:14:55.529Z {
+  "message": "Route not found"
+}
+[API_ERROR] 2026-03-18T03:15:27.538Z {
+  "code": "P2010",
+  "meta": {
+    "driverAdapterError": {
+      "name": "DriverAdapterError",
+      "cause": {
+        "originalCode": "42P01",
+        "originalMessage": "relation \"ai_usage_daily\" does not exist",
+        "kind": "TableDoesNotExist",
+        "table": "ai_usage_daily"
+      }
+    }
+  },
+  "clientVersion": "7.4.1",
+  "name": "PrismaClientKnownRequestError"
+}
+[API_ERROR] 2026-03-18T03:17:50.095Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "global",
+  "daily_limit": 0,
+  "usage_date": "2026-03-18"
+}
+[API_ERROR] 2026-03-18T03:17:59.725Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "global",
+  "daily_limit": 0,
+  "usage_date": "2026-03-18"
+}
+[API_ERROR] 2026-03-18T03:18:40.085Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "global",
+  "daily_limit": 0,
+  "usage_date": "2026-03-18"
+}
+[API_ERROR] 2026-03-18T03:20:46.564Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "global",
+  "daily_limit": 0,
+  "usage_date": "2026-03-18"
+}
+[API_ERROR] 2026-03-18T03:29:47.495Z {
+  "message": "Route not found"
+}

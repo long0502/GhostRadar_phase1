@@ -1,0 +1,46 @@
+{
+  "$schema": "https://railway.com/reference/config-as-code",
+  "services": {
+    "api": {
+      "source": {
+        "repo": "long0502/GhostRadar_phase1"
+      },
+      "build": {
+        "dockerfilePath": "apps/api/Dockerfile",
+        "watchPatterns": ["apps/api/**"]
+      },
+      "deploy": {
+        "healthcheckPath": "/health",
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 3
+      }
+    },
+    "web": {
+      "source": {
+        "repo": "long0502/GhostRadar_phase1"
+      },
+      "build": {
+        "dockerfilePath": "web/Dockerfile",
+        "watchPatterns": ["web/**"]
+      },
+      "deploy": {
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 3
+      }
+    },
+    "admin": {
+      "source": {
+        "repo": "long0502/GhostRadar_phase1"
+      },
+      "build": {
+        "dockerfilePath": "apps/admin/Dockerfile",
+        "watchPatterns": ["apps/admin/**"]
+      },
+      "deploy": {
+        "healthcheckPath": "/login",
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 3
+      }
+    }
+  }
+}

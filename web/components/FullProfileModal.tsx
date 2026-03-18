@@ -257,7 +257,7 @@ export function FullProfileModal({ profile, event, isOpen, onClose, userLocation
     );
 }
 
-function Section({ title, text, badge, isDanger = false }: { title: string, text: string, badge: string, isDanger?: boolean }) {
+function Section({ title, text, badge, isDanger = false }: { title: string, text?: string, badge: string, isDanger?: boolean }) {
     if (!text || text.length < 5) return null;
     return (
         <div className="relative pl-6 md:pl-8 border-l border-[#00ff41]/30">

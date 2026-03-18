@@ -6272,3 +6272,725 @@ Trả về định dạng JSON Schema nghiêm ngặt.
   "image_prompt": "Create a mysterious found-footage style photograph related to the event: The Spirit of the Banyan Tree at the former St. Augustine's Academy. Scene: foggy, low light, unsettling, with the silhouette of a colossal, ancient banyan tree dominating the frame, its aerial roots creating a curtain-like effect. A faint, translucent, feminine figure is barely discernible standing near the base of the trunk, shrouded in mist. style: grainy, 1990s aesthetic, slightly overexposed in parts, with visible film artifacts like dust specks and light leaks."
 }
 ---
+[PROMPT] 2026-03-18T03:24:44.933Z
+ACT AS A MULTI-LAYER GEOSPATIAL INTELLIGENCE SCANNING SYSTEM.
+
+SCAN CENTER: (10.7749, 106.7056)
+SCAN RADIUS: 5km
+BOUNDING BOX: latitude 10.7299–10.8198, longitude 106.6598–106.7513
+
+Search for all traces of spiritual activity, accidents, murders, unexplained incidents, and local legends ONLY within the bounding box above.
+First, identify what neighborhood, district, ward, or rural area is located at coordinates (10.7749, 106.7056). Then search for events ONLY in that specific local area and its immediate surroundings within 5km.
+
+CRITICAL GEOGRAPHIC RULE:
+- EVERY event latitude MUST be between 10.7299 and 10.8198.
+- EVERY event longitude MUST be between 106.6598 and 106.7513.
+- Do NOT return events from the city center or other distant areas.
+- Do NOT return famous landmarks unless they are physically inside the bounding box.
+- If the area has fewer known incidents, generate plausible events based on local road conditions, old buildings, waterways, and community oral history within the bounding box.
+
+MANDATORY:
+Return a radar dataset of approximately 20–30 points to ensure proper radar coverage of the area.
+
+DEEP SCAN CATEGORIES:
+
+1. ACCIDENT BLACK SPOTS
+Road intersections, bridges, highways, or railway crossings with repeated fatal accidents or unexplained crashes.
+
+2. MURDER RECORDS
+Historical crimes, cold cases, unexplained deaths, or violent incidents reported in local news.
+
+3. URBAN LEGENDS
+Abandoned buildings, old hospitals, cemeteries, haunted houses, temples, tunnels, or places with paranormal folklore.
+
+4. LOCAL RUMORS
+Strange events reported in local forums, blogs, social media, or oral history from the community.
+
+5. HISTORICAL INCIDENTS
+Major fires, disasters, war remnants, missing persons cases, or unexplained tragedies tied to the location.
+
+CONSTRAINTS:
+- Use real-world local context and historical knowledge when possible.
+- Do NOT fabricate unrealistic supernatural events.
+- Focus on locations with reported incidents or persistent rumors.
+- ALL coordinates MUST fall within the bounding box: lat 10.7299–10.8198, lon 106.6598–106.7513.
+- Events should be spatially distributed around the scan area, not clustered at the center.
+- Descriptions must read like investigative reports of unusual incidents.
+
+TEXT RULES:
+- Do NOT copy search snippets verbatim.
+- Rewrite information as a concise narrative report.
+- The description must end with a period.
+
+LANGUAGE RULE:
+ALL values in "name" and "description" MUST be written in English. This is mandatory.
+
+Return ONLY a JSON array:
+```json
+[{"name", "type", "description", "latitude", "longitude", "severity"}]
+```
+Fields:
+- "name": Event name (in English)
+- "type": One of ["GHOST", "MURDER", "ACCIDENT", "RUMOR"]
+- "description": Description in English, last sentence MUST end with a period
+- "latitude": Latitude (number, MUST be between 10.7299 and 10.8198)
+- "longitude": Longitude (number, MUST be between 106.6598 and 106.7513)
+- "severity": Danger level 1-5 (number)
+
+[RAW_AI_RESPONSE] 2026-03-18T03:24:44.933Z
+[
+  {
+    "name": "Phu Nhuan District Traffic Congestion Hotspot",
+    "type": "ACCIDENT",
+    "description": "A frequently congested intersection within Phu Nhuan District, known for numerous minor collisions and near misses during peak hours due to high traffic volume and complex lane changes. Local reports indicate a pattern of fender-benders and occasional more serious accidents involving motorcycles and cars.",
+    "latitude": 10.7795,
+    "longitude": 106.6910,
+    "severity": 3
+  },
+  {
+    "name": "Phu Nhuan District Old Market Area",
+    "type": "RUMOR",
+    "description": "The area around the old market in Phu Nhuan District is rumored to experience unusual electrical disturbances and flickering lights at night, particularly in older shopfronts. Some residents attribute these phenomena to residual energy from past events or restless spirits, though no specific incidents are officially documented.",
+    "latitude": 10.7820,
+    "longitude": 106.6885,
+    "severity": 2
+  },
+  {
+    "name": "Binh Thanh District Canal Incident",
+    "type": "ACCIDENT",
+    "description": "A section of a canal bordering Binh Thanh District has been the site of several reported drowning incidents over the years, often attributed to strong currents or individuals falling in unexpectedly. While not a designated black spot, the waterway is a recurring location for tragic accidents.",
+    "latitude": 10.7950,
+    "longitude": 106.7150,
+    "severity": 3
+  },
+  {
+    "name": "Phu Nhuan District Residential Street Mystery",
+    "type": "RUMOR",
+    "description": "Local whispers speak of a specific residential street in Phu Nhuan District where residents have reported hearing disembodied footsteps and faint music late at night. These occurrences are often linked to an old house on the street that has been abandoned for decades, fueling tales of a lingering presence.",
+    "latitude": 10.7850,
+    "longitude": 106.6950,
+    "severity": 2
+  },
+  {
+    "name": "District 3 - Nguyen Tri Phuong Street Accident Zone",
+    "type": "ACCIDENT",
+    "description": "A stretch of Nguyen Tri Phuong street in District 3, known for its busy intersections and pedestrian traffic, has been cited as an area with a higher than average number of traffic accidents. Reports indicate a mix of vehicle collisions and pedestrian-related incidents, particularly near markets and schools.",
+    "latitude": 10.7680,
+    "longitude": 106.6780,
+    "severity": 3
+  },
+  {
+    "name": "District 3 - Old Colonial Building",
+    "type": "URBAN LEGEND",
+    "description": "An old colonial-era building in District 3, now repurposed, is the subject of local legends. Staff and former residents have reported unexplained cold spots, doors opening on their own, and faint whispers. The stories often involve past tragedies or former inhabitants who are said to remain.",
+    "latitude": 10.7720,
+    "longitude": 106.6750,
+    "severity": 2
+  },
+  {
+    "name": "District 10 - Ba Thang Hai Overpass",
+    "type": "ACCIDENT",
+    "description": "The Ba Thang Hai street overpass in District 10 is identified as a traffic accident hotspot, with frequent reports of serious crashes. The design of the overpass and the high volume of traffic, including large vehicles, contribute to the hazardous conditions.",
+    "latitude": 10.7650,
+    "longitude": 106.6700,
+    "severity": 4
+  },
+  {
+    "name": "District 10 - Local Temple Folklore",
+    "type": "URBAN LEGEND",
+    "description": "A centuries-old temple in District 10 is a focal point for local spiritual activity and folklore. While generally peaceful, there are persistent rumors of apparitions seen near the temple grounds after dark, particularly around the older sections and burial sites, attributed to ancient spirits or guardians.",
+    "latitude": 10.7610,
+    "longitude": 106.6720,
+    "severity": 2
+  },
+  {
+    "name": "District 4 - Nguyen Tat Thanh Road Congestion",
+    "type": "ACCIDENT",
+    "description": "Nguyen Tat Thanh Road in District 4, a critical route to port areas, is notorious for severe traffic congestion and a high incidence of accidents. The narrow road width combined with heavy truck traffic creates a dangerous environment, leading to frequent collisions.",
+    "latitude": 10.7550,
+    "longitude": 106.7050,
+    "severity": 4
+  },
+  {
+    "name": "District 4 - Riverside Area Unexplained Lights",
+    "type": "RUMOR",
+    "description": "Residents living near the Saigon River in District 4 have reported seeing strange, unidentifiable lights hovering over the water at night. These sightings are often dismissed as boat lights or reflections, but some locals believe they are manifestations of spirits or unusual phenomena.",
+    "latitude": 10.7500,
+    "longitude": 106.7000,
+    "severity": 2
+  },
+  {
+    "name": "Binh Tan District - Mass Murder Site",
+    "type": "MURDER",
+    "description": "A residential area in Binh Tan District was the site of a horrific mass murder in 2018 where a family of five was found dead. The crime remains a significant event in local memory, and the location is sometimes associated with lingering unease.",
+    "latitude": 10.7580,
+    "longitude": 106.6350,
+    "severity": 5
+  },
+  {
+    "name": "Binh Tan District - Kinh Duong Vuong Road Black Spot",
+    "type": "ACCIDENT",
+    "description": "A specific section of Kinh Duong Vuong Road in Binh Tan District is recognized as a traffic accident black spot due to numerous blind spots and high-speed traffic, leading to frequent and severe collisions.",
+    "latitude": 10.7590,
+    "longitude": 106.6300,
+    "severity": 4
+  },
+  {
+    "name": "Thu Duc City - My Thuy Roundabout",
+    "type": "ACCIDENT",
+    "description": "The My Thuy Roundabout in Thu Duc City, a major hub for port traffic, is a well-documented accident hotspot. The chaotic traffic flow, high volume of container trucks, and frequent collisions make it one of the most dangerous intersections.",
+    "latitude": 10.7500,
+    "longitude": 106.7500,
+    "severity": 5
+  },
+  {
+    "name": "Thu Duc City - National Highway 1A Intersection",
+    "type": "ACCIDENT",
+    "description": "The intersection of National Highway 1A and Tan Ky Tan Quy in Thu Duc City is a known accident black spot, characterized by high traffic speeds and frequent serious crashes involving multiple vehicles.",
+    "latitude": 10.7900,
+    "longitude": 106.7400,
+    "severity": 4
+  },
+  {
+    "name": "District 12 - Buu Lam Buddhist Temple",
+    "type": "SPIRITUAL",
+    "description": "Buu Lam Buddhist Temple in District 12 is a site for spiritual practice and meditation retreats. It offers a serene environment for mindfulness and Buddhist teachings, attracting individuals seeking spiritual connection.",
+    "latitude": 10.8150,
+    "longitude": 106.6700,
+    "severity": 1
+  },
+  {
+    "name": "District 12 - Ben Xua Tourist Area",
+    "type": "HISTORICAL INCIDENT",
+    "description": "The Ben Xua tourist area in District 12 is historically significant, with ties to revolutionary bases. While not a site of reported paranormal activity, its historical context suggests potential for lingering echoes of past conflicts.",
+    "latitude": 10.8100,
+    "longitude": 106.6650,
+    "severity": 1
+  },
+  {
+    "name": "Go Vap District - Le Duc Tho Road Incident Area",
+    "type": "ACCIDENT",
+    "description": "A stretch of Le Duc Tho street in Go Vap District has been noted for fatal traffic accidents, often caused by vehicles driving against traffic to access alleys, leading to collisions with larger vehicles.",
+    "latitude": 10.8180,
+    "longitude": 106.6450,
+    "severity": 4
+  },
+  {
+    "name": "Go Vap District - Local Shrine Rumors",
+    "type": "RUMOR",
+    "description": "A small, older shrine in Go Vap District is the subject of local rumors concerning unexplained phenomena. Visitors have reported feeling a strong presence or hearing faint chanting, especially during twilight hours, leading to speculation about its spiritual significance.",
+    "latitude": 10.8050,
+    "longitude": 106.6500,
+    "severity": 2
+  },
+  {
+    "name": "Tan Binh District - Cong Hoa Steel Overpass",
+    "type": "ACCIDENT",
+    "description": "The steel overpass at the intersection of Cong Hoa and Hoang Hoa Tham in Tan Binh District is identified as a traffic accident black spot, known for frequent crashes due to its complex design and high traffic flow.",
+    "latitude": 10.7980,
+    "longitude": 106.6550,
+    "severity": 4
+  },
+  {
+    "name": "Tan Binh District - Tan Son Nhat Airport Vicinity",
+    "type": "ACCIDENT",
+    "description": "The area around Tan Son Nhat Airport, while not a single black spot, experiences a high volume of traffic and associated accidents due to airport operations, access roads, and passenger movement.",
+    "latitude": 10.7900,
+    "longitude": 106.6500,
+    "severity": 3
+  },
+  {
+    "name": "Phu Nhuan District - Phan Xich Long Street",
+    "type": "ACCIDENT",
+    "description": "Phan Xich Long Street in Phu Nhuan District, a popular commercial and dining area, experiences significant traffic congestion which can lead to minor accidents and traffic rule violations.",
+    "latitude": 10.7880,
+    "longitude": 106.6950,
+    "severity": 3
+  },
+  {
+    "name": "Phu Nhuan District - Old Residential Area",
+    "type": "URBAN LEGEND",
+    "description": "An older, densely populated residential area in Phu Nhuan District is rumored to be haunted by the spirit of a former resident who died tragically. Locals speak of strange noises and apparitions, particularly in the alleyways and older apartment buildings.",
+    "latitude": 10.7750,
+    "longitude": 106.6900,
+    "severity": 2
+  },
+  {
+    "name": "Binh Thanh District - Saigon River Bank Area",
+    "type": "RUMOR",
+    "description": "The banks of the Saigon River in Binh Thanh District are sometimes associated with local legends of spirits or unexplained occurrences, particularly in less developed or older sections. Stories often involve mysterious sounds or fleeting figures seen near the water at night.",
+    "latitude": 10.7900,
+    "longitude": 106.7200,
+    "severity": 2
+  },
+  {
+    "name": "District 1 - Ton Duc Thang Intersection",
+    "type": "ACCIDENT",
+    "description": "The intersection of Ton Duc Thang and Ham Nghi in District 1 has been identified as an accident hotspot, with multiple fatalities reported due to high traffic volume and complex merging patterns near the park and bridge.",
+    "latitude": 10.7700,
+    "longitude": 106.7050,
+    "severity": 4
+  },
+  {
+    "name": "District 1 - Ho Chi Minh City Museum of Art (Former Hua Mansion)",
+    "type": "URBAN LEGEND",
+    "description": "The Ho Chi Minh City Museum of Art, formerly the Hua Mansion, is a site of urban legends concerning the ghost of the wealthy owner's daughter who died mysteriously. Visitors and staff have reported hearing cries and seeing a spectral figure in white.",
+    "latitude": 10.7700,
+    "longitude": 106.6950,
+    "severity": 3
+  },
+  {
+    "name": "District 5 - Hang Bang Canal Area",
+    "type": "HISTORICAL INCIDENT",
+    "description": "The Hang Bang Canal, an urban waterway in Districts 5 and 6, has undergone rehabilitation. Historically, such canals were often sites of accidents and associated with local lore due to their role in daily life and transport.",
+    "latitude": 10.7550,
+    "longitude": 106.6550,
+    "severity": 2
+  },
+  {
+    "name": "District 5 - Binh Tay Market Vicinity",
+    "type": "RUMOR",
+    "description": "The bustling area around Binh Tay Market in District 5, a historical commercial hub, is subject to local rumors of unusual occurrences, particularly at night. These include strange sounds and fleeting shadows, often attributed to the area's long history and dense population.",
+    "latitude": 10.7500,
+    "longitude": 106.6500,
+    "severity": 2
+  },
+  {
+    "name": "Phu Nhuan District - Gia Long Palace (Museum of HCMC)",
+    "type": "HISTORICAL INCIDENT",
+    "description": "The Museum of Ho Chi Minh City, formerly Gia Long Palace, was the headquarters for US military intelligence during the Vietnam War. It is a site of historical significance and has been associated with profound emotional experiences for visitors due to its exhibits on war crimes.",
+    "latitude": 10.7750,
+    "longitude": 106.6980,
+    "severity": 2
+  },
+  {
+    "name": "Phu Nhuan District - Pho Quang Pagoda",
+    "type": "SPIRITUAL",
+    "description": "Pho Quang Pagoda is a significant Buddhist site known for its serene atmosphere and spiritual activities, including meditation retreats. It serves as a center for worship and communal harmony.",
+    "latitude": 10.7950,
+    "longitude": 106.6750,
+    "severity": 1
+  }
+]
+---
+
+[EXPAND_PROMPT] 2026-03-18T03:25:09.667Z
+[VAI TRÒ]
+Bạn là một chuyên gia lưu trữ hồ sơ tâm linh và điều tra hiện thực huyền bí (Tactical Spectral Engine Expert).
+
+[SỰ KIỆN ĐỐI CHIẾU]
+Sự kiện: Phu Nhuan District - Old Residential Area
+Mô tả tóm tắt: An older, densely populated residential area in Phu Nhuan District is rumored to be haunted by the spirit of a former resident who died tragically. Locals speak of strange noises and apparitions, particularly in the alleyways and older apartment buildings.
+
+[NHIỆM VỤ]
+Hãy tạo một tập hồ sơ 'Dữ Liệu Thô' tuyệt mật với độ chi tiết cực cao.
+
+[YÊU CẦU NỘI DUNG]
+1. Ngôn ngữ: English. (BẮT BUỘC: Sử dụng English)
+2. Tông giọng: Lạnh lẽo, u ám, ma mị, gợi cảm giác gai người như hồ sơ thám tử điều tra hiện tượng lạ.
+3. Độ dài: Tổng cộng toàn bộ nội dung PHẢI TRÊN 1000 TỪ. Mỗi phần phải cực kỳ chi tiết, giàu hình ảnh và không khí.
+4. Bối cảnh: Phải thực sự gắn liền với lịch sử văn hóa hoặc bối cảnh thực tế tại địa phương (Phu Nhuan District - Old Residential Area).
+5. Cấu trúc hồ sơ:
+   - LEGEND OVERVIEW (Tổng quan huyền thoại): Nguồn gốc cổ xưa, truyền thuyết gắn liền với sự kiện, bối cảnh lịch sử.
+   - CHRONOLOGICAL HISTORY (Lịch sử dòng thời gian): Các mốc thời gian quan trọng, diễn biến sự kiện theo thứ tự.
+   - WITNESSES (Nhân chứng địa phương): Tạo từ 1 đến 3 nhân chứng hư cấu nhưng chân thực. Mỗi nhân chứng bao gồm: tên (name), lời khai chi tiết (testimony - tối thiểu 100 từ, viết ở ngôi thứ nhất, mang tính chân thực cao, gợi sự rùng rợn), và ngày ghi nhận (date).
+   - SPECTRAL ANALYSIS (Phân tích quang phổ): Các thông số đo đạc, giả thuyết tâm linh, phân tích kỹ thuật về mức độ nguy hiểm.
+   - RISK ASSESSMENT (Đánh giá rủi ro): Đánh giá tổng hợp mức độ nguy hiểm và khuyến cáo an toàn.
+6. Hình ảnh: Tạo một câu lệnh (image_prompt) để tạo ảnh phong cách "found-footage" dựa trên mẫu:
+   "Create a mysterious found-footage style photograph related to the event: [EVENT_NAME] at [LOCATION]. Scene: foggy, low light, unsettling. style: grainy, 1990s aesthetic."
+
+[ĐẦU RA]
+Trả về định dạng JSON Schema nghiêm ngặt.
+---
+[EXPAND_RAW_RESPONSE] 2026-03-18T03:25:09.667Z
+{
+  "legend_overview": "The legend surrounding the old residential area in Phu Nhuan District is steeped in a grim history, woven from the whispers of forgotten tragedies and the lingering sorrow of those who met untimely ends. The most persistent tale speaks of a woman named 'Linh,' a seamstress who lived in one of the older, crumbling apartment blocks during the late 20th century. It is said Linh was a kind soul, but plagued by misfortune. Local lore claims she was abandoned by her lover, fell into deep despair, and ultimately took her own life within the confines of her small, damp room. Her spirit, unable to find peace, is said to be trapped, forever replaying her final moments of anguish. The dense, labyrinthine alleys and the decaying architecture of the district seem to amplify these spectral narratives, creating an atmosphere where the veil between worlds feels thinner than usual. Many older residents recall stories passed down through generations, tales of unexplained phenomena that predate Linh's supposed haunting, suggesting the area itself might hold a deeper, more ancient sorrow, perhaps tied to the land's previous inhabitants or historical conflicts that scarred the district. The persistent belief is that Linh's spirit is not merely a residual echo but an active entity, drawn to the lingering sadness and despair that can still be found within the tightly packed, often impoverished, community. Her presence is often felt rather than seen, a chilling drop in temperature, a fleeting shadow in peripheral vision, or the faint sound of weeping carried on the humid night air.",
+  "chronological_history": "The spectral occurrences in Phu Nhuan's old residential area can be traced through fragmented accounts and local folklore, painting a disturbing timeline. While definitive historical records are scarce, the earliest consistent mentions of unusual phenomena date back to the post-Vietnam War era, roughly the late 1970s and early 1980s. During this period, the district, like many others in Saigon, experienced rapid urbanization and a significant influx of displaced populations. The older buildings, many constructed decades prior, began to show signs of neglect. It was around this time that the legend of Linh, the heartbroken seamstress, reportedly began to coalesce. While her exact death is often cited as occurring in the late 1980s, the stories of her spectral presence predate this by several years, suggesting a possible transference or amplification of existing phenomena. A significant cluster of reported sightings occurred in the mid-1990s, a period marked by economic hardship and social unrest in the city. Several families living in Building C, an older, notorious structure, reported unexplained cold spots, disembodied whispers, and objects moving on their own. One notable incident in 1998 involved a family fleeing their apartment in the middle of the night, claiming to have seen a spectral figure at the end of the hallway. The early 2000s saw a slight lull in reported activity, possibly due to renovations and increased community vigilance. However, the legend continued to evolve, with new anecdotal evidence emerging sporadically. In 2015, a viral social media post from a local teenager detailing a terrifying encounter in one of the alleyways brought renewed attention to the area. The post described seeing a 'woman in white' vanishing into a wall, accompanied by an overwhelming sense of dread. Despite increased modern surveillance and community efforts to dispel the myths, the spectral activity, according to persistent local accounts, continues, particularly during periods of heavy rain or significant atmospheric change, suggesting a cyclical or environmental trigger.",
+  "witnesses": [
+    {
+      "name": "Bà Mai Thị Hồng",
+      "testimony": "Tôi đã sống ở khu này hơn sáu mươi năm rồi, chứng kiến bao nhiêu chuyện. Ngày xưa, mấy cái con hẻm này còn tối om, tối om, chỉ có ánh đèn dầu leo lét thôi. Tôi nhớ hồi còn trẻ, thỉnh thoảng lại nghe tiếng khóc tỉ tê từ mấy căn gác xép bỏ hoang, nhất là những đêm mưa gió. Bà con lối xóm hay bảo là vong hồn của mấy người chết oan đi lang thang. Nhưng mà cái chuyện về cô Linh thì nó ám ảnh hơn hẳn. Có lần, tôi thức dậy đi vệ sinh lúc nửa đêm, qua cái hành lang tối om, bỗng thấy một bóng trắng lờ mờ đứng ở cuối dãy. Nó không có hình dạng rõ ràng, chỉ là một vệt sáng nhạt nhòa, nhưng tôi cảm nhận được cái nỗi buồn và sự tuyệt vọng kinh khủng tỏa ra từ đó. Cái lạnh thấu xương nó ập tới, chân tay tôi run lẩy bẩy, tim đập thình thịch. Tôi vội vàng đóng sập cửa, khóa trái, cả đêm không dám ngủ lại. Từ đó về sau, mỗi lần đi qua chỗ đó là tôi lại thấy bất an, cứ có cảm giác ai đó đang nhìn mình chằm chằm từ trong bóng tối. Mấy đứa nhỏ giờ đâu có tin, nhưng người già như tôi thì biết, có những thứ ở cõi âm này nó còn dai dẳng hơn cả thời gian.",
+      "date": "12/04/1999"
+    },
+    {
+      "name": "Anh Trần Văn Hùng",
+      "testimony": "I work as a night watchman for one of the small businesses operating near the old apartment blocks. Most nights are quiet, just the usual city sounds. But sometimes, especially between 2 and 4 AM, things get... strange. About six months ago, I was doing my rounds near Building C. The air suddenly dropped about ten degrees, I swear. My breath was misting in front of me, and I could hear what sounded like faint, rhythmic sobbing coming from one of the upper-floor windows, even though the apartment was supposed to be empty. I tried to dismiss it as the wind, but it was too consistent, too full of despair. Then, I saw it – a fleeting shadow, darker than the surrounding darkness, darting across the narrow gap between two buildings. It moved too fast, too unnaturally. I felt a primal fear, a cold dread that made my skin crawl. My flashlight beam seemed to weaken, the light struggling to penetrate the oppressive atmosphere. I've heard the stories about Linh, the tragic seamstress, and honestly, after that night, I believe them. There's a palpable sadness in that area, a heavy, sorrowful energy that clings to the crumbling walls. I always make sure my flashlight batteries are fresh now, and I avoid looking too closely into the darkened windows.",
+      "date": "05/09/2003"
+    },
+    {
+      "name": "Cô Nguyễn Thị Lan Anh",
+      "testimony": "I used to live in Building B with my family until we moved out last year. We never saw anything concrete, no apparitions or anything like that, but the *feeling*… it was undeniable. Especially in the hallway outside our apartment. It was always colder there, even in the peak of summer. Sometimes, late at night, you’d hear faint scratching sounds coming from the walls, like tiny nails. My younger brother swore he saw a woman’s reflection in the window one night, but when he looked again, there was nothing. The strangest thing, though, was the scent. Occasionally, a faint, almost imperceptible scent of old perfume, like jasmine or gardenia, would drift through the air. It wasn't unpleasant, but it was eerie because it had no source. It felt like a memory, a lingering trace of someone’s presence. My grandmother, who lived in the district her whole life, told me stories about Linh, about how she used to wear gardenia flowers in her hair. It sent chills down my spine every time I caught that phantom scent. We eventually moved because the constant unease, the feeling of being watched, became too much for my kids.",
+      "date": "21/11/2019"
+    }
+  ],
+  "spectral_analysis": "Initial spectral analysis of the Phu Nhuan old residential area indicates significant anomalies, particularly within the older structures and the connecting alleyways. Readings from EMF meters consistently register elevated levels, spiking erratically in specific locations, most notably near the reported site of Linh's former residence in Building C. These spikes are not attributable to standard electrical interference, often occurring in areas with minimal wiring or power sources. Thermal imaging reveals localized cold spots that defy meteorological explanation, with temperature drops exceeding 15°C in distinct, confined areas. These zones often correlate with areas of high EMF activity and reported visual or auditory phenomena. Auditory recordings have captured faint, low-frequency sounds, including what appears to be disembodied whispering and sobbing, which spectral analysis suggests are not environmental noise or equipment malfunction. Spectrographic analysis of air samples taken during periods of reported activity has revealed trace amounts of unusual organic compounds, though their direct link to paranormal activity remains speculative. Psychometric readings, based on historical data and local testimonies, suggest a strong residual psychic imprint, likely tied to intense emotional distress and a traumatic death. The prevalent hypothesis leans towards a Class III haunting – a residual haunt, potentially evolving into an interactive Class IV entity, possibly Linh's spirit. The persistent low-level sorrow and despair detected by sensitive equipment suggest the area acts as a psychic amplifier, drawing on or resonating with the lingering negative emotions of its inhabitants. Further investigation using advanced quantum entanglement sensors is recommended to ascertain the nature of the energy signature and its potential sentience. The spectral 'signature' appears to be strongest during periods of low barometric pressure and high humidity, suggesting environmental factors may play a role in its manifestation.",
+  "risk_assessment": "The Phu Nhuan old residential area presents a moderate to high-risk environment for individuals susceptible to psychological distress or those with a history of paranormal sensitivity. The persistent atmospheric anomalies, including extreme cold spots and erratic EMF fluctuations, while not directly physically harmful, can induce significant anxiety, paranoia, and disorientation. The psychological impact of perceived 'hauntings,' amplified by the dense, claustrophobic nature of the locale, can lead to heightened stress and potential long-term mental health issues. The legend of Linh, while rooted in tragedy, contributes to a pervasive atmosphere of fear and unease, which can be psychologically debilitating for residents and visitors. There is a documented history of individuals experiencing intense emotional distress and a feeling of being 'watched' or 'oppressed.' While direct physical harm from the suspected entity has not been credibly reported, the potential for accidents due to fear-induced panic or disorientation in the poorly lit, complex alleyways cannot be discounted. The spectral analysis suggests a strong negative emotional resonance, which could potentially exacerbate existing mental health conditions or trigger latent psychological issues. \n\n**Recommendations:**\n1.  **Avoidance:** Individuals prone to anxiety, depression, or those with a history of psychological trauma should avoid prolonged exposure to the area, especially during nighttime hours.\n2.  **Psychological Preparedness:** Visitors should be mentally prepared for the unsettling atmosphere and understand the local legends to contextualize any unusual experiences.\n3.  **Environmental Awareness:** Exercise caution when navigating the narrow, dimly lit alleyways and older structures, particularly during adverse weather conditions.\n4.  **Limited Duration:** Limit time spent in the area, especially in known 'hotspots' identified during spectral analysis.\n5.  **Professional Consultation:** Individuals experiencing significant psychological distress after visiting the area should seek professional mental health support.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Phu Nhuan District - Old Residential Area Haunting. Scene: a narrow, dimly lit alleyway at night, with crumbling, wet walls. A faint, translucent figure of a woman in traditional Vietnamese clothing is partially visible at the end of the alley, seemingly dissolving into the shadows. The image should have a grainy texture, visible film artifacts, and a desaturated color palette, evoking a 1990s VCR recording aesthetic. Low light, unsettling atmosphere, unsettling."
+}
+---
+[PROMPT] 2026-03-18T04:47:46.267Z
+ACT AS A MULTI-LAYER GEOSPATIAL INTELLIGENCE SCANNING SYSTEM.
+
+SCAN CENTER: (10.7748, 106.7056)
+SCAN RADIUS: 5km
+BOUNDING BOX: latitude 10.7299–10.8197, longitude 106.6598–106.7513
+
+Search for all traces of spiritual activity, accidents, murders, unexplained incidents, and local legends ONLY within the bounding box above.
+First, identify what neighborhood, district, ward, or rural area is located at coordinates (10.7748, 106.7056). Then search for events ONLY in that specific local area and its immediate surroundings within 5km.
+
+CRITICAL GEOGRAPHIC RULE:
+- EVERY event latitude MUST be between 10.7299 and 10.8197.
+- EVERY event longitude MUST be between 106.6598 and 106.7513.
+- Do NOT return events from the city center or other distant areas.
+- Do NOT return famous landmarks unless they are physically inside the bounding box.
+- If the area has fewer known incidents, generate plausible events based on local road conditions, old buildings, waterways, and community oral history within the bounding box.
+
+MANDATORY:
+Return a radar dataset of approximately 20–30 points to ensure proper radar coverage of the area.
+
+DEEP SCAN CATEGORIES:
+
+1. ACCIDENT BLACK SPOTS
+Road intersections, bridges, highways, or railway crossings with repeated fatal accidents or unexplained crashes.
+
+2. MURDER RECORDS
+Historical crimes, cold cases, unexplained deaths, or violent incidents reported in local news.
+
+3. URBAN LEGENDS
+Abandoned buildings, old hospitals, cemeteries, haunted houses, temples, tunnels, or places with paranormal folklore.
+
+4. LOCAL RUMORS
+Strange events reported in local forums, blogs, social media, or oral history from the community.
+
+5. HISTORICAL INCIDENTS
+Major fires, disasters, war remnants, missing persons cases, or unexplained tragedies tied to the location.
+
+CONSTRAINTS:
+- Use real-world local context and historical knowledge when possible.
+- Do NOT fabricate unrealistic supernatural events.
+- Focus on locations with reported incidents or persistent rumors.
+- ALL coordinates MUST fall within the bounding box: lat 10.7299–10.8197, lon 106.6598–106.7513.
+- Events should be spatially distributed around the scan area, not clustered at the center.
+- Descriptions must read like investigative reports of unusual incidents.
+
+TEXT RULES:
+- Do NOT copy search snippets verbatim.
+- Rewrite information as a concise narrative report.
+- The description must end with a period.
+
+LANGUAGE RULE:
+ALL values in "name" and "description" MUST be written in Vietnamese. This is mandatory.
+
+Return ONLY a JSON array:
+```json
+[{"name", "type", "description", "latitude", "longitude", "severity"}]
+```
+Fields:
+- "name": Event name (in Vietnamese)
+- "type": One of ["GHOST", "MURDER", "ACCIDENT", "RUMOR"]
+- "description": Description in Vietnamese, last sentence MUST end with a period
+- "latitude": Latitude (number, MUST be between 10.7299 and 10.8197)
+- "longitude": Longitude (number, MUST be between 106.6598 and 106.7513)
+- "severity": Danger level 1-5 (number)
+
+[RAW_AI_RESPONSE] 2026-03-18T04:47:46.267Z
+```json
+[
+  {
+    "name": "Ngã tư Mỹ Thủy",
+    "type": "ACCIDENT",
+    "description": "Khu vực ngã tư Mỹ Thủy, thuộc Quận 2 cũ (nay là Thành phố Thủ Đức), là một điểm đen giao thông nghiêm trọng với nhiều vụ va chạm giữa xe máy và xe container tốc độ cao trên đường hẹp, gần chợ và trường học.",
+    "latitude": 10.7735,
+    "longitude": 106.7340,
+    "severity": 4
+  },
+  {
+    "name": "Đường Nguyễn Duy Trinh",
+    "type": "ACCIDENT",
+    "description": "Tuyến đường Nguyễn Duy Trinh, trải dài qua Quận 2 và Quận 9 cũ, từng ghi nhận số lượng lớn các vụ tai nạn giao thông chết người trong nhiều năm, bất chấp các biện pháp xử lý.",
+    "latitude": 10.7780,
+    "longitude": 106.7450,
+    "severity": 4
+  },
+  {
+    "name": "Đường Lương Định Của",
+    "type": "ACCIDENT",
+    "description": "Đường Lương Định Của đã chứng kiến nhiều vụ tai nạn giao thông thảm khốc, bao gồm các vụ va chạm với xe ben và xe tải, gây tử vong tại chỗ.",
+    "latitude": 10.7700,
+    "longitude": 106.7150,
+    "severity": 4
+  },
+  {
+    "name": "Cầu Kênh Một (Võ Chí Công)",
+    "type": "ACCIDENT",
+    "description": "Cầu Kênh Một trên đường Võ Chí Công (Thành phố Thủ Đức) được xác định là một điểm đen tai nạn giao thông, cần được giám sát chặt chẽ.",
+    "latitude": 10.7580,
+    "longitude": 106.7480,
+    "severity": 3
+  },
+  {
+    "name": "Dự án Petro Vietnam Landmark",
+    "type": "RUMOR",
+    "description": "Khu dự án nhà ở Petro Vietnam Landmark tại Quận 2 cũ đã bị bỏ hoang nhiều năm sau khi khách hàng đặt cọc, tạo nên cảnh quan 'nhà ma' và là nơi trú ngụ của người vô gia cư.",
+    "latitude": 10.7790,
+    "longitude": 106.7250,
+    "severity": 2
+  },
+  {
+    "name": "Khu căn hộ bỏ hoang đường Nguyễn Văn Hưởng",
+    "type": "RUMOR",
+    "description": "Một nhóm căn hộ tại đường Nguyễn Văn Hưởng, Phường Thảo Điền, Quận 2 cũ, đã bị bỏ dở thi công hơn mười năm, tạo nên khung cảnh hoang tàn và đôi khi có người dân sinh sống tạm bợ.",
+    "latitude": 10.7950,
+    "longitude": 106.7280,
+    "severity": 2
+  },
+  {
+    "name": "Chùa cũ trên Bán đảo Thủ Thiêm",
+    "type": "GHOST",
+    "description": "Trong khu vực Bán đảo Thủ Thiêm, từng có một ngôi chùa cổ được cho là một trong những di tích cuối cùng của khu dân cư cũ trước khi quy hoạch, gợi lên những câu chuyện về quá khứ và sự tĩnh lặng kỳ lạ.",
+    "latitude": 10.7700,
+    "longitude": 106.7000,
+    "severity": 3
+  },
+  {
+    "name": "Khu vực đất trống ven sông Sài Gòn",
+    "type": "RUMOR",
+    "description": "Các khu vực đất trống ven sông Sài Gòn, đặc biệt là ở các phường như Thạnh Mỹ Lợi hay Cát Lái, từng là vùng nông thôn với nhà sàn và kênh rạch, nay đang phát triển nhanh chóng nhưng vẫn còn lưu giữ những câu chuyện về cuộc sống xưa cũ và những sự kiện không giải thích được.",
+    "latitude": 10.7650,
+    "longitude": 106.7400,
+    "severity": 2
+  },
+  {
+    "name": "Khu đô thị mới Thủ Thiêm (giai đoạn đầu)",
+    "type": "RUMOR",
+    "description": "Trong giai đoạn đầu phát triển, khu đô thị mới Thủ Thiêm có nhiều khu nhà tái định cư bị bỏ trống, tạo nên không khí vắng vẻ, đôi khi bị đồn đoán là có 'ma ám' do sự cô lập và quy mô lớn.",
+    "latitude": 10.7750,
+    "longitude": 106.7050,
+    "severity": 2
+  },
+  {
+    "name": "Khu vực gần Cầu Phú Mỹ",
+    "type": "ACCIDENT",
+    "description": "Khu vực lân cận Cầu Phú Mỹ, nơi có nhiều tuyến đường lớn và mật độ xe container cao, thường xuyên xảy ra các vụ tai nạn giao thông nghiêm trọng.",
+    "latitude": 10.7450,
+    "longitude": 106.7300,
+    "severity": 4
+  },
+  {
+    "name": "Khu vực Xa Lộ Hà Nội (Đoạn qua Quận 2 cũ)",
+    "type": "ACCIDENT",
+    "description": "Xa Lộ Hà Nội, một tuyến đường huyết mạch, đã ghi nhận nhiều vụ tai nạn giao thông do mật độ phương tiện cao và tốc độ, đặc biệt là tại các giao lộ phức tạp.",
+    "latitude": 10.7900,
+    "longitude": 106.7200,
+    "severity": 3
+  },
+  {
+    "name": "Khu vực Cát Lái",
+    "type": "ACCIDENT",
+    "description": "Khu vực Cát Lái, với các cảng và tuyến đường vận tải, thường xuyên xảy ra các vụ va chạm liên quan đến xe tải nặng và xe container, gây nguy hiểm cho giao thông.",
+    "latitude": 10.7500,
+    "longitude": 106.7500,
+    "severity": 4
+  },
+  {
+    "name": "Khu vực Thạnh Mỹ Lợi",
+    "type": "RUMOR",
+    "description": "Phường Thạnh Mỹ Lợi, với địa hình giáp sông và các khu dân cư cũ xen lẫn dự án mới, có thể còn lưu giữ những câu chuyện dân gian hoặc tin đồn về các hiện tượng kỳ lạ từ thời xưa.",
+    "latitude": 10.7600,
+    "longitude": 106.7100,
+    "severity": 1
+  },
+  {
+    "name": "Khu vực Bình Trưng Đông",
+    "type": "RUMOR",
+    "description": "Các khu vực dân cư cũ tại Bình Trưng Đông có thể có những truyền thuyết đô thị hoặc câu chuyện về các sự kiện bí ẩn gắn liền với lịch sử phát triển của khu vực.",
+    "latitude": 10.7550,
+    "longitude": 106.7250,
+    "severity": 1
+  },
+  {
+    "name": "Khu vực Bình Trưng Tây",
+    "type": "RUMOR",
+    "description": "Tương tự như Bình Trưng Đông, Bình Trưng Tây có thể là nơi lưu giữ các lời đồn đại hoặc những câu chuyện kỳ lạ từ cộng đồng dân cư địa phương, liên quan đến các địa điểm cũ hoặc sự kiện lịch sử.",
+    "latitude": 10.7500,
+    "longitude": 106.7100,
+    "severity": 1
+  },
+  {
+    "name": "Khu vực An Phú",
+    "type": "RUMOR",
+    "description": "Mặc dù là khu vực phát triển mạnh, An Phú vẫn có những góc khuất và các tòa nhà cũ có thể gắn liền với những câu chuyện chưa được giải thích hoặc tin đồn dân gian.",
+    "latitude": 10.7900,
+    "longitude": 106.7200,
+    "severity": 1
+  },
+  {
+    "name": "Khu vực An Khánh",
+    "type": "RUMOR",
+    "description": "Khu vực An Khánh, với lịch sử phát triển và thay đổi nhanh chóng, có thể còn tồn tại những câu chuyện chưa được xác thực về các sự kiện bất thường.",
+    "latitude": 10.7750,
+    "longitude": 106.7000,
+    "severity": 1
+  },
+  {
+    "name": "Khu vực Thảo Điền",
+    "type": "RUMOR",
+    "description": "Dù là khu dân cư cao cấp, Thảo Điền vẫn có những câu chuyện truyền miệng về các hiện tượng lạ tại các khu biệt thự cũ hoặc những nơi ít người qua lại.",
+    "latitude": 10.8050,
+    "longitude": 106.7250,
+    "severity": 1
+  },
+  {
+    "name": "Khu vực ven sông Sài Gòn (Phường Thạnh Mỹ Lợi)",
+    "type": "RUMOR",
+    "description": "Những khu vực dân cư cũ ven sông Sài Gòn tại Thạnh Mỹ Lợi có thể còn lưu giữ những câu chuyện về các hiện tượng tâm linh hoặc những sự kiện bí ẩn liên quan đến sông nước.",
+    "latitude": 10.7550,
+    "longitude": 106.7050,
+    "severity": 2
+  },
+  {
+    "name": "Khu vực Cảng Cát Lái",
+    "type": "ACCIDENT",
+    "description": "Khu vực xung quanh cảng Cát Lái là nơi tập trung nhiều xe container và xe tải nặng, dẫn đến nguy cơ cao xảy ra tai nạn giao thông, đặc biệt là vào giờ cao điểm hoặc ban đêm.",
+    "latitude": 10.7400,
+    "longitude": 106.7450,
+    "severity": 4
+  },
+  {
+    "name": "Khu vực đường Mai Chí Thọ",
+    "type": "ACCIDENT",
+    "description": "Đường Mai Chí Thọ, một tuyến đường lớn, có thể tiềm ẩn nguy cơ tai nạn do tốc độ cao và các giao lộ phức tạp, đặc biệt là gần các khu dân cư và trung tâm thương mại.",
+    "latitude": 10.7850,
+    "longitude": 106.7300,
+    "severity": 3
+  },
+  {
+    "name": "Khu vực đường Đồng Văn Cống",
+    "type": "ACCIDENT",
+    "description": "Đường Đồng Văn Cống, một tuyến đường quan trọng kết nối khu vực cảng, thường xuyên có xe container và xe tải, tiềm ẩn nguy cơ tai nạn cao.",
+    "latitude": 10.7500,
+    "longitude": 106.7200,
+    "severity": 4
+  },
+  {
+    "name": "Khu vực có các dự án nhà ở chưa hoàn thiện",
+    "type": "RUMOR",
+    "description": "Nhiều dự án nhà ở tại khu vực Quận 2 cũ đã bị đình trệ hoặc bỏ hoang, tạo ra những 'khu đô thị ma' có thể là nguồn gốc của các câu chuyện kỳ bí hoặc tin đồn về hoạt động bất thường.",
+    "latitude": 10.7800,
+    "longitude": 106.7150,
+    "severity": 2
+  },
+  {
+    "name": "Khu vực gần Sông Sài Gòn",
+    "type": "RUMOR",
+    "description": "Các khu vực dân cư cũ ven sông Sài Gòn có thể còn lưu giữ những câu chuyện về các hiện tượng tâm linh hoặc những sự kiện bí ẩn liên quan đến sông nước và các hoạt động sinh sống lâu đời của người dân.",
+    "latitude": 10.7700,
+    "longitude": 106.7000,
+    "severity": 2
+  },
+  {
+    "name": "Khu vực Chợ An Phú",
+    "type": "ACCIDENT",
+    "description": "Khu vực xung quanh chợ An Phú, nơi có mật độ giao thông cao và nhiều xe máy, tiềm ẩn nguy cơ tai nạn do sự phức tạp của luồng xe và người đi bộ.",
+    "latitude": 10.7950,
+    "longitude": 106.7250,
+    "severity": 3
+  },
+  {
+    "name": "Khu vực Cầu Thủ Thiêm 2",
+    "type": "ACCIDENT",
+    "description": "Mặc dù là tuyến đường mới, khu vực lân cận Cầu Thủ Thiêm 2 có thể ghi nhận các vụ tai nạn do tốc độ cao hoặc sự cố bất ngờ trên tuyến đường mới kết nối.",
+    "latitude": 10.7850,
+    "longitude": 106.7050,
+    "severity": 3
+  },
+  {
+    "name": "Khu vực đường Trần Não",
+    "type": "ACCIDENT",
+    "description": "Đường Trần Não là một tuyến đường quan trọng, thường xuyên có mật độ giao thông cao, tiềm ẩn nguy cơ tai nạn do va chạm giữa các phương tiện.",
+    "latitude": 10.7800,
+    "longitude": 106.7100,
+    "severity": 3
+  },
+  {
+    "name": "Khu vực đường Nguyễn Thị Định",
+    "type": "ACCIDENT",
+    "description": "Đường Nguyễn Thị Định, một tuyến đường kết nối quan trọng, có thể xảy ra tai nạn do mật độ giao thông và các giao lộ.",
+    "latitude": 10.7650,
+    "longitude": 106.7300,
+    "severity": 3
+  },
+  {
+    "name": "Khu vực đường Song Hành (Xa lộ Hà Nội)",
+    "type": "ACCIDENT",
+    "description": "Các tuyến đường song hành với Xa lộ Hà Nội cũng có thể ghi nhận các vụ tai nạn do sự phân luồng giao thông và các điểm ra/vào đường chính.",
+    "latitude": 10.7900,
+    "longitude": 106.7220,
+    "severity": 3
+  },
+  {
+    "name": "Khu vực đường Nguyễn Văn Trỗi (phần thuộc phạm vi)",
+    "type": "ACCIDENT",
+    "description": "Mặc dù phần lớn đường Nguyễn Văn Trỗi nằm ngoài phạm vi, nếu có đoạn nào lọt vào, đây là tuyến đường có mật độ giao thông cao và tiềm ẩn nguy cơ tai nạn.",
+    "latitude": 10.7900,
+    "longitude": 106.6800,
+    "severity": 3
+  }
+]
+```
+---
+
+[EXPAND_PROMPT] 2026-03-18T04:48:18.722Z
+[VAI TRÒ]
+Bạn là một chuyên gia lưu trữ hồ sơ tâm linh và điều tra hiện thực huyền bí (Tactical Spectral Engine Expert).
+
+[SỰ KIỆN ĐỐI CHIẾU]
+Sự kiện: Khu vực Bình Trưng Đông
+Mô tả tóm tắt: Các khu vực dân cư cũ tại Bình Trưng Đông có thể có những truyền thuyết đô thị hoặc câu chuyện về các sự kiện bí ẩn gắn liền với lịch sử phát triển của khu vực.
+
+[NHIỆM VỤ]
+Hãy tạo một tập hồ sơ 'Dữ Liệu Thô' tuyệt mật với độ chi tiết cực cao.
+
+[YÊU CẦU NỘI DUNG]
+1. Ngôn ngữ: Vietnamese. (BẮT BUỘC: Sử dụng Vietnamese)
+2. Tông giọng: Lạnh lẽo, u ám, ma mị, gợi cảm giác gai người như hồ sơ thám tử điều tra hiện tượng lạ.
+3. Độ dài: Tổng cộng toàn bộ nội dung PHẢI TRÊN 1000 TỪ. Mỗi phần phải cực kỳ chi tiết, giàu hình ảnh và không khí.
+4. Bối cảnh: Phải thực sự gắn liền với lịch sử văn hóa hoặc bối cảnh thực tế tại địa phương (Khu vực Bình Trưng Đông).
+5. Cấu trúc hồ sơ:
+   - LEGEND OVERVIEW (Tổng quan huyền thoại): Nguồn gốc cổ xưa, truyền thuyết gắn liền với sự kiện, bối cảnh lịch sử.
+   - CHRONOLOGICAL HISTORY (Lịch sử dòng thời gian): Các mốc thời gian quan trọng, diễn biến sự kiện theo thứ tự.
+   - WITNESSES (Nhân chứng địa phương): Tạo từ 1 đến 3 nhân chứng hư cấu nhưng chân thực. Mỗi nhân chứng bao gồm: tên (name), lời khai chi tiết (testimony - tối thiểu 100 từ, viết ở ngôi thứ nhất, mang tính chân thực cao, gợi sự rùng rợn), và ngày ghi nhận (date).
+   - SPECTRAL ANALYSIS (Phân tích quang phổ): Các thông số đo đạc, giả thuyết tâm linh, phân tích kỹ thuật về mức độ nguy hiểm.
+   - RISK ASSESSMENT (Đánh giá rủi ro): Đánh giá tổng hợp mức độ nguy hiểm và khuyến cáo an toàn.
+6. Hình ảnh: Tạo một câu lệnh (image_prompt) để tạo ảnh phong cách "found-footage" dựa trên mẫu:
+   "Create a mysterious found-footage style photograph related to the event: [EVENT_NAME] at [LOCATION]. Scene: foggy, low light, unsettling. style: grainy, 1990s aesthetic."
+
+[ĐẦU RA]
+Trả về định dạng JSON Schema nghiêm ngặt.
+---
+[EXPAND_RAW_RESPONSE] 2026-03-18T04:48:18.723Z
+{
+  "legend_overview": "Khu vực Bình Trưng Đông, một vùng đất mang trong mình nhiều tầng lớp lịch sử tại Sài Gòn, ẩn chứa không chỉ dấu tích của những khu dân cư cũ mà còn là những truyền thuyết đô thị len lỏi trong ký ức người dân. Tương truyền, nơi đây từng là vùng đất thiêng, nơi giao thoa giữa cõi âm và cõi dương, đặc biệt là khu vực gần con rạch xưa kia, nay đã bị lấp đi để nhường chỗ cho sự phát triển đô thị. Các câu chuyện xưa kể về những linh hồn trú ngụ, những oan hồn chưa siêu thoát vì những biến cố lịch sử, chiến tranh, hay những bi kịch cá nhân. Nhiều người cao tuổi trong vùng vẫn còn nhắc đến những “vùng đất dữ”, nơi ánh sáng mặt trời khó lòng xuyên qua tán lá cây cổ thụ, nơi tiếng khóc than vãn vưởng trong đêm khuya và những bóng hình kỳ dị lướt qua trong màn sương sớm.  Những câu chuyện này thường gắn liền với những ngôi nhà cổ bỏ hoang, những mảnh đất chưa từng được ai khai phá, hay những khu vực từng là chiến trường, nơi chôn cất những người lính vô danh.  Sự phát triển nhanh chóng của Bình Trưng Đông, với những tòa nhà cao tầng mọc lên san sát, dường như càng làm tăng thêm vẻ ma mị, khi những câu chuyện cổ xưa bị lãng quên dần, nhưng lại âm ỉ tồn tại trong tiềm thức của những người dân gắn bó với mảnh đất này. Có giả thuyết cho rằng, sự bình yên của khu vực hiện tại là một lớp vỏ mỏng manh, che đậy một thế giới tâm linh đầy biến động, nơi quá khứ luôn tìm cách trỗi dậy.  Các nghi lễ cúng bái, cầu an vẫn thường xuyên được thực hiện bởi người dân địa phương, như một cách để xoa dịu những linh hồn đang quấy nhiễu và mong cầu sự bảo hộ cho chính mình và gia đình.  Truyền thuyết về “Ngôi mộ không tên” hay “Tiếng gọi từ con rạch cũ” vẫn được kể lại, mỗi lần thêm vào một chi tiết rùng rợn, khiến cho huyền thoại về Bình Trưng Đông càng thêm phần bí ẩn và ám ảnh, thu hút sự tò mò của những nhà nghiên cứu hiện tượng huyền bí.",
+  "chronological_history": "Lịch sử của khu vực Bình Trưng Đông gắn liền với sự hình thành và phát triển của Sài Gòn – Chợ Lớn. Trước thế kỷ 17, khu vực này chủ yếu là đất đai hoang vu, rừng rậm và các kênh rạch chằng chịt, là nơi sinh sống của các cộng đồng dân cư bản địa và là vùng đất “ngoại vi” so với trung tâm đô thị đang hình thành. Sự kiện quan trọng đầu tiên có thể ghi nhận là vào khoảng cuối thế kỷ 18, đầu thế kỷ 19, khi người Việt bắt đầu di cư đến vùng đất này để khai hoang, lập ấp. Quá trình này không hề dễ dàng, nhiều người phải đối mặt với điều kiện tự nhiên khắc nghiệt, dịch bệnh và cả những xung đột với các thế lực bản địa hoặc những nhóm người khác.  Trong giai đoạn này, các câu chuyện về “đất dữ” bắt đầu xuất hiện, gắn liền với những khu vực dân cư thưa thớt, những cánh đồng hoang vắng nơi xảy ra nhiều tai ương, mất mát.  Vào thời Pháp thuộc, Bình Trưng Đông dần trở thành một khu vực dân cư với sự xuất hiện của các đồn điền cao su, nhà máy nhỏ và các khu nhà ở cho công nhân.  Sự thay đổi về kiến trúc và lối sống này cũng mang theo những câu chuyện mới.  Đặc biệt, trong các cuộc chiến tranh kéo dài suốt thế kỷ 20, khu vực này đã chứng kiến nhiều biến cố, từ các cuộc hành quân, giao tranh cho đến những vụ đàn áp, bắt bớ.  Nhiều người dân đã hy sinh hoặc mất tích, và những câu chuyện về oan hồn, về những sự kiện siêu nhiên bắt đầu lan truyền mạnh mẽ, đặc biệt là sau những năm tháng chiến tranh.  Sau năm 1975, Bình Trưng Đông tiếp tục quá trình đô thị hóa mạnh mẽ. Các khu đất trống dần được lấp đầy bởi các khu dân cư mới, các công trình công cộng. Tuy nhiên, quá trình này cũng vô tình khuấy động những gì đã ngủ yên dưới lòng đất.  Việc san lấp mặt bằng, xây dựng các công trình lớn đôi khi làm phát lộ những di vật lịch sử, những hài cốt chưa được chôn cất đàng hoàng, và từ đó, các hiện tượng siêu nhiên được báo cáo ngày càng nhiều.  Đặc biệt vào những năm cuối thế kỷ 20, đầu thế kỷ 21, khi các phương tiện truyền thông và công nghệ phát triển, những câu chuyện về Bình Trưng Đông bắt đầu được ghi nhận và lan truyền rộng rãi hơn, thu hút sự chú ý của các nhà nghiên cứu và những người tò mò về thế giới tâm linh.  Các mốc thời gian quan trọng khác bao gồm việc xây dựng các ngôi chùa cổ, những nghĩa địa cũ, và các công trình công cộng như trường học, bệnh viện, mà xung quanh đó luôn tồn tại những giai thoại kỳ bí.",
+  "witnesses": [
+    {
+      "name": "Bà Tư Bông Vải",
+      "testimony": "Tôi ở cái xóm này cũng mấy chục năm rồi, từ cái hồi còn lụt lội, đường sá thì lầy lội như cái mương. Hồi đó, cái khu đất phía sau nhà tôi, gần cái con rạch cũ ấy, ai cũng sợ. Đêm xuống là không ai dám bén mảng tới. Tôi nhớ như in, có lần con trai tôi đi câu cá về muộn, nó kể thấy một cái bóng trắng lờ mờ đứng dưới gốc cây đa cổ thụ, nhìn nó chằm chằm rồi cứ lặp đi lặp lại một câu nói gì đó mà nó không nghe rõ. Nó sợ quá chạy thục mạng về nhà, mặt mày xanh lét. Còn có lần, nhà tôi có cô cháu gái nhỏ, nó hay chơi một mình ở góc vườn. Tự nhiên nó chỉ vào khoảng không rồi khóc ré lên, bảo có bà gì đó cứ nắm tay nó kéo đi. Bà già đó mặc đồ rách rưới, tóc tai bù xù, mắt thì trợn trừng nhìn ghê lắm. Từ đó, chúng tôi không dám cho nó ra vườn chơi một mình nữa. Cứ mỗi lần trời mưa gió, sấm chớp đùng đùng là y như rằng lại nghe tiếng ai đó khóc than vãn vưởng đâu đây, nghe mà lạnh cả sống lưng. Dân ở đây ai cũng biết, cái khu đó là không yên đâu, có gì đó oan khuất lắm, nên cứ đến tối là cửa đóng then cài, cầu trời cho bình yên. Giờ thì người ta xây nhà hết rồi, nhưng thỉnh thoảng đêm khuya vắng vẻ, tôi vẫn nghe thấy những tiếng động lạ, như tiếng bước chân, tiếng đồ vật rơi vỡ, nhưng nhìn ra thì chẳng có gì cả. Cứ như là có ai đó vẫn còn quanh quẩn ở đây vậy.",
+      "date": "22/08/1995"
+    },
+    {
+      "name": "Ông Sáu Lái Đò (Đã mất)",
+      "testimony": "Hồi xưa cái khu này còn nhiều kênh rạch lắm, tôi làm nghề lái đò, ngày nào cũng xuôi ngược trên sông. Có lần, vào một đêm trăng mờ, tôi chở một ông khách lạ mặt đi qua cái khúc rạch gần khu vực bây giờ là Bình Trưng Đông. Ông ta im lặng lạ thường, cứ nhìn chằm chằm vào mặt nước. Khi đến đoạn vắng vẻ nhất, ông ta bỗng nhiên chỉ xuống sông và nói: 'Tất cả đều ở dưới đó'. Tôi giật mình, hỏi ông ta là sao thì ông ta chỉ cười khùng khục rồi biến mất một cách kỳ lạ, như tan vào không khí vậy. Tôi sợ quá, chèo thuyền chạy bán sống bán chết về bờ. Sau này tôi mới nghe người ta kể lại, khu vực đó xưa kia là nơi diễn ra nhiều vụ thảm sát, nhiều người bị dìm chết dưới sông. Có lẽ ông khách đó là một trong số họ, hoặc là một thực thể nào đó liên quan đến những sự kiện đó. Có những đêm, khi tôi đi ngang qua đó, tôi còn nghe thấy tiếng người ta la hét, tiếng khóc than vọng lên từ dưới lòng nước, lạnh lẽo và bi thương. Đôi khi, tôi còn thấy những luồng sáng xanh lè chập chờn dưới mặt nước, như có thứ gì đó đang cố gắng trỗi dậy. Công việc lái đò của tôi ở đây cũng không kéo dài được lâu, vì cứ đêm đến là tôi lại cảm thấy bất an, như có ai đó đang theo dõi mình vậy. Cái cảm giác đó ám ảnh tôi cho đến tận bây giờ, dù tôi đã không còn làm nghề đó nữa.",
+      "date": "10/11/1988"
+    },
+    {
+      "name": "Anh Minh Bảo Vệ Công Trình",
+      "testimony": "Tôi làm bảo vệ cho cái công trình đang xây dở dang ở khu vực này. Ban đêm ở đây vắng lắm, chỉ có tiếng côn trùng kêu và thỉnh thoảng là tiếng gió rít qua những khung thép. Nhưng có những đêm, tôi nghe thấy những tiếng động lạ lắm. Không phải tiếng chuột chạy hay tiếng chó sủa đâu. Nó giống như tiếng bước chân người đi lại, tiếng va chạm đồ đạc, hay thậm chí là tiếng ai đó đang nói chuyện khe khẽ. Lần đầu tiên tôi nghe thấy là cách đây khoảng hai tháng. Lúc đó khoảng 2 giờ sáng, tôi đang đi tuần quanh công trình thì nghe tiếng trẻ con khóc ở phía khu đất trống bên cạnh. Tôi tò mò lại gần xem, nhưng khi đến nơi thì không thấy ai cả, chỉ có một cái xích đu cũ kỹ đang đung đưa nhẹ trong gió. Tôi nghĩ chắc là gió thôi, nhưng cái tiếng khóc đó cứ văng vẳng bên tai. Rồi có lần khác, tôi đang ngồi trong chòi gác thì thấy có bóng người lướt qua khung cửa sổ. Tôi bật đèn pin soi thì không thấy ai. Nhưng khi nhìn kỹ lại, tôi thấy có một vệt mờ ảo, như làn khói, đang bay lên từ mặt đất rồi tan biến. Mấy anh em bảo vệ khác cũng có người từng gặp chuyện tương tự. Có người bảo là do khu đất này trước kia có người chết oan, nên linh hồn họ vẫn còn quanh quẩn. Tôi cũng không rõ nữa, chỉ biết là ban đêm ở đây cảm giác rất rờn rợn, cứ như có ai đó đang quan sát mình vậy. Đôi khi, các thiết bị điện tử trong chòi cũng tự nhiên bị nhiễu sóng, màn hình TV bị nhòe đi một cách kỳ lạ. Tôi chỉ mong làm xong ca là về nhà ngay, chứ ở lại đây lâu là không chịu nổi.",
+      "date": "05/01/2003"
+    }
+  ],
+  "spectral_analysis": "Các báo cáo về hiện tượng dị thường tại Bình Trưng Đông đã được ghi nhận trong nhiều thập kỷ, với tần suất gia tăng đáng kể trong những năm gần đây. Phân tích quang phổ ban đầu cho thấy sự hiện diện của các dải năng lượng EM bất thường, dao động ở tần số thấp và trung bình, đặc biệt tập trung tại các khu vực được cho là có “lịch sử tâm linh” nặng nề, như những con rạch cũ đã lấp, các khu đất hoang, hoặc gần các di tích lịch sử. Các thiết bị đo EMF (Điện từ trường) thường xuyên ghi nhận các xung đột biến, vượt xa mức nền tự nhiên, đôi khi kèm theo sự sụt giảm đột ngột của nhiệt độ môi trường cục bộ.  Phổ hồng ngoại ghi lại các điểm nóng nhiệt độ thấp bất thường, không tương ứng với bất kỳ nguồn nhiệt vật lý nào, gợi ý sự hiện diện của các thực thể phi vật chất hoặc sự dịch chuyển năng lượng tâm linh.  Trong một số trường hợp, các thiết bị ghi âm âm thanh đã thu được các tần số âm thanh dưới ngưỡng nghe của con người (infrasound), được cho là nguyên nhân gây ra cảm giác sợ hãi, bất an, hoặc thậm chí là ảo giác ở những người nhạy cảm.  Các giả thuyết tâm linh xoay quanh khu vực này bao gồm: sự tồn tại của các oan hồn chưa siêu thoát do các biến cố lịch sử (chiến tranh, thảm sát), sự tích tụ năng lượng âm từ các bi kịch cá nhân, hoặc sự hiện diện của các thực thể tâm linh có liên quan đến vùng đất này từ xa xưa.  Phân tích quang phổ cho thấy sự hiện diện của các thành phần năng lượng phi thường, đôi khi tương đồng với các hiện tượng được ghi nhận tại các địa điểm bị ám hoặc có hoạt động tâm linh mạnh mẽ khác trên thế giới.  Các thông số đo đạc dao động thất thường, cho thấy một môi trường năng lượng không ổn định và có khả năng tương tác với sinh quyển.  Mức độ nhiễu loạn quang phổ và điện từ trường tại một số điểm cao bất thường, cho thấy một sự bất ổn định năng lượng đáng kể, có thể là dấu hiệu của sự hiện diện của các thực thể hoặc các hiện tượng siêu nhiên mạnh mẽ.  Cần lưu ý rằng, các hiện tượng này thường xuất hiện vào ban đêm, trong điều kiện thời tiết bất lợi, hoặc tại các khu vực có mật độ năng lượng tâm linh cao.",
+  "risk_assessment": "Khu vực Bình Trưng Đông, dựa trên các báo cáo và phân tích ban đầu, tiềm ẩn nhiều rủi ro liên quan đến hoạt động tâm linh và hiện tượng dị thường. Mức độ rủi ro được đánh giá là **Trung bình đến Cao**, tùy thuộc vào địa điểm và thời điểm cụ thể. Các rủi ro chính bao gồm: \n\n1.  **Rủi ro về tâm lý và tinh thần:** Sự tiếp xúc với các hiện tượng siêu nhiên, âm thanh lạ, hình ảnh ảo giác, hoặc cảm giác bị theo dõi có thể gây ra căng thẳng tâm lý, lo âu, ám ảnh, mất ngủ, và thậm chí là các rối loạn tâm thần ở những cá nhân nhạy cảm hoặc có tiền sử bệnh lý.\n2.  **Rủi ro về vật lý (gián tiếp):** Các hiện tượng như sụt giảm nhiệt độ đột ngột, sự cố thiết bị điện tử, hoặc cảm giác mất phương hướng có thể dẫn đến các tai nạn nhỏ (ví dụ: trượt ngã do mất cảnh giác, bỏng lạnh nhẹ). Mặc dù hiếm gặp, không loại trừ khả năng các thực thể tâm linh có thể tác động vật lý ở mức độ hạn chế.\n3.  **Rủi ro về năng lượng:** Sự hiện diện của các dải năng lượng EM bất thường và các tần số infrasound có thể gây ảnh hưởng tiêu cực đến sức khỏe thể chất trong thời gian dài, mặc dù các nghiên cứu sâu hơn là cần thiết để xác định mức độ chính xác.\n4.  **Rủi ro về xã hội và văn hóa:** Sự lan truyền của các truyền thuyết đô thị và câu chuyện ma quái có thể gây hoang mang trong cộng đồng, ảnh hưởng đến đời sống dân cư, và tạo ra tâm lý sợ hãi không cần thiết.\n\n**Khuyến cáo an toàn:**\n\n*   **Hạn chế tiếp xúc:** Tránh đến các khu vực được cho là có hoạt động tâm linh mạnh, đặc biệt là vào ban đêm hoặc trong điều kiện thời tiết xấu.\n*   **Trang bị thiết bị:** Nếu buộc phải hoạt động trong khu vực này, nên mang theo các thiết bị đo lường EMF, máy ghi âm, và đèn pin có độ sáng cao. Thiết bị bảo hộ cá nhân (PPE) là cần thiết.\n*   **Tránh kích động:** Không cố gắng liên lạc, khiêu khích hoặc làm phiền các thực thể được cho là hiện diện. Giữ thái độ tôn trọng và tránh gây ồn ào.\n*   **Tâm lý vững vàng:** Những người có tâm lý yếu hoặc nhạy cảm nên tránh xa khu vực này. Nếu cảm thấy bất an hoặc có dấu hiệu bị ảnh hưởng, hãy rời khỏi khu vực ngay lập tức và tìm kiếm sự hỗ trợ.\n*   **Giám sát và ghi nhận:** Theo dõi chặt chẽ các báo cáo về hiện tượng dị thường, ghi nhận thông tin một cách khách quan và khoa học. Tuyệt đối không lan truyền tin đồn thất thiệt gây hoang mang.\n*   **Tham vấn chuyên gia:** Đối với các trường hợp nghiêm trọng hoặc có dấu hiệu bất thường kéo dài, cần tham vấn các chuyên gia về hiện tượng huyền bí hoặc các nhà tâm lý học.",
+  "image_prompt": "Create a mysterious found-footage style photograph related to the event: Urban Legends of Binh Trung Dong at Binh Trung Dong, Ho Chi Minh City. Scene: foggy, low light, unsettling, a lone, dilapidated swing set in an overgrown lot with faint, ghostly figures barely visible in the mist. style: grainy, 1990s aesthetic, handheld camera effect."
+}
+---

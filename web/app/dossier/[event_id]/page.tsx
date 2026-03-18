@@ -12,7 +12,7 @@ function dossierText(detail: EventDetail | null): string {
     return '';
   }
 
-  return detail.story_text ?? detail.detail?.story_text ?? 'No dossier text available.';
+  return detail.story_text ?? (detail.detail as Record<string, unknown>)?.story_text as string ?? 'No dossier text available.';
 }
 
 export default function DossierPage() {

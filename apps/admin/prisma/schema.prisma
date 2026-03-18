@@ -67,6 +67,7 @@ model events {
   has_detail  Boolean  @default(false)
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
+  event_details event_details[]
 }
 
 model event_details {
@@ -81,6 +82,7 @@ model event_details {
   detail       Json
   created_at   DateTime @default(now())
   updated_at   DateTime @updatedAt
+  event        events   @relation(fields: [event_id], references: [id])
 
   @@index([event_id, lang])
 }
@@ -92,4 +94,82 @@ model grid_cache {
   expires_at DateTime
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+}
+
+// ─── API pipeline tables (must keep in sync) ───
+model jobs {
+  id         String   @id @default(uuid())
+  type       String
+  status     String
+  payload    Json
+  result     Json?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model raw_signal {
+  id              String    @id @default(uuid())
+  source          String
+  fetch_key       String
+  raw_payload     Json
+  fetched_at      DateTime  @default(now())
+  normalized_at   DateTime?
+  normalize_error String?
+
+  @@index([fetch_key])
+  @@index([fetched_at])
+}
+
+model normalized_signal {
+  id           String   @id @default(uuid())
+  grid_id      String
+  lat          Float
+  lon          Float
+  title        String
+  summary      String
+  event_type   String
+  event_source String
+  severity     Int?
+  confidence   Float?
+  signal_hash  String   @unique
+  event_time   DateTime @default(now())
+  created_at   DateTime @default(now())
+
+  @@index([grid_id])
+  @@index([created_at])
+  @@index([lat, lon, event_time], map: "idx_geo_time")
+}
+
+model ingestion_run {
+  id               String    @id @default(uuid())
+  grid_id          String
+  started_at       DateTime  @default(now())
+  ended_at         DateTime?
+  status           String
+  raw_count        Int       @default(0)
+  normalized_count Int       @default(0)
+  deduped_count    Int       @default(0)
+  error_message    String?
+
+  @@index([grid_id])
+  @@index([started_at])
+}
+
+model ai_quota_policy {
+  scope       String   @id
+  daily_limit Int
+  updated_at  DateTime @default(now())
+}
+
+model ai_usage_daily {
+  scope        String
+  scope_key    String
+  usage_date   DateTime @db.Date
+  ai_calls     Int      @default(0)
+  tokens       Int      @default(0)
+  scan_calls   Int      @default(0)
+  expand_calls Int      @default(0)
+  updated_at   DateTime @default(now())
+
+  @@id([scope, scope_key, usage_date])
 }

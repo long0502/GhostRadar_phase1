@@ -10,6 +10,7 @@
     "docker:start": "node scripts/docker-start.js",
     "signals:smoke": "node --env-file=.env.test dist/signals/smoke.js",
     "test:integration": "node --env-file=.env.test --test",
+    "start": "node dist/server.js",
     "start:prod": "node dist/server.js",
     "migrate": "prisma migrate deploy --schema=./prisma/schema.prisma",
     "generate": "prisma generate --schema=./prisma/schema.prisma"

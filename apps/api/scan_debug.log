@@ -349,3 +349,8 @@ Error: Gemini response did not contain a JSON array
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
     at async scanService (D:\Dev\GhostRadar_phase1\apps\api\src\services\scan.service.ts:622:23)
     at async Object.<anonymous> (D:\Dev\GhostRadar_phase1\apps\api\src\routes\scan.ts:53:20)
+[SCAN_AI_ERROR] 2026-03-18T03:38:26.593Z fetch failed
+TypeError: fetch failed
+    at node:internal/deps/undici/undici:16416:13
+    at async callGemini (D:\Dev\GhostRadar_phase1\apps\api\src\services\gemini.service.ts:100:16)
+    at async drain (D:\Dev\GhostRadar_phase1\apps\api\src\services\ai-queue.service.ts:108:24)

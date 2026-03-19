@@ -8,7 +8,7 @@ console.log('DATABASE_URL set:', !!process.env.DATABASE_URL);
 try {
   console.log('=== Running prisma db push ===');
   const output = execSync(
-    'node node_modules/prisma/build/index.js db push --skip-generate',
+    'node node_modules/prisma/build/index.js db push',
     { encoding: 'utf8', timeout: 30000, env: process.env, stdio: 'pipe' }
   );
   console.log('prisma db push output:', output);

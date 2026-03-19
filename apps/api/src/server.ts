@@ -34,7 +34,7 @@ async function start() {
   });
 
   app.setErrorHandler((error, request, reply) => {
-    fs.appendFileSync('server_debug.log', `[API_ERROR] ${new Date().toISOString()} ${JSON.stringify(error, null, 2)}\n`);
+    try { fs.appendFileSync('server_debug.log', `[API_ERROR] ${new Date().toISOString()} ${JSON.stringify(error, null, 2)}\n`); } catch (_) {}
     request.log.error(
       {
         err: error,
@@ -62,7 +62,7 @@ async function start() {
     const prismaConnectionError =
       error instanceof Prisma.PrismaClientInitializationError ||
       error instanceof Prisma.PrismaClientRustPanicError ||
-      /database|connect|econnrefused|timeout|prisma/i.test(err.message ?? '');
+      /econnrefused|prisma\s*client|connection\s*pool|prepared\s*statement/i.test(err.message ?? '');
 
     const statusCode = isBadRequestError
       ? 400
@@ -110,7 +110,7 @@ async function start() {
         ? 'AI request failed'
         : prismaConnectionError
         ? 'Database not ready'
-        : 'Internal server error';
+        : err.message ?? 'Internal server error';
 
     reply.status(statusCode).send({
       error: {

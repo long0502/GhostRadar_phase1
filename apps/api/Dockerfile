@@ -30,5 +30,5 @@ COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 RUN npm install -g tsx
 
 EXPOSE 8088
-CMD ["sh", "-c", "npx prisma db push --skip-generate && node dist/server.js"]
+CMD ["sh", "-c", "npx prisma db push --schema=./prisma/schema.prisma --skip-generate --accept-data-loss 2>&1 || echo 'WARN: prisma db push failed, continuing...'; node dist/server.js"]
 

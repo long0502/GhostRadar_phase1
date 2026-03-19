@@ -6,7 +6,9 @@
         "repo": "long0502/GhostRadar_phase1"
       },
       "build": {
+        "builder": "DOCKERFILE",
         "dockerfilePath": "apps/api/Dockerfile",
+        "dockerContext": "apps/api",
         "watchPatterns": ["apps/api/**"]
       },
       "deploy": {
@@ -33,7 +35,9 @@
         "repo": "long0502/GhostRadar_phase1"
       },
       "build": {
+        "builder": "DOCKERFILE",
         "dockerfilePath": "apps/admin/Dockerfile",
+        "dockerContext": "apps/admin",
         "watchPatterns": ["apps/admin/**"]
       },
       "deploy": {

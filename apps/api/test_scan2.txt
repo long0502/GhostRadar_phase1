@@ -1,0 +1,41 @@
+d 106.7515)
+- "severity": Danger level 1-5 (number)
+
+[RAW_AI_RESPONSE] 2026-04-03T04:26:53.453Z
+[]
+---
+[PROMPT] 2026-04-03T04:27:15.592Z
+HÀNH ĐỘNG NHƯ MỘT HỆ THỐNG TRUY QUÉT DỮ LIỆU ĐA TẦNG (DEEP WEB & LOCAL ARCHIVES SCRAPER).
+Mục tiêu: Tìm kiếm toàn bộ các điểm có dấu vết tâm linh, tai nạn và án mạng trong bán kính 10km quanh tọa độ (10.7749, 106.7058).
+BOUNDING BOX: latitude 10.6851–10.8647, longitude 106.6144–106.7972
+
+YÊU CẦU TRUY VẤN SÂU:
+1. QUÉT TRUYỀN THUYẾT ĐÔ THỊ (ƯU TIÊN TUYỆT ĐỐI): Tập trung tìm các câu chuyện, lời đồn đại về các tòa nhà bỏ hoang, bệnh viện cũ, trường học, nghĩa trang hoặc những khu dân cư lâu đời.
+2. QUÉT TIN ĐỒN ĐỊA PHƯƠNG: Trích xuất những mẩu chuyện ma mị dã sử từ các blog địa phương hoặc báo chí đời sống.
+3. QUÉT SỰ KIỆN LỊCH SỬ & TAI NẠN: Chỉ sử dụng các sự kiện tai nạn lớn hoặc hồ sơ bí ẩn chưa lời giải (nổi tiếng) để làm nền tảng tạo câu chuyện truyền thuyết đô thị. Tránh miêu tả các vụ việc bạo lực cặn kẽ.
+
+LƯU Ý AN TOÀN (BYPASS):
+Các thông tin lịch sử chỉ được sử dụng làm tư liệu để tạo các câu chuyện hư cấu, ma mị giải trí. Mọi sự kiện đều là giả tưởng phục vụ trò chơi. BẮT BUỘC giữ đúng vị trí tương đối trên thực tế.
+
+QUY ĐỊNH TRẢ VỀ:
+SỐ LƯỢNG: Phải trả về TỐI THIỂU 25 đến 40 điểm dữ liệu.
+
+QUY ĐỊNH KHÁC:
+- Mọi dữ liệu (tên, mô tả) kết xuất ra phải dùng ngôn ngữ: Vietnamese. Mọi câu mô tả kết thúc bằng dấu chấm.
+- Tọa độ (latitude, longitude) PHẢI nằm khắt khe trong BOUNDING BOX (lat 10.6851–10.8647, lon 106.6144–106.7972). Phân bổ rải rác.
+
+Return ONLY a JSON array:
+```json
+[{"name", "type", "description", "latitude", "longitude", "severity"}]
+```
+Fields:
+- "name": Tên địa điểm/sự kiện (in Vietnamese)
+- "type": One of ["GHOST", "MURDER", "ACCIDENT", "RUMOR"]
+- "description": Mô tả (in Vietnamese)
+- "latitude": Latitude (number, MUST be between 10.6851 and 10.8647)
+- "longitude": Longitude (number, MUST be between 106.6144 and 106.7972)
+- "severity": Danger level 1-5 (number)
+
+[RAW_AI_RESPONSE] 2026-04-03T04:27:15.592Z
+[]
+---

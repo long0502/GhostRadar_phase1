@@ -74,7 +74,7 @@ export default async function scanRoutes(app: FastifyInstance, opts: FastifyPlug
               },
               'scan.quota.blocked'
             );
-            throw new AiDailyQuotaExceededError(reservation.scope, reservation.daily_limit, reservation.usage_date);
+            // throw new AiDailyQuotaExceededError(reservation.scope, reservation.daily_limit, reservation.usage_date);
           }
           request.log.info(
             {

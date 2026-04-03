@@ -82,9 +82,52 @@ export default function DossierPage() {
               <p className="text-sm text-rose-300">{errorMessage}</p>
             ) : (
               <>
-                <h2 className="text-2xl font-semibold text-white">{detail?.id ?? eventId}</h2>
-                <div className="mt-5 whitespace-pre-wrap text-sm leading-7 text-slate-200">
-                  {dossierText(detail)}
+                <h2 className="text-2xl font-semibold text-white text-center border-b border-white/10 pb-4 mb-4">
+                  DOSSIER #{detail?.id?.substring(0, 8) ?? eventId.substring(0, 8)}
+                </h2>
+                
+                <div className="space-y-6">
+                  {detail?.detail && typeof detail.detail === 'object' ? (
+                    <>
+                      <div>
+                        <h3 className="text-[11px] font-bold tracking-[0.2em] text-sky-400 mb-2">LEGEND OVERVIEW</h3>
+                        <p className="text-sm leading-7 text-slate-300">{(detail.detail as any).legend_overview || 'No overview available.'}</p>
+                      </div>
+
+                      <div>
+                        <h3 className="text-[11px] font-bold tracking-[0.2em] text-rose-400 mb-2">CHRONOLOGICAL HISTORY</h3>
+                        <p className="text-sm leading-7 text-slate-300">{(detail.detail as any).chronological_history || 'No history available.'}</p>
+                      </div>
+
+                      {Array.isArray((detail.detail as any).witnesses) && ((detail.detail as any).witnesses.length > 0) && (
+                        <div>
+                          <h3 className="text-[11px] font-bold tracking-[0.2em] text-amber-400 mb-2">WITNESS TESTIMONIES</h3>
+                          <div className="space-y-3">
+                            {(detail.detail as any).witnesses.map((w: any, i: number) => (
+                              <div key={i} className="bg-slate-900/50 p-4 rounded-[16px] border border-white/5">
+                                <p className="text-[10px] uppercase font-bold tracking-wider text-slate-400 mb-1">{w.name} • {w.date}</p>
+                                <p className="text-sm italic text-slate-300">&quot;{w.testimony}&quot;</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      <div>
+                        <h3 className="text-[11px] font-bold tracking-[0.2em] text-emerald-400 mb-2">SPECTRAL ANALYSIS</h3>
+                        <p className="text-sm leading-7 text-slate-300">{(detail.detail as any).spectral_analysis || 'No spectral data.'}</p>
+                      </div>
+
+                      <div className="bg-red-950/20 p-4 rounded-[16px] border border-red-500/20">
+                        <h3 className="text-[11px] font-bold tracking-[0.2em] text-orange-400 mb-2">RISK ASSESSMENT</h3>
+                        <p className="text-sm leading-7 text-red-200 font-medium">{(detail.detail as any).risk_assessment || 'Unknown risk.'}</p>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="mt-5 whitespace-pre-wrap text-sm leading-7 text-slate-200">
+                      {dossierText(detail)}
+                    </div>
+                  )}
                 </div>
               </>
             )}

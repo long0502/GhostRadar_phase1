@@ -1,0 +1,143 @@
+ongitude": Longitude (number, MUST be between 106.6144 and 106.7972)
+- "severity": Danger level 1-5 (number)
+
+[RAW_AI_RESPONSE] 2026-04-03T05:18:35.750Z
+[
+{
+"name": "Chung cư Bóng Đêm Trần Hưng Đạo",
+"type": "GHOST",
+"description": Tòa chung cư cũ bị bỏ hoang, cư dân xung quanh kể rằng mỗi đêm đều thấy ánh đèn chập chờn dù không có người ở.",
+"latitude": 10.7705,
+"longitude": 106.7002,
+"severity": 4
+},
+{
+"name": "Bệnh viện Phế Tích Nguyễn Tri Phương",
+"type": "GHOST",
+"description": Khu nhà cũ bị bỏ lại sau cải tạo, có tin đồn nghe thấy tiếng xe đẩy và bước chân trong đêm.",
+"latitude": 10.7621,
+"longitude": 106.6754,
+"severity": 5
+},
+{
+"name": "Hẻm Không Bóng Người Quận 1",
+"type": "RUMOR",
+"description": Một con hẻm nhỏ nơi người dân truyền miệng rằng điện thoại luôn mất sóng và có cảm giác bị theo dõi.",
+"latitude": 10.7758,
+"longitude": 106.6957,
+"severity": 3
+},
+{
+"name": "Khách sạn Ánh Trăng Cũ",
+"type": "GHOST",
+"description": Khách sạn từng hoạt động trước năm 2000, có nhiều câu chuyện về bóng người đứng ở cửa sổ tầng cao.",
+"latitude": 10.7812,
+"longitude": 106.7079,
+"severity": 4
+},
+{
+"name": "Ngã tư Tai Nạn Kỳ Lạ Điện Biên Phủ",
+"type": "ACCIDENT",
+"description": Nơi xảy ra nhiều vụ va chạm không rõ nguyên nhân, tài xế thường báo cáo cảm giác mất kiểm soát.",
+"latitude": 10.7815,
+"longitude": 106.6943,
+"severity": 4
+},
+{
+"name": "Trường học Đêm Vắng Quận 3",
+"type": "GHOST",
+"description": Bảo vệ trường kể rằng ban đêm có tiếng bảng viết và ghế kéo dù không có ai trong lớp.",
+"latitude": 10.7842,
+"longitude": 106.6825,
+"severity": 3
+},
+{
+"name": "Cầu Bóng Trắng Kênh Nhiêu Lộc",
+"type": "RUMOR",
+"description": Người dân cho rằng vào lúc nửa đêm có bóng trắng đứng giữa cầu rồi biến mất.",
+"latitude": 10.7873,
+"longitude": 106.6881,
+"severity": 3
+},
+{
+"name": "Khu nhà hoang Tân Định",
+"type": "GHOST",
+"description": Một căn nhà bị bỏ trống nhiều năm, người đi ngang nghe thấy tiếng cửa đóng mở.",
+"latitude": 10.7921,
+"longitude": 106.6912,
+"severity": 4
+},
+{
+"name": "Bãi xe Ngầm Quận 1",
+"type": "GHOST",
+"description": Nhân viên bảo vệ kể rằng camera ghi lại bóng người đi qua dù không có ai.",
+"latitude": 10.7733,
+"longitude": 106.7018,
+"severity": 4
+},
+{
+"name": "Ngôi nhà 3 cửa Nguyễn Thị Minh Khai",
+"type": "RUMOR",
+"description": Ngôi nhà có cấu trúc lạ, người dân tin rằng phong thủy khiến nơi này luôn xảy ra hiện tượng kỳ lạ.",
+"latitude": 10.7799,
+"longitude": 106.6907,
+"severity": 2
+},
+{
+"name": "Căn hộ Tầng 13 Không Người Thuê",
+"type": "GHOST",
+"description": Một căn hộ luôn bị bỏ trống, khách thuê đều rời đi sau vài ngày vì nghe tiếng động lạ.",
+"latitude": 10.7688,
+"longitude": 106.7125,
+"severity": 5
+},
+{
+"name": "Công viên Đêm Lặng Quận 1",
+"type": "RUMOR",
+"description": Người tập thể dục sáng sớm kể rằng có tiếng nói chuyện trong khu vực không có ai.",
+"latitude": 10.7769,
+"longitude": 106.7034,
+"severity": 2
+},
+{
+"name": "Nhà trọ Cầu Thị Nghè",
+"type": "GHOST",
+"description": Một dãy nhà trọ cũ nơi nhiều người thuê phản ánh thấy bóng người đứng cuối hành lang.",
+"latitude": 10.7856,
+"longitude": 106.7091,
+"severity": 4
+},
+{
+"name": "Ngã ba Mất Dấu Vết Quận Bình Thạnh",
+"type": "ACCIDENT",
+"description": Một số vụ mất tích bí ẩn được kể lại, khiến khu vực này có tiếng xấu trong dân địa phương.",
+"latitude": 10.8012,
+"longitude": 106.7105,
+"severity": 3
+},
+{
+"name": "Tòa nhà Văn phòng Bỏ Hoang",
+"type": "GHOST",
+"description": Nhân viên bảo vệ kể rằng thang máy vẫn hoạt động vào ban đêm dù đã bị cắt điện.",
+"latitude": 10.7724,
+"longitude": 106.6988,
+"severity": 5
+},
+{
+"name": "Con đường Không Tiếng Xe",
+"type": "RUMOR",
+"description": Một đoạn đường được cho là có hiện tượng âm thanh bị triệt tiêu hoàn toàn trong vài phút.",
+"latitude": 10.8099,
+"longitude": 106.7311,
+"severity": 2
+},
+{
+"name": "Kho hàng cũ ven sông Sài Gòn",
+"type": "GHOST",
+"description": Người dân nói rằng ban đêm nghe tiếng kéo vật nặng dù khu vực đã bỏ hoang lâu năm.",
+"latitude": 10.7903,
+"longitude": 106.7227,
+"severity": 4
+}
+]
+---

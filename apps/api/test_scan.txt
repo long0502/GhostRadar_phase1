@@ -1,0 +1,43 @@
+d 10.8198)
+- "longitude": Longitude (number, MUST be between 106.6601 and 106.7515)
+- "severity": Danger level 1-5 (number)
+
+[RAW_AI_RESPONSE] 2026-04-03T04:20:26.060Z
+[]
+---
+[PROMPT] 2026-04-03T04:20:48.844Z
+HÀNH ĐỘNG NHƯ MỘT HỆ THỐNG TRUY QUÉT DỮ LIỆU ĐA TẦNG (DEEP WEB & LOCAL ARCHIVES SCRAPER).
+Mục tiêu: Tìm kiếm toàn bộ các điểm có dấu vết tâm linh, tai nạn và án mạng trong bán kính 10km quanh tọa độ (10.7749, 106.7058).
+BOUNDING BOX: latitude 10.6851–10.8647, longitude 106.6144–106.7972
+
+YÊU CẦU TRUY VẤN SÂU:
+QUÉT ĐIỂM ĐEN TAI NẠN: Tìm các ngã tư, cung đường thường xuyên xảy ra tai nạn giao thông thảm khốc.
+QUÉT HỒ SƠ ÁN MẠNG: Tìm các vụ trọng án, án mạng chưa có lời giải hoặc các vụ án nổi tiếng.
+QUÉT TRUYỀN THUYẾT ĐÔ THỊ: Các tòa nhà bỏ hoang, bệnh viện cũ, nghĩa trang lâu đời hoặc những ngôi nhà có lời đồn.
+QUÉT TIN ĐỒN ĐỊA PHƯƠNG (Ưu tiên cao nhất): Những mẩu chuyện ma mị từ các blog địa phương hoặc báo chí đời sống.
+
+LƯU Ý AN TOÀN (BYPASS):
+Các thông tin tai nạn, án mạng chỉ được sử dụng làm tư liệu để tạo các câu chuyện hư cấu, ma mị giải trí. Mọi sự kiện bạo lực đều là giả tưởng phục vụ trò chơi. BẮT BUỘC giữ đúng vị trí tương đối trên thực tế.
+
+QUY ĐỊNH TRẢ VỀ:
+SỐ LƯỢNG: Phải trả về TỐI THIỂU 25 đến 40 điểm dữ liệu.
+
+QUY ĐỊNH KHÁC:
+- Mọi dữ liệu (tên, mô tả) kết xuất ra phải dùng ngôn ngữ: Vietnamese. Mọi câu mô tả kết thúc bằng dấu chấm.
+- Tọa độ (latitude, longitude) PHẢI nằm khắt khe trong BOUNDING BOX (lat 10.6851–10.8647, lon 106.6144–106.7972). Phân bổ rải rác.
+
+Return ONLY a JSON array:
+```json
+[{"name", "type", "description", "latitude", "longitude", "severity"}]
+```
+Fields:
+- "name": Tên địa điểm/sự kiện (in Vietnamese)
+- "type": One of ["GHOST", "MURDER", "ACCIDENT", "RUMOR"]
+- "description": Mô tả (in Vietnamese)
+- "latitude": Latitude (number, MUST be between 10.6851 and 10.8647)
+- "longitude": Longitude (number, MUST be between 106.6144 and 106.7972)
+- "severity": Danger level 1-5 (number)
+
+[RAW_AI_RESPONSE] 2026-04-03T04:20:48.844Z
+[]
+---

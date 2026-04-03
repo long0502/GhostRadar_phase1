@@ -144,3 +144,66 @@
 [API_ERROR] 2026-03-18T03:29:47.495Z {
   "message": "Route not found"
 }
+[API_ERROR] 2026-04-02T09:39:46.762Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "ip",
+  "daily_limit": 20,
+  "usage_date": "2026-04-02"
+}
+[API_ERROR] 2026-04-03T03:58:54.679Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "ip",
+  "daily_limit": 20,
+  "usage_date": "2026-04-03"
+}
+[API_ERROR] 2026-04-03T04:00:43.378Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "ip",
+  "daily_limit": 20,
+  "usage_date": "2026-04-03"
+}
+[API_ERROR] 2026-04-03T04:03:46.219Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "ip",
+  "daily_limit": 20,
+  "usage_date": "2026-04-03"
+}
+[API_ERROR] 2026-04-03T04:04:43.080Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "ip",
+  "daily_limit": 20,
+  "usage_date": "2026-04-03"
+}
+[API_ERROR] 2026-04-03T04:05:11.635Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "ip",
+  "daily_limit": 20,
+  "usage_date": "2026-04-03"
+}
+[API_ERROR] 2026-04-03T04:05:35.365Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "ip",
+  "daily_limit": 20,
+  "usage_date": "2026-04-03"
+}
+[API_ERROR] 2026-04-03T04:06:05.891Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "ip",
+  "daily_limit": 20,
+  "usage_date": "2026-04-03"
+}
+[API_ERROR] 2026-04-03T08:27:55.296Z {
+  "code": "AI_DAILY_QUOTA_EXCEEDED",
+  "statusCode": 429,
+  "scope": "ip",
+  "daily_limit": 20,
+  "usage_date": "2026-04-03"
+}

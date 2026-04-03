@@ -1,0 +1,17 @@
+async function testScan() {
+    console.log('Testing Normal Scan API...');
+    const url = 'http://localhost:8088/scan?force=true&radiusKm=5&lat=10.7749&lon=106.7058&lang=vi';
+    try {
+        const response = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
+        console.log('Status:', response.status);
+        const data = await response.json();
+        if (data.events) {
+            console.log('Number of events returned:', data.events.length);
+        } else {
+            console.log('Error/No Events:', data);
+        }
+    } catch (e) {
+        console.error('Fetch error:', e);
+    }
+}
+testScan();

@@ -44,7 +44,7 @@ export default async function eventsRoutes(app: FastifyInstance, opts: FastifyPl
         async () => {
           const reservation = await reserveAiQuotaForRequest(request, 'expand');
           if (!reservation.ok) {
-            throw new AiDailyQuotaExceededError(reservation.scope, reservation.daily_limit, reservation.usage_date);
+            // throw new AiDailyQuotaExceededError(reservation.scope, reservation.daily_limit, reservation.usage_date);
           }
           return {
             usageDate: reservation.usage_date,

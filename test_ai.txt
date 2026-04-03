@@ -1,0 +1,34 @@
+VÀ SÚC TÍCH. Tổng cộng KHÔNG VƯỢT QUÁ 300 TỪ! Điều này rất quan trọng để đảm bảo thời gian xử lý.
+4. Bối cảnh: Gắn với thực tế địa phương (Căn nhà bỏ hoang hẻm Phạm Ngũ Lão).
+5. Cấu trúc hồ sơ:
+   - LEGEND OVERVIEW (Tổng quan): Rất ngắn, 2-3 câu.
+   - CHRONOLOGICAL HISTORY (Lịch sử): Các mốc thời gian vắn tắt, 2-3 câu.
+   - WITNESSES (Nhân chứng): Tối đa 2 nhân chứng, mỗi người trả lời 1-2 câu ("testimony").
+   - SPECTRAL ANALYSIS (Phân tích): Thông số đo đạc ngắn gọn, 1-2 câu.
+   - RISK ASSESSMENT (Đánh giá rủi ro): Đánh giá an toàn, 1-2 câu.
+6. Hình ảnh: Tạo một câu lệnh (image_prompt) để tạo ảnh phong cách "found-footage" kinh dị.
+
+[ĐẦU RA]
+Trả về định dạng JSON Schema nghiêm ngặt.
+---
+[EXPAND_RAW_RESPONSE] 2026-04-03T02:28:09.085Z
+[
+{
+"LEGEND OVERVIEW": "Căn nhà hai tầng trong hẻm Phạm Ngũ Lão bị bỏ hoang hơn một thập kỷ. Ban đêm ghi nhận hiện tượng đèn tự bật tắt và âm thanh bước chân trên sàn gỗ mục, dù không có dấu hiệu xâm nhập.",
+"CHRONOLOGICAL HISTORY": "2009: Gia đình cuối cùng rời đi sau một vụ tranh chấp nội bộ không rõ nguyên nhân. 2013–nay: Hàng xóm nhiều lần báo cáo ánh sáng và chuyển động bất thường vào khung giờ 01:00–03:00.",
+"WITNESSES": [
+{
+"name": "Người thuê trọ tầng đối diện",
+"testimony": "Tôi thấy bóng người đứng sau cửa sổ tầng trên, nhưng khi nhìn kỹ thì không còn ai."
+},
+{
+"name": "Chủ quán tạp hóa đầu hẻm",
+"testimony": "Đèn bật lên rồi tắt ngay, giống như có người đi lại trong nhà, nhưng cửa luôn khóa."
+}
+],
+"SPECTRAL ANALYSIS": "Nhiệt độ khu vực giảm 3–5°C so với môi trường xung quanh. Ghi nhận nhiễu điện từ nhẹ và âm thanh tần số thấp không xác định nguồn.",
+"RISK ASSESSMENT": "Mức độ rủi ro: Trung bình. Khuyến cáo không tiếp cận một mình sau 00:00; hiện tượng có xu hướng lặp lại theo chu kỳ.",
+"image_prompt": "grainy found footage of an abandoned Vietnamese house in a narrow alley at night, flickering lights inside broken windows, shadowy silhouette on upper floor, eerie atmosphere, low light, handheld camera, horror style"
+}
+]
+---

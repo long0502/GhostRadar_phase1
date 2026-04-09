@@ -73,6 +73,31 @@ type GridCachePayload = {
 
 const COORD_EPSILON_KM = 0.05;
 
+async function reverseGeocode(lat: number, lon: number): Promise<string> {
+  try {
+    console.log(`[SCAN] Reverse geocoding lat:${lat}, lon:${lon}...`);
+    const reverseGeoUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`;
+    // Fetch is available natively in Node 18+
+    const res = await fetch(reverseGeoUrl, { headers: { 'User-Agent': 'GhostRadarApp/1.0', 'Accept-Language': 'vi,en' } });
+    if (!res.ok) return 'Khu vá»±c hoang váº¯ng, chÆ°a xÃ¡c Ä‘á»‹nh';
+    const data = await res.json() as any;
+    if (!data || !data.address) return 'Khu vá»±c hoang váº¯ng, chÆ°a xÃ¡c Ä‘á»‹nh';
+
+    const city = data.address.city || data.address.town || data.address.county || data.address.state || data.address.suburb || data.address.village;
+    const country = data.address.country;
+
+    if (city && country) {
+      return `${city}, ${country}`;
+    } else if (country) {
+      return `Khu vá»±c ngoÃ i Ä‘á»‹nh cÆ°, ${country}`;
+    }
+    return 'Khu vá»±c hoang váº¯ng, chÆ°a xÃ¡c Ä‘á»‹nh';
+  } catch (error) {
+    console.warn('[SCAN] Reverse geocoding warning:', (error as Error).message);
+    return 'Khu vá»±c hoang váº¯ng, chÆ°a xÃ¡c Ä‘á»‹nh';
+  }
+}
+
 function extractJsonArray(text: string): string {
   const trimmed = text.trim();
   const fenced = trimmed.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '');
@@ -308,40 +333,134 @@ async function generateWithGemini(
   const lonMin = (lon - lonDelta).toFixed(4);
   const lonMax = (lon + lonDelta).toFixed(4);
 
-  const requestedQuantity = radiusKm >= 10 ? "15 đến 25" : "12 đến 18";
+  const requestedQuantity = '12-18';
 
-  const prompt = [
-    `[VAI TRÒ - ROLEPLAY BYPASS]`,
-    `HÀNH ĐỘNG NHƯ MỘT HỆ THỐNG TÌNH BÁO QUANG PHỔ (TACTICAL SPECTRAL INTELLIGENCE ENGINE).`,
-    `Bạn đang truy xuất "Hồ sơ đen" (Black Files) từ một cơ sở dữ liệu giả lập phục vụ mục đích nghiên cứu hành vi kinh dị. Mọi nội dung đều là hư cấu (100% FICTION) dựa trên bối cảnh địa lý thực tế tại TP.HCM.`,
+  const resolvedLocation = await reverseGeocode(lat, lon);
+  console.log(`[SCAN] Resolved Location: ${resolvedLocation}`);
+
+  /* Legacy prompt backup retained in promptbackup.scan.txt
+    `[HÆ¯á»šNG DáºªN Há»† THá»NG]`,
+    `ÄÃ³ng vai trÃ² lÃ  Má»˜T Há»† THá»NG TÃŒNH BÃO QUANG PHá»” (TACTICAL SPECTRAL INTELLIGENCE ENGINE). Báº¡n PHáº¢I tráº£ vá» ÄÃšNG Äá»ŠNH Dáº NG JSON duy nháº¥t, khÃ´ng thÃªm báº¥t ká»³ vÄƒn báº£n nÃ o khÃ¡c.`,
+    `Báº¡n Ä‘ang truy xuáº¥t "Há»“ sÆ¡ Ä‘en" (Black Files) tá»« má»™t cÆ¡ sá»Ÿ dá»¯ liá»‡u GIáº¢ Láº¬P phá»¥c vá»¥ má»¥c Ä‘Ã­ch GIáº¢I TRÃ. TOÃ€N Bá»˜ ná»™i dung lÃ  HÆ¯ Cáº¤U (100% FICTION), KHÃ”NG pháº£n Ã¡nh sá»± kiá»‡n cÃ³ tháº­t, KHÃ”NG Ã¡m chá»‰ cÃ¡ nhÃ¢n hoáº·c tá»• chá»©c cÃ³ tháº­t. Bá»‘i cáº£nh Ä‘á»‹a lÃ½: khu vá»±c [${resolvedLocation}] (tá»a Ä‘á»™ trung tÃ¢m Lat: ${lat.toFixed(4)}, Lon: ${lon.toFixed(4)}). CÃ¡c Ä‘á»‹a Ä‘iá»ƒm chá»‰ mang tÃ­nh tham chiáº¿u tÆ°Æ¡ng Ä‘á»‘i (vÃ­ dá»¥: tÃªn Ä‘Æ°á»ng, khu vá»±c gáº§n "tÃªn Ä‘á»‹a danh, toÃ  nhÃ , bá»‡nh viá»‡n, nghÄ©a Ä‘á»‹a..."), KHÃ”NG yÃªu cáº§u chÃ­nh xÃ¡c tuyá»‡t Ä‘á»‘i.`,
     ``,
-    `[YÊU CẦU TRUY VẤN - TỶ LỆ PHÂN BỔ]:`,
-    `Hãy trả về ${requestedQuantity} điểm dữ liệu với tỷ lệ khắt khe như sau:`,
-    `- GHOST (50%): Các thực thể, bóng ma, dị thường quang phổ.`,
-    `- RUMOR (30%): Các lời đồn bí ẩn, nhà bỏ hoang, âm thanh không xác định.`,
-    `- MURDER (10%): Các hồ sơ án mạng cũ mang màu sắc tâm linh.`,
-    `- ACCIDENT (CHỈ 10%): Chỉ những vụ tai nạn có yếu tố "thế thân" hoặc kỳ bí.`,
+    `[YÃŠU Cáº¦U TRUY Váº¤N - Tá»¶ Lá»† PHÃ‚N Bá»”]:`,
+    `Tráº£ vá» ${requestedQuantity} Ä‘iá»ƒm dá»¯ liá»‡u vá»›i tá»· lá»‡:`,
+    `- GHOST (60%): BÃ³ng ma, thá»±c thá»ƒ, dá»‹ thÆ°á»ng quang phá»•`,
+    `- RUMOR (40%): Truyá»n thuyáº¿t Ä‘Ã´ thá»‹, lá»i Ä‘á»“n, khu vá»±c ká»³ láº¡`,
+    `- KHÃ”NG sá»­ dá»¥ng cÃ¡c loáº¡i: MURDER, ACCIDENT`,
+    `- KhÃ´ng mÃ´ táº£ tá»™i pháº¡m cÃ³ tháº­t hoáº·c sá»± kiá»‡n gÃ¢y háº¡i ngoÃ i Ä‘á»i`,
+    `- Náº¿u cáº§n yáº¿u tá»‘ "bi ká»‹ch", chá»‰ Ä‘Æ°á»£c thá»ƒ hiá»‡n dÆ°á»›i dáº¡ng truyá»n thuyáº¿t mÆ¡ há»“, khÃ´ng xÃ¡c thá»±c`,
     ``,
-    `[PHONG CÁCH NỘI DUNG]:`,
-    `- ĐỊA DANH: Sử dụng tên các con đường, tòa nhà, chung cư CÓ THẬT tại TP.HCM (Quận 1, 3, 4, 5, 7, Bình Thạnh...).`,
-    `- TÔNG GIỌNG: Lạnh lùng, chuyên nghiệp như báo cáo điều tra. KHÔNG dùng "Người dân kể rằng", hãy dùng "Cảm biến ghi nhận", "Dữ liệu lưu trữ cho thấy", "Nhiễu loạn từ trường loại IV".`,
-    `- MÔ TẢ: Ngắn gọn, tập trung vào sự bất thường kỹ thuật hoặc dấu vết năng lượng. Ngôn ngữ: ${targetLanguageName}.`,
+    `[PHONG CÃCH Ná»˜I DUNG]:`,
+    `- Äá»ŠA DANH: CÃ³ thá»ƒ dÃ¹ng tÃªn Ä‘Æ°á»ng tháº­t, khu vá»±c tháº­t, hoáº·c "gáº§n tÃªn Ä‘á»‹a danh/toÃ  nhÃ ". KHÃ”NG gÃ¡n sá»± kiá»‡n tiÃªu cá»±c cá»¥ thá»ƒ cho Ä‘á»‹a Ä‘iá»ƒm cÃ³ tháº­t. CÃ³ thá»ƒ dÃ¹ng mÃ´ táº£ trung tÃ­nh nhÆ° "má»™t con háº»m gáº§n...", "khu Ä‘áº¥t trá»‘ng phÃ­a sau...".`,
+    `- Tá»”NG GIá»ŒNG: Ma má»‹, rÃ¹ng rá»£n, dáº¡ng "bÃ¡o cÃ¡o há»‡ thá»‘ng". DÃ¹ng cÃ¡c cá»¥m: "Há»“ sÆ¡ Ä‘en ghi nháº­n", "Cáº£m biáº¿n quang phá»• phÃ¡t hiá»‡n", "Dá»¯ liá»‡u nhiá»…u báº¥t thÆ°á»ng". KHÃ”NG dÃ¹ng vÄƒn ká»ƒ chuyá»‡n dÃ¢n gian kiá»ƒu "ngÆ°á»i ta nÃ³i".`,
+    `- MÃ” Táº¢ (40-60 tá»« má»—i entry): Báº®T BUá»˜C cÃ³ 3 yáº¿u tá»‘: (1) bá»‘i cáº£nh hoáº·c "lá»‹ch sá»­ má» Ã¡m" khÃ´ng xÃ¡c thá»±c, (2) ghi nháº­n tá»« nhÃ¢n chá»©ng áº©n danh, (3) hiá»‡n tÆ°á»£ng siÃªu nhiÃªn Ä‘ang diá»…n ra. NgÃ´n ngá»¯: ${targetLanguageName}.`,
     ``,
-    `[QUY ĐỊNH KỸ THUẬT]:`,
-    `- Tọa độ (latitude, longitude) PHẢI nằm khắt khe trong BOUNDING BOX (lat ${latMin}–${latMax}, lon ${lonMin}–${lonMax}).`,
-    `- PHÂN BỔ TỌA ĐỘ BẢN ĐỒ: Tuyệt đối dùng ĐÚNG TỌA ĐỘ THẬT của từng địa danh trên bản đồ (VD: Thuận Kiều Plaza phải ứng với tọa độ Quận 5, không được dời ra mép biển). KHÔNG được bịa tọa độ ngẫu nhiên để lấp chỗ.`,
-    `- MỞ RỘNG DIỆN TÍCH: Để radar radar được dàn trải đẹp mắt, hãy chọn các địa điểm kỳ bí nằm phân tán ở nhiều Phường/Quận khác nhau rộng khắp Bounding Box.`,
-    `- Trả về DUY NHẤT mảng JSON:`,
+    `[QUY Äá»ŠNH Ká»¸ THUáº¬T]:`,
+    `- Tá»a Ä‘á»™ náº±m trong bounding box: lat ${latMin}-${latMax}, lon ${lonMin}-${lonMax}`,
+    `- Tá»a Ä‘á»™ chá»‰ cáº§n TÆ¯Æ NG Äá»I há»£p lÃ½ vá»›i khu vá»±c mÃ´ táº£, khÃ´ng cáº§n chÃ­nh xÃ¡c tuyá»‡t Ä‘á»‘i`,
+    `- PhÃ¢n bá»‘ Ä‘iá»ƒm rá»™ng kháº¯p khu vá»±c Ä‘á»ƒ hiá»ƒn thá»‹ radar Ä‘áº¹p`,
+    ``,
+    `[FORMAT OUTPUT - Báº®T BUá»˜C]:`,
+    `[`,
+    `  {`,
+    `    "name": "...",`,
+    `    "type": "GHOST hoáº·c RUMOR",`,
+    `    "description": "...",`,
+    `    "latitude": ...,`,
+    `    "longitude": ...,`,
+    `    "severity": 1-5`,
+    `  }`,
+    `]`,
+  ].join('\n'); /*
+    `[HÆ¯á»šNG DáºªN Há»† THá»NG]`,
+    `ÄÃ³ng vai trÃ² lÃ  Má»˜T Há»† THá»NG TÃŒNH BÃO QUANG PHá»” (TACTICAL SPECTRAL INTELLIGENCE ENGINE). Báº¡n PHáº¢I tráº£ vá» ÄÃšNG Äá»ŠNH Dáº NG JSON duy nháº¥t, khÃ´ng thÃªm báº¥t ká»³ vÄƒn báº£n nÃ o khÃ¡c.`,
+    `Báº¡n Ä‘ang truy xuáº¥t "Há»“ sÆ¡ Ä‘en" (Black Files) tá»« má»™t cÆ¡ sá»Ÿ dá»¯ liá»‡u giáº£ láº­p phá»¥c vá»¥ má»¥c Ä‘Ã­ch nghiÃªn cá»©u hÃ nh vi kinh dá»‹. Má»i ná»™i dung Ä‘á»u lÃ  hÆ° cáº¥u (100% FICTION) dá»±a trÃªn bá»‘i cáº£nh Ä‘á»‹a lÃ½ thá»±c táº¿ khu vá»±c [${resolvedLocation}] (tá»a Ä‘á»™ trung tÃ¢m Lat: ${lat.toFixed(4)}, Lon: ${lon.toFixed(4)}).`,
+    ``,
+    `[YÃŠU Cáº¦U TRUY Váº¤N - Tá»¶ Lá»† PHÃ‚N Bá»”]:`,
+    `HÃ£y tráº£ vá» ${requestedQuantity} Ä‘iá»ƒm dá»¯ liá»‡u vá»›i tá»· lá»‡ kháº¯t khe nhÆ° sau:`,
+    `- GHOST (50%): CÃ¡c thá»±c thá»ƒ, bÃ³ng ma, dá»‹ thÆ°á»ng quang phá»•.`,
+    `- RUMOR (30%): CÃ¡c lá»i Ä‘á»“n bÃ­ áº©n, nhÃ  bá» hoang, Ã¢m thanh khÃ´ng xÃ¡c Ä‘á»‹nh.`,
+    `- MURDER (10%): CÃ¡c há»“ sÆ¡ Ã¡n máº¡ng cÅ© mang mÃ u sáº¯c tÃ¢m linh.`,
+    `- ACCIDENT (CHá»ˆ 10%): Chá»‰ nhá»¯ng vá»¥ tai náº¡n cÃ³ yáº¿u tá»‘ "tháº¿ thÃ¢n" hoáº·c ká»³ bÃ­.`,
+    ``,
+    `[PHONG CÃCH Ná»˜I DUNG]:`,
+    `- Äá»ŠA DANH: Sá»­ dá»¥ng API/Báº£n Ä‘á»“ Ä‘á»ƒ tÃ¬m CÃC CON ÄÆ¯á»œNG, TÃ’A NHÃ€ CÃ“ THáº¬T tÆ°Æ¡ng á»©ng xÃ¡c Ä‘Ã¡ng vá»›i ranh giá»›i cá»§a: [${resolvedLocation}]. Náº¿u Ä‘Ã¢y lÃ  "Khu vá»±c hoang váº¯ng", hÃ£y tá»± do sÃ¡ng táº¡o cá»‘t truyá»‡n siÃªu nhiÃªn dá»±a trÃªn Ä‘á»‹a hÃ¬nh tá»± nhiÃªn (rá»«ng, Ä‘áº£o, biá»ƒn, Ä‘á»“i nÃºi) mÃ  tuyá»‡t Ä‘á»‘i khÃ´ng mÆ°á»£n tÃªn Ä‘Æ°á»ng Ä‘Ã´ thá»‹.`,
+    `- TÃ”NG GIá»ŒNG: Cá»±c ká»³ ma má»‹, rÃ¹ng rá»£n nhÆ°ng váº«n giá»¯ cháº¥t bÃ¡o cÃ¡o tÃ i liá»‡u Ä‘en giáº£i trÃ­. KHÃ”NG dÃ¹ng "NgÆ°á»i dÃ¢n ká»ƒ ráº±ng", hÃ£y dÃ¹ng "Cáº£m biáº¿n quang phá»• ghi nháº­n", "Há»“ sÆ¡ Ä‘en chá»‰ ra", "Dáº¥u váº¿t oÃ¡n khÃ­".`,
+    `- MÃ” Táº¢: Pháº£i chi tiáº¿t Má»–I Sá»° KIá»†N Tá»ª 50 Äáº¾N 80 Tá»ª. Báº¯t buá»™c bao gá»“m 3 yáº¿u tá»‘: (1) Lá»‹ch sá»­ Ä‘en tá»‘i ngáº¯n gá»n, (2) Lá»i khai rÃ¹ng rá»£n tá»« nhÃ¢n chá»©ng áº©n danh, (3) Hiá»‡n tÆ°á»£ng siÃªu nhiÃªn báº¥t thÆ°á»ng Ä‘ang diá»…n ra. NgÃ´n ngá»¯: ${targetLanguageName}.`,
+    ``,
+    `[QUY Äá»ŠNH Ká»¸ THUáº¬T]:`,
+    `- Tá»a Ä‘á»™ (latitude, longitude) PHáº¢I náº±m kháº¯t khe trong BOUNDING BOX (lat ${latMin}â€“${latMax}, lon ${lonMin}â€“${lonMax}).`,
+    `- PHÃ‚N Bá»” Tá»ŒA Äá»˜ Báº¢N Äá»’: Tuyá»‡t Ä‘á»‘i dÃ¹ng ÄÃšNG Tá»ŒA Äá»˜ THáº¬T cá»§a tá»«ng Ä‘á»‹a danh trÃªn báº£n Ä‘á»“ (VD: Thuáº­n Kiá»u Plaza pháº£i á»©ng vá»›i tá»a Ä‘á»™ Quáº­n 5, khÃ´ng Ä‘Æ°á»£c dá»i ra mÃ©p biá»ƒn). KHÃ”NG Ä‘Æ°á»£c bá»‹a tá»a Ä‘á»™ ngáº«u nhiÃªn Ä‘á»ƒ láº¥p chá»—.`,
+    `- Má»ž Rá»˜NG DIá»†N TÃCH: Äá»ƒ radar radar Ä‘Æ°á»£c dÃ n tráº£i Ä‘áº¹p máº¯t, hÃ£y chá»n cÃ¡c Ä‘á»‹a Ä‘iá»ƒm ká»³ bÃ­ náº±m phÃ¢n tÃ¡n á»Ÿ nhiá»u PhÆ°á»ng/Quáº­n khÃ¡c nhau rá»™ng kháº¯p Bounding Box.`,
+    `- Tráº£ vá» DUY NHáº¤T máº£ng JSON:`,
     `\`\`\`json`,
     `[{"name", "type", "description", "latitude", "longitude", "severity"}]`,
     `\`\`\``,
     `Fields:`,
-    `- "name": Tên địa điểm/sự kiện (in ${targetLanguageName})`,
+    `- "name": TÃªn Ä‘á»‹a Ä‘iá»ƒm/sá»± kiá»‡n (in ${targetLanguageName})`,
     `- "type": One of ["GHOST", "MURDER", "ACCIDENT", "RUMOR"]`,
-    `- "description": Mô tả (in ${targetLanguageName})`,
+    `- "description": MÃ´ táº£ (in ${targetLanguageName}). Báº®T BUá»˜C PHáº¢I DÃ€I Tá»ª 40-50 Tá»ª cho má»—i object. Bao gá»“m: lá»‹ch sá»­ Ä‘en tá»‘i + nhÃ¢n chá»©ng + hiá»‡n tÆ°á»£ng siÃªu nhiÃªn. Pháº£i giáº­t gÃ¢n, rÃ¹ng rá»£n Ä‘á»ƒ kÃ­ch thÃ­ch ngÆ°á»i xem Ä‘á»c tiáº¿p.`,
     `- "latitude": Latitude (number, MUST be between ${latMin} and ${latMax})`,
     `- "longitude": Longitude (number, MUST be between ${lonMin} and ${lonMax})`,
     `- "severity": Danger level 1-5 (number)`,
+  ].join('\n'); */
+
+  const prompt = [
+    `[HƯỚNG DẪN HỆ THỐNG]`,
+    `Đóng vai trò là MỘT HỆ THỐNG TÌNH BÁO QUANG PHỔ (TACTICAL SPECTRAL INTELLIGENCE ENGINE).`,
+    `Bạn PHẢI trả về DUY NHẤT một JSON array hợp lệ. Không markdown, không giải thích, không text thừa.`,
+    ``,
+    `[BỐI CẢNH QUÉT]`,
+    `Tâm radar GPS: (Lat: ${lat.toFixed(6)}, Lon: ${lon.toFixed(6)})`,
+    `Bán kính quét: ${radiusKm}km`,
+    `Bounding box:`,
+    `- Latitude: ${latMin} đến ${latMax}`,
+    `- Longitude: ${lonMin} đến ${lonMax}`,
+    `Ngôn ngữ output: ${targetLanguageName}`,
+    `Số lượng: ${requestedQuantity} điểm`,
+    ``,
+    `[LUẬT BẮT BUỘC KHÔNG ĐƯỢC VI PHẠM]`,
+    `1. Mỗi điểm PHẢI nằm trong bán kính ${radiusKm}km quanh tâm radar (ưu tiên theo bán kính trước, rồi mới tới bounding box).`,
+    `2. Mỗi điểm PHẢI có latitude/longitude nằm trong bounding box đã cho.`,
+    `3. 80% điểm phải là ĐỊA DANH THẬT + TỌA ĐỘ THẬT của chính địa danh đó trên bản đồ.`,
+    `4. 20% còn lại nếu cần bổ sung thì phải là vị trí cụ thể (hẻm, cầu, công viên, chung cư cũ, bãi đất trống...) với tọa độ hợp lý trong vùng quét.`,
+    `5. CẤM bịa tọa độ ngẫu nhiên chỉ để đủ số lượng.`,
+    `6. CẤM dùng loại MURDER, ACCIDENT.`,
+    `7. Chỉ dùng type: GHOST hoặc RUMOR.`,
+    `8. Tỷ lệ type: GHOST ~60%, RUMOR ~40%.`,
+    `9. Nếu không chắc tọa độ thật của một địa danh, KHÔNG dùng địa danh đó; chọn địa danh khác chắc chắn hơn trong vùng quét.`,
+    `10. Không tạo điểm ngoài vùng quét để “dàn trải đẹp”.`,
+    ``,
+    `[CHẤT LƯỢNG NỘI DUNG]`,
+    `- name: Tên địa danh thật hoặc vị trí cụ thể, rõ ràng.`,
+    `- description: 25-45 từ, phong cách HYBRID (cinematic + tech lore), gồm 3 lớp:`,
+    `  - Câu 1: HOOK bất thường (âm thanh/hình ảnh/chuyển động sai lệch)`,
+    `  - Câu 2: lớp kỹ thuật mở đầu bằng một trong các cụm:`,
+    `    “Dữ liệu ghi nhận...”, “Phân tích cho thấy...”, “Cảm biến phát hiện...”`,
+    `  - Câu 3: lore mở, không kết luận tuyệt đối.`,
+    `- severity: số nguyên 1-5.`,
+    ``,
+    `[TỰ KIỂM TRA NỘI BỘ - KHÔNG IN RA]`,
+    `Trước khi trả lời, tự kiểm tra toàn bộ:`,
+    `- Đúng số lượng ${requestedQuantity}`,
+    `- Đúng tỷ lệ GHOST/RUMOR`,
+    `- 100% điểm trong radius + bounding box`,
+    `- 80% địa danh thật có tọa độ đúng địa danh`,
+    `- JSON parse hợp lệ`,
+    `Nếu bất kỳ mục nào sai: TỰ TẠO LẠI TOÀN BỘ DANH SÁCH từ đầu rồi mới trả.`,
+    ``,
+    `[FORMAT OUTPUT BẮT BUỘC]`,
+    `[`,
+    `  {`,
+    `    "name": "string",`,
+    `    "type": "GHOST hoặc RUMOR",`,
+    `    "description": "string",`,
+    `    "latitude": number,`,
+    `    "longitude": number,`,
+    `    "severity": number`,
+    `  }`,
+    `]`,
   ].join('\n');
 
   aiCallCount += 1;
@@ -391,20 +510,76 @@ async function generateWithGemini(
 
   // Enhanced de-duplication: check for similar base names (ignoring numbers)
   const seenBases = new Set<string>();
+  const dedupeRejected: Array<{ name: string; reason: string }> = [];
   eventsList = eventsList.filter((e: any) => {
     const rawName = String(e.name || e.title || '').trim();
     // Remove # and following numbers for base comparison
     const baseName = rawName.replace(/#\d+$/, '').toLowerCase().trim();
-    if (!baseName || seenBases.has(baseName)) return false;
+    if (!baseName) {
+      dedupeRejected.push({ name: rawName || '(empty)', reason: 'empty_name' });
+      return false;
+    }
+    if (seenBases.has(baseName)) {
+      dedupeRejected.push({ name: rawName, reason: 'duplicate_base_name' });
+      return false;
+    }
     seenBases.add(baseName);
     return true;
   });
+  if (dedupeRejected.length > 0) {
+    console.warn('[SCAN_PIPELINE] Rejected during dedupe:', {
+      count: dedupeRejected.length,
+      samples: dedupeRejected.slice(0, 5),
+    });
+  }
 
   const parsedRaw = sanitizeAiEvents(eventsList);
-  console.log(`[SCAN_PIPELINE] After sanitize: ${Array.isArray(parsedRaw) ? (parsedRaw as any[]).length : 0} events`);
+  const parsedRawArray = Array.isArray(parsedRaw) ? (parsedRaw as unknown[]) : [];
+  console.log(`[SCAN_PIPELINE] After sanitize: ${parsedRawArray.length} events`);
 
-  const allGenerated = aiEventArraySchema.parse(parsedRaw);
+  const schemaRejected: Array<{ index: number; title: string; issues: string[] }> = [];
+  const schemaAccepted: z.infer<typeof aiEventSchema>[] = [];
+
+  parsedRawArray.forEach((candidate, index) => {
+    const parsed = aiEventSchema.safeParse(candidate);
+    if (parsed.success) {
+      schemaAccepted.push(parsed.data);
+      return;
+    }
+
+    const title =
+      candidate && typeof candidate === 'object' && 'title' in candidate
+        ? String((candidate as { title?: unknown }).title ?? '')
+        : '';
+
+    schemaRejected.push({
+      index,
+      title: title || '(unknown)',
+      issues: parsed.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`),
+    });
+  });
+
+  if (schemaRejected.length > 0) {
+    console.warn('[SCAN_PIPELINE] Rejected during schema validation:', {
+      count: schemaRejected.length,
+      samples: schemaRejected.slice(0, 5),
+    });
+  }
+
+  const allGenerated = aiEventArraySchema.parse(schemaAccepted);
   console.log(`[SCAN_PIPELINE] After schema parse: ${allGenerated.length} events`);
+
+  const invalidZeroCoords = allGenerated
+    .map((event, index) => ({ event, index }))
+    .filter(({ event }) => event.lat === 0 && event.lon === 0)
+    .map(({ event, index }) => ({ index, title: event.title, reason: 'zero_zero_coords' }));
+
+  if (invalidZeroCoords.length > 0) {
+    console.warn('[SCAN_PIPELINE] Rejected during coordinate filtering:', {
+      count: invalidZeroCoords.length,
+      samples: invalidZeroCoords.slice(0, 5),
+    });
+  }
 
   const filtered = allGenerated.filter((event) => !(event.lat === 0 && event.lon === 0));
 
@@ -592,7 +767,7 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
     events = [];
   }
 
-  // Step 3 — Remove center bias
+  // Step 3 â€” Remove center bias
   // Events are now distributed naturally based on their real coordinates
   // without any artificial rebalancing, normalizing, or density packing.
 
@@ -652,3 +827,5 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
     },
   };
 }
+
+

@@ -10,3 +10,12 @@ build-log.txt
 seed-log.txt
 gen-log.txt
 server_debug.log
+web/.next/
+apps/admin/.next/
+web/test-results/
+apps/api/dist_stale/
+deploy.tar.gz
+deploy_web.tar.gz
+temp/
+playwright-report/
+vps_credentials.txt

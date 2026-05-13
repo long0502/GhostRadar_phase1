@@ -135,7 +135,6 @@ export function FullProfileModal({ profile, event, isOpen, onClose, userLocation
                         <div className="flex flex-wrap gap-6 text-sm text-[#00ff41]/80 font-mono tracking-widest uppercase">
                             <span className="text-red-500 font-bold">{t('classification')}: {event.legend_type || event.type || 'UNKNOWN'}</span>
                             <span className="text-red-500 font-bold">{t('distanceLabel')}: {distanceStr} KM</span>
-                            <span>{t('coordinates')}: {event.lat.toFixed(4)}, {event.lon.toFixed(4)}</span>
                         </div>
                     </div>
 

@@ -7,6 +7,13 @@ import type { ScanInput, ScanServiceResult } from '../domain/scan';
 import { callGeminiQueued } from './gemini.service';
 import { computeScanGridId } from '../utils/grid';
 import { isAiDailyQuotaExceededError } from './quota.service';
+import {
+  getScanMaxOutputTokens,
+  getScanQuantityNormal,
+  getScanQuantityTurbo,
+  getScanThinkingBudget,
+  getTurboScanRadiusKm,
+} from '../utils/env';
 
 const CACHE_TTL_HOURS = 36;
 let aiCallCount = 0;
@@ -312,6 +319,16 @@ function isEventRecord(value: unknown): value is PersistedScanEvent {
   );
 }
 
+function parseMinimumRequestedQuantity(range: string): number {
+  const match = range.match(/\d+/);
+  if (!match) {
+    return 0;
+  }
+
+  const parsed = Number.parseInt(match[0], 10);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
 async function generateWithGemini(
   lat: number,
   lon: number,
@@ -320,6 +337,9 @@ async function generateWithGemini(
   usageContext?: {
     usageDate: string;
     clientIp: string;
+  },
+  options?: {
+    forceNormalPrompt?: boolean;
   }
 ): Promise<z.infer<typeof aiEventArraySchema>> {
   const targetLanguageName = LANGUAGE_MAP[langCode] || 'English';
@@ -333,7 +353,9 @@ async function generateWithGemini(
   const lonMin = (lon - lonDelta).toFixed(4);
   const lonMax = (lon + lonDelta).toFixed(4);
 
-  const requestedQuantity = '12-18';
+  const turboScanRadiusKm = getTurboScanRadiusKm();
+  const isTurboScan = radiusKm >= turboScanRadiusKm && !options?.forceNormalPrompt;
+  const requestedQuantity = isTurboScan ? getScanQuantityTurbo() : getScanQuantityNormal();
 
   const resolvedLocation = await reverseGeocode(lat, lon);
   console.log(`[SCAN] Resolved Location: ${resolvedLocation}`);
@@ -406,7 +428,7 @@ async function generateWithGemini(
     `- "severity": Danger level 1-5 (number)`,
   ].join('\n'); */
 
-  const prompt = [
+  const legacyPrompt = [
     `[HƯỚNG DẪN HỆ THỐNG]`,
     `Đóng vai trò là MỘT HỆ THỐNG TÌNH BÁO QUANG PHỔ (TACTICAL SPECTRAL INTELLIGENCE ENGINE).`,
     `Bạn PHẢI trả về DUY NHẤT một JSON array hợp lệ. Không markdown, không giải thích, không text thừa.`,
@@ -463,16 +485,121 @@ async function generateWithGemini(
     `]`,
   ].join('\n');
 
+  const turboPrompt = [
+    `[HUONG DAN HE THONG]`,
+    `Dong vai tro la MOT HE THONG TINH BAO QUANG PHO (TACTICAL SPECTRAL INTELLIGENCE ENGINE).`,
+    `Ban PHAI tra ve DUY NHAT mot JSON array hop le. Khong markdown, khong giai thich, khong text thua.`,
+    ``,
+    `[BOI CANH QUET]`,
+    `Tam radar GPS: (Lat: ${lat.toFixed(6)}, Lon: ${lon.toFixed(6)})`,
+    `Ban kinh quet: ${turboScanRadiusKm}km (TURBO SCAN)`,
+    `Bounding box:`,
+    `- Latitude: ${latMin} den ${latMax}`,
+    `- Longitude: ${lonMin} den ${lonMax}`,
+    `Ngon ngu output: ${targetLanguageName}`,
+    `So luong: ${requestedQuantity} diem`,
+    ``,
+    `[LUAT BAT BUOC KHONG DUOC VI PHAM]`,
+    `1. 100% diem PHAI nam trong ban kinh ${turboScanRadiusKm}km quanh tam radar.`,
+    `2. 100% diem PHAI nam trong bounding box.`,
+    `3. 80% diem la DIA DANH THAT + TOA DO THAT tren ban do.`,
+    `4. 20% diem bo sung (neu can) phai la vi tri cu the, khong ten chung chung.`,
+    `5. CAM bia toa do ngau nhien chi de du so luong.`,
+    `6. Chi dung type: GHOST hoac RUMOR, ty le GHOST ~60%, RUMOR ~40%.`,
+    `7. CAM dung MURDER, ACCIDENT.`,
+    ``,
+    `[PHAN BO MAT DO TURBO - BAT BUOC]`,
+    `1. Chia vung quet thanh 3 vanh:`,
+    `- Vanh tam: 0-3.5km`,
+    `- Vanh trung gian: >3.5-7km`,
+    `- Vanh ngoai: >7-${turboScanRadiusKm}km`,
+    `2. Phan bo theo mat do:`,
+    `- Vanh tam: 45-55% (duoc tap trung nhieu nhat)`,
+    `- Vanh trung gian: 25-35%`,
+    `- Vanh ngoai: 15-25% (thua dan nhung KHONG duoc trong)`,
+    `3. Vanh ngoai bat buoc co toi thieu 4 diem.`,
+    `4. Chia theo 4 goc radar (NE, NW, SE, SW): moi goc it nhat 2 diem.`,
+    `5. Khong co qua 3 diem cach nhau duoi 300m trong cung mot cum.`,
+    `6. Khong duoc de bat ky cung 90 do nao o vanh ngoai bi trong hoan toan.`,
+    ``,
+    `[CHAT LUONG NOI DUNG]`,
+    `- name: Ten dia danh that hoac vi tri cu the, ro rang.`,
+    `- description: 25-45 tu, phong cach HYBRID (cinematic + tech lore), gom 3 lop:`,
+    `  - Cau 1: HOOK bat thuong`,
+    `  - Cau 2: ky thuat mo dau bang mot trong cac cum:`,
+    `    "Du lieu ghi nhan...", "Phan tich cho thay...", "Cam bien phat hien..."`,
+    `  - Cau 3: lore mo, khong ket luan tuyet doi.`,
+    `- severity: so nguyen 1-5.`,
+    ``,
+    `[TU KIEM TRA NOI BO - KHONG IN RA]`,
+    `Truoc khi tra loi, tu kiem tra:`,
+    `- Dung ${requestedQuantity} diem`,
+    `- Dung ty le GHOST/RUMOR`,
+    `- Dung ty le 3 vanh + 4 goc`,
+    `- Vanh ngoai co toi thieu 4 diem va khong co cung 90 do bi trong`,
+    `- Khong vi pham quy tac cum diem`,
+    `- JSON hop le`,
+    `Neu sai bat ky muc nao: tu tao lai toan bo danh sach.`,
+    ``,
+    `[FORMAT OUTPUT BAT BUOC]`,
+    `[`,
+    `  {`,
+    `    "name": "string",`,
+    `    "type": "GHOST hoac RUMOR",`,
+    `    "description": "string",`,
+    `    "latitude": number,`,
+    `    "longitude": number,`,
+    `    "severity": number`,
+    `  }`,
+    `]`,
+  ].join('\n');
+
+  const deepWebPrompt = [
+    `HÀNH ĐỘNG NHƯ MỘT HỆ THỐNG TRUY QUÉT DỮ LIỆU ĐA TẦNG (DEEP WEB & LOCAL ARCHIVES SCRAPER).`,
+    `Mục tiêu: Tìm kiếm toàn bộ các điểm có dấu vết tâm linh, tai nạn và án mạng trong bán kính ${radiusKm}km quanh tọa độ (${lat.toFixed(6)}, ${lon.toFixed(6)}).`,
+    `Khu vực tham chiếu gần nhất: ${resolvedLocation}.`,
+    `Bounding box tham chiếu: latitude ${latMin} đến ${latMax}, longitude ${lonMin} đến ${lonMax}.`,
+    `Ngôn ngữ đầu ra: ${targetLanguageName}.`,
+    ``,
+    `YÊU CẦU TRUY VẤN SÂU:`,
+    `1. QUÉT ĐIỂM ĐEN TAI NẠN: Tìm các ngã tư, cung đường thường xuyên xảy ra tai nạn giao thông thảm khốc.`,
+    `2. QUÉT HỒ SƠ ÁN MẠNG: Tìm các vụ trọng án, án mạng chưa có lời giải hoặc các vụ án nổi tiếng.`,
+    `3. QUÉT TRUYỀN THUYẾT ĐÔ THỊ: Các tòa nhà bỏ hoang, bệnh viện cũ, nghĩa trang lâu đời hoặc những ngôi nhà có lời đồn.`,
+    `4. QUÉT TIN ĐỒN ĐỊA PHƯƠNG: Những mẩu chuyện ma mị từ các blog địa phương hoặc báo chí đời sống.`,
+    ``,
+    `QUY ĐỊNH TRẢ VỀ:`,
+    `- SỐ LƯỢNG: Phải trả về trong khoảng ${requestedQuantity} điểm dữ liệu.`,
+    `- PHÂN LOẠI: Được phép dùng đủ 4 type: GHOST, MURDER, ACCIDENT, RUMOR.`,
+    `- TỌA ĐỘ: Mỗi điểm phải nằm trong bán kính ${radiusKm}km quanh tâm radar và hợp lý với bounding box đã cho.`,
+    `- MẬT ĐỘ: Ưu tiên danh sách dày, phủ được nhiều điểm nổi bật trong vùng quét; không trả về danh sách quá ngắn.`,
+    `- GIỌNG ĐIỆU: Mô tả ngắn gọn nhưng rùng rợn, tăm tối, đúng tinh thần hồ sơ truy quét radar.`,
+    `- ĐỊNH DẠNG: Chỉ trả về duy nhất mảng JSON, không markdown, không giải thích, không văn bản ngoài JSON.`,
+    ``,
+    `[`,
+    `  {`,
+    `    "name": "Tên địa điểm cụ thể",`,
+    `    "type": "GHOST" | "MURDER" | "ACCIDENT" | "RUMOR",`,
+    `    "description": "Mô tả ngắn gọn nhưng rùng rợn và tăm tối.",`,
+    `    "latitude": vĩ độ,`,
+    `    "longitude": kinh độ,`,
+    `    "severity": 1-5`,
+    `  }`,
+    `]`,
+  ].join('\n');
+
+  // Unified prompt strategy: the radar scan now uses the deep-web style prompt.
+  const effectivePrompt = deepWebPrompt;
+
   aiCallCount += 1;
-  console.log('Gemini Scan Prompt:', prompt);
+  console.log('AI Gateway Scan Prompt:', effectivePrompt);
 
   const result = await callGeminiQueued({
     endpoint: 'scan',
-    prompt,
+    prompt: effectivePrompt,
     systemInstruction: 'You are a data API. You MUST respond with ONLY a raw JSON array. Do NOT include any text, explanation, introduction, markdown formatting, or commentary before or after the JSON. Your entire response must start with [ and end with ]. No exceptions.',
     responseMimeType: 'text/plain',
     temperature: 0.4,
-    maxOutputTokens: 32768,
+    maxOutputTokens: getScanMaxOutputTokens(),
     aiCallsThisRequest: 1,
     usageContext,
     tools: [
@@ -487,14 +614,14 @@ async function generateWithGemini(
       { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' },
     ],
     thinkingConfig: {
-      thinkingBudget: 512,
+      thinkingBudget: getScanThinkingBudget(),
     },
   });
 
-  fs.appendFileSync('raw_ai.log', `[PROMPT] ${new Date().toISOString()}\n${prompt}\n\n[RAW_AI_RESPONSE] ${new Date().toISOString()}\n${result.text}\n---\n`);
+  fs.appendFileSync('raw_ai.log', `[PROMPT] ${new Date().toISOString()}\n${effectivePrompt}\n\n[RAW_AI_RESPONSE] ${new Date().toISOString()}\n${result.text}\n---\n`);
 
-  console.log('GEMINI_RAW_RESPONSE_LENGTH:', result.text?.length);
-  console.log('GEMINI_RAW_RESPONSE_PREVIEW:', result.text?.substring(0, 500));
+  console.log('AI_GATEWAY_RAW_RESPONSE_LENGTH:', result.text?.length);
+  console.log('AI_GATEWAY_RAW_RESPONSE_PREVIEW:', result.text?.substring(0, 500));
   const jsonText = extractJsonArray(result.text);
   const rawJson = JSON.parse(jsonText);
   let eventsList: any[] = [];
@@ -506,7 +633,7 @@ async function generateWithGemini(
     eventsList = [rawJson];
   }
 
-  console.log(`[DEBUG] Raw Gemini Events (${eventsList.length}):`, JSON.stringify(eventsList, null, 2));
+  console.log(`[DEBUG] Raw AI Gateway Events (${eventsList.length}):`, JSON.stringify(eventsList, null, 2));
 
   // Enhanced de-duplication: check for similar base names (ignoring numbers)
   const seenBases = new Set<string>();
@@ -641,6 +768,10 @@ async function loadEventsFromIds(eventIds: string[]): Promise<unknown[] | null> 
 
 export async function scanService(input: ScanInput): Promise<ScanServiceResult> {
   const { lat, lon, radiusKm, lang = 'en', force, beforeAiCall, logger, requestId } = input;
+  const turboScanRadiusKm = getTurboScanRadiusKm();
+  const minimumRequestedEvents = parseMinimumRequestedQuantity(
+    radiusKm >= turboScanRadiusKm ? getScanQuantityTurbo() : getScanQuantityNormal()
+  );
   const gridId = computeScanGridId(lat, lon, radiusKm, lang);
   logger?.info({ requestId, gridId, lat, lon, radiusKm, lang, force }, 'scan.cache.lookup.start');
 
@@ -745,15 +876,62 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
   try {
     aiCallsThisScan = 1;
     logger?.info({ requestId, gridId }, 'scan.ai.start');
-    const generated = await generateWithGemini(lat, lon, radiusKm, lang, usageContext);
+    let generated = await generateWithGemini(lat, lon, radiusKm, lang, usageContext);
+    if (generated.length < minimumRequestedEvents) {
+      logger?.warn(
+        { requestId, gridId, generatedEventCount: generated.length, minimumRequestedEvents },
+        'scan.ai.count_below_minimum.retry'
+      );
+
+      const retryGenerated = await generateWithGemini(lat, lon, radiusKm, lang, usageContext);
+      aiCallsThisScan = 2;
+      if (retryGenerated.length > generated.length) {
+        generated = retryGenerated;
+      }
+    }
+    if (radiusKm >= turboScanRadiusKm && generated.length === 0) {
+      logger?.warn({ requestId, gridId }, 'scan.ai.turbo.empty_retry_normal_prompt');
+      generated = await generateWithGemini(lat, lon, radiusKm, lang, usageContext, {
+        forceNormalPrompt: true,
+      });
+      aiCallsThisScan = Math.max(aiCallsThisScan, 2);
+    }
     logger?.info({ requestId, gridId, generatedEventCount: generated.length }, 'scan.ai.done');
     events = toPersistedEvents(gridId, generated);
   } catch (error: any) {
+    if (radiusKm >= turboScanRadiusKm) {
+      try {
+        logger?.warn({ requestId, gridId, errorMessage: error?.message ?? 'unknown' }, 'scan.ai.turbo.error_retry_normal_prompt');
+        const retryGenerated = await generateWithGemini(lat, lon, radiusKm, lang, usageContext, {
+          forceNormalPrompt: true,
+        });
+        aiCallsThisScan = 2;
+        events = toPersistedEvents(gridId, retryGenerated);
+      } catch (retryError: any) {
+        fs.appendFileSync('scan_debug.log', `[SCAN_AI_ERROR] ${new Date().toISOString()} ${retryError.message}\n${retryError.stack}\n`);
+        if (isAiDailyQuotaExceededError(retryError)) {
+          throw retryError;
+        }
+        console.error('scan turbo retry failed, using empty events', retryError);
+        const err = retryError as { name?: string; message?: string };
+        logger?.error(
+          {
+            requestId,
+            gridId,
+            errorName: err?.name ?? 'Error',
+            errorMessage: err?.message ?? 'unknown',
+          },
+          'scan.ai.retry.failed'
+        );
+        events = [];
+      }
+      // Retry path handled above; continue with whatever events we have.
+    } else {
     fs.appendFileSync('scan_debug.log', `[SCAN_AI_ERROR] ${new Date().toISOString()} ${error.message}\n${error.stack}\n`);
     if (isAiDailyQuotaExceededError(error)) {
       throw error;
     }
-    console.error('scan gemini generation failed, using fallback events', error);
+    console.error('scan ai gateway generation failed, using fallback events', error);
     const err = error as { name?: string; message?: string };
     logger?.error(
       {
@@ -765,6 +943,7 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
       'scan.ai.failed'
     );
     events = [];
+    }
   }
 
   // Step 3 â€” Remove center bias

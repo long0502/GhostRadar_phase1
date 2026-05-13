@@ -1,7 +1,10 @@
 
 async function testSingle() {
     const model = 'gemini-2.5-flash';
-    const apiKey = 'AIzaSyCJQ92LyWTO_TsC-AFY7WVuLPUZUOrHpCg';
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+        throw new Error('Missing GEMINI_API_KEY');
+    }
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
     console.log(`--- FINAL TEST: ${model} ---`);

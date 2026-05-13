@@ -3,10 +3,19 @@ import { globalStats } from '../core/metrics';
 import { recordAiUsageTokens } from './quota.service';
 import { enqueueAiCall } from './ai-queue.service';
 import { logAiCall } from './ai-logging.service';
+import {
+  getAiGatewayApiKey,
+  getAiGatewayProvider,
+  getAiGatewayUrl,
+  getAiPollIntervalMs,
+  getAiPollTimeoutMs,
+} from '../utils/env';
 
 type GeminiCallParams = {
   endpoint: 'scan' | 'expand' | 'normalization' | 'ai-health';
   prompt: string;
+  provider?: string;
+  requestType?: 'text' | 'image';
   responseMimeType?: 'application/json' | 'text/plain';
   responseSchema?: any;
   temperature?: number;
@@ -41,6 +50,58 @@ type GeminiCallResult = {
   totalTokenCount?: number;
 };
 
+function buildGatewayHeaders(apiKey: string): Record<string, string> {
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+  };
+
+  if (apiKey) {
+    headers['x-api-key'] = apiKey;
+  }
+
+  return headers;
+}
+
+function parseGatewayData(data: unknown): string {
+  if (typeof data !== 'string') {
+    if (data == null) {
+      return '';
+    }
+    return JSON.stringify(data);
+  }
+
+  const trimmed = data.trim();
+  if (!trimmed) {
+    return '';
+  }
+
+  try {
+    const parsed = JSON.parse(trimmed) as unknown;
+    if (typeof parsed === 'string') {
+      return parsed;
+    }
+    if (parsed && typeof parsed === 'object') {
+      const record = parsed as Record<string, unknown>;
+      const textCandidates = [
+        record.text,
+        record.output_text,
+        record.output,
+        record.answer,
+        record.response,
+        record.content,
+      ];
+      const firstText = textCandidates.find((value) => typeof value === 'string' && value.trim().length > 0);
+      if (typeof firstText === 'string') {
+        return firstText;
+      }
+    }
+  } catch (_) {
+    return data;
+  }
+
+  return trimmed;
+}
+
 export async function callGemini(params: GeminiCallParams): Promise<GeminiCallResult> {
   const {
     endpoint,
@@ -61,22 +122,39 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
     }
   }
 
-  const modelVersion = 'chatgpt-gateway';
-  const API_BASE_URL = process.env.AI_GATEWAY_URL || 'http://192.241.143.6';
+  const apiBaseUrl = getAiGatewayUrl().replace(/\/+$/, '');
+  const apiKey = getAiGatewayApiKey();
+  const aiGatewayProvider = params.provider?.trim() || getAiGatewayProvider();
+  const requestType = params.requestType || 'text';
+  const modelVersion = `${aiGatewayProvider}-gateway`;
 
   let prompt = originalPrompt;
   if (systemInstruction) {
     prompt = `${systemInstruction}\n\n${originalPrompt}`;
   }
 
-  console.log(`[GATEWAY_REQUEST] Submitting prompt to ${API_BASE_URL}/ask`);
+  const timeoutMs = getAiPollTimeoutMs();
+  const pollIntervalMs = getAiPollIntervalMs();
+  const gatewayTimeoutSecs = Math.floor(timeoutMs / 1000);
+  const includeTimeoutOnAsk = (process.env.AI_GATEWAY_INCLUDE_TIMEOUT ?? 'false').toLowerCase() === 'true';
+
+  console.log(`[GATEWAY_REQUEST] Submitting prompt to ${apiBaseUrl}/ask with provider=${aiGatewayProvider} timeout=${gatewayTimeoutSecs}s`);
   
   let askResponse: Response;
   try {
-    askResponse = await fetch(`${API_BASE_URL}/ask`, {
+    const askPayload: Record<string, unknown> = {
+      prompt,
+      provider: aiGatewayProvider,
+      type: requestType,
+    };
+    if (includeTimeoutOnAsk) {
+      askPayload.timeout = gatewayTimeoutSecs;
+    }
+
+    askResponse = await fetch(`${apiBaseUrl}/ask`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt, timeout: 90 }),
+      headers: buildGatewayHeaders(apiKey),
+      body: JSON.stringify(askPayload),
     });
   } catch (err: any) {
     logAiCall({
@@ -107,16 +185,17 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
   }
 
   const askData = await askResponse.json() as any;
-  if (askData.status === 'error') {
+  if (askData.status === 'error' || askData.status === 'failed') {
     throw new Error(`Gateway Error on submission: ${askData.error}`);
   }
 
   const jobId = askData.request_id;
+  if (!jobId || typeof jobId !== 'string') {
+    throw new Error('Gateway Error on submission: missing request_id');
+  }
   console.log(`[GATEWAY_JOB] Received Job ID: ${jobId}. Waiting for processing...`);
 
   const startTime = Date.now();
-  const timeoutMs = parseInt(process.env.AI_POLL_TIMEOUT_MS || '70000', 10);
-  const pollIntervalMs = parseInt(process.env.AI_POLL_INTERVAL_MS || '3000', 10);
   
   let finalData: string | null = null;
   let hasTimeout = false;
@@ -131,7 +210,9 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
 
     let statusRes: Response;
     try {
-      statusRes = await fetch(`${API_BASE_URL}/jobs/${jobId}`);
+      statusRes = await fetch(`${apiBaseUrl}/jobs/${jobId}`, {
+        headers: apiKey ? { 'x-api-key': apiKey } : undefined,
+      });
     } catch (err: any) {
       console.error(`[GATEWAY_POLL_ERROR] ${err.message}`);
       continue;
@@ -146,9 +227,9 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
     const status = statusData.status;
 
     if (status === 'success') {
-      finalData = statusData.data;
+      finalData = parseGatewayData(statusData.data);
       break;
-    } else if (status === 'error') {
+    } else if (status === 'error' || status === 'failed') {
       const errMessage = statusData.error || 'Unknown error during processing';
       logAiCall({
         endpoint,
@@ -173,9 +254,9 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
       tokensOutput: 0,
       latencyMs: Date.now() - aiStartTime,
       success: false,
-      errorMessage: 'Timeout waiting for ChatGPT answer',
+      errorMessage: `Timeout waiting for ChatGPT answer after ${Math.round(timeoutMs / 1000)}s`,
     });
-    throw new Error('Error: Timeout waiting for ChatGPT answer (Exceeded 30s)');
+    throw new Error(`Error: Timeout waiting for ChatGPT answer (Exceeded ${Math.round(timeoutMs / 1000)}s)`);
   }
 
   fs.appendFileSync('gemini_debug.log', `[GATEWAY_TEXT] ${finalData}\n---\n`);

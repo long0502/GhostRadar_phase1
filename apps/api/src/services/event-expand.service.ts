@@ -1,25 +1,8 @@
 import * as fs from 'fs';
 import type { FastifyBaseLogger } from 'fastify';
 import { prisma } from '../db/prisma';
-import { callGeminiQueued, callGeminiImageQueued } from './gemini.service';
+import { callGeminiQueued } from './gemini.service';
 import { isAiDailyQuotaExceededError } from './quota.service';
-
-const LANGUAGE_MAP: Record<string, string> = {
-  en: 'English',
-  vi: 'Vietnamese',
-  ja: 'Japanese',
-  ko: 'Korean',
-  zh: 'Chinese',
-  es: 'Spanish',
-  pt: 'Portuguese',
-  it: 'Italian',
-  tr: 'Turkish',
-  ro: 'Romanian',
-  th: 'Thai',
-  id: 'Indonesian',
-  fil: 'Filipino',
-  ms: 'Malay',
-};
 
 type Witness = {
   name: string;
@@ -37,14 +20,9 @@ type LevelOneDetail = {
 };
 
 function extractJsonObject(text: string): string {
-  // 1. Remove common conversational prefixes
-  let cleaned = text.trim()
-    .replace(/^(Summary|JSON|Output|Response|Here is the dossier)[:\s]*/im, '');
-
-  // 2. Remove markdown code blocks if present
+  let cleaned = text.trim().replace(/^(Summary|JSON|Output|Response|Here is the dossier)[:\s]*/im, '');
   cleaned = cleaned.replace(/^```(?:json)?\s*/im, '').replace(/\s*```$/m, '');
 
-  // 3. Find the first '{' and last '}'
   const start = cleaned.indexOf('{');
   const end = cleaned.lastIndexOf('}');
 
@@ -52,7 +30,6 @@ function extractJsonObject(text: string): string {
     return cleaned.slice(start, end + 1);
   }
 
-  // 4. Emergency recovery: If no braces, but we see "story_text": "...", try to wrap it
   if (cleaned.includes('"story_text"') || cleaned.includes('"legend_overview"')) {
     let recovered = cleaned;
     if (!recovered.startsWith('{')) recovered = '{' + recovered;
@@ -63,21 +40,16 @@ function extractJsonObject(text: string): string {
   throw new Error('Gemini response did not contain a JSON object');
 }
 
-function countWords(input: string): number {
-  return input
-    .trim()
-    .split(/\s+/)
-    .filter((token) => token.length > 0).length;
-}
-
 function buildFallbackStoryText(eventTitle: string, teaser: string, rawText: string): LevelOneDetail {
+  void rawText;
+
   return {
     legend_overview: teaser || `Dossier generated for ${eventTitle}.`,
     chronological_history: 'Historical data unavailable.',
     witnesses: [],
     spectral_analysis: 'Spectral analysis unavailable.',
     risk_assessment: 'Structured risk assessment unavailable.',
-    image_prompt: ''
+    image_prompt: '',
   };
 }
 
@@ -92,132 +64,161 @@ async function generateLevelOneDetail(
   beforeAiCall?: () => Promise<
     | void
     | {
-      usageDate: string;
-      clientIp: string;
-    }
+        usageDate: string;
+        clientIp: string;
+      }
   >
 ): Promise<LevelOneDetail> {
-  const targetLanguageName = LANGUAGE_MAP[langCode] || 'English';
+  void langCode;
+  void lat;
+  void lng;
 
   const prompt = `
-[VAI TRÒ]
-Bạn là 'Tactical Spectral Engine Expert' - Chuyên gia cấp cao về lưu trữ hồ sơ tâm linh và điều tra hiện thực huyền bí. 
+[VAI TRÒ - PERSONA]
+Hành động như một Chuyên gia Lưu trữ cấp cao thuộc Cục Nghiên cứu Hiện tượng Quang phổ (Spectral Research Bureau). Bạn có lối viết lạnh lùng, kỹ thuật nhưng cực kỳ ám ảnh.
 
-[SỰ KIỆN MỤC TIÊU]
-Địa điểm: ${eventTitle}
-Tọa độ: ${lat.toFixed(4)}, ${lng.toFixed(4)}
-Mô tả sơ bộ: ${teaser}
+[DỮ LIỆU ĐẦU VÀO]
+- Địa điểm: ${eventTitle}
+- Vị trí mục tiêu: Khu vực định vị nội bộ, không công bố tọa độ cụ thể
+- Tóm tắt sơ bộ: ${teaser}
 
 [NHIỆM VỤ]
-Hãy giải mã và tái thiết lập hồ sơ "Dữ Liệu Thô" tuyệt mật về địa điểm này. 
+Hãy giải mã và tái thiết lập hồ sơ "Dữ Liệu Thô" tuyệt mật về địa điểm này. Tuyệt đối không sử dụng ngôn ngữ phản bác hay giải thích bằng logic thông thường. Hãy coi thực thể là có thật và đang hiện diện.
 
-[YÊU CẦU NỘI DUNG]
-1. Ngôn ngữ: ${targetLanguageName}.
-2. Tông giọng: Lạnh lẽo, điều tra chuyên nghiệp nhưng cực kỳ ma mị và ám ảnh.
-3. Độ dài: Khoảng 500 - 800 từ. (BẮT BUỘC viết chi tiết, không được viết hời hợt).
-4. WITNESSES (Nhân chứng): 
-   - Phải viết theo phong cách kể chuyện (storytelling) rùng rợn. 
-   - Mỗi lời kể phải mô tả chi tiết cảm giác (lạnh gáy, tiếng động lạ, mùi hương, sự thay đổi ánh sáng). 
-   - Độ dài mỗi nhân chứng ít nhất 4-6 câu dài.
-5. SPECTRAL ANALYSIS (Phân tích): Sử dụng các thuật ngữ kỹ thuật như 'Tần số Infrasound', 'Nhiễu trắng', 'Dấu vết nhiệt âm', 'Thực thể loại IV'.
+[YÊU CẦU NỘI DUNG - ĐỘ DÀI 500-800 TỪ]
+1. LEGEND OVERVIEW (Tổng quan): Phân tích sâu về nguồn gốc huyền thoại địa phương gắn liền với địa danh này.
+2. CHRONOLOGICAL HISTORY (Dòng thời gian): Liệt kê các mốc sự kiện quan trọng (năm 19xx, 20xx) gắn liền với các hiện tượng lạ hoặc biến cố tại đây.
+3. WITNESS REPORTS (Hồ sơ nhân chứng):
+   - Viết ít nhất 3 lời kể chi tiết.
+   - Phong cách: Kể chuyện (storytelling) giàu cảm xúc.
+   - Mô tả cụ thể: Cảm giác lạnh gáy, mùi hương lạ, âm thanh kim loại, sự thay đổi ánh sáng đột ngột...
+   - Mỗi nhân chứng phải đạt tối thiểu 100-150 từ.
+4. SPECTRAL ANALYSIS (Phân tích quang phổ): Sử dụng thuật ngữ chuyên môn như 'Tần số Infrasound', 'Nhiễu trắng', 'Ký ức dư thừa (Residual Haunting)', 'Đứt gãy từ trường'.
+5. RISK ASSESSMENT (Quy tắc sinh tồn): Các khuyến cáo an toàn khi tiếp cận khu vực này vào khung giờ Tý.
 
-[ĐỊNH DẠNG ĐẦU RA - BẮT BUỘC]
-Chỉ trả về duy nhất một khối JSON theo cấu trúc sau (không kèm lời dẫn):
+[YÊU CẦU ĐỊNH DẠNG - BẮT BUỘC JSON]
+Chỉ trả về duy nhất một khối JSON, không có văn bản thừa. Ngôn ngữ: Tiếng Việt.
+Không nêu tọa độ GPS chính xác, không chèn cặp số latitude/longitude, và không mô tả địa chỉ theo cách có thể định vị pháp lý trực tiếp.
+
 {
-  "legend_overview": "Tổng quan huyền thoại (chi tiết)",
-  "chronological_history": "Lịch sử dòng thời gian (chi tiết các mốc năm)",
+  "legend_overview": "Nội dung chi tiết...",
+  "chronological_history": "Các mốc thời gian chi tiết...",
   "witnesses": [
     {
-      "name": "Tên nhân chứng",
-      "testimony": "Lời kể chi tiết và ám ảnh (4-6 câu)",
-      "date": "Ngày ghi nhận"
+      "name": "Tên nhân chứng (hoặc Ẩn danh)",
+      "testimony": "Lời kể chi tiết, rùng rợn và ám ảnh...",
+      "date": "Ngày ghi nhận hồ sơ"
     }
   ],
-  "spectral_analysis": "Giả thuyết kỹ thuật và tâm linh chuyên sâu",
-  "risk_assessment": "Đánh giá mức độ rủi ro và quy tắc sinh tồn",
-  "image_prompt": "Detailed English prompt for generating a found-footage horror image of this location"
+  "spectral_analysis": "Phân tích kỹ thuật chuyên sâu...",
+  "risk_assessment": "Quy tắc an toàn và đánh giá độ rủi ro...",
+  "image_prompt": "A detailed English prompt for generating a found-footage horror image of this specific location, cinematic lighting, 16:9"
 }
 `.trim();
 
   const responseSchema = {
-    type: "OBJECT",
+    type: 'OBJECT',
     properties: {
-      legend_overview: { type: "STRING", description: "Tổng quan huyền thoại cực ngắn" },
-      chronological_history: { type: "STRING", description: "Lịch sử dòng thời gian cực ngắn" },
+      legend_overview: {
+        type: 'STRING',
+        description: 'Tổng quan huyền thoại chi tiết bằng tiếng Việt',
+      },
+      chronological_history: {
+        type: 'STRING',
+        description: 'Dòng thời gian chi tiết có các mốc năm 19xx hoặc 20xx',
+      },
       witnesses: {
-      type: "ARRAY",
-      minItems: 1,
-      maxItems: 2,
-      items: {
-        type: "OBJECT",
-        properties: {
-          name: { type: "STRING", description: "Tên nhân chứng" },
-          testimony: { type: "STRING", description: "Lời khai cực ngắn (1 câu)" },
-          date: { type: "STRING", description: "Ngày ghi nhận" }
+        type: 'ARRAY',
+        minItems: 3,
+        maxItems: 5,
+        items: {
+          type: 'OBJECT',
+          properties: {
+            name: { type: 'STRING', description: 'Tên nhân chứng hoặc Ẩn danh' },
+            testimony: {
+              type: 'STRING',
+              description: 'Lời kể chi tiết 100-150 từ, giàu cảm xúc và ám ảnh',
+            },
+            date: { type: 'STRING', description: 'Ngày ghi nhận hồ sơ' },
+          },
+          required: ['name', 'testimony', 'date'],
         },
-        required: ["name", "testimony", "date"]
-      }
+      },
+      spectral_analysis: {
+        type: 'STRING',
+        description: 'Phân tích kỹ thuật chuyên sâu bằng tiếng Việt',
+      },
+      risk_assessment: {
+        type: 'STRING',
+        description: 'Quy tắc an toàn và đánh giá độ rủi ro bằng tiếng Việt',
+      },
+      image_prompt: {
+        type: 'STRING',
+        description: 'Prompt tiếng Anh chi tiết để tạo ảnh found-footage horror theo tỷ lệ 16:9',
+      },
     },
-    spectral_analysis: { type: "STRING", description: "Phân tích giả thuyết tâm linh cực ngắn (1 câu)" },
-    risk_assessment: { type: "STRING", description: "Đánh giá rủi ro cực ngắn (1 câu)" },
-    image_prompt: { type: "STRING", description: "Prompt tiếng anh chi tiết tạo ảnh found-footage" },
-},
-required: ["legend_overview", "chronological_history", "witnesses", "spectral_analysis", "risk_assessment", "image_prompt"]
+    required: [
+      'legend_overview',
+      'chronological_history',
+      'witnesses',
+      'spectral_analysis',
+      'risk_assessment',
+      'image_prompt',
+    ],
   };
 
-const result = await callGeminiQueued({
-  endpoint: 'expand',
-  prompt,
-  // Uses GEMINI_MODEL from .env (same model as scan)
-  responseMimeType: 'application/json',
-  responseSchema,
-  temperature: 0.8, // Slightly higher for more eerie creativity
-  maxOutputTokens: 16384, // Ensure enough space for 1000+ words
-  aiCallsThisRequest: 1,
-  beforeAttempt: async () => {
-    await beforeAiCall?.();
-  },
-});
-
-// Log prompt and raw AI response for debugging
-fs.appendFileSync('raw_ai.log', `\n[EXPAND_PROMPT] ${new Date().toISOString()}\n${prompt}\n---\n`);
-fs.appendFileSync('raw_ai.log', `[EXPAND_RAW_RESPONSE] ${new Date().toISOString()}\n${result.text}\n---\n`);
-
-let parsed: Partial<LevelOneDetail> | null = null;
-
-try {
-  parsed = JSON.parse(extractJsonObject(result.text)) as Partial<LevelOneDetail>;
-} catch (error) {
-  logger?.warn(
-    {
-      requestId,
-      errorMessage: error instanceof Error ? error.message : String(error),
+  const result = await callGeminiQueued({
+    endpoint: 'expand',
+    prompt,
+    provider: 'gemini',
+    requestType: 'text',
+    responseMimeType: 'application/json',
+    responseSchema,
+    temperature: 0.8,
+    maxOutputTokens: 16384,
+    aiCallsThisRequest: 1,
+    beforeAttempt: async () => {
+      await beforeAiCall?.();
     },
-    'expand.content.parse_failed'
-  );
-  return buildFallbackStoryText(eventTitle, teaser, result.text);
-}
+  });
 
-const getStr = (val: unknown, fallback: string) =>
-  typeof val === 'string' && val.trim().length > 0 ? val.trim() : fallback;
+  fs.appendFileSync('raw_ai.log', `\n[EXPAND_PROMPT] ${new Date().toISOString()}\n${prompt}\n---\n`);
+  fs.appendFileSync('raw_ai.log', `[EXPAND_RAW_RESPONSE] ${new Date().toISOString()}\n${result.text}\n---\n`);
 
-// Parse witnesses array
-const witnesses: Witness[] = Array.isArray((parsed as any).witnesses)
-  ? (parsed as any).witnesses.map((w: any) => ({
-    name: typeof w.name === 'string' ? w.name : 'Nhân chứng ẩn danh',
-    testimony: typeof w.testimony === 'string' ? w.testimony : '',
-    date: typeof w.date === 'string' ? w.date : 'Không rõ ngày',
-  }))
-  : [];
+  let parsed: Partial<LevelOneDetail> | null = null;
 
-return {
-  legend_overview: getStr(parsed.legend_overview, `Dossier generated for ${eventTitle}.`),
-  chronological_history: getStr(parsed.chronological_history, 'Historical data unavailable.'),
-  witnesses,
-  spectral_analysis: getStr(parsed.spectral_analysis, 'No spectral analysis.'),
-  risk_assessment: getStr(parsed.risk_assessment, 'Unknown risk.'),
-  image_prompt: getStr(parsed.image_prompt, ''),
-};
+  try {
+    parsed = JSON.parse(extractJsonObject(result.text)) as Partial<LevelOneDetail>;
+  } catch (error) {
+    logger?.warn(
+      {
+        requestId,
+        errorMessage: error instanceof Error ? error.message : String(error),
+      },
+      'expand.content.parse_failed'
+    );
+    return buildFallbackStoryText(eventTitle, teaser, result.text);
+  }
+
+  const getStr = (val: unknown, fallback: string) =>
+    typeof val === 'string' && val.trim().length > 0 ? val.trim() : fallback;
+
+  const witnesses: Witness[] = Array.isArray((parsed as any).witnesses)
+    ? (parsed as any).witnesses.map((w: any) => ({
+        name: typeof w.name === 'string' ? w.name : 'Nhân chứng Ẩn danh',
+        testimony: typeof w.testimony === 'string' ? w.testimony : '',
+        date: typeof w.date === 'string' ? w.date : 'Không rõ ngày',
+      }))
+    : [];
+
+  return {
+    legend_overview: getStr(parsed.legend_overview, `Dossier generated for ${eventTitle}.`),
+    chronological_history: getStr(parsed.chronological_history, 'Historical data unavailable.'),
+    witnesses,
+    spectral_analysis: getStr(parsed.spectral_analysis, 'No spectral analysis.'),
+    risk_assessment: getStr(parsed.risk_assessment, 'Unknown risk.'),
+    image_prompt: getStr(parsed.image_prompt, ''),
+  };
 }
 
 export async function getEventWithLevelOneDetail(eventId: string) {
@@ -258,9 +259,9 @@ export async function expandEventLevelOne(
   beforeAiCall?: () => Promise<
     | void
     | {
-      usageDate: string;
-      clientIp: string;
-    }
+        usageDate: string;
+        clientIp: string;
+      }
   >
 ) {
   const event = await prisma.events.findUnique({ where: { id: eventId } });
@@ -274,7 +275,7 @@ export async function expandEventLevelOne(
     where: {
       event_id: eventId,
       level: 1,
-      lang: lang,
+      lang,
     },
     orderBy: {
       created_at: 'desc',
@@ -283,7 +284,12 @@ export async function expandEventLevelOne(
 
   if (existing) {
     console.log('expand_cache_hit event_id=%s lang=%s ai_calls_this_expand=0', eventId, lang);
-    return { notFound: false as const, detail: existing, aiCallsThisExpand: 0, cacheStatus: 'HIT' as const };
+    return {
+      notFound: false as const,
+      detail: existing,
+      aiCallsThisExpand: 0,
+      cacheStatus: 'HIT' as const,
+    };
   }
 
   const eventData = (event.event_data ?? {}) as Record<string, unknown>;
@@ -294,8 +300,18 @@ export async function expandEventLevelOne(
   let detail: LevelOneDetail | null = null;
   console.log('expand_cache_miss event_id=%s lang=%s', eventId, lang);
   try {
-    const lat = typeof eventData.latitude === 'number' ? eventData.latitude : 0;
-    const lng = typeof eventData.longitude === 'number' ? eventData.longitude : 0;
+    const lat =
+      typeof eventData.lat === 'number'
+        ? eventData.lat
+        : typeof eventData.latitude === 'number'
+          ? eventData.latitude
+          : 0;
+    const lng =
+      typeof eventData.lon === 'number'
+        ? eventData.lon
+        : typeof eventData.longitude === 'number'
+          ? eventData.longitude
+          : 0;
     aiCallsThisExpand = 1;
     detail = await generateLevelOneDetail(title, teaser, lat, lng, lang, logger, requestId, beforeAiCall);
   } catch (error) {
@@ -317,14 +333,14 @@ export async function expandEventLevelOne(
     data: {
       event_id: eventId,
       level: 1,
-      lang: lang,
+      lang,
       story_text: detail.legend_overview,
       witness: detail.chronological_history,
       analysis: detail.spectral_analysis,
       generated_at: new Date(),
       detail: {
         level: 1,
-        lang: lang,
+        lang,
         legend_overview: detail.legend_overview,
         chronological_history: detail.chronological_history,
         witnesses: detail.witnesses,

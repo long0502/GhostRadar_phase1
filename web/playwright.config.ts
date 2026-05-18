@@ -7,12 +7,12 @@ export default defineConfig({
   webServer: {
     command: 'npm run dev',
     url: 'http://localhost:3000',
-    reuseExistingServer: false,
+    reuseExistingServer: true,
     timeout: 120000,
   },
   use: {
     baseURL: 'http://localhost:3000',
-    headless: false,
+    headless: true,
     launchOptions: {
       slowMo: 300,
     },

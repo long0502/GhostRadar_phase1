@@ -40,7 +40,7 @@ export default function DossierPage() {
         if (!isMounted) {
           return;
         }
-        setErrorMessage(error instanceof Error ? error.message : 'Unable to load dossier.');
+        setErrorMessage(error instanceof Error ? error.message : 'Không thể mở hồ sơ. Tín hiệu vừa tan vào tầng nhiễu.');
         setStatus('error');
       }
     }
@@ -68,16 +68,10 @@ export default function DossierPage() {
           </Link>
         </div>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
-          <div className="rounded-[28px] border border-dashed border-white/15 bg-slate-950/50 p-5">
-            <div className="flex h-[360px] items-center justify-center rounded-[22px] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-center text-sm text-slate-500">
-              Image placeholder
-            </div>
-          </div>
-
+        <div className="mt-6">
           <section className="rounded-[28px] border border-white/10 bg-slate-950/40 p-5">
             {status === 'loading' ? (
-              <p className="text-sm text-slate-400">Expanding dossier...</p>
+              <p className="text-sm text-slate-400">Đang khai mở hồ sơ từ tầng sương dữ liệu...</p>
             ) : status === 'error' ? (
               <p className="text-sm text-rose-300">{errorMessage}</p>
             ) : (
@@ -121,6 +115,15 @@ export default function DossierPage() {
                       <div className="bg-red-950/20 p-4 rounded-[16px] border border-red-500/20">
                         <h3 className="text-[11px] font-bold tracking-[0.2em] text-orange-400 mb-2">RISK ASSESSMENT</h3>
                         <p className="text-sm leading-7 text-red-200 font-medium">{(detail.detail as any).risk_assessment || 'Unknown risk.'}</p>
+                      </div>
+
+                      <div className="pt-2">
+                        <h3 className="text-[11px] font-bold tracking-[0.2em] text-sky-400 mb-3">VISUAL RECORD</h3>
+                        <div className="rounded-[28px] border border-dashed border-white/15 bg-slate-950/50 p-5">
+                          <div className="flex h-[360px] items-center justify-center rounded-[22px] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-center text-sm text-slate-500">
+                            Phục dựng thị giác sẽ xuất hiện khi dấu vết đủ rõ ở cuối hồ sơ.
+                          </div>
+                        </div>
                       </div>
                     </>
                   ) : (

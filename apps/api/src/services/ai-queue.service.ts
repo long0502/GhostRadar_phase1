@@ -4,7 +4,7 @@
  */
 
 const DEFAULT_RPM_LIMIT = 10;
-const MAX_QUEUE_WAIT_MS = 120_000; // 2 minutes max wait
+const MAX_QUEUE_WAIT_MS = 60_000; // 60 seconds max wait
 
 type QueueEntry<T> = {
   id: number;

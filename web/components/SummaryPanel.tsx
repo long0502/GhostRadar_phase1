@@ -54,9 +54,9 @@ export const SummaryPanel = memo(({ event, isOpen, onExploreClick, onClose, user
                             </h2>
 
                             <div className="inline-flex gap-4 text-[9px] md:text-[10px] items-center font-mono uppercase tracking-widest border border-[#333] px-3 py-1.5 rounded-sm">
-                                <span className="text-[#e60000] font-bold">PHÂN LOẠI: {event.legend_type || event.type || 'UNKNOWN'}</span>
-                                <span className="text-[#e60000] font-bold">KHOẢNG CÁCH: {distance} KM</span>
-                                <span className="text-[#e60000] font-bold">MỨC ĐỘ: {event.danger_level_text || event.danger_level || 'Safe'}</span>
+                                <span className="text-[#e60000] font-bold">{t('classification')}: {event.legend_type || event.type || 'UNKNOWN'}</span>
+                                <span className="text-[#e60000] font-bold">{t('distanceLabel')}: {distance} KM</span>
+                                <span className="text-[#e60000] font-bold">{t('badgeDangerLevel')}: {event.danger_level_text || event.danger_level || 'Safe'}</span>
                             </div>
                         </div>
                     </div>
@@ -80,10 +80,10 @@ export const SummaryPanel = memo(({ event, isOpen, onExploreClick, onClose, user
                         onClick={onExploreClick}
                         className="relative z-10 w-[80%] max-w-[300px] bg-transparent border-2 border-[#00ff41] text-[#00ff41] font-bold py-4 rounded-none hover:bg-[#00ff41] hover:text-black transition-colors duration-300 uppercase tracking-widest group shadow-[0_0_15px_rgba(0,255,65,0.2)]"
                     >
-                        KHAI THÁC HỒ SƠ CHI TIẾT
+                        {t('extractDossier')}
                     </button>
                     <p className="text-[8px] md:text-[9px] text-[#00ff41]/40 text-center mt-3 font-mono uppercase tracking-widest z-10">
-                        YÊU CẦU QUYỀN TRUY CẬP HỒ SƠ BẢO MẬT CAO
+                        {t('securityClearance') || 'HIGH SECURITY CLEARANCE REQUIRED'}
                     </p>
                 </div>
 
@@ -92,7 +92,7 @@ export const SummaryPanel = memo(({ event, isOpen, onExploreClick, onClose, user
                     onClick={onClose}
                     className="w-full bg-[#00ff41] text-force-black font-black py-4 uppercase tracking-[0.3em] text-sm hover:brightness-110 active:brightness-90 transition-all rounded-sm shadow-[0_0_20px_rgba(0,255,65,0.4)]"
                 >
-                    THOÁT HỒ SƠ
+                    {t('backToRadar')}
                 </button>
             </div>
         </div>

@@ -329,6 +329,34 @@ function parseMinimumRequestedQuantity(range: string): number {
   return Number.isFinite(parsed) ? parsed : 0;
 }
 
+function normalizeEventTitleKey(event: z.infer<typeof aiEventSchema>): string {
+  const raw = `${event.localizedTitle || ''}|${event.title || ''}`.toLowerCase().trim();
+  return raw.replace(/\s+/g, ' ');
+}
+
+function mergeGeneratedEvents(
+  base: z.infer<typeof aiEventArraySchema>,
+  incoming: z.infer<typeof aiEventArraySchema>,
+  maxItems = 150
+): z.infer<typeof aiEventArraySchema> {
+  const merged = [...base];
+  const seen = new Set(merged.map((event) => normalizeEventTitleKey(event)));
+
+  for (const event of incoming) {
+    const key = normalizeEventTitleKey(event);
+    if (!key || seen.has(key)) {
+      continue;
+    }
+    merged.push(event);
+    seen.add(key);
+    if (merged.length >= maxItems) {
+      break;
+    }
+  }
+
+  return merged;
+}
+
 async function generateWithGemini(
   lat: number,
   lon: number,
@@ -709,10 +737,25 @@ async function generateWithGemini(
   }
 
   const filtered = allGenerated.filter((event) => !(event.lat === 0 && event.lon === 0));
+  const normalized = normalizeEventCoordinates(filtered, lat, lon, radiusKm);
+  const clamped = normalized.map((event) => {
+    const distance = haversineKm(lat, lon, event.lat, event.lon);
+    if (distance <= radiusKm) {
+      return event;
+    }
 
-  console.log(`[SCAN_PIPELINE] After filtering: ${filtered.length} events (No clamping applied)`);
+    const fallback = rerollPointWithinRadius(lat, lon, radiusKm);
+    return {
+      ...event,
+      lat: fallback.lat,
+      lon: fallback.lon,
+    };
+  });
+  const spread = rebalanceEventSpread(clamped, lat, lon, radiusKm);
 
-  return filtered;
+  console.log(`[SCAN_PIPELINE] After filtering: ${spread.length} events (radius clamped + spread rebalanced)`);
+
+  return spread;
 }
 
 function toPersistedEvents(gridId: string, events: z.infer<typeof aiEventArraySchema>): PersistedScanEvent[] {
@@ -884,10 +927,8 @@ export async function scanService(input: ScanInput): Promise<ScanServiceResult> 
       );
 
       const retryGenerated = await generateWithGemini(lat, lon, radiusKm, lang, usageContext);
+      generated = mergeGeneratedEvents(generated, retryGenerated);
       aiCallsThisScan = 2;
-      if (retryGenerated.length > generated.length) {
-        generated = retryGenerated;
-      }
     }
     if (radiusKm >= turboScanRadiusKm && generated.length === 0) {
       logger?.warn({ requestId, gridId }, 'scan.ai.turbo.empty_retry_normal_prompt');

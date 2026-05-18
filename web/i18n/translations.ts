@@ -20,7 +20,10 @@ const en: TranslationDictionary = {
     locationRequired: "Location required",
     locationDenied: "Location access denied",
     locationDesc: "Enter coordinates manually or use the default Ho Chi Minh City position.",
+    mapPickHint: "Tap directly on the map to choose coordinates.",
     applyCoords: "Apply coords",
+    selectLocation: "Choose Location",
+    useCurrentLocation: "Use current GPS",
     useDefaultHCMC: "Use default HCMC",
     signals: "signals",
     signalDetected: "Signal detected",
@@ -58,6 +61,7 @@ const en: TranslationDictionary = {
     classification: "CLASSIFICATION",
     distanceLabel: "DISTANCE",
     coordinates: "COORDINATES",
+    securityClearance: "HIGH SECURITY CLEARANCE REQUIRED",
 };
 
 const vi: TranslationDictionary = {
@@ -75,6 +79,8 @@ const vi: TranslationDictionary = {
     locationDenied: "Từ chối truy cập vị trí",
     locationDesc: "Nhập tọa độ thủ công hoặc dùng vị trí mặc định tại TP.HCM.",
     applyCoords: "Áp dụng tọa độ",
+    selectLocation: "Chọn địa điểm",
+    useCurrentLocation: "Dùng vị trí hiện tại",
     useDefaultHCMC: "Dùng mặc định TP.HCM",
     signals: "tín hiệu",
     signalDetected: "Phát hiện tín hiệu",
@@ -112,6 +118,7 @@ const vi: TranslationDictionary = {
     classification: "PHÂN LOẠI",
     distanceLabel: "KHOẢNG CÁCH",
     coordinates: "TỌA ĐỘ",
+    securityClearance: "YÊU CẦU QUYỀN TRUY CẬP HỒ SƠ BẢO MẬT CAO",
 };
 
 const ja: TranslationDictionary = {

@@ -40,6 +40,7 @@ body {
   position: relative;
   z-index: 1;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .app-grid {
@@ -79,12 +80,14 @@ body {
 .app-bg {
   background: transparent;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .mobile-shell {
   max-width: 480px;
   margin: 0 auto;
   padding: 16px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
   overflow-x: hidden;
 }
 
@@ -202,6 +205,22 @@ body {
   filter: brightness(0.45) contrast(1.2) saturate(0.8);
 }
 
+.picker-map-pin {
+  background: transparent;
+  border: 0;
+}
+
+.picker-map-pin__dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  border: 2px solid #00ff41;
+  background: rgba(0, 255, 65, 0.2);
+  box-shadow:
+    0 0 0 4px rgba(0, 255, 65, 0.08),
+    0 0 18px rgba(0, 255, 65, 0.45);
+}
+
 .radar-blip {
   background: transparent;
   border: 0;
@@ -240,6 +259,76 @@ body {
   height: calc(7px * var(--blip-scale));
   opacity: var(--blip-opacity);
   box-shadow: none;
+}
+
+.radar-event-blip__bloom,
+.radar-event-blip__glow,
+.radar-event-blip__core,
+.radar-event-blip__spark {
+  transform-origin: center;
+}
+
+.radar-event-blip__bloom {
+  mix-blend-mode: screen;
+  filter: blur(1.1px);
+}
+
+.radar-event-blip__core {
+  stroke: rgba(220, 255, 232, 0.2);
+  stroke-width: 0.8px;
+}
+
+.radar-event-blip__spark {
+  mix-blend-mode: screen;
+}
+
+.mobile-radar-blip {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  border: 0;
+  padding: 0;
+  background: transparent;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 12;
+}
+
+.mobile-radar-blip__halo,
+.mobile-radar-blip__core,
+.mobile-radar-blip__spark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+}
+
+.mobile-radar-blip__halo {
+  width: calc(14px * var(--mobile-blip-scale, 1));
+  height: calc(14px * var(--mobile-blip-scale, 1));
+  background: var(--mobile-blip-color, #00ff41);
+  opacity: calc(var(--mobile-blip-opacity, 0.25) * 0.48);
+  box-shadow:
+    0 0 12px var(--mobile-blip-color, #00ff41),
+    0 0 20px var(--mobile-blip-color, #00ff41);
+}
+
+.mobile-radar-blip__core {
+  width: calc(7px * var(--mobile-blip-scale, 1));
+  height: calc(7px * var(--mobile-blip-scale, 1));
+  background: var(--mobile-blip-color, #00ff41);
+  opacity: var(--mobile-blip-opacity, 0.25);
+  border: 1px solid rgba(220, 255, 232, 0.35);
+}
+
+.mobile-radar-blip__spark {
+  width: calc(3.2px * var(--mobile-blip-scale, 1));
+  height: calc(3.2px * var(--mobile-blip-scale, 1));
+  background: #dcffe8;
+  opacity: min(1, calc(var(--mobile-blip-opacity, 0.25) * 1.1));
+  box-shadow: 0 0 8px rgba(220, 255, 232, 0.9);
 }
 
 .radar-sweep {
@@ -435,7 +524,97 @@ label {
 }
 
 @media (max-width: 768px) {
+  html,
+  body {
+    min-height: 100dvh;
+  }
+
   body {
     overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .mobile-shell {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .radar-frame {
+    width: min(100%, calc(100vw - 24px));
+    height: min(100vw - 24px, 430px);
+  }
+
+  [data-testid="radar-blip-layer"] {
+    filter:
+      brightness(1.18)
+      saturate(1.18)
+      drop-shadow(0 0 6px rgba(0, 255, 65, 0.32))
+      drop-shadow(0 0 12px rgba(0, 255, 65, 0.22));
+  }
+
+  [data-testid="mobile-radar-blip-layer"] {
+    z-index: 12;
+  }
+
+  .radar-event-blip__bloom,
+  .radar-event-blip__glow {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .radar-event-blip__bloom {
+    transform: scale(1.22);
+    filter:
+      blur(1.4px)
+      drop-shadow(0 0 10px currentColor)
+      drop-shadow(0 0 20px currentColor);
+  }
+
+  .radar-event-blip__glow {
+    transform: scale(1.16);
+    filter:
+      drop-shadow(0 0 12px currentColor)
+      drop-shadow(0 0 24px currentColor);
+  }
+
+  .radar-event-blip__core {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(1.1);
+    stroke: rgba(220, 255, 232, 0.38);
+    stroke-width: 1.25px;
+  }
+
+  .radar-event-blip__spark {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(1.22);
+    filter:
+      drop-shadow(0 0 8px rgba(220, 255, 232, 0.95))
+      drop-shadow(0 0 14px rgba(220, 255, 232, 0.6));
+  }
+
+  .mobile-radar-blip {
+    width: 34px;
+    height: 34px;
+  }
+
+  .mobile-radar-blip__halo {
+    box-shadow:
+      0 0 14px var(--mobile-blip-color, #00ff41),
+      0 0 24px var(--mobile-blip-color, #00ff41);
+  }
+
+  button,
+  label {
+    letter-spacing: 0.12em;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
   }
 }

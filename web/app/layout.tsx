@@ -18,7 +18,7 @@ import { LanguageProvider } from '@/i18n/LanguageContext';
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${spaceMono.variable} h-full w-full overflow-hidden bg-black font-mono`}>
+      <body className={`${spaceMono.variable} h-full w-full overflow-x-hidden bg-black font-mono`}>
         <LanguageProvider>
           <div className="app-grid" aria-hidden="true" />
           <div className="app-root">{children}</div>

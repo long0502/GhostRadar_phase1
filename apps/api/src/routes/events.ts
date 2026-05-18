@@ -1,8 +1,16 @@
+import * as fs from 'fs/promises';
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { expandEventLevelOne, getEventWithLevelOneDetail } from '../services/event-expand.service';
 import { AiDailyQuotaExceededError, reserveAiQuotaForRequest } from '../services/quota.service';
 import { logUsage } from '../services/logging.service';
 import { prisma } from '../db/prisma';
+import {
+  getEventImageMimeType,
+  getEventImagePath,
+  isLocalEventImageUrl,
+  localizeExistingEventImage,
+  persistGeneratedEventImage,
+} from '../services/event-image.service';
 
 function parseLevel(value: unknown): number {
   if (typeof value === 'number') return value;
@@ -10,7 +18,58 @@ function parseLevel(value: unknown): number {
   return Number.NaN;
 }
 
+function isUsableImageUrl(value: unknown): value is string {
+  if (typeof value !== 'string') {
+    return false;
+  }
+
+  const trimmed = value.trim();
+  if (trimmed.length <= 10) {
+    return false;
+  }
+
+  return !trimmed.toLowerCase().includes('chatgpt.com/backend-api/');
+}
+
+function buildImagePrompt(basePrompt: string): string {
+  return basePrompt.trim();
+}
+
+const IMAGE_PROCESSING_STALE_AFTER_MS = 12 * 60 * 1000;
+
+function parseIsoDateMs(value: unknown): number | null {
+  if (typeof value !== 'string' || !value.trim()) {
+    return null;
+  }
+
+  const parsed = Date.parse(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function appendImagePromptDebugLog(eventId: string, prompt: string): void {
+  try {
+    const nodeFs = require('fs') as typeof import('fs');
+    const logLine = `\n[IMAGE_PROMPT] ${new Date().toISOString()} event_id=${eventId}\n${prompt}\n---\n`;
+    nodeFs.appendFileSync('raw_ai.log', logLine);
+    nodeFs.appendFileSync('gemini_debug.log', logLine);
+    console.log(`[IMAGE_PROMPT] event_id=${eventId} prompt_logged=true`);
+  } catch (_) {}
+}
+
 export default async function eventsRoutes(app: FastifyInstance, opts: FastifyPluginOptions) {
+  app.get('/images/:fileName', async (request, reply) => {
+    const { fileName } = request.params as { fileName: string };
+    const normalizedFileName = decodeURIComponent(fileName);
+    const absolutePath = getEventImagePath(normalizedFileName);
+
+    try {
+      const fileBuffer = await fs.readFile(absolutePath);
+      return reply.type(getEventImageMimeType(normalizedFileName)).send(fileBuffer);
+    } catch (_) {
+      throw app.httpErrors.notFound('Image not found');
+    }
+  });
+
   app.get('/:id', async (request, reply) => {
     const { id } = request.params as { id: string };
     const payload = await getEventWithLevelOneDetail(id);
@@ -109,32 +168,140 @@ export default async function eventsRoutes(app: FastifyInstance, opts: FastifyPl
 
     const detailJson = (detail.detail ?? {}) as Record<string, unknown>;
     const imagePrompt = typeof detailJson.image_prompt === 'string' ? detailJson.image_prompt : '';
+    const cachedImageUrl = typeof detailJson.image_url === 'string' ? detailJson.image_url.trim() : '';
+    const generationStatus =
+      typeof detailJson.image_generation_status === 'string'
+        ? detailJson.image_generation_status.trim().toLowerCase()
+        : '';
+    const generationStartedAt = parseIsoDateMs(detailJson.image_generation_started_at);
+    const imageCacheUsable = isUsableImageUrl(cachedImageUrl);
 
     // If image already generated, return it
-    if (typeof detailJson.image_url === 'string' && detailJson.image_url.length > 10) {
-      return { image_url: detailJson.image_url, cached: true };
+    if (imageCacheUsable) {
+      if (isLocalEventImageUrl(cachedImageUrl)) {
+        return { image_url: cachedImageUrl, cached: true };
+      }
+
+      const localizedImage = await localizeExistingEventImage(detail.id, cachedImageUrl);
+      const localizedDetail = { ...detailJson, image_url: localizedImage.publicUrl };
+      await prisma.event_details.update({
+        where: { id: detail.id },
+        data: { detail: localizedDetail },
+      });
+
+      return { image_url: localizedImage.publicUrl, cached: true };
+    }
+
+    const processingIsStale =
+      generationStatus === 'processing' &&
+      (generationStartedAt === null || Date.now() - generationStartedAt > IMAGE_PROCESSING_STALE_AFTER_MS);
+
+    if (generationStatus === 'processing' && !processingIsStale) {
+      request.log.info(
+        {
+          eventId: id,
+          requestId: request.id,
+          generationStartedAt: detailJson.image_generation_started_at ?? null,
+        },
+        'generate_image.pending_existing_job'
+      );
+      return { image_url: '', pending: true, cached: false };
+    }
+
+    if (processingIsStale) {
+      request.log.warn(
+        {
+          eventId: id,
+          requestId: request.id,
+          generationStartedAt: detailJson.image_generation_started_at ?? null,
+          staleAfterMs: IMAGE_PROCESSING_STALE_AFTER_MS,
+        },
+        'generate_image.stale_processing_requeued'
+      );
     }
 
     if (!imagePrompt || imagePrompt.length < 5) {
+      await prisma.event_details.update({
+        where: { id: detail.id },
+        data: {
+          detail: {
+            ...detailJson,
+            image_url: '',
+            image_generation_status: 'failed',
+            image_generation_error: 'No image prompt available',
+          },
+        },
+      });
       return { image_url: '', error: 'No image prompt available' };
     }
 
-    // Generate the image
-    const { callGeminiImageQueued } = await import('../services/gemini.service');
-    const imageResult = await callGeminiImageQueued(imagePrompt);
-
-    if (!imageResult) {
-      return { image_url: '', error: 'Image generation failed' };
-    }
-
-    // Update the detail JSON with the image URL
-    const updatedDetail = { ...detailJson, image_url: imageResult.dataUrl };
+    // Mark as processing first so client can poll instead of waiting for long gateway jobs.
+    const finalImagePrompt = buildImagePrompt(imagePrompt);
     await prisma.event_details.update({
       where: { id: detail.id },
-      data: { detail: updatedDetail },
+      data: {
+        detail: {
+          ...detailJson,
+          image_url: '',
+          image_generation_status: 'processing',
+          image_generation_error: null,
+          image_generation_started_at: new Date().toISOString(),
+        },
+      },
     });
 
-    console.log(`[GENERATE_IMAGE] Image saved for event_id=${id}, size=${imageResult.imageBase64.length}`);
-    return { image_url: imageResult.dataUrl, cached: false };
+    appendImagePromptDebugLog(id, finalImagePrompt);
+    void (async () => {
+      const { callGeminiImageQueued } = await import('../services/gemini.service');
+      try {
+        const imageResult = await callGeminiImageQueued(finalImagePrompt);
+        if (!imageResult) {
+          await prisma.event_details.update({
+            where: { id: detail.id },
+            data: {
+              detail: {
+                ...detailJson,
+                image_url: '',
+                image_generation_status: 'failed',
+                image_generation_error: 'gateway returned an invalid image result',
+              },
+            },
+          });
+          request.log.warn({ eventId: id, requestId: request.id }, 'generate_image.invalid_gateway_result');
+          return;
+        }
+
+        const localizedImage = await persistGeneratedEventImage(detail.id, imageResult);
+        const updatedDetail = {
+          ...detailJson,
+          image_url: localizedImage.publicUrl,
+          image_generation_status: 'ready',
+          image_generation_error: null,
+          image_generation_completed_at: new Date().toISOString(),
+        };
+        await prisma.event_details.update({
+          where: { id: detail.id },
+          data: { detail: updatedDetail },
+        });
+
+        console.log(`[GENERATE_IMAGE] Image saved locally for event_id=${id}, file=${localizedImage.fileName}`);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        await prisma.event_details.update({
+          where: { id: detail.id },
+          data: {
+            detail: {
+              ...detailJson,
+              image_url: '',
+              image_generation_status: 'failed',
+              image_generation_error: message,
+            },
+          },
+        });
+        request.log.error({ eventId: id, requestId: request.id, message }, 'generate_image.failed');
+      }
+    })();
+
+    return { image_url: '', pending: true, cached: false };
   });
 }

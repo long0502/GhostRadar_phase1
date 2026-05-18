@@ -12,8 +12,12 @@ const DEFAULT_SCAN_QUANTITY_NORMAL = '23-42';
 const DEFAULT_SCAN_QUANTITY_TURBO = '30-63';
 const DEFAULT_SCAN_MAX_OUTPUT_TOKENS = 32768;
 const DEFAULT_SCAN_THINKING_BUDGET = 512;
-const DEFAULT_AI_GATEWAY_URL = 'http://localhost:8001';
+const DEFAULT_AI_GATEWAY_URL = 'https://aiapifulltxt.daquynangluongxanh.com';
+const DEFAULT_AI_IMAGE_GATEWAY_URL = 'https://aiapifullimg.daquynangluongxanh.com';
 const DEFAULT_AI_GATEWAY_PROVIDER = 'gemini';
+const DEFAULT_AI_IMAGE_GATEWAY_PROVIDER = 'gpt';
+const DEFAULT_AI_IMAGE_POLL_TIMEOUT_MS = 900000;
+const DEFAULT_AI_IMAGE_JOB_TIMEOUT_SECONDS = 480;
 
 function parsePositiveInt(value: string | undefined, fallback: number): number {
   const parsed = value ? Number.parseInt(value, 10) : Number.NaN;
@@ -86,6 +90,27 @@ export function getAiGatewayUrl(): string {
   return value || DEFAULT_AI_GATEWAY_URL;
 }
 
+export function getAiImageGatewayUrl(): string {
+  const explicitValue = process.env.AI_IMAGE_GATEWAY_URL?.trim();
+  if (explicitValue) {
+    return explicitValue;
+  }
+
+  const baseGatewayUrl = getAiGatewayUrl();
+
+  try {
+    const url = new URL(baseGatewayUrl);
+    if (url.hostname === 'aiapifulltxt.daquynangluongxanh.com') {
+      url.hostname = 'aiapifullimg.daquynangluongxanh.com';
+    }
+    url.protocol = 'https:';
+    url.port = '';
+    return url.toString().replace(/\/+$/, '');
+  } catch (_) {
+    return DEFAULT_AI_IMAGE_GATEWAY_URL;
+  }
+}
+
 export function getAiGatewayApiKey(): string {
   return process.env.AI_GATEWAY_API_KEY?.trim() || '';
 }
@@ -95,12 +120,28 @@ export function getAiGatewayProvider(): string {
   return value || DEFAULT_AI_GATEWAY_PROVIDER;
 }
 
+export function getAiImageGatewayProvider(): string {
+  const value = process.env.AI_IMAGE_GATEWAY_PROVIDER?.trim();
+  return value || DEFAULT_AI_IMAGE_GATEWAY_PROVIDER;
+}
+
 export function getAiPollTimeoutMs(): number {
   return parsePositiveInt(process.env.AI_POLL_TIMEOUT_MS, DEFAULT_AI_POLL_TIMEOUT_MS);
 }
 
 export function getAiPollIntervalMs(): number {
   return parsePositiveInt(process.env.AI_POLL_INTERVAL_MS, DEFAULT_AI_POLL_INTERVAL_MS);
+}
+
+export function getAiImagePollTimeoutMs(): number {
+  return parsePositiveInt(process.env.AI_IMAGE_POLL_TIMEOUT_MS, DEFAULT_AI_IMAGE_POLL_TIMEOUT_MS);
+}
+
+export function getAiImageJobTimeoutSeconds(): number {
+  return parsePositiveInt(
+    process.env.AI_IMAGE_JOB_TIMEOUT_SECONDS,
+    DEFAULT_AI_IMAGE_JOB_TIMEOUT_SECONDS
+  );
 }
 
 export function getTurboScanRadiusKm(): number {

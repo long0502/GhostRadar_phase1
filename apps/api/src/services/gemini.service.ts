@@ -5,6 +5,10 @@ import { enqueueAiCall } from './ai-queue.service';
 import { logAiCall } from './ai-logging.service';
 import {
   getAiGatewayApiKey,
+  getAiImageGatewayProvider,
+  getAiImageJobTimeoutSeconds,
+  getAiImagePollTimeoutMs,
+  getAiImageGatewayUrl,
   getAiGatewayProvider,
   getAiGatewayUrl,
   getAiPollIntervalMs,
@@ -12,7 +16,7 @@ import {
 } from '../utils/env';
 
 type GeminiCallParams = {
-  endpoint: 'scan' | 'expand' | 'normalization' | 'ai-health';
+  endpoint: 'scan' | 'expand' | 'normalization' | 'ai-health' | 'image';
   prompt: string;
   provider?: string;
   requestType?: 'text' | 'image';
@@ -39,6 +43,8 @@ type GeminiCallParams = {
     category: string;
     threshold: string;
   }>;
+  pollTimeoutMs?: number;
+  gatewayTimeoutSecs?: number;
   thinkingConfig?: {
     thinkingBudget?: number;
   };
@@ -102,6 +108,158 @@ function parseGatewayData(data: unknown): string {
   return trimmed;
 }
 
+function parseGatewayPayload(data: unknown): unknown {
+  if (typeof data !== 'string') {
+    return data;
+  }
+
+  const trimmed = data.trim();
+  if (!trimmed) {
+    return '';
+  }
+
+  try {
+    return JSON.parse(trimmed) as unknown;
+  } catch (_) {
+    return trimmed;
+  }
+}
+
+function buildAbsoluteGatewayUrl(pathOrUrl: string, baseUrl: string = getAiGatewayUrl()): string {
+  if (/^https?:\/\//i.test(pathOrUrl)) {
+    return pathOrUrl;
+  }
+
+  const normalizedBaseUrl = baseUrl.replace(/\/+$/, '');
+  if (pathOrUrl.startsWith('/')) {
+    return `${normalizedBaseUrl}${pathOrUrl}`;
+  }
+
+  return `${normalizedBaseUrl}/${pathOrUrl}`;
+}
+
+function isPrivateChatgptAssetUrl(value: string): boolean {
+  const normalized = value.trim().toLowerCase();
+  return normalized.includes('chatgpt.com/backend-api/');
+}
+
+function isScreenshotFallbackPayload(record: Record<string, unknown>): boolean {
+  const captureMethodCandidates = [
+    record.capture_method,
+    record.captureMethod,
+    record.result_type,
+    record.resultType,
+  ];
+
+  return captureMethodCandidates.some(
+    (value) => typeof value === 'string' && value.trim().toLowerCase().includes('screenshot')
+  );
+}
+
+function parseGatewayImageResult(data: unknown): GeminiImageResult {
+  const imageGatewayBaseUrl = getAiImageGatewayUrl();
+  const payload = parseGatewayPayload(data);
+
+  if (typeof payload === 'string') {
+    const trimmed = payload.trim();
+    if (!trimmed) {
+      return null;
+    }
+
+    if (trimmed.startsWith('data:image/')) {
+      const mimeMatch = trimmed.match(/^data:([^;]+);base64,/i);
+      const imageBase64 = trimmed.replace(/^data:[^;]+;base64,/i, '');
+      return {
+        imageBase64,
+        mimeType: mimeMatch?.[1] || 'image/png',
+        dataUrl: trimmed,
+      };
+    }
+
+    if (isPrivateChatgptAssetUrl(trimmed)) {
+      return null;
+    }
+
+    if (/^https?:\/\//i.test(trimmed) || trimmed.startsWith('/downloads/')) {
+      return {
+        imageBase64: '',
+        mimeType: 'image/png',
+        dataUrl: buildAbsoluteGatewayUrl(trimmed, imageGatewayBaseUrl),
+      };
+    }
+
+    return null;
+  }
+
+  if (!payload || typeof payload !== 'object') {
+    return null;
+  }
+
+  const record = payload as Record<string, unknown>;
+  if (isScreenshotFallbackPayload(record)) {
+    return null;
+  }
+
+  const urlCandidates = [
+    record.download_url,
+    record.downloadUrl,
+    record.artifact_url,
+    record.artifactUrl,
+    record.dataUrl,
+    record.data_url,
+    record.image_url,
+    record.imageUrl,
+    record.url,
+  ];
+  const firstUrl = urlCandidates.find((value) => typeof value === 'string' && value.trim().length > 0);
+  const mimeType =
+    (typeof record.mimeType === 'string' && record.mimeType) ||
+    (typeof record.mime_type === 'string' && record.mime_type) ||
+    (typeof record.content_type === 'string' && record.content_type) ||
+    'image/png';
+
+  if (typeof firstUrl === 'string') {
+    const trimmedUrl = firstUrl.trim();
+    if (trimmedUrl.startsWith('data:image/')) {
+      const imageBase64 = trimmedUrl.replace(/^data:[^;]+;base64,/i, '');
+      return {
+        imageBase64,
+        mimeType,
+        dataUrl: trimmedUrl,
+      };
+    }
+
+    if (isPrivateChatgptAssetUrl(trimmedUrl)) {
+      return null;
+    }
+
+    return {
+      imageBase64: '',
+      mimeType,
+      dataUrl: buildAbsoluteGatewayUrl(trimmedUrl, imageGatewayBaseUrl),
+    };
+  }
+
+  const base64Candidates = [
+    record.b64_json,
+    record.base64,
+    record.image_base64,
+    record.imageBase64,
+  ];
+  const firstBase64 = base64Candidates.find((value) => typeof value === 'string' && value.trim().length > 0);
+
+  if (typeof firstBase64 === 'string') {
+    const trimmedBase64 = firstBase64.trim();
+    return {
+      imageBase64: trimmedBase64,
+      mimeType,
+      dataUrl: `data:${mimeType};base64,${trimmedBase64}`,
+    };
+  }
+
+  return null;
+}
+
 export async function callGemini(params: GeminiCallParams): Promise<GeminiCallResult> {
   const {
     endpoint,
@@ -126,6 +284,8 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
   const apiKey = getAiGatewayApiKey();
   const aiGatewayProvider = params.provider?.trim() || getAiGatewayProvider();
   const requestType = params.requestType || 'text';
+  const resolvedApiBaseUrl =
+    requestType === 'image' ? getAiImageGatewayUrl().replace(/\/+$/, '') : apiBaseUrl;
   const modelVersion = `${aiGatewayProvider}-gateway`;
 
   let prompt = originalPrompt;
@@ -133,12 +293,13 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
     prompt = `${systemInstruction}\n\n${originalPrompt}`;
   }
 
-  const timeoutMs = getAiPollTimeoutMs();
+  const timeoutMs = params.pollTimeoutMs ?? getAiPollTimeoutMs();
   const pollIntervalMs = getAiPollIntervalMs();
-  const gatewayTimeoutSecs = Math.floor(timeoutMs / 1000);
+  const gatewayTimeoutSecs = params.gatewayTimeoutSecs ?? Math.floor(timeoutMs / 1000);
   const includeTimeoutOnAsk = (process.env.AI_GATEWAY_INCLUDE_TIMEOUT ?? 'false').toLowerCase() === 'true';
+  const shouldIncludeTimeoutOnAsk = includeTimeoutOnAsk || requestType === 'image';
 
-  console.log(`[GATEWAY_REQUEST] Submitting prompt to ${apiBaseUrl}/ask with provider=${aiGatewayProvider} timeout=${gatewayTimeoutSecs}s`);
+  console.log(`[GATEWAY_REQUEST] Submitting prompt to ${resolvedApiBaseUrl}/ask with provider=${aiGatewayProvider} type=${requestType} timeout=${gatewayTimeoutSecs}s`);
   
   let askResponse: Response;
   try {
@@ -147,11 +308,11 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
       provider: aiGatewayProvider,
       type: requestType,
     };
-    if (includeTimeoutOnAsk) {
+    if (shouldIncludeTimeoutOnAsk) {
       askPayload.timeout = gatewayTimeoutSecs;
     }
 
-    askResponse = await fetch(`${apiBaseUrl}/ask`, {
+    askResponse = await fetch(`${resolvedApiBaseUrl}/ask`, {
       method: 'POST',
       headers: buildGatewayHeaders(apiKey),
       body: JSON.stringify(askPayload),
@@ -210,7 +371,7 @@ export async function callGemini(params: GeminiCallParams): Promise<GeminiCallRe
 
     let statusRes: Response;
     try {
-      statusRes = await fetch(`${apiBaseUrl}/jobs/${jobId}`, {
+      statusRes = await fetch(`${resolvedApiBaseUrl}/jobs/${jobId}`, {
         headers: apiKey ? { 'x-api-key': apiKey } : undefined,
       });
     } catch (err: any) {
@@ -310,6 +471,23 @@ export type GeminiImageResult = {
 } | null;
 
 export async function callGeminiImageQueued(prompt: string): Promise<GeminiImageResult> {
-  console.log('[GEMINI_IMAGE] Image generation is temporarily disabled per user settings.');
-  return Promise.resolve(null);
+  const result = await enqueueAiCall(() =>
+    callGemini({
+      endpoint: 'image',
+      prompt,
+      provider: getAiImageGatewayProvider(),
+      requestType: 'image',
+      aiCallsThisRequest: 1,
+      pollTimeoutMs: getAiImagePollTimeoutMs(),
+      gatewayTimeoutSecs: getAiImageJobTimeoutSeconds(),
+    })
+  );
+
+  const imageResult = parseGatewayImageResult(result.text);
+  if (!imageResult) {
+    fs.appendFileSync('gemini_debug.log', `[GATEWAY_IMAGE_PARSE_FAILED] ${result.text}\n---\n`);
+    return null;
+  }
+
+  return imageResult;
 }

@@ -12,9 +12,13 @@ Start-Process powershell -ArgumentList "cd apps/api; npm install; npm run dev"
 Write-Host "Starting Web UI..."
 Start-Process powershell -ArgumentList "cd web; npm install; npm run dev"
 
+Write-Host "Starting Admin Dashboard..."
+Start-Process powershell -ArgumentList "cd apps/admin; npm install; npx next dev -p 4000"
+
 Write-Host ""
 Write-Host "Development environment launching..."
 Write-Host "  API: http://localhost:8088 (local tsx watch)"
 Write-Host "  WEB: http://localhost:3000"
+Write-Host "  ADMIN: http://localhost:4000"
 Write-Host ""
 Write-Host "NOTE: Code changes are auto-applied via hot-reload (tsx watch)."

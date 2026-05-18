@@ -16,7 +16,8 @@ export async function scanArea(
   lon: number,
   radiusKm: number,
   lang: string = 'en',
-  force: boolean = false
+  force: boolean = false,
+  signal?: AbortSignal
 ): Promise<{ data: ScanResponse; cacheStatus: string | null }> {
   const params = new URLSearchParams({
     lat: String(lat),
@@ -35,6 +36,7 @@ export async function scanArea(
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({}),
+    signal,
   });
 
   const headerEntries = Array.from(response.headers.entries());
@@ -86,12 +88,34 @@ export async function getQueueStatus(): Promise<QueueStatusResponse> {
 export type GenerateImageResponse = {
   image_url: string;
   cached?: boolean;
+  pending?: boolean;
   error?: string;
 };
+
+export function resolveApiAssetUrl(pathOrUrl: string): string {
+  const trimmed = pathOrUrl.trim();
+  if (!trimmed) {
+    return '';
+  }
+
+  if (/^https?:\/\//i.test(trimmed)) {
+    return trimmed;
+  }
+
+  if (trimmed.startsWith('/')) {
+    return `${API_BASE_URL}${trimmed}`;
+  }
+
+  return `${API_BASE_URL}/${trimmed}`;
+}
 
 export async function generateEventImage(eventId: string): Promise<GenerateImageResponse> {
   const response = await fetch(`${API_BASE_URL}/events/${eventId}/generate-image`, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({}),
   });
   return parseJson<GenerateImageResponse>(response);
 }

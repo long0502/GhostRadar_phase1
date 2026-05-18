@@ -9,10 +9,10 @@ export function LoadingProfile({ queueLength, estimatedWaitSec }: LoadingProfile
     const [msgIndex, setMsgIndex] = useState(0);
 
     const messages = [
-        "Analyzing historical signals...",
-        "Compiling witness reports...",
-        "Reconstructing local legend...",
-        "Decrypting spectral frequency...",
+        'Đang lần theo hồi âm cũ trong hồ sơ...',
+        'Đang ghép lời khai từ những bóng nhân chứng...',
+        'Đang phục dựng truyền thuyết địa phương...',
+        'Đang giải mã dải tần của tín hiệu lạ...',
     ];
 
     useEffect(() => {
@@ -48,8 +48,8 @@ export function LoadingProfile({ queueLength, estimatedWaitSec }: LoadingProfile
                 {queueLength != null && queueLength > 0 && (
                     <div className="mt-4 px-4 py-2 rounded-xl border border-yellow-500/40 bg-yellow-500/5">
                         <p className="text-yellow-400 text-xs tracking-wider uppercase text-center">
-                            ⏳ QUEUE: {queueLength} pending
-                            {estimatedWaitSec != null && estimatedWaitSec > 0 ? ` — ~${estimatedWaitSec}s` : ''}
+                            NGHI THỨC ĐANG XẾP HÀNG: {queueLength} linh ảnh chờ gọi tên
+                            {estimatedWaitSec != null && estimatedWaitSec > 0 ? ` - ~${estimatedWaitSec}s` : ''}
                         </p>
                     </div>
                 )}

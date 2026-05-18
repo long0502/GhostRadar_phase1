@@ -74,45 +74,66 @@ async function generateLevelOneDetail(
   void lng;
 
   const prompt = `
-[VAI TRÒ - PERSONA]
-Hành động như một Chuyên gia Lưu trữ cấp cao thuộc Cục Nghiên cứu Hiện tượng Quang phổ (Spectral Research Bureau). Bạn có lối viết lạnh lùng, kỹ thuật nhưng cực kỳ ám ảnh.
+[PERSONA]
+Act as a Senior Archivist from the Spectral Research Bureau. Your tone is cold, technical, and deeply unsettling.
 
-[DỮ LIỆU ĐẦU VÀO]
-- Địa điểm: ${eventTitle}
-- Vị trí mục tiêu: Khu vực định vị nội bộ, không công bố tọa độ cụ thể
-- Tóm tắt sơ bộ: ${teaser}
+[INPUT DATA]
+- Location: ${eventTitle}
+- Target area: Internal geofenced area only. Do not reveal exact coordinates.
+- Preliminary summary: ${teaser}
 
-[NHIỆM VỤ]
-Hãy giải mã và tái thiết lập hồ sơ "Dữ Liệu Thô" tuyệt mật về địa điểm này. Tuyệt đối không sử dụng ngôn ngữ phản bác hay giải thích bằng logic thông thường. Hãy coi thực thể là có thật và đang hiện diện.
+[TASK]
+Reconstruct a classified "Raw Data" dossier about this place. Do not debunk, rationalize, or explain away the phenomena. Treat the presence as real and currently active.
 
-[YÊU CẦU NỘI DUNG - ĐỘ DÀI 500-800 TỪ]
-1. LEGEND OVERVIEW (Tổng quan): Phân tích sâu về nguồn gốc huyền thoại địa phương gắn liền với địa danh này.
-2. CHRONOLOGICAL HISTORY (Dòng thời gian): Liệt kê các mốc sự kiện quan trọng (năm 19xx, 20xx) gắn liền với các hiện tượng lạ hoặc biến cố tại đây.
-3. WITNESS REPORTS (Hồ sơ nhân chứng):
-   - Viết ít nhất 3 lời kể chi tiết.
-   - Phong cách: Kể chuyện (storytelling) giàu cảm xúc.
-   - Mô tả cụ thể: Cảm giác lạnh gáy, mùi hương lạ, âm thanh kim loại, sự thay đổi ánh sáng đột ngột...
-   - Mỗi nhân chứng phải đạt tối thiểu 100-150 từ.
-4. SPECTRAL ANALYSIS (Phân tích quang phổ): Sử dụng thuật ngữ chuyên môn như 'Tần số Infrasound', 'Nhiễu trắng', 'Ký ức dư thừa (Residual Haunting)', 'Đứt gãy từ trường'.
-5. RISK ASSESSMENT (Quy tắc sinh tồn): Các khuyến cáo an toàn khi tiếp cận khu vực này vào khung giờ Tý.
+[OUTPUT LANGUAGE]
+- All narrative fields must be written in Vietnamese.
+- Only "image_prompt" must be written in English.
 
-[YÊU CẦU ĐỊNH DẠNG - BẮT BUỘC JSON]
-Chỉ trả về duy nhất một khối JSON, không có văn bản thừa. Ngôn ngữ: Tiếng Việt.
-Không nêu tọa độ GPS chính xác, không chèn cặp số latitude/longitude, và không mô tả địa chỉ theo cách có thể định vị pháp lý trực tiếp.
+[CONTENT REQUIREMENTS - TOTAL LENGTH 500-800 WORDS]
+1. LEGEND OVERVIEW:
+- Deeply analyze the local legend or spiritual origin linked to this place.
+
+2. CHRONOLOGICAL HISTORY:
+- Provide a timeline with key events from the 1900s or 2000s tied to strange activity, accidents, disappearances, deaths, or rumors.
+
+3. WITNESS REPORTS:
+- Write at least 3 detailed testimonies.
+- Each testimony must be 100-150 words minimum.
+- Use emotional storytelling with sensory details such as sudden cold, strange scents, metallic sounds, abrupt light shifts, pressure in the chest, and distorted silence.
+
+4. SPECTRAL ANALYSIS:
+- Use technical paranormal terms such as Infrasound Frequency, White Noise, Residual Haunting, and Magnetic Field Fracture.
+
+5. RISK ASSESSMENT:
+- Provide survival guidance for approaching the area during the Hour of the Rat.
+
+6. IMAGE PROMPT:
+- Create one English prompt optimized specifically for GPT image generation.
+- The image must help viewers understand the place itself, not just a generic ghost scene.
+- Focus on location cues such as road shape, park path, old facade, alley geometry, riverside edge, cemetery wall, abandoned structure, trees, lighting, weather, or surface textures that match this place.
+- Mood: subtle eerie atmosphere, gentle spectral presence, misty, soft, blurred, restrained, believable, never cartoonish.
+- Visual character: low-to-medium fidelity is acceptable; slight motion blur, panic blur, environmental haze, lens smear, old photo degradation, analog noise, and found-footage imperfection are welcome.
+- Keep the horror understated. Avoid explicit ghosts, gore, blood splatter, monsters, screaming faces, ritual symbols, floating bodies, readable address signs, text overlays, watermarks, or exact coordinates.
+- Make the prompt feel varied and less repetitive by specifying a distinct camera angle, time of night, weather condition, and image artifact pattern that suits this place.
+- Use cinematic 16:9 framing.
+
+[STRICT JSON OUTPUT]
+Return exactly one JSON object and nothing else.
+Do not reveal GPS coordinates, latitude/longitude pairs, exact street numbers, or legally precise identifying directions.
 
 {
-  "legend_overview": "Nội dung chi tiết...",
-  "chronological_history": "Các mốc thời gian chi tiết...",
+  "legend_overview": "Noi dung chi tiet...",
+  "chronological_history": "Cac moc thoi gian chi tiet...",
   "witnesses": [
     {
-      "name": "Tên nhân chứng (hoặc Ẩn danh)",
-      "testimony": "Lời kể chi tiết, rùng rợn và ám ảnh...",
-      "date": "Ngày ghi nhận hồ sơ"
+      "name": "Ten nhan chung hoac An danh",
+      "testimony": "Loi ke chi tiet, am anh...",
+      "date": "Ngay ghi nhan ho so"
     }
   ],
-  "spectral_analysis": "Phân tích kỹ thuật chuyên sâu...",
-  "risk_assessment": "Quy tắc an toàn và đánh giá độ rủi ro...",
-  "image_prompt": "A detailed English prompt for generating a found-footage horror image of this specific location, cinematic lighting, 16:9"
+  "spectral_analysis": "Phan tich ky thuat chuyen sau...",
+  "risk_assessment": "Quy tac an toan va danh gia do rui ro...",
+  "image_prompt": "English GPT-image prompt for a subtle eerie location-based horror frame, cinematic 16:9"
 }
 `.trim();
 
@@ -121,11 +142,11 @@ Không nêu tọa độ GPS chính xác, không chèn cặp số latitude/longit
     properties: {
       legend_overview: {
         type: 'STRING',
-        description: 'Tổng quan huyền thoại chi tiết bằng tiếng Việt',
+        description: 'Chi tiet tong quan huyen thoai bang tieng Viet',
       },
       chronological_history: {
         type: 'STRING',
-        description: 'Dòng thời gian chi tiết có các mốc năm 19xx hoặc 20xx',
+        description: 'Dong thoi gian chi tiet voi cac moc nam 19xx hoac 20xx',
       },
       witnesses: {
         type: 'ARRAY',
@@ -134,27 +155,27 @@ Không nêu tọa độ GPS chính xác, không chèn cặp số latitude/longit
         items: {
           type: 'OBJECT',
           properties: {
-            name: { type: 'STRING', description: 'Tên nhân chứng hoặc Ẩn danh' },
+            name: { type: 'STRING', description: 'Ten nhan chung hoac An danh' },
             testimony: {
               type: 'STRING',
-              description: 'Lời kể chi tiết 100-150 từ, giàu cảm xúc và ám ảnh',
+              description: 'Loi ke chi tiet 100-150 tu, giau cam xuc va am anh',
             },
-            date: { type: 'STRING', description: 'Ngày ghi nhận hồ sơ' },
+            date: { type: 'STRING', description: 'Ngay ghi nhan ho so' },
           },
           required: ['name', 'testimony', 'date'],
         },
       },
       spectral_analysis: {
         type: 'STRING',
-        description: 'Phân tích kỹ thuật chuyên sâu bằng tiếng Việt',
+        description: 'Phan tich ky thuat chuyen sau bang tieng Viet',
       },
       risk_assessment: {
         type: 'STRING',
-        description: 'Quy tắc an toàn và đánh giá độ rủi ro bằng tiếng Việt',
+        description: 'Quy tac an toan va danh gia do rui ro bang tieng Viet',
       },
       image_prompt: {
         type: 'STRING',
-        description: 'Prompt tiếng Anh chi tiết để tạo ảnh found-footage horror theo tỷ lệ 16:9',
+        description: 'English GPT-image prompt for a subtle eerie, location-specific 16:9 frame',
       },
     },
     required: [
@@ -205,9 +226,9 @@ Không nêu tọa độ GPS chính xác, không chèn cặp số latitude/longit
 
   const witnesses: Witness[] = Array.isArray((parsed as any).witnesses)
     ? (parsed as any).witnesses.map((w: any) => ({
-        name: typeof w.name === 'string' ? w.name : 'Nhân chứng Ẩn danh',
+        name: typeof w.name === 'string' ? w.name : 'Nhan chung An danh',
         testimony: typeof w.testimony === 'string' ? w.testimony : '',
-        date: typeof w.date === 'string' ? w.date : 'Không rõ ngày',
+        date: typeof w.date === 'string' ? w.date : 'Khong ro ngay',
       }))
     : [];
 

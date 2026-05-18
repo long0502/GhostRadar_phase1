@@ -4,15 +4,47 @@ import { memo, useMemo, useState } from 'react';
 import { RadarBlip } from './RadarBlip';
 import type { RadarEvent } from '@/lib/types';
 
-/** Max characters for a blip label before truncation */
 const LABEL_MAX_CHARS = 18;
-/** Max number of labels shown simultaneously to prevent clutter */
 const MAX_VISIBLE_LABELS = 8;
 
 function truncateLabel(text: string): string {
     if (text.length <= LABEL_MAX_CHARS) return text;
-    return text.slice(0, LABEL_MAX_CHARS - 1).trimEnd() + '…';
+    return text.slice(0, LABEL_MAX_CHARS - 1).trimEnd() + '...';
 }
+
+function getDistanceKm(lat1: number, lon1: number, lat2: number, lon2: number) {
+    const earthRadiusKm = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a =
+        Math.sin(dLat / 2) ** 2 +
+        Math.cos(lat1 * Math.PI / 180) *
+        Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLon / 2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return earthRadiusKm * c;
+}
+
+function getBearing(lat1: number, lon1: number, lat2: number, lon2: number) {
+    const phi1 = lat1 * Math.PI / 180;
+    const phi2 = lat2 * Math.PI / 180;
+    const deltaLambda = (lon2 - lon1) * Math.PI / 180;
+
+    const y = Math.sin(deltaLambda) * Math.cos(phi2);
+    const x =
+        Math.cos(phi1) * Math.sin(phi2) -
+        Math.sin(phi1) * Math.cos(phi2) * Math.cos(deltaLambda);
+
+    return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
+}
+
+function getBlipColor(dangerLevel: number): string {
+    return dangerLevel === 1 ? '#3fa36a' :
+        dangerLevel === 2 ? '#b89b3c' :
+            dangerLevel === 3 ? '#b86d3c' :
+                dangerLevel === 4 ? '#a33f3f' : '#8f3535';
+}
+
 
 type RadarProps = {
     userLocation: { lat: number; lon: number } | null;
@@ -28,6 +60,8 @@ type BlipData = {
     title: string;
     x: number;
     y: number;
+    xPct: number;
+    yPct: number;
     color: string;
     distanceKm: number;
     dangerLevel: number;
@@ -44,76 +78,59 @@ export const Radar = memo(function Radar({
     onBlipClick,
 }: RadarProps) {
     const [hoveredBlipId, setHoveredBlipId] = useState<string | null>(null);
-    const size = 440; // Matches .radar-frame size
+    const size = 440;
     const center = size / 2;
 
     const blips: BlipData[] = useMemo(() => {
         if (!userLocation) return [];
 
         const { lat: centerLat, lon: centerLon } = userLocation;
+        const enriched = events.map((event) => {
+            const distance = getDistanceKm(centerLat, centerLon, event.lat, event.lon);
+            const bearing = getBearing(centerLat, centerLon, event.lat, event.lon);
+            const dangerLevel = event.danger_level ?? event.severity ?? 1;
+            return {
+                event,
+                distance,
+                bearing,
+                dangerLevel,
+            };
+        });
 
-        function getDistanceKm(lat1: number, lon1: number, lat2: number, lon2: number) {
-            const R = 6371;
-            const dLat = (lat2 - lat1) * Math.PI / 180;
-            const dLon = (lon2 - lon1) * Math.PI / 180;
-            const a =
-                Math.sin(dLat / 2) ** 2 +
-                Math.cos(lat1 * Math.PI / 180) *
-                Math.cos(lat2 * Math.PI / 180) *
-                Math.sin(dLon / 2) ** 2;
-            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-            return R * c;
-        }
+        const inRange = enriched.filter((item) => item.distance <= radiusKm);
+        const hasInRange = inRange.length > 0;
+        const source = hasInRange ? inRange : enriched;
 
-        function getBearing(lat1: number, lon1: number, lat2: number, lon2: number) {
-            const φ1 = lat1 * Math.PI / 180;
-            const φ2 = lat2 * Math.PI / 180;
-            const Δλ = (lon2 - lon1) * Math.PI / 180;
+        const fallbackRadiusKm = hasInRange
+            ? radiusKm
+            : Math.max(
+                radiusKm,
+                source.reduce((max, item) => Math.max(max, item.distance), 0)
+            );
 
-            const y = Math.sin(Δλ) * Math.cos(φ2);
-            const x = Math.cos(φ1) * Math.sin(φ2) -
-                Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ);
+        return source.map((item) => {
+            const angle = item.bearing * Math.PI / 180;
+            const normalizedDistance = Math.min(0.96, item.distance / Math.max(0.001, fallbackRadiusKm));
+            const radialDistance = normalizedDistance * (size / 2);
+            const x = center + radialDistance * Math.sin(angle);
+            const y = center - radialDistance * Math.cos(angle);
 
-            return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
-        }
-
-        return events
-            .map((event) => {
-                const distance = getDistanceKm(centerLat, centerLon, event.lat, event.lon);
-
-                if (distance > radiusKm) return null;
-
-                const bearing = getBearing(centerLat, centerLon, event.lat, event.lon);
-                const angle = bearing * Math.PI / 180;
-                const normalizedDistance = distance / radiusKm;
-                const r = normalizedDistance * (size / 2);
-
-                const x = center + r * Math.sin(angle);
-                const y = center - r * Math.cos(angle);
-
-                const dangerLevel = event.danger_level ?? event.severity ?? 1;
-                const color =
-                    dangerLevel === 1 ? '#3fa36a' :
-                        dangerLevel === 2 ? '#b89b3c' :
-                            dangerLevel === 3 ? '#b86d3c' :
-                                dangerLevel === 4 ? '#a33f3f' : '#8f3535';
-
-                return {
-                    id: event.id,
-                    title: event.localizedTitle || event.title || 'Unknown Signal',
-                    x,
-                    y,
-                    color,
-                    distanceKm: distance,
-                    dangerLevel,
-                    lat: event.lat,
-                    lon: event.lon,
-                };
-            })
-            .filter((blip): blip is NonNullable<typeof blip> => blip !== null);
+            return {
+                id: item.event.id,
+                title: item.event.localizedTitle || item.event.title || 'Unknown Signal',
+                x,
+                y,
+                xPct: (x / size) * 100,
+                yPct: (y / size) * 100,
+                color: getBlipColor(item.dangerLevel),
+                distanceKm: item.distance,
+                dangerLevel: item.dangerLevel,
+                lat: item.event.lat,
+                lon: item.event.lon,
+            };
+        });
     }, [events, userLocation, radiusKm, size, center]);
 
-    // Pick the top N highest-priority blips for label rendering
     const labelBlips = useMemo(() => {
         if (!showLabels) return [];
         return [...blips]
@@ -121,9 +138,8 @@ export const Radar = memo(function Radar({
             .slice(0, MAX_VISIBLE_LABELS);
     }, [blips, showLabels]);
 
-    // Single hovered blip for preview card
     const hoveredBlip = useMemo(
-        () => blips.find((b) => b.id === hoveredBlipId) ?? null,
+        () => blips.find((blip) => blip.id === hoveredBlipId) ?? null,
         [blips, hoveredBlipId]
     );
 
@@ -135,6 +151,7 @@ export const Radar = memo(function Radar({
                 viewBox={`0 0 ${size} ${size}`}
                 className="h-full w-full"
                 style={{ filter: 'drop-shadow(0 0 4px rgba(0, 255, 65, 0.2))' }}
+                data-testid="radar-blip-layer"
             >
                 {blips.map((blip) => (
                     <RadarBlip
@@ -154,28 +171,28 @@ export const Radar = memo(function Radar({
                 ))}
             </svg>
 
-            {/* Short truncated labels for top-priority blips only */}
             {showLabels && labelBlips.map((blip) => (
                 <div
                     key={`label-${blip.id}`}
-                    className="absolute text-[10px] font-bold text-[#00ff41] pointer-events-none whitespace-nowrap opacity-60 mix-blend-screen"
+                    className="absolute whitespace-nowrap text-[10px] font-bold text-[#00ff41] opacity-60 mix-blend-screen pointer-events-none"
                     style={{
-                        left: blip.x + 8,
-                        top: blip.y - 4,
-                        textShadow: '0 0 4px rgba(0, 255, 65, 0.5)'
+                        left: `${blip.xPct}%`,
+                        top: `${blip.yPct}%`,
+                        transform: 'translate(8px, -4px)',
+                        textShadow: '0 0 4px rgba(0, 255, 65, 0.5)',
                     }}
                 >
                     {truncateLabel(blip.title)}
                 </div>
             ))}
 
-            {/* Hover preview card — only ONE signal at a time */}
             {hoveredBlip && (
                 <div
-                    className="blip-tooltip"
+                    className="blip-tooltip hidden md:block"
                     style={{
-                        left: hoveredBlip.x,
-                        top: hoveredBlip.y - 12
+                        left: `${hoveredBlip.xPct}%`,
+                        top: `${hoveredBlip.yPct}%`,
+                        marginTop: '-12px',
                     }}
                 >
                     <div className="blip-tooltip-title">{hoveredBlip.title}</div>

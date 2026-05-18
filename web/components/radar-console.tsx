@@ -5,6 +5,7 @@ import { ActionBar } from '@/components/action-bar';
 import { SummaryPanel } from '@/components/SummaryPanel';
 import { FullProfileModal } from '@/components/FullProfileModal';
 import { LoadingProfile } from '@/components/LoadingProfile';
+import { LocationPickerMap } from '@/components/location-picker-map-wrapper';
 import { getProfileFromCache, saveProfileToCache, DetailedProfile } from '@/lib/profileCache';
 import { OSMMap } from '@/components/osm-map';
 import { Radar } from '@/components/Radar';
@@ -24,6 +25,11 @@ type GeoState =
 type UserLocation = {
   lat: number;
   lon: number;
+};
+
+type ManualCoords = {
+  lat: string;
+  lon: string;
 };
 
 const DEFAULT_HCMC = {
@@ -132,6 +138,10 @@ const RadarScope = memo(function RadarScope({
 
 export function RadarConsole() {
   const [geoState, setGeoState] = useState<GeoState>({ status: 'loading' });
+  const [manualCoords, setManualCoords] = useState<ManualCoords>({
+    lat: String(DEFAULT_HCMC.lat),
+    lon: String(DEFAULT_HCMC.lon),
+  });
   const [events, setEvents] = useState<RadarEvent[]>([]);
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
   const [isScanning, setIsScanning] = useState(false);
@@ -147,11 +157,13 @@ export function RadarConsole() {
   const [forceRefresh, setForceRefresh] = useState(false);
   const [clearStatus, setClearStatus] = useState<string | null>(null);
   const [queueInfo, setQueueInfo] = useState<QueueStatusResponse | null>(null);
+  const [locationPickerOpen, setLocationPickerOpen] = useState(false);
   const sweepRotationRef = useRef(0);
 
   const { t } = useTranslation();
   const { language, setLanguage, showGeoSuggestion, dismissGeoSuggestion, acceptGeoSuggestion } = useLanguage();
   const lastScanLanguageRef = useRef(language);
+  const mapPickHint = language === 'vi' ? 'Bấm trực tiếp trên bản đồ để chọn tọa độ.' : t('mapPickHint');
 
   // Auto-rescan when language changes and events already exist
   useEffect(() => {
@@ -163,8 +175,12 @@ export function RadarConsole() {
     if ((events.length > 0 || isScanning) && geoState.status === 'ready') {
       console.log(`[RadarConsole] Language changed from ${prevLang} to ${language}. Refreshing scan...`);
 
-      // Clear current UI state
-      handleClear();
+      // Clear current UI state without wiping database registry (which causes race conditions with handleScan)
+      setEvents([]);
+      setSelectedEventId(null);
+      setSummaryOpen(false);
+      setModalOpen(false);
+      setErrorMessage(null);
 
       // Trigger a new scan in the current language with CACHE BYPASS (force=true)
       handleScan(scanRadiusKm, true);
@@ -201,6 +217,9 @@ export function RadarConsole() {
   const eventsRef = useRef(events);
   const radiusRef = useRef(scanRadiusKm);
   const isScanningRef = useRef(isScanning);
+  const lastAppliedLocationRef = useRef<{ lat: number; lon: number } | null>(null);
+  const scanInFlightRef = useRef(false);
+  const scanRunIdRef = useRef(0);
   useEffect(() => {
     eventsRef.current = events;
     radiusRef.current = scanRadiusKm;
@@ -244,20 +263,37 @@ export function RadarConsole() {
 
   useEffect(() => {
     if (!navigator.geolocation) {
+      lastAppliedLocationRef.current = { lat: DEFAULT_HCMC.lat, lon: DEFAULT_HCMC.lon };
       setGeoState({ status: 'denied', lat: String(DEFAULT_HCMC.lat), lon: String(DEFAULT_HCMC.lon) });
+      setManualCoords({
+        lat: String(DEFAULT_HCMC.lat),
+        lon: String(DEFAULT_HCMC.lon),
+      });
       return;
     }
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        const nextLat = position.coords.latitude;
+        const nextLon = position.coords.longitude;
+        lastAppliedLocationRef.current = { lat: nextLat, lon: nextLon };
         setGeoState({
           status: 'ready',
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
+          lat: nextLat,
+          lon: nextLon,
+        });
+        setManualCoords({
+          lat: nextLat.toFixed(6),
+          lon: nextLon.toFixed(6),
         });
       },
       () => {
+        lastAppliedLocationRef.current = { lat: DEFAULT_HCMC.lat, lon: DEFAULT_HCMC.lon };
         setGeoState({ status: 'denied', lat: String(DEFAULT_HCMC.lat), lon: String(DEFAULT_HCMC.lon) });
+        setManualCoords({
+          lat: String(DEFAULT_HCMC.lat),
+          lon: String(DEFAULT_HCMC.lon),
+        });
       },
       {
         enableHighAccuracy: true,
@@ -278,19 +314,74 @@ export function RadarConsole() {
     () => events.find((event) => event.id === selectedEventId) ?? null,
     [events, selectedEventId]
   );
+  const showLocationPicker = geoState.status === 'denied' || locationPickerOpen;
+
+  const pickerCoordinates = useMemo<[number, number]>(() => {
+    const lat = Number(manualCoords.lat);
+    const lon = Number(manualCoords.lon);
+
+    if (Number.isFinite(lat) && Number.isFinite(lon)) {
+      return [lat, lon];
+    }
+
+    if (geoState.status === 'ready') {
+      return [geoState.lat, geoState.lon];
+    }
+
+    return [DEFAULT_HCMC.lat, DEFAULT_HCMC.lon];
+  }, [manualCoords.lat, manualCoords.lon, geoState]);
 
   async function handleScan(radiusKm: number, force: boolean = false) {
-    if (geoState.status !== 'ready') {
+    const manualLat = Number(manualCoords.lat);
+    const manualLon = Number(manualCoords.lon);
+    const hasValidManualLocation =
+      Number.isFinite(manualLat) &&
+      Number.isFinite(manualLon) &&
+      manualLat >= -90 &&
+      manualLat <= 90 &&
+      manualLon >= -180 &&
+      manualLon <= 180;
+
+    const scanCenter =
+      hasValidManualLocation
+        ? { lat: manualLat, lon: manualLon }
+        : geoState.status === 'ready'
+          ? { lat: geoState.lat, lon: geoState.lon }
+          : lastAppliedLocationRef.current;
+
+    if (!scanCenter) {
       return;
     }
 
+    if (scanInFlightRef.current) {
+      return;
+    }
+
+    const scanRunId = ++scanRunIdRef.current;
+    scanInFlightRef.current = true;
+
     setIsScanning(true);
     setErrorMessage(null);
+    setSummaryOpen(false);
+    setModalOpen(false);
+    setSelectedEventId(null);
+    setCurrentProfile(null);
+    setEvents([]);
+    lastAppliedLocationRef.current = { lat: scanCenter.lat, lon: scanCenter.lon };
 
     const startTime = Date.now();
+    const abortController = new AbortController();
+    const timeoutId = window.setTimeout(() => abortController.abort(), 65000);
 
     try {
-      const { data, cacheStatus } = await scanArea(geoState.lat, geoState.lon, radiusKm, language, force || forceRefresh);
+      const { data, cacheStatus } = await scanArea(
+        scanCenter.lat,
+        scanCenter.lon,
+        radiusKm,
+        language,
+        force || forceRefresh,
+        abortController.signal
+      );
       const elapsed = Date.now() - startTime;
       console.log(`[RadarConsole] API Response received in ${elapsed}ms. Cache Status:`, cacheStatus);
 
@@ -313,6 +404,10 @@ export function RadarConsole() {
         console.log('[RadarConsole] NO DELAY: response was slow enough or status is MISS');
       }
 
+      if (scanRunId !== scanRunIdRef.current) {
+        return;
+      }
+
       const nextEvents = data.events_json?.length ? data.events_json : data.events;
       setEvents(nextEvents);
       // We no longer auto-select or auto-open
@@ -321,16 +416,31 @@ export function RadarConsole() {
       setScanRadiusKm(radiusKm);
       setForceRefresh(false);
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : 'Scan request failed.');
+      if (scanRunId !== scanRunIdRef.current) {
+        return;
+      }
+
+      if (error instanceof Error && error.name === 'AbortError') {
+        setErrorMessage('Làn quét kéo dài bất thường nên đã được ngắt để ổn định hệ thống. Hãy quét lại.');
+        return;
+      }
+      setErrorMessage(error instanceof Error ? error.message : 'Làn quét vừa tắt lịm trước khi chạm được tín hiệu. Hãy thử lại.');
     } finally {
-      setIsScanning(false);
+      window.clearTimeout(timeoutId);
+      if (scanRunId === scanRunIdRef.current) {
+        setIsScanning(false);
+      }
+      scanInFlightRef.current = false;
     }
   }
 
   const handleBlipClick = useCallback((eventId: string) => {
+    if (isScanningRef.current || isLoadingProfile || modalOpen) {
+      return;
+    }
     setSelectedEventId(eventId);
     setSummaryOpen(true);
-  }, []);
+  }, [isLoadingProfile, modalOpen]);
 
   async function handleClear() {
     setEvents([]);
@@ -342,32 +452,98 @@ export function RadarConsole() {
     
     try {
       await clearRegistry();
-      setClearStatus('REGISTRY CLEARED');
+      setClearStatus('NGHI THỨC THANH TẨY ĐÃ HOÀN TẤT');
       setTimeout(() => setClearStatus(null), 3000);
     } catch (err) {
       console.error('Failed to clear registry', err);
-      setErrorMessage('FAILED TO CLEAR REGISTRY. CHECK SERVER LOGS.');
+      setErrorMessage('Không thể khép vòng nghi thức xóa ký ức. Kiểm tra nhật ký máy chủ.');
     }
   }
 
   function applyManualLocation() {
-    if (geoState.status !== 'denied') {
-      return;
-    }
-
-    const lat = Number(geoState.lat);
-    const lon = Number(geoState.lon);
+    const lat = Number(manualCoords.lat);
+    const lon = Number(manualCoords.lon);
     if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
-      setErrorMessage('Invalid latitude or longitude.');
+      setErrorMessage('Tọa độ bị nhiễu, nghi thức định vị không thể khóa tâm quét.');
       return;
     }
 
     setGeoState({ status: 'ready', lat, lon });
+    lastAppliedLocationRef.current = { lat, lon };
+    setManualCoords({
+      lat: lat.toFixed(6),
+      lon: lon.toFixed(6),
+    });
     setErrorMessage(null);
+    setLocationPickerOpen(false);
   }
 
   function useDefaultHcmc() {
     setGeoState({ status: 'ready', ...DEFAULT_HCMC });
+    lastAppliedLocationRef.current = { lat: DEFAULT_HCMC.lat, lon: DEFAULT_HCMC.lon };
+    setManualCoords({
+      lat: String(DEFAULT_HCMC.lat),
+      lon: String(DEFAULT_HCMC.lon),
+    });
+    setErrorMessage(null);
+    setLocationPickerOpen(false);
+  }
+
+  function openLocationPicker() {
+    if (geoState.status === 'ready') {
+      setManualCoords({
+        lat: geoState.lat.toFixed(6),
+        lon: geoState.lon.toFixed(6),
+      });
+    } else if (geoState.status === 'denied') {
+      setManualCoords({
+        lat: geoState.lat,
+        lon: geoState.lon,
+      });
+    }
+    setLocationPickerOpen((value) => !value);
+  }
+
+  function useCurrentLocation() {
+    if (!navigator.geolocation) {
+      setErrorMessage('Thiết bị này chưa mở được la bàn định vị cho nghi thức quét.');
+      return;
+    }
+
+    setErrorMessage(null);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const nextLat = position.coords.latitude;
+        const nextLon = position.coords.longitude;
+        lastAppliedLocationRef.current = { lat: nextLat, lon: nextLon };
+        setGeoState({
+          status: 'ready',
+          lat: nextLat,
+          lon: nextLon,
+        });
+        setManualCoords({
+          lat: nextLat.toFixed(6),
+          lon: nextLon.toFixed(6),
+        });
+        setLocationPickerOpen(false);
+      },
+      () => {
+        setErrorMessage('Không gọi được vị trí hiện tại. Làn sương định vị đang quá dày.');
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+      }
+    );
+  }
+
+  function handleMapLocationSelect(lat: number, lon: number) {
+    setManualCoords({
+      lat: lat.toFixed(6),
+      lon: lon.toFixed(6),
+    });
+    lastAppliedLocationRef.current = { lat, lon };
+    setGeoState({ status: 'ready', lat, lon });
     setErrorMessage(null);
   }
 
@@ -472,7 +648,7 @@ export function RadarConsole() {
       setModalOpen(true);
     } catch (error) {
       console.error('Failed to expand profile', error);
-      let msg = error instanceof Error ? error.message : 'Failed to retrieve profile.';
+      let msg = error instanceof Error ? error.message : 'Không thể mở rộng hồ sơ. Tín hiệu vừa chìm xuống tầng nhiễu.';
       try {
         const parsed = JSON.parse(msg);
         if (parsed.error && parsed.error.message) msg = parsed.error.message;
@@ -487,7 +663,7 @@ export function RadarConsole() {
   }, [selectedEvent, language]);
 
   return (
-    <div className="relative flex min-h-screen flex-col gap-4">
+    <div className="relative flex min-h-[100dvh] flex-col gap-4 pb-[calc(7.5rem+env(safe-area-inset-bottom,0px))]">
       {/* Geo Suggestion Banner */}
       {showGeoSuggestion && (
         <div className="mx-4 mt-4 flex items-center justify-between rounded-xl border border-[#00ff41] bg-black p-3 shadow-radar">
@@ -542,41 +718,80 @@ export function RadarConsole() {
         </div>
       </div>
 
-      {geoState.status === 'denied' ? (
-        <div className="w-full rounded-[24px] border border-[#00ff41] bg-black p-4 shadow-radar">
-          <p className="text-sm font-medium text-[#00ff41]">{t('locationDenied')}</p>
-          <p className="mt-2 text-sm text-[#00ff41]">
-            {t('locationDesc')}
-          </p>
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            <input
-              value={geoState.lat}
-              onChange={(event) => setGeoState({ ...geoState, lat: event.target.value })}
-              placeholder="Latitude"
-              className="min-h-12 rounded-2xl border border-[#00ff41] bg-black px-4 text-sm text-[#00ff41] outline-none"
-            />
-            <input
-              value={geoState.lon}
-              onChange={(event) => setGeoState({ ...geoState, lon: event.target.value })}
-              placeholder="Longitude"
-              className="min-h-12 rounded-2xl border border-[#00ff41] bg-black px-4 text-sm text-[#00ff41] outline-none"
-            />
-          </div>
-          <div className="mt-3 flex gap-3">
-            <button
-              type="button"
-              onClick={applyManualLocation}
-              className="min-h-12 flex-1 rounded-2xl border border-[#00ff41] bg-black px-4 text-sm font-medium text-[#00ff41]"
-            >
-              {t('applyCoords')}
-            </button>
-            <button
-              type="button"
-              onClick={useDefaultHcmc}
-              className="min-h-12 flex-1 rounded-2xl border border-[#00ff41] bg-black px-4 text-sm font-medium text-[#00ff41]"
-            >
-              {t('useDefaultHCMC')}
-            </button>
+      {showLocationPicker ? (
+        <div className="fixed inset-0 z-[140] overflow-y-auto bg-black/92 backdrop-blur-md">
+          <div className="mx-auto flex min-h-[100dvh] w-full max-w-[720px] flex-col px-3 pb-[calc(1rem+env(safe-area-inset-bottom,0px))] pt-[max(0.75rem,env(safe-area-inset-top,0px))]">
+            <div className="mx-auto mb-3 mt-1 h-1.5 w-14 rounded-full bg-[#00ff41]/35" />
+            <div className="w-full rounded-[24px] border border-[#00ff41] bg-black p-4 shadow-radar">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-sm font-medium text-[#00ff41]">
+                    {geoState.status === 'denied' ? t('locationDenied') : t('selectLocation')}
+                  </p>
+                  <p className="mt-2 text-sm text-[#00ff41]">
+                    {t('locationDesc')}
+                  </p>
+                  <p className="mt-2 text-xs text-[#00ff41]/80">
+                    {mapPickHint}
+                  </p>
+                </div>
+                {locationPickerOpen && geoState.status !== 'denied' ? (
+                  <button
+                    type="button"
+                    onClick={() => setLocationPickerOpen(false)}
+                    className="min-h-11 min-w-11 rounded-full border border-[#00ff41]/50 px-3 text-xs font-medium text-[#00ff41]/80"
+                  >
+                    {t('close')}
+                  </button>
+                ) : null}
+              </div>
+              <div className="mt-4 h-[min(38dvh,18rem)] w-full overflow-hidden rounded-2xl sm:h-72 md:h-[min(42vh,18rem)]">
+                <LocationPickerMap
+                  center={pickerCoordinates}
+                  selected={pickerCoordinates}
+                  onSelect={handleMapLocationSelect}
+                />
+              </div>
+              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <input
+                  value={manualCoords.lat}
+                  onChange={(event) => setManualCoords((current) => ({ ...current, lat: event.target.value }))}
+                  placeholder="Latitude"
+                  inputMode="decimal"
+                  className="min-h-12 rounded-2xl border border-[#00ff41] bg-black px-4 text-sm text-[#00ff41] outline-none"
+                />
+                <input
+                  value={manualCoords.lon}
+                  onChange={(event) => setManualCoords((current) => ({ ...current, lon: event.target.value }))}
+                  placeholder="Longitude"
+                  inputMode="decimal"
+                  className="min-h-12 rounded-2xl border border-[#00ff41] bg-black px-4 text-sm text-[#00ff41] outline-none"
+                />
+              </div>
+              <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <button
+                  type="button"
+                  onClick={applyManualLocation}
+                  className="min-h-12 rounded-2xl border border-[#00ff41] bg-black px-4 text-sm font-medium text-[#00ff41]"
+                >
+                  {t('applyCoords')}
+                </button>
+                <button
+                  type="button"
+                  onClick={useCurrentLocation}
+                  className="min-h-12 rounded-2xl border border-[#00ff41] bg-black px-4 text-sm font-medium text-[#00ff41]"
+                >
+                  {t('useCurrentLocation')}
+                </button>
+                <button
+                  type="button"
+                  onClick={useDefaultHcmc}
+                  className="min-h-12 rounded-2xl border border-[#00ff41] bg-black px-4 text-sm font-medium text-[#00ff41]"
+                >
+                  {t('useDefaultHCMC')}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       ) : null}
@@ -590,9 +805,9 @@ export function RadarConsole() {
       {(isScanning || isLoadingProfile) && queueInfo && queueInfo.queueLength > 0 ? (
         <div className="w-full rounded-2xl border border-yellow-500/60 bg-black px-4 py-3 text-sm text-yellow-400 font-mono animate-pulse">
           <span className="inline-block mr-2">⏳</span>
-          AI QUEUE: {queueInfo.queueLength} request{queueInfo.queueLength > 1 ? 's' : ''} pending
+          TẦNG TRIỆU HỒI ĐANG ĐÔNG: {queueInfo.queueLength} tín hiệu chờ mở cổng
           {queueInfo.estimatedWaitSec > 0 ? ` — ~${queueInfo.estimatedWaitSec}s` : ''}
-          <span className="block text-[10px] text-yellow-500/60 mt-1">RPM: {queueInfo.rpmUsed}/{queueInfo.rpmLimit}</span>
+          <span className="block text-[10px] text-yellow-500/60 mt-1">NHỊP TRIỆU HỒI: {queueInfo.rpmUsed}/{queueInfo.rpmLimit}</span>
         </div>
       ) : null}
 
@@ -611,7 +826,7 @@ export function RadarConsole() {
         onBlipClick={handleBlipClick}
       />
 
-      <div className="mt-auto pb-24">
+      <div className="sticky bottom-0 z-20 -mx-2 mt-auto bg-gradient-to-t from-black via-black/92 to-transparent px-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] pt-6 sm:-mx-4 sm:px-4">
         <ActionBar
           isScanning={isScanning}
           canScan={Boolean(userLocation)}
@@ -619,6 +834,7 @@ export function RadarConsole() {
           isTurbo={isTurbo}
           isMuted={isMuted}
           onScan={handleScan}
+          onChooseLocation={openLocationPicker}
           onToggleLabels={() => setShowLabels((value) => !value)}
           onToggleTurbo={() => {
             const nextTurbo = !isTurbo;
